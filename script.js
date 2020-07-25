@@ -20,6 +20,16 @@ buttonAdd.addEventListener("click", function(){
         document.getElementById("lista-tarefas").removeChild(linha)
     })
 
+    linha.addEventListener("dblclick", function(){
+        if(linha.className != "completed"){
+            linha.className = "completed"
+        }else {
+            linha.className = ""
+    }
+
+
+})
+
 })
 
 }
