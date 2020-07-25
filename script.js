@@ -3,7 +3,7 @@ window.onload = function () {
 let buttonAdd = document.querySelector("#criar-tarefa")
 let campoTexto = document.getElementById("texto-tarefa")
 let buttonDel = document.querySelector("#apaga-tudo")
-let buttonEnd = document.querySelector("#remover-finalizados")
+
 
 //Add elementos na lista
 buttonAdd.addEventListener("click", function(){
@@ -14,6 +14,7 @@ buttonAdd.addEventListener("click", function(){
     
 //Add cor de fundo nos elementos da lista
     linha.addEventListener("click", function(){
+        
             linha.style.backgroundColor = "rgb(128,128,128)"
 
 
@@ -30,13 +31,13 @@ buttonAdd.addEventListener("click", function(){
         }else {
             linha.className = ""
     }
-
+    let buttonEnd = document.querySelector("#remover-finalizados")
     buttonEnd.addEventListener("click", function(){
         document.querySelector(".completed").remove()
     })
 })
 
-//remove os riscados
+
  
 
 
