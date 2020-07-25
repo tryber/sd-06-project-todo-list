@@ -1,6 +1,6 @@
 
-let buttonElement = document.getElementById('criar-tarefa');
-buttonElement.addEventListener('click', (event) => addListItem());
+let buttonAddElement = document.getElementById('criar-tarefa');
+buttonAddElement.addEventListener('click', (event) => addListItem());
 
 function addListItem() {
     let listElement = document.querySelector('#lista-tarefas');
@@ -34,4 +34,15 @@ function changeItemColor(listItemToChange) {
 
 function scratchItem(listItemToScratch) {
     listItemToScratch.className = (listItemToScratch.className == 'completed') ? '' : 'completed';
+}
+
+let buttonDeleteElement = document.getElementById('apaga-tudo');
+buttonDeleteElement.addEventListener('click', (event) => deleteAllListItem());
+
+function deleteAllListItem() {
+    let allListItem = document.querySelectorAll('li');
+    let listElement = document.querySelector('#lista-tarefas');
+    for (let item = 0; item < allListItem.length; item += 1) {
+        listElement.removeChild(allListItem[item])
+    }
 }
