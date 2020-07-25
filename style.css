@@ -1,20 +1,21 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;   
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  align-items: center;
+  background-color: forestgreen;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
 }
 
 body {
-    align-items: center;
-    background-color: forestgreen;
-    display: flex;
-    height: 100vh;
-    justify-content: center;
-    width: 100vw; 
-}
-
-.main-content {
-    background-color: white;
-    height: 70vh;
-    width: 80vw;  
+  background-color: white;
+  height: 70vh;
+  width: 80vw;
+  padding: 20px;
 }
