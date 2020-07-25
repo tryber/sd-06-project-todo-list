@@ -13,6 +13,7 @@ function addListItem() {
     clearInputField();
 
     listItem.addEventListener('click', (event) => changeItemColor(listItem));
+    listItem.addEventListener('dblclick', (event) => scratchItem(listItem));
 }
 
 function clearInputField() {
@@ -29,4 +30,8 @@ function changeItemColor(listItemToChange) {
             allListItem[item].style.backgroundColor = '';
         }
     }
+}
+
+function scratchItem(listItemToScratch) {
+    listItemToScratch.className = (listItemToScratch.className == 'completed') ? '' : 'completed';
 }
