@@ -5,13 +5,18 @@ body {
 }
 
 header {
-  text-align: center;
+  margin: 8%;
 }
 
 h1 {
   font-weight: 300;
+  font-size: 2.2em;
 }
 
 p{
   font-size: 1.5em;
+}
+
+li {
+  font-size: 1.3em;
 }
