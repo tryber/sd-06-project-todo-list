@@ -2,6 +2,7 @@ window.onload = function () {
 
 let buttonAdd = document.querySelector("#criar-tarefa")
 let campoTexto = document.getElementById("texto-tarefa")
+let buttonDel = document.querySelector("#apaga-tudo")
 
 //Add elementos na lista
 buttonAdd.addEventListener("click", function(){
@@ -11,7 +12,12 @@ buttonAdd.addEventListener("click", function(){
     campoTexto.value = ""
     
     linha.addEventListener("click", function(){
-        linha.style.backgroundColor = "rgb(128,128,128)"
+            linha.style.backgroundColor = "rgb(128,128,128)"
+
+    })
+
+    buttonDel.addEventListener("click", function(){
+        document.getElementById("lista-tarefas").removeChild()
     })
 
 })
