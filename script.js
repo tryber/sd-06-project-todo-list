@@ -5,4 +5,4 @@ function adicionarTarefa() {
     document.getElementById("lista-tarefas").innerHTML = listaTarefas;
     document.getElementById("texto-tarefa").value = "";
 }
-adicionarTarefa()
+adicionarTarefa();
