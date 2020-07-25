@@ -15,7 +15,15 @@ html {
 
 body {
   background-color: white;
-  height: 70vh;
-  width: 80vw;
+  min-height: 70vh;
+  min-width: 80vw;
   padding: 20px;
+}
+
+button {
+  min-width: 30px;
+}
+
+.menu {
+  margin-top: 15px;
 }

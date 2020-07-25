@@ -4,5 +4,3 @@ function createListItem () {
   item.innerText = item_text;
   document.getElementById('lista-tarefas').appendChild(item)
 }
-
-
