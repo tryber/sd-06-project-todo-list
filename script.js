@@ -11,9 +11,15 @@ function addListItem() {
     listElement.appendChild(listItem);
 
     clearInputField();
+
+    listItem.addEventListener('click', (event) => changeItemColor(listItem));
 }
 
 function clearInputField() {
     let inputElement = document.querySelector('#texto-tarefa');
     inputElement.value = '';
+}
+
+function changeItemColor(listItemToChange) {
+    listItemToChange.style.backgroundColor = 'rgb(128,128,128)'; 
 }
