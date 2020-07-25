@@ -8,6 +8,7 @@ buttonCreateTask.addEventListener('click', function () {
     const newLine = document.createElement('li');
     newLine.innerHTML = taskInput;
     taskList.appendChild(newLine);
+    document.getElementById('texto-tarefa').value = '';
   } else {
     alert('Invalid entry!');
   }
@@ -16,8 +17,7 @@ buttonCreateTask.addEventListener('click', function () {
 taskList.addEventListener('click', function (event) {
   if (event.target && event.target.matches('li')) {
     event.target.style.backgroundColor = 'rgb(128,128,128';
-    console.log("click ok");
-    for (let i = 0; i < document.getElementsByTagName('li').length; i += 1){
+    for (let i = 0; i < document.getElementsByTagName('li').length; i += 1) {
       if (document.getElementsByTagName('li')[i] !== event.target) {
         document.getElementsByTagName('li')[i].style.backgroundColor = 'transparent';
       }
