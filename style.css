@@ -5,3 +5,7 @@
 .completed {
     text-decoration : line-through
 }
+
+.cor-fundo {
+    background-color : rgb(128,128,128)
+}
