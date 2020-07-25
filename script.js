@@ -108,3 +108,53 @@ function deleteSelectedListItem() {
     let listElement = document.querySelector('#lista-tarefas');
     listElement.removeChild(SelectedListItem);
 }
+
+//Moving a task
+let move = {
+        moveUp: function MoveUp() {
+            let itemSelected = document.querySelector('.selected');
+            let allListItem = document.querySelectorAll('li');
+
+            let item = 0;
+            while (itemSelected !== allListItem[item]) {
+                item += 1;
+            }
+            let positionInList = item;
+            if (positionInList != 0) {
+                let htmlToPass = itemSelected.innerHTML;
+                let classToPass = itemSelected.className;
+
+                allListItem[positionInList].innerHTML = allListItem[positionInList-1].innerHTML;
+                allListItem[positionInList].className = allListItem[positionInList-1].className;
+
+                allListItem[positionInList-1].innerHTML = htmlToPass;
+                allListItem[positionInList-1].className = classToPass;
+            }
+        },
+        moveDown: function MoveDown() {
+            let itemSelected = document.querySelector('.selected');
+            let allListItem = document.querySelectorAll('li');
+
+            let item = 0;
+            while (itemSelected !== allListItem[item]) {
+                item += 1;
+            }
+            let positionInList = item;
+            if (positionInList != allListItem.length-1) {
+                let htmlToPass = itemSelected.innerHTML;
+                let classToPass = itemSelected.className;
+
+                allListItem[positionInList].innerHTML = allListItem[positionInList+1].innerHTML;
+                allListItem[positionInList].className = allListItem[positionInList+1].className;
+
+                allListItem[positionInList+1].innerHTML = htmlToPass;
+                allListItem[positionInList+1].className = classToPass;
+            }
+        },
+}
+
+let buttonMoveUpTaskElement = document.getElementById('mover-cima');
+buttonMoveUpTaskElement.addEventListener('click', move['moveUp']);
+
+let buttonMoveDownTaskElement = document.getElementById('mover-baixo');
+buttonMoveDownTaskElement.addEventListener('click', move['moveDown']);
