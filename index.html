@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <script type="text/javascript" src="script.js"></script>
   <title>Document</title>
 </head>
 
@@ -15,12 +16,15 @@
   </header>
   <div class="input-area">
     <input type="text" id="texto-tarefa">
-    <button>Adicionar</button>
+    <button id="criar-tarefa">Adicionar</button>
   </div>
   <div class="list-area">
-    <ol id="lista-tarefa">
+    <ol id="lista-tarefas">
     </ol>
   </div>
+  <script>
+    document.getElementById('criar-tarefa').addEventListener('click', createListItem);
+  </script>
 
 </body>
 
