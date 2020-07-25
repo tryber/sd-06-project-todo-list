@@ -1,3 +1,4 @@
+window.onload = function() {
 function createNewTask() {
   const newTask = document.createElement('li');
   newTask.innerHTML = document.querySelector('#texto-tarefa').value;
@@ -7,3 +8,5 @@ function createNewTask() {
 
 const createTaskButton = document.querySelector('#criar-tarefa');
 createTaskButton.addEventListener('click', createNewTask);
+
+}
