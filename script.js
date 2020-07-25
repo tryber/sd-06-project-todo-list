@@ -2,6 +2,7 @@ window.onload = function () {
 
 let botao1 = document.querySelector("#criar-tarefa")
 let botaoApaga = document.querySelector("#apaga-tudo")
+let botaoApagaFinaliz = document.querySelector("#remover-finalizados")
 let inputTarefa = document.querySelector("#texto-tarefa")
 let list = document.querySelector("#lista-tarefas")
 
@@ -20,11 +21,14 @@ botao1.addEventListener("click", function () {
     } else {
       elementoLinha.className = ""
     }
+    botaoApagaFinaliz.addEventListener("click", function () {
+      document.querySelector(".completed").remove()
+    })
   })
   botaoApaga.addEventListener("click", function () {
     document.querySelector("#lista-tarefas").removeChild(elementoLinha)
   })
-})
 
+})
 
 }
