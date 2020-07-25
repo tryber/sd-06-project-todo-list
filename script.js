@@ -12,20 +12,18 @@ buttonAdd.addEventListener("click", function(){
     linha.innerHTML = campoTexto.value
     campoTexto.value = ""
     
+//Add cor de fundo nos elementos da lista
     linha.addEventListener("click", function(){
-        if (linha.className != "cor-fundo"){
-            linha.className = "cor-fundo"
-        }else{
-            linha.className = ""
-        }
-            //linha.style.backgroundColor = "rgb(128,128,128)"
+            linha.style.backgroundColor = "rgb(128,128,128)"
+
 
     })
-
+//limpar toda a lista
     buttonDel.addEventListener("click", function(){
         document.getElementById("lista-tarefas").removeChild(linha)
     })
 
+//risca elemento das lista
     linha.addEventListener("dblclick", function(){
         if(linha.className != "completed"){
             linha.className = "completed"
@@ -34,6 +32,7 @@ buttonAdd.addEventListener("click", function(){
     }
 })
 
+//remove os riscados
     buttonEnd.addEventListener("click", function(){
         document.querySelector(".completed").remove()
     })
