@@ -9,6 +9,7 @@ botao1.addEventListener("click", function () {
   let elementoLinha = document.createElement("li")
   document.getElementById("lista-tarefas").appendChild(elementoLinha)
   elementoLinha.innerHTML = inputTarefa.value
+  inputTarefa.value = "";
 })
 
 }
