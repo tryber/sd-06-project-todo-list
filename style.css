@@ -1,7 +1,7 @@
 body {
   background-color: tomato;
   color: white;
-  font-family: ubuntu;
+  font-family: ubuntu, sans-serif;
 }
 
 li {

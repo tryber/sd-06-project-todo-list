@@ -12,3 +12,9 @@ buttonCreateTask.addEventListener('click', function () {
     alert('Invalid entry!');
   }
 });
+
+taskList.addEventListener('click', function (event) {
+  if (event.target && event.target.matches('li')) {
+    event.target.style.backgroundColor = 'rgb(128,128,128';
+  }
+});
