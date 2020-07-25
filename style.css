@@ -1,0 +1,17 @@
+body {
+  background-color: rgb(48, 68, 80);
+  color: white;
+  font-family: 'Pacifico', cursive;
+}
+
+header {
+  text-align: center;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+p{
+  font-size: 1.5em;
+}
