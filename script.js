@@ -22,4 +22,11 @@ function clearInputField() {
 
 function changeItemColor(listItemToChange) {
     listItemToChange.style.backgroundColor = 'rgb(128,128,128)'; 
+
+    let allListItem = document.querySelectorAll('li');
+    for (let item = 0; item < allListItem.length; item += 1) {
+        if (allListItem[item] !== listItemToChange) {
+            allListItem[item].style.backgroundColor = '';
+        }
+    }
 }
