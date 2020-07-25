@@ -13,6 +13,13 @@ botao1.addEventListener("click", function () {
   elementoLinha.addEventListener("click", function () {
     elementoLinha.style.backgroundColor = "rgb(128,128,128)";
   })
+  elementoLinha.addEventListener("dblclick", function () {
+    if (elementoLinha.className != "completed") {
+      elementoLinha.className = "completed"
+    } else {
+      elementoLinha.className = ""
+    }
+  })
 })
 
 
