@@ -31,19 +31,25 @@ function clearInputField() {
 
 //Changing task background color 
 function changeItemColor(listItemToChange) {
-    listItemToChange.style.backgroundColor = 'rgb(128,128,128)'; 
+    if (listItemToChange.className.includes('selected') === false) {
+    listItemToChange.className = listItemToChange.className.concat(' selected'); 
+    }
 
     let allListItem = document.querySelectorAll('li');
     for (let item = 0; item < allListItem.length; item += 1) {
         if (allListItem[item] !== listItemToChange) {
-            allListItem[item].style.backgroundColor = '';
+            allListItem[item].className = allListItem[item].className.replace('selected',''); 
         }
     }
 }
 
 //Scratching task
 function scratchItem(listItemToScratch) {
-    listItemToScratch.className = (listItemToScratch.className == 'completed') ? '' : 'completed';
+    if (listItemToScratch.className.includes('completed') === true) {
+        listItemToScratch.className = listItemToScratch.className.replace('completed','');
+    } else {
+        listItemToScratch.className = listItemToScratch.className.concat(' completed');
+    }
 }
 
 //Deleting all tasks
@@ -81,7 +87,7 @@ function saveListItem() {
       let taskName = 'task' + item;
       let taskClass = 'taskClass' + item;
       localStorage[taskName] = allListItem[item].innerHTML;
-      localStorage[taskClass] = allListItem[item].className;
+      localStorage[taskClass] = allListItem[item].className.replace('selected','');
       localStorage.numerOfTasks = allListItem.length;
     }
 }
@@ -93,3 +99,12 @@ for (let item = 0; item < localStorage.numerOfTasks; item += 1) {
     addListItem(1, localStorage[taskName], localStorage[taskClass]);
 }
 
+//Removing a task   
+let buttonRemoveTaskElement = document.getElementById('remover-selecionado');
+buttonRemoveTaskElement.addEventListener('click', (event) => deleteSelectedListItem());
+
+function deleteSelectedListItem() {
+    let SelectedListItem = document.querySelector('.selected');
+    let listElement = document.querySelector('#lista-tarefas');
+    listElement.removeChild(SelectedListItem);
+}
