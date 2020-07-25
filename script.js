@@ -6,11 +6,9 @@ function creatList() {
     let textList = document.querySelector("input").value;
     let lista  = document.getElementById("lista-tarefas").innerHTML;
     lista = lista +"<li>"+textList+"</li>";
-    
     document.getElementById("lista-tarefas").innerHTML = lista;
+    document.querySelector('input').value = '';
 }
 
+
 button.addEventListener("click", creatList); 
-
-
-
