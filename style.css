@@ -5,3 +5,7 @@ body {
 button , ol li {
   cursor: pointer;
 }
+
+header {
+  text-align: center;
+}
