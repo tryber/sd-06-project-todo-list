@@ -1,12 +1,14 @@
+window.onload = function () {
+
 let botao1 = document.querySelector("#criar-tarefa")
 let inputTarefa = document.querySelector("#texto-tarefa")
 let list = document.querySelector("#lista-tarefas")
 
 //Add novo item ao final da lista
-function addElementOnList(){
+botao1.addEventListener("click", function () {
   let elementoLinha = document.createElement("li")
-  elementoLinha = inputTarefa.value
-  list.appendChild(elementoLinha)
-}
-botao1.addEventListener("click", addElementOnList)
+  document.getElementById("lista-tarefas").appendChild(elementoLinha)
+  elementoLinha.innerHTML = inputTarefa.value
+})
 
+}
