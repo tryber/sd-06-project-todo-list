@@ -16,5 +16,11 @@ buttonCreateTask.addEventListener('click', function () {
 taskList.addEventListener('click', function (event) {
   if (event.target && event.target.matches('li')) {
     event.target.style.backgroundColor = 'rgb(128,128,128';
+    console.log("click ok");
+    for (let i = 0; i < document.getElementsByTagName('li').length; i += 1){
+      if (document.getElementsByTagName('li')[i] !== event.target) {
+        document.getElementsByTagName('li')[i].style.backgroundColor = 'transparent';
+      }
+    }
   }
 });
