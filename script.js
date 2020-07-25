@@ -17,11 +17,9 @@ buttonAdd.addEventListener("click", function(){
     })
 
     buttonDel.addEventListener("click", function(){
-        document.getElementById("lista-tarefas").removeChild()
+        document.getElementById("lista-tarefas").removeChild(linha)
     })
 
 })
-
-
 
 }
