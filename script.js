@@ -10,6 +10,10 @@ botao1.addEventListener("click", function () {
   document.getElementById("lista-tarefas").appendChild(elementoLinha)
   elementoLinha.innerHTML = inputTarefa.value
   inputTarefa.value = "";
+  elementoLinha.addEventListener("click", function () {
+    elementoLinha.style.backgroundColor = "rgb(128,128,128)";
+  })
 })
+
 
 }
