@@ -30,12 +30,14 @@ buttonAdd.addEventListener("click", function(){
         }else {
             linha.className = ""
     }
-})
 
-//remove os riscados
     buttonEnd.addEventListener("click", function(){
         document.querySelector(".completed").remove()
     })
+})
+
+//remove os riscados
+ 
 
 
 
