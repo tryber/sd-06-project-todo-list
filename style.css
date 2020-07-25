@@ -1,3 +1,9 @@
-p#funcionamento {
-  color: orange;
+body {
+  background-color: tomato;
+  color: white;
+  font-family: ubuntu;
+}
+
+li {
+  color: white;
 }
