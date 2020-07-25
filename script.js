@@ -8,7 +8,6 @@ function createNewTask() {
   newTask.innerHTML = textInput.value;
   list.appendChild(newTask);
   textInput.value = '';
-  textInput.focus();
 }
 
 createTaskButton.addEventListener('click', createNewTask);
