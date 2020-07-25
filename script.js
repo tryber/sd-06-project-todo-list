@@ -1,11 +1,16 @@
 const button = document.querySelector("#criar-tarefa");
-const inputText = ducument.querySelector("#texto-tarefa");
-const addList = ducument.querySelector("#lista-tarefas");
+const input = document.querySelector("#texto-tarefa");
+const tagList = document.querySelector("#lista-tarefas");
 
-function newList() {
-    alert("djjdjsn");
+function creatList() {
+    let textList = document.querySelector("input").value;
+    let lista  = document.getElementById("lista-tarefas").innerHTML;
+    lista = lista +"<li>"+textList+"</li>";
+    
+    document.getElementById("lista-tarefas").innerHTML = lista;
 }
 
+button.addEventListener("click", creatList); 
 
 
-inputText.addEventListener("click", newList);
+
