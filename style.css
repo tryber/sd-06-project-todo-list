@@ -1,11 +1,7 @@
-body {
-  margin: 0;
-}
-
 button , ol li {
   cursor: pointer;
 }
 
-header {
-  text-align: center;
+h1 {
+  text-align: left;
 }
