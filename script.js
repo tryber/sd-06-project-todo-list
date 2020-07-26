@@ -6,14 +6,26 @@ function errorAudio() {
   document.getElementById('error-audio').play();
 }
 
+function completedTask() {
+  const completedTask = this;
+  const completedTaskClass = this.classList;
+  for (let i = 0; i < completedTaskClass.length; i += 1) {
+    if (completedTaskClass[i] === 'completed') {
+      completedTask.classList.remove('completed');
+      return;
+    }
+  }
+  completedTask.classList.add('completed');
+}
+
 function selectedTask() {
   const otherTasks = document.querySelectorAll('.selected');
   for (let i = 0; i < otherTasks.length; i += 1) {
-    let otherTask = otherTasks[i];
+    const otherTask = otherTasks[i];
     otherTask.classList.remove('selected');
   }
-  const selectedTask = this;
-  selectedTask.classList.add('selected');
+  const thisSelectedTask = this;
+  thisSelectedTask.classList.add('selected');
 }
 
 function incluirTarefa() {
@@ -46,7 +58,6 @@ function criarTarefa() {
 
 function apagaTudo() {
   const taskContaneir = document.getElementById('lista-tarefas');
-  console.log(taskContaneir)
   while (taskContaneir.firstChild) {
     taskContaneir.removeChild(taskContaneir.lastChild);
   }
@@ -68,17 +79,7 @@ function botaoExcluirTarefa() {
   apagaTarefaButton.addEventListener('click', apagaSelecionado);
 }
 
-function completedTask() {
-  const selectedTask = this;
-  const selectedTaskClass = this.classList;
-  for (let i = 0; i< selectedTaskClass.length; i += 1) {
-    if (selectedTaskClass[i] === 'completed') {
-      selectedTask.classList.remove('completed')
-      return;
-    }
-  }
-  selectedTask.classList.add('completed');
-}
+
 
 window.onload = () => {
   criarTarefa();
