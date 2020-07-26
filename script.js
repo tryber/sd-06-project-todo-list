@@ -1,6 +1,8 @@
 const inputElement = document.querySelector('#texto-tarefa');
 const elementOl = document.querySelector('#lista-tarefas');
 const createButton = document.querySelector('#criar-tarefa');
+const moveUpButton = document.querySelector('#mover-cima');
+const moveDownButton = document.querySelector('#mover-baixo');
 const deleteAllButton = document.querySelector('#apaga-tudo');
 const deleteCompletedButton = document.querySelector('#remover-finalizados');
 const deleteSelectedButton = document.querySelector('#remover-selecionado');
@@ -67,6 +69,15 @@ elementOl.addEventListener('dblclick', (event) => {
     selectedTask.classList.remove('completed');
   } else {
     selectedTask.classList.add('completed');
+  }
+});
+
+moveUpButton.addEventListener('click', () => {
+  const tasks = Array.from(document.getElementsByTagName('li'));
+  for (let item = 0; item < tasks.length; item += 1) {
+    if (tasks[item].classList.contains('selected') && (item !== 0)) {
+      tasks[item].parentNode.insertBefore(tasks[item], tasks[item - 1]);
+    }
   }
 });
 
