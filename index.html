@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script type="text/javascript" src="script.js"></script>
+  <title>To-Do List</title>
 </head>
 <body>
   <header>
@@ -11,17 +13,19 @@
   </header>
   <p id="fucionamento">Clique duas vezes em um item para marcá-lo como completo</p>
 
-  <section>
-    <input id="texto-tarefa" type="text">
-    <button id="criar-tarefa">add Tarefa</button>
-  </section>
-  <section>
-    <ol id="lista-tarefas"></ol>
-  </section>
-  <section>
-    <button id="remover-selecionado">Remover selecionado</button>
-    <button id="remover-finalizados">Limpa finalizados</button>
-    <button id="apaga-tudo">Limpar lista</button>
-  </section>
+  <div class='content'>
+    <section>
+      <input id="texto-tarefa" type="text">
+      <button id="criar-tarefa">add Tarefa</button>
+    </section>
+    <section>
+      <ol id="lista-tarefas"></ol>
+    </section>
+    <section>
+      <button id="remover-selecionado">Remover selecionado</button>
+      <button id="remover-finalizados">Limpa finalizados</button>
+      <button id="apaga-tudo">Limpar lista</button>
+    </section>
+  </div>
 </body>
-</html>  
+</html>
