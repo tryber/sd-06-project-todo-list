@@ -5,3 +5,7 @@
 .windowInterna {
   background-color: blue;
 }
+
+.itemSelecionado {
+  background-color: rgb(128 , 128 , 128);
+}
