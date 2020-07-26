@@ -43,6 +43,19 @@ function criarTarefa() {
   });
 }
 
+function apagaTudo() {
+  const taskContaneir = document.getElementById('lista-tarefas');
+  console.log(taskContaneir)
+  while (taskContaneir.firstChild) {
+    taskContaneir.removeChild(taskContaneir.lastChild);
+  }
+}
+
+function botaoApagarTudo() {
+  let apagaTudoButton = document.getElementById('apaga-tudo');
+  apagaTudoButton.addEventListener('click', apagaTudo);
+}
+
 function excluirTarefa() {
 
 }
@@ -60,6 +73,7 @@ function fomatarTarefas() {
 
 window.onload = () => {
   criarTarefa();
+  botaoApagarTudo();
 }
 
 /**
