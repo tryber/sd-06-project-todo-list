@@ -15,11 +15,11 @@ html {
 
 body {
   background-color: white;
+  border-radius: 5%;
+  box-shadow: 17px 18px 36px -1px black;
   min-height: 50vh;
   min-width: 80vw;
   padding: 20px;
-  border-radius: 5%;
-  box-shadow: 17px 18px 36px -1px rgba(0,0,0,1);
 }
 
 button {

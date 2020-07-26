@@ -1,9 +1,16 @@
+function saveList() {
+  const arrayLi = [];
+  for (item of document.getElementsByTagName('li')) {
+    arrayLi.push(item.innerText);
+  }
+  localStorage.setItem('ol', arrayLi);
+}
+
 function createListItem() {
   const item = document.createElement('li');
   item.innerText = document.getElementById('texto-tarefa').value;
   document.getElementById('lista-tarefas').appendChild(item);
   document.getElementById('texto-tarefa').value = '';
-  saveList();
 }
 
 function selectListItem(event) {
@@ -28,7 +35,7 @@ function clearList() {
   for (const item of document.getElementsByTagName('li')) {
     clone.push(item);
   }
-  for (let item of clone) {
+  for (const item of clone) {
     document.getElementById('lista-tarefas').removeChild(item);
   }
   localStorage.removeItem('ol');
@@ -39,25 +46,23 @@ function clearCompleted() {
   for (const item of document.querySelectorAll('.completed')) {
     clone.push(item);
   }
-  for (let item of clone) {
+  for (const item of clone) {
     document.getElementById('lista-tarefas').removeChild(item);
   }
 }
 
 function clearSelected() {
+  if (localStorage.ol !== undefined && localStorage.ol.split(',').includes(document.querySelector('.selected').innerText)) {
+    let arrayP = localStorage.ol.split(',');
+    const index = localStorage.ol.split(',').indexOf(document.querySelector('.selected').innerText)
+    arrayP.splice(index, 1);
+    localStorage.ol = arrayP;
+  }
   document.getElementById('lista-tarefas').removeChild(document.querySelector('.selected'));
 }
 
-function saveList() {
-  const arrayLi = [];
-  for (item of document.getElementsByTagName('li')) {
-    arrayLi.push(item.innerText);
-  }
-  localStorage.setItem('ol', arrayLi);
-}
-
 function mountList() {
-  if (localStorage.ol !== null) {
+  if (localStorage.ol !== undefined) {
     for (item of localStorage.ol.split(',')) {
       const list_item = document.createElement('li');
       list_item.innerText = item;
