@@ -8,6 +8,11 @@ window.onload = function () {
   
   
   function selectListItem (event) {
+    for (item of document.getElementsByTagName('li')) {
+      if (item.style.backgroundColor !== '') {
+        item.style.backgroundColor = '';
+      }
+    }
     event.target.style.backgroundColor = 'rgb(128,128,128)';
   }
 
