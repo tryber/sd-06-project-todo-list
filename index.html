@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <h1>Minha Lista de Tarefas</h1>
         <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
     </header>
-    <input type="text" id="texto-tarefa">
+    <input type="text" id="texto-tarefa" onfocus="this.value=''">
     <button id="criar-tarefa">criar tarefa</button>
     <ol id="lista-tarefas"></ol>
     <div class="botoes">
@@ -25,7 +26,7 @@
 
 
     </div>
-
+    <script src="script.js"></script>
     
 </body>
 </html>
