@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+  </head>
+  <body>
+    <header>
+      <h1>Minha Lista de Tarefas</h1>
+    </header>
+    <section>
+      <div id="funcionamento">
+        <p>
+          Clique duas vezes em um item para marcá-lo como completo
+        </p>
+      </div>
+      <div>
+        <input id="texto-tarefa"> 
+      </div>
+      <div>
+        <ol id="lista-tarefas">
+
+        </ol>
+      </div>
+      <div>
+        <button id="criar-tarefa">Adicionar</button>
+      </div>
+    </section>
+  </body>
+  <script>
+    window.onload = function() {
+    let botaoAdicionar = document.querySelector('#criar-tarefa');
+    botaoAdicionar.addEventListener('click', function() {
+      textoInput = document.querySelector('#texto-tarefa').value;
+      document.querySelector('#texto-tarefa').value = "";
+      let listaElemento = document.createElement ('li');
+      listaElemento.innerText = textoInput;
+      document.querySelector('#lista-tarefas').appendChild(listaElemento);  
+    })
+  }
+  </script>
+</html>
