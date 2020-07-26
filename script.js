@@ -18,3 +18,32 @@ function clear() {
   taskList.innerText = '';
 }
 btnDelete.addEventListener('click', clear);
+
+/* Função para alterar a cor do item da lista */
+function changeItemColor(event) {
+  let allTasks = document.getElementsByTagName('li');
+  let itemSelected = event.target;
+  for (let index = 0; index < allTasks.length; index += 1) {
+    if (itemSelected === allTasks[index] && !(itemSelected.classList.contains('selected'))) {
+    allTasks[index].classList.add('selected');
+    } else {
+      allTasks[index].classList.remove('selected');
+    }
+  }
+}
+taskList.addEventListener('click', changeItemColor);
+
+/* Função para riscar os itens completados */
+function completedItens (e) {
+  let completedItens = e.target;
+  if (!(completedItens.classList.contains('completed'))) {
+    completedItens.classList.add('completed');
+
+  } else {
+    completedItens.classList.remove('completed');
+  }
+}
+taskList.addEventListener('dblclick' , completedItens);
+
+/* Função para remover os itens finalizados */
+
