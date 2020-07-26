@@ -24,3 +24,24 @@ deleteAllButton.addEventListener('click', () => {
     tasks.pop();
   }
 });
+
+elementOl.addEventListener('click', (event) => {
+  event.preventDefault();
+  const selectedTask = event.target;
+
+  for (let item = 0; item < tasks.length; item += 1) {
+    if (tasks[item].classList.contains('selected')) {
+      tasks[item].classList.remove('selected');
+    }
+  }
+  selectedTask.classList.add('selected');
+});
+
+elementOl.addEventListener('dblclick', (event) => {
+  const selectedTask = event.target;
+  if (selectedTask.classList.contains('completed')) {
+    selectedTask.classList.remove('completed');
+  } else {
+    selectedTask.classList.add('completed');
+  }
+});
