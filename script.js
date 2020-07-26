@@ -15,7 +15,7 @@ function completedTask() {
       return;
     }
   }
-  completedTask.classList.add('completed');
+  thisCompletedTask.classList.add('completed');
 }
 
 function selectedTask() {

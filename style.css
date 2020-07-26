@@ -12,6 +12,5 @@
 }
 
 .completed {
-  text-decoration: line-through;
-  text-decoration-color: springgreen;
+  text-decoration: line-through solid black;
 }
