@@ -6,3 +6,7 @@
 .content {
   background-color: rgb(237 , 237 , 237);
 }
+
+.selected {
+    background-color: rgb(128 , 128 , 128);
+}

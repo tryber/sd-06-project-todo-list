@@ -1,13 +1,19 @@
+function okAudio() {
+  document.getElementById('ok-audio').play();
+}
 
-function criarTarefa() {
-  let criarButton = document.getElementById('criar-tarefa');
-  criarButton.addEventListener('click', incluirTarefa);
-  let addEnter = document.getElementById('texto-tarefa');
-  addEnter.addEventListener('keypress', (keyDown) => {
-    if (keyDown.key === 'Enter') {
-      incluirTarefa();
-    }
-  })
+function errorAudio() {
+  document.getElementById('error-audio').play();
+}
+
+function selectedTask() {
+  const otherTasks = document.querySelectorAll('.selected');
+  for (let i = 0; i < otherTasks.length; i += 1) {
+    let otherTask = otherTasks[i];
+    otherTask.classList.remove('selected');
+  }
+  const selectedTask = this;
+  selectedTask.classList.add('selected');
 }
 
 function incluirTarefa() {
@@ -17,13 +23,24 @@ function incluirTarefa() {
   if (textoTarefa !== '') {
     okAudio();
     li.innerText = textoTarefa;
+    li.addEventListener('click', selectedTask);
     textoContainer.appendChild(li);
     document.querySelector('#texto-tarefa').value = '';
   } else {
     errorAudio();
     alert('Campo tarefa esta vazio');
   }
+}
 
+function criarTarefa() {
+  const criarButton = document.getElementById('criar-tarefa');
+  criarButton.addEventListener('click', incluirTarefa);
+  const addEnter = document.getElementById('texto-tarefa');
+  addEnter.addEventListener('keypress', (keyDown) => {
+    if (keyDown.key === 'Enter') {
+      incluirTarefa();
+    }
+  });
 }
 
 function excluirTarefa() {
@@ -38,13 +55,7 @@ function fomatarTarefas() {
 
 }
 
-function okAudio() {
-  document.getElementById('ok-audio').play();
-}
 
-function errorAudio() {
-  document.getElementById('error-audio').play();
-}
 
 
 window.onload = () => {
