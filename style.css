@@ -7,8 +7,27 @@ body {
 li {
   color: white;
   text-decoration: none;
+  font-size: 20px;
 }
 
 .completed {
   text-decoration: line-through solid black;
+}
+
+.btn {
+  border: 1px solid white;
+  padding: 5px;
+  background-color: transparent;
+  color: white;
+  font-family: ubuntu, sans-serif;
+  font-size: 15px;
+  margin: 10px;
+}
+
+input {
+  border: 1px solid white;
+  padding: 5px;
+  font-family: monospace, sans-serif;
+  color: tomato;
+  font-size: 15px;
 }

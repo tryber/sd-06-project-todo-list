@@ -1,6 +1,7 @@
 const buttonCreateTask = document.getElementById('criar-tarefa');
 const taskList = document.getElementById('lista-tarefas');
 const buttonClearTaskList = document.getElementById('apaga-tudo');
+const buttonRemoveCompleted = document.getElementById('remover-finalizados');
 let taskInput = '';
 let isTaskCompleted = false;
 
@@ -36,9 +37,18 @@ taskList.addEventListener('dblclick', function (event) {
   }
 });
 
-buttonClearTaskList.addEventListener('click', function (event) {
-  let lines = document.getElementsByTagName('li');
+buttonClearTaskList.addEventListener('click', function () {
+  const lines = document.getElementsByTagName('li');
   for (let i = 0; i < lines.length; i += 0) {
     lines[i].remove();
+  }
+});
+
+buttonRemoveCompleted.addEventListener('click', function() {
+  const list = document.getElementsByTagName('li');
+  for (let item in list) {
+    if (list[item].className === 'completed') {
+      list[item].remove();
+    }
   }
 });
