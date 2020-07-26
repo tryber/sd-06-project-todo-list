@@ -5,7 +5,9 @@ window.onload = function () {
   const submitElement = document.querySelector('#criar-tarefa');
   const listElement = document.querySelector('#lista-tarefas');
   const ereseAll = document.querySelector('#apaga-tudo');
-  const listaLi = document.querySelector('.lista');
+  const ereseSel = document.querySelector('#remover-selecionado');
+  const ereseFin = document.querySelector('#remover-finalizados')
+
 
   let todos = [];
 
@@ -17,7 +19,6 @@ window.onload = function () {
       let showText = document.createTextNode(todo);
       aux += 1;
       showElement.appendChild(showText);
-      //showElement.className = "lista";
       listElement.appendChild(showElement);
 
     }
@@ -42,7 +43,27 @@ window.onload = function () {
         event.target.classList = 'selected';
       }
     }
-
   })
 
+  ereseSel.addEventListener('click', function() {
+    let pos = todos.indexOf(document.querySelector('.selected').innerHTML)
+    todos.splice(pos, 1);
+    showTodos();
+  })
+  listElement.addEventListener('dblclick', function () {
+      for(const i of document.getElementsByTagName('p')){
+        event.target.classList += " completed";
+      }
+  })
+  ereseFin.addEventListener('click', function(){
+       let clone = [];
+   for( const item of document.querySelectorAll('.completed')){
+        clone.push(item);
+  }
+
+    for (let item of clone){  
+    document.getElementById('lista-tarefas').removeChild(item);
+    todos.push()
+  } 
+  })
 }
