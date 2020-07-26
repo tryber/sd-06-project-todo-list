@@ -18,8 +18,12 @@ window.onload = function () {
 
 
   function doubleSelectListItem (event) {
-    event.target.style.textDecoration = 'line-through';
-    console.log('oi')
+    if (event.target.className === '') {
+      event.target.className = 'completed';
+    } else {
+      event.target.className = '';
+    }
+    
   }
 
   document.getElementById('criar-tarefa').addEventListener('click', createListItem);
