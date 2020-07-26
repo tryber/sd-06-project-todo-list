@@ -8,19 +8,15 @@ window.onload = function () {
   
   function selectListItem(event) {
     for (const item of document.getElementsByTagName('li')) {
-      if (item.className !== '') {
-        item.className = '';
+      if (item.classList.contains('selected')) {
+        item.classList.remove('selected');
       }
     }
-    event.target.className = 'selected';
+    event.target.classList.add('selected');
   }
 
-  function doubleSelectListItem(event) {
-    if (event.target.className === '') {
-      event.target.className = 'completed';
-    } else {
-      event.target.className = '';
-    }
+  function doubleSelectListItem(event) { 
+    event.target.classList.add('completed');
   }
 
   function clearList() {
