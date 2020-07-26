@@ -34,6 +34,7 @@ function criarTabela() {
 function limpaTexto() {
   const tarefa = document.getElementById('texto-tarefa');
   tarefa.value = '';
+  tarefa.focus()
 }
 /* *********************************************** */
 function clickBtnCriarTarefa() {
