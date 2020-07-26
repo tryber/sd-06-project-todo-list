@@ -51,13 +51,20 @@ function apagaTudo() {
   }
 }
 
+function apagaSelecionado() {
+  const taskContaneir = document.getElementById('lista-tarefas');
+  const selected = document.getElementsByClassName('selected')[0];
+  taskContaneir.removeChild(selected);
+}
+
 function botaoApagarTudo() {
-  let apagaTudoButton = document.getElementById('apaga-tudo');
+  const apagaTudoButton = document.getElementById('apaga-tudo');
   apagaTudoButton.addEventListener('click', apagaTudo);
 }
 
-function excluirTarefa() {
-
+function botaoExcluirTarefa() {
+  const apagaTarefaButton = document.getElementById('remover-selecionado');
+  apagaTarefaButton.addEventListener('click', apagaSelecionado);
 }
 
 function riscarTarefa() {
@@ -74,6 +81,7 @@ function fomatarTarefas() {
 window.onload = () => {
   criarTarefa();
   botaoApagarTudo();
+  botaoExcluirTarefa();
 }
 
 /**
