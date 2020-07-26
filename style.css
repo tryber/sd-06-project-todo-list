@@ -35,3 +35,7 @@ h1 {
   font-family: 'Proza Libre', sans-serif;
   background-color: #F6F7F7;
 }
+
+#texto-tarefa {
+  border-radius: 2em;
+}
