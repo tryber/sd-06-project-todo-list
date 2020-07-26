@@ -16,8 +16,16 @@ window.onload = function () {
     event.target.style.backgroundColor = 'rgb(128,128,128)';
   }
 
+
+  function doubleSelectListItem (event) {
+    event.target.style.textDecoration = 'line-through';
+    console.log('oi')
+  }
+
   document.getElementById('criar-tarefa').addEventListener('click', createListItem);
 
-  document.getElementById('lista-tarefas').addEventListener('click', selectListItem)
+  document.getElementById('lista-tarefas').addEventListener('click', selectListItem);
+
+  document.getElementById('lista-tarefas').addEventListener('dblclick', doubleSelectListItem);
 
 }
