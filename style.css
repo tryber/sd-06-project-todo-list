@@ -5,3 +5,7 @@ button , ol li {
 h1 {
   text-align: left;
 }
+
+.selectedTask {
+  background-color: gray;
+}
