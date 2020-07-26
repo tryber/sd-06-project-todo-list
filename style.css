@@ -38,4 +38,9 @@ h1 {
 
 #texto-tarefa {
   border-radius: 2em;
+  margin-right: 1em;
+}
+
+#criar-tarefa {
+  border-radius: 2em;
 }
