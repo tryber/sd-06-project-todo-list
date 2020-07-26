@@ -15,8 +15,12 @@ window.onload = function () {
     event.target.classList.add('selected');
   }
 
-  function doubleSelectListItem(event) { 
-    event.target.classList.add('completed');
+  function doubleSelectListItem(event) {
+    if (event.target.classList.contains('completed')) {
+      event.target.classList.remove('completed');
+    } else {
+      event.target.classList.add('completed');
+    }
   }
 
   function clearList() {
@@ -42,6 +46,15 @@ window.onload = function () {
   function clearSelected() {
     document.getElementById('lista-tarefas').removeChild(document.querySelector('.selected'));
   }
+
+  function moveUp() {
+    
+  }
+
+  function moveDown() {
+    
+  }
+
   document.getElementById('criar-tarefa').addEventListener('click', createListItem);
   document.getElementById('lista-tarefas').addEventListener('click', selectListItem);
   document.getElementById('lista-tarefas').addEventListener('dblclick', doubleSelectListItem);
