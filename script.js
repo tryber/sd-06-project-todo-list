@@ -81,6 +81,15 @@ moveUpButton.addEventListener('click', () => {
   }
 });
 
+moveDownButton.addEventListener('click', () => {
+  const tasks = Array.from(document.getElementsByTagName('li'));
+  for (let item = 0; item < tasks.length; item += 1) {
+    if (tasks[item].classList.contains('selected') && (item !== tasks.length - 1)) {
+      tasks[item].parentNode.insertBefore(tasks[item + 1], tasks[item]);
+    }
+  }
+});
+
 deleteCompletedButton.addEventListener('click', () => {
   const tasksCompleted = Array.from(document.querySelectorAll('.completed'));
   for (let item = 0; item < tasksCompleted.length; item += 1) {
