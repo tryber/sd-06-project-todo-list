@@ -20,12 +20,12 @@ function clear() {
 btnDelete.addEventListener('click', clear);
 
 /* Função para alterar a cor do item da lista */
+const allTasks = document.getElementsByTagName('li');
 function changeItemColor(event) {
-  let allTasks = document.getElementsByTagName('li');
-  let itemSelected = event.target;
+  const itemSelected = event.target;
   for (let index = 0; index < allTasks.length; index += 1) {
     if (itemSelected === allTasks[index] && !(itemSelected.classList.contains('selected'))) {
-    allTasks[index].classList.add('selected');
+      allTasks[index].classList.add('selected');
     } else {
       allTasks[index].classList.remove('selected');
     }
@@ -34,16 +34,32 @@ function changeItemColor(event) {
 taskList.addEventListener('click', changeItemColor);
 
 /* Função para riscar os itens completados */
-function completedItens (e) {
-  let completedItens = e.target;
+function itensCompleted(e) {
+  const completedItens = e.target;
   if (!(completedItens.classList.contains('completed'))) {
     completedItens.classList.add('completed');
-
   } else {
     completedItens.classList.remove('completed');
   }
 }
-taskList.addEventListener('dblclick' , completedItens);
+taskList.addEventListener('dblclick', itensCompleted);
+
+/* Função para remover o item selecionado */
+const btnRemoveSelected = document.getElementById('remover-selecionado');
+function removeSelected(event) {
+  const itemSelected = event.target;
+  if (itemSelected.classList.contains('selected')) {
+    itemSelected.innerText = '';
+  }
+}
+btnRemoveSelected.addEventListener('click', removeSelected);
 
 /* Função para remover os itens finalizados */
-
+const btnRemoveFinished = document.getElementById('remover-finalizados');
+function deleteFinished() {
+  const itensFinished = document.getElementsByClassName('completed');
+  for (let i = itensFinished.length - 1; i >= 0; i -= 1) {
+    itensFinished[i].remove();
+  }
+}
+btnRemoveFinished.addEventListener('click', deleteFinished);

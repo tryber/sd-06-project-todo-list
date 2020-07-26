@@ -1,11 +1,12 @@
 body {
-  background-color: white
+  background-color: white;
   border: 1px solid;
 }
+
 .completed {
-  text-decoration: line-through solid rgb(0, 0, 0);
-}
-.selected {
-  background-color: rgb(128, 128, 128);
+  text-decoration: line-through solid black;
 }
 
+.selected {
+  background-color: gray;
+}
