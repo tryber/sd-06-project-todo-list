@@ -1,0 +1,28 @@
+/*font-family: 'Open Sans', sans-serif;
+font-family: 'Proza Libre', sans-serif;
+*/
+
+/*
+F6F7F7  branco gelo
+99A798  verde marronzado
+F6D55A  amarelo mostarda
+86706F  marrom
+5B6456  verde
+*/
+
+body {
+  margin: 0;
+}
+
+header {
+  padding-top: 16px;
+  padding-right: 33%;
+  padding-bottom: 16px;
+  padding-left: 10%;
+  background-color: #F6D55A;
+}
+
+h1 {
+  font-family: 'Proza Libre', sans-serif;
+  font-size: 42px;
+}
