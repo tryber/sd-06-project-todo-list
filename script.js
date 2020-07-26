@@ -4,12 +4,30 @@ const createButton = document.querySelector('#criar-tarefa');
 const deleteAllButton = document.querySelector('#apaga-tudo');
 const deleteCompletedButton = document.querySelector('#remover-finalizados');
 const deleteSelectedButton = document.querySelector('#remover-selecionado');
+const saveTasksButton = document.querySelector('#salvar-tarefas');
 
 function createElementLiAndAppendToElementOl(orderedList, value) {
   const elementLi = document.createElement('li');
   elementLi.innerText = value;
   orderedList.appendChild(elementLi);
 }
+
+function updateElements(taskList) {
+  if (taskList.length >= 1) {
+    for (let item = 0; item < taskList.length; item += 1) {
+      createElementLiAndAppendToElementOl(elementOl, taskList[item]);
+    }
+  }
+}
+
+function loadFromStorage() {
+  if (localStorage.taskList !== undefined) {
+    const taskList = JSON.parse(localStorage.getItem('taskList'));
+    updateElements(taskList);
+  }
+}
+
+loadFromStorage();
 
 createButton.addEventListener('click', () => {
   if (inputElement.value) {
@@ -58,4 +76,10 @@ deleteSelectedButton.addEventListener('click', () => {
   for (let item = 0; item < tasksSelected.length; item += 1) {
     elementOl.removeChild(tasksSelected[item]);
   }
+});
+
+saveTasksButton.addEventListener('click', () => {
+  const tasks = Array.from(document.getElementsByTagName('li'));
+  const taskList = tasks.map((task) => task.innerText);
+  localStorage.setItem('taskList', JSON.stringify(taskList));
 });
