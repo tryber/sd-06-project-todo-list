@@ -56,14 +56,26 @@ window.onload = function () {
       }
   })
   ereseFin.addEventListener('click', function(){
-       let clone = [];
-   for( const item of document.querySelectorAll('.completed')){
-        clone.push(item);
-  }
+    console.log(document.getElementsByClassName('completed'))
+    let colecao = document.getElementsByClassName('completed')
+    for (let i = 0; i < colecao.length; i+=1) {
+        console.log(colecao.item(i).innerHTML)
+        for (const key in todos) {
+            if(colecao.item(i).innerHTML === todos[key]){
+                todos.splice(key, 1)
+            }
+        }  
+    }
+    showTodos();
 
-    for (let item of clone){  
-    document.getElementById('lista-tarefas').removeChild(item);
-    todos.push()
-  } 
+    //        let clone = [];
+//    for( const item of document.querySelectorAll('.completed')){
+//         clone.push(item);
+//   }
+
+//     for (let item of clone){  
+//     document.getElementById('lista-tarefas').removeChild(item);
+//     todos.push()
+//   } 
   })
 }
