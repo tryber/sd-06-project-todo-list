@@ -33,6 +33,16 @@ window.onload = function () {
     }
   }
 
+  function clearCompleted () {
+    clone = [];
+    for (let item of document.querySelectorAll('.completed')) {
+      clone.push(item);
+    }
+    for (let item of clone) {
+      document.getElementById("lista-tarefas").removeChild(item);
+    }
+  }
+
   document.getElementById('criar-tarefa').addEventListener('click', createListItem);
 
   document.getElementById('lista-tarefas').addEventListener('click', selectListItem);
@@ -40,5 +50,7 @@ window.onload = function () {
   document.getElementById('lista-tarefas').addEventListener('dblclick', doubleSelectListItem);
 
   document.getElementById('apaga-tudo').addEventListener('click', clearList);
+
+  document.getElementById('remover-finalizados').addEventListener('click', clearCompleted);
 
 }
