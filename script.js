@@ -24,6 +24,7 @@ function incluirTarefa() {
     okAudio();
     li.innerText = textoTarefa;
     li.addEventListener('click', selectedTask);
+    li.addEventListener('dblclick', completedTask);
     textoContainer.appendChild(li);
     document.querySelector('#texto-tarefa').value = '';
   } else {
@@ -67,16 +68,17 @@ function botaoExcluirTarefa() {
   apagaTarefaButton.addEventListener('click', apagaSelecionado);
 }
 
-function riscarTarefa() {
-
+function completedTask() {
+  const selectedTask = this;
+  const selectedTaskClass = this.classList;
+  for (let i = 0; i< selectedTaskClass.length; i += 1) {
+    if (selectedTaskClass[i] === 'completed') {
+      selectedTask.classList.remove('completed')
+      return;
+    }
+  }
+  selectedTask.classList.add('completed');
 }
-
-function fomatarTarefas() {
-
-}
-
-
-
 
 window.onload = () => {
   criarTarefa();
