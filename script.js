@@ -6,16 +6,18 @@ criarTarefa.addEventListener('click', function () {
   const li = document.createElement('li');
   li.innerHTML = textoTarefa.value;
   listaTarefas.appendChild(li);
+
   li.addEventListener('click', function () {
     const liSelecionado = document.getElementsByClassName('itemSelecionado');
     if (liSelecionado.length > 0) {
       liSelecionado[0].classList.remove('itemSelecionado');
-    }
+    } 
     li.classList.add('itemSelecionado');
+  });
+  
+  li.addEventListener('dblclick', function () {
+    const clickDublo = document.getElementsByClassName('completed');
+    li.classList.add('completed');
   });
   textoTarefa.value = '';
 });
-
-
-// 1) Será verificado que, ao se clicar em um item da lista, 
-// ele passa a ter o estilo CSS `background-color: rgb(128, 128, 128)`
