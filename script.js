@@ -1,5 +1,6 @@
 const buttonCreateTask = document.getElementById('criar-tarefa');
 const taskList = document.getElementById('lista-tarefas');
+const buttonClearTaskList = document.getElementById('apaga-tudo');
 let taskInput = '';
 let isTaskCompleted = false;
 
@@ -30,7 +31,14 @@ taskList.addEventListener('dblclick', function (event) {
     event.target.className = 'completed';
     isTaskCompleted = true;
   } else if (isTaskCompleted) {
-    event.target.className = 'none'
+    event.target.className = 'none';
     isTaskCompleted = false;
+  }
+});
+
+buttonClearTaskList.addEventListener('click', function (event) {
+  let lines = document.getElementsByTagName('li');
+  for (let i = 0; i < lines.length; i += 0) {
+    lines[i].remove();
   }
 });
