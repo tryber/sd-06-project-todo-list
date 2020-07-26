@@ -2,6 +2,12 @@
 function criarTarefa() {
   let criarButton = document.getElementById('criar-tarefa');
   criarButton.addEventListener('click', incluirTarefa);
+  let addEnter = document.getElementById('texto-tarefa');
+  addEnter.addEventListener('keypress', (keyDown) => {
+    if (keyDown.key === 'Enter') {
+      incluirTarefa();
+    }
+  })
 }
 
 function incluirTarefa() {
