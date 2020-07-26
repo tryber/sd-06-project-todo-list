@@ -2,6 +2,7 @@ const buttonCreateTask = document.getElementById('criar-tarefa');
 const taskList = document.getElementById('lista-tarefas');
 const buttonClearTaskList = document.getElementById('apaga-tudo');
 const buttonRemoveCompleted = document.getElementById('remover-finalizados');
+const buttonSaveTaskList = document.getElementById('salvar-tarefas');
 let taskInput = '';
 let isTaskCompleted = false;
 
@@ -44,11 +45,30 @@ buttonClearTaskList.addEventListener('click', function () {
   }
 });
 
-buttonRemoveCompleted.addEventListener('click', function() {
+buttonRemoveCompleted.addEventListener('click', function () {
   const list = document.getElementsByTagName('li');
-  for (let item in list) {
+  for (let item = 0; item < list.length; item += 1) {
     if (list[item].className === 'completed') {
       list[item].remove();
     }
   }
 });
+
+buttonSaveTaskList.addEventListener('click', function () {
+  const list = document.getElementsByTagName('li');
+  for (let item = 0; item < list.length; item += 1) {
+    localStorage.setItem(item, list[item].innerHTML);
+  }
+});
+
+window.onload = loadList();
+
+function loadList() {
+  for (let i = 0; i < localStorage.length; i+= 1) {
+    let localLine = document.createElement('li');
+    localLine.innerText = localStorage.getItem(i);
+    // localLine.className = '';
+    // console.log(localStorage.getItem(i).className);
+    taskList.appendChild(localLine);
+  }
+}

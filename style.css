@@ -6,8 +6,8 @@ body {
 
 li {
   color: white;
-  text-decoration: none;
   font-size: 20px;
+  text-decoration: none;
 }
 
 .completed {
@@ -15,19 +15,19 @@ li {
 }
 
 .btn {
-  border: 1px solid white;
-  padding: 5px;
   background-color: transparent;
+  border: 1px solid white;
   color: white;
   font-family: ubuntu, sans-serif;
   font-size: 15px;
   margin: 10px;
+  padding: 5px;
 }
 
 input {
   border: 1px solid white;
-  padding: 5px;
-  font-family: monospace, sans-serif;
   color: tomato;
+  font-family: monospace, sans-serif;
   font-size: 15px;
+  padding: 5px;
 }
