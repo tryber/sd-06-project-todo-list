@@ -1,9 +1,11 @@
 function saveList() {
   const arrayLi = [];
-  for (item of document.getElementsByTagName('li')) {
+  for (const item of document.getElementsByTagName('li')) {
     arrayLi.push(item.innerText);
   }
-  localStorage.setItem('ol', arrayLi);
+  if (arrayLi.length !== 0){
+    localStorage.setItem('ol', arrayLi);
+  } 
 }
 
 function createListItem() {
@@ -46,9 +48,20 @@ function clearCompleted() {
   for (const item of document.querySelectorAll('.completed')) {
     clone.push(item);
   }
+  if (localStorage.ol !== undefined) {
+    console.log(clone)
+    for (const item of clone) {
+      if (localStorage.ol.split(',').includes(item.innerText)) {
+        let arrayP = localStorage.ol.split(',');
+        const index = localStorage.ol.split(',').indexOf(item.innerText)
+        arrayP.splice(index, 1);
+        localStorage.ol = arrayP;
+      }
+    }
+  }
   for (const item of clone) {
     document.getElementById('lista-tarefas').removeChild(item);
-  }
+  } 
 }
 
 function clearSelected() {
@@ -63,10 +76,10 @@ function clearSelected() {
 
 function mountList() {
   if (localStorage.ol !== undefined) {
-    for (item of localStorage.ol.split(',')) {
-      const list_item = document.createElement('li');
-      list_item.innerText = item;
-      document.getElementById('lista-tarefas').appendChild(list_item);
+    for (const item of localStorage.ol.split(',')) {
+      const listItem = document.createElement('li');
+      listItem.innerText = item;
+      document.getElementById('lista-tarefas').appendChild(listItem);
     }
   }
 }
