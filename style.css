@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: rgb(0, 0, 0);
+}
+#remover-selecionado, #mover-cima, #mover-baixo, #apaga-tudo, #remover-finalizados,#salvar-tarefas {
+  background: repeating-linear-gradient(rgb(0, 0, 0), gray, rgb(0, 0, 0));
+  color: white;
+  margin: 0 10px 0 5px;
+  padding: 5px;
+  width: 15%;
+  cursor: pointer;
+}
+header {
+  margin: 10px;
+  padding: 5px;
+  background: repeating-linear-gradient(black, gray, black);
+  border: 1px solid black;
+  box-shadow: 2px 2px 5px gray;
+  position: fixed top;
+}
+header h1 {
+  color: white;
+  text-align: center;
+}
+header p {
+  font-style: italic;
+  color: gray;
+  margin-left: 25px;
+}
+.lista-de-tarefas {
+  margin: 10px;
+  padding: 5px;
+  background: repeating-linear-gradient(rgb(11, 102, 109), rgb(29, 232, 247), rgb(11, 102, 109));
+  border: 1px solid black;
+  box-shadow: 2px 2px 5px gray;
+  height: 300px;
+  position: fixed heigth;
+  align-items: flex-start; 
+}
+.btn {
+  margin: 10px;
+  padding: 5px;
+  background: repeating-linear-gradient(black, gray, black);
+  border: 1px solid black;
+  box-shadow: 2px 2px 5px gray;
+  position: fixed bottun;
+}
