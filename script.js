@@ -3,6 +3,7 @@ const elementOl = document.querySelector('#lista-tarefas');
 const createButton = document.querySelector('#criar-tarefa');
 const deleteAllButton = document.querySelector('#apaga-tudo');
 const deleteCompletedButton = document.querySelector('#remover-finalizados');
+const deleteSelectedButton = document.querySelector('#remover-selecionado');
 
 function createElementLiAndAppendToElementOl(orderedList, value) {
   const elementLi = document.createElement('li');
@@ -49,5 +50,12 @@ deleteCompletedButton.addEventListener('click', () => {
   const tasksCompleted = Array.from(document.querySelectorAll('.completed'));
   for (let item = 0; item < tasksCompleted.length; item += 1) {
     elementOl.removeChild(tasksCompleted[item]);
+  }
+});
+
+deleteSelectedButton.addEventListener('click', () => {
+  const tasksSelected = Array.from(document.querySelectorAll('.selected'));
+  for (let item = 0; item < tasksSelected.length; item += 1) {
+    elementOl.removeChild(tasksSelected[item]);
   }
 });
