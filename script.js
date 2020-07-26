@@ -8,11 +8,11 @@ window.onload = function () {
   
   function selectListItem (event) {
     for (let item of document.getElementsByTagName('li')) {
-      if (item.style.backgroundColor !== '') {
-        item.style.backgroundColor = '';
+      if (item.className !== '') {
+        item.className = '';
       }
     }
-    event.target.style.backgroundColor = 'rgb(128,128,128)';
+    event.target.className = 'selected';
   }
 
   function doubleSelectListItem (event) {
@@ -43,6 +43,10 @@ window.onload = function () {
     }
   }
 
+  function clearSelected () {
+    document.getElementById("lista-tarefas").removeChild(document.querySelector('.selected'));
+  }
+
   document.getElementById('criar-tarefa').addEventListener('click', createListItem);
 
   document.getElementById('lista-tarefas').addEventListener('click', selectListItem);
@@ -52,5 +56,7 @@ window.onload = function () {
   document.getElementById('apaga-tudo').addEventListener('click', clearList);
 
   document.getElementById('remover-finalizados').addEventListener('click', clearCompleted);
+
+  document.getElementById('remover-selecionado').addEventListener('click', clearSelected);
 
 }
