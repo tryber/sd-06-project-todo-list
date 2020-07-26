@@ -1,7 +1,3 @@
-window.onload = () => {
-    
-  criarTarefa();
-}
 
 function criarTarefa() {
   let criarButton = document.getElementById('criar-tarefa');
@@ -9,17 +5,18 @@ function criarTarefa() {
 }
 
 function incluirTarefa() {
-  let textoTarefa = document.getElementById('texto-tarefa').value;
-  let textoContainer = document.getElementById('lista-tarefas');
-  let li = document.createElement('li');
-  if(textoTarefa != '') {
+  const textoTarefa = document.getElementById('texto-tarefa').value;
+  const textoContainer = document.getElementById('lista-tarefas');
+  const li = document.createElement('li');
+  if (textoTarefa !== '') {
+    okAudio();
     li.innerText = textoTarefa;
     textoContainer.appendChild(li);
+    document.querySelector('#texto-tarefa').value = '';
   } else {
-    alert('Campo tarefa esta vazio')
+    errorAudio();
+    alert('Campo tarefa esta vazio');
   }
-        
-
 
 }
 
@@ -35,11 +32,23 @@ function fomatarTarefas() {
 
 }
 
+function okAudio() {
+  document.getElementById('ok-audio').play();
+}
+
+function errorAudio() {
+  document.getElementById('error-audio').play();
+}
+
+
+window.onload = () => {
+  criarTarefa();
+}
+
 /**
  * Adicionar Tarefa
  * Selecionar Tarefa
  * Excluir Tarefa
  * Riscar Tarefa
  * Limpar lista de tarefas
- * 
  */
