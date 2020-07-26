@@ -1,13 +1,13 @@
 body {
   margin: 0;
   padding: 0;
-  background: rgb(0, 0, 0);
+  background: black;
 }
 .input {
   margin-left: 30px;
 }
-#remover-selecionado, #mover-cima, #mover-baixo, #apaga-tudo, #remover-finalizados,#salvar-tarefas, #criar-tarefa {
-  background: repeating-linear-gradient(rgb(0, 0, 0), gray, rgb(0, 0, 0));
+#remover-selecionado, #mover-cima, #mover-baixo, #apaga-tudo, #remover-finalizados, #salvar-tarefas, #criar-tarefa {
+  background: repeating-linear-gradient(black, gray, black);
   color: white;
   margin: 0 10px 0 5px;
   padding: 5px;
@@ -17,18 +17,18 @@ body {
 header {
   margin: 10px;
   padding: 5px;
-  background: repeating-linear-gradient(black, rgb(146, 146, 146), rgb(255, 255, 255), rgb(145, 145, 145), black);
+  background: repeating-linear-gradient(black, rgb(146, 146, 146), white, rgb(145, 145, 145), black);
   border: 1px solid black;
   box-shadow: 2px 2px 5px gray;
   position: fixed top;
 }
 header h1 {
-  color: rgb(0, 0, 0);
+  color: black;
   text-align: center;
 }
 header p {
   font-style: italic;
-  color: rgb(0, 0, 0);
+  color: black;
   margin-left: 25px;
 }
 .lista-de-tarefas {
@@ -38,7 +38,6 @@ header p {
   border: 1px solid black;
   box-shadow: 2px 2px 5px gray;
   height: 300px;
-  align-items: flex-start; 
   width: 97.5%;
   overflow: auto;
   font-size: 18px;
@@ -46,42 +45,43 @@ header p {
 .btn {
   margin: 10px;
   padding: 5px;
-  background: repeating-linear-gradient(black, rgb(146, 146, 146), rgb(255, 255, 255), rgb(145, 145, 145), black);
+  background: repeating-linear-gradient(black, rgb(146, 146, 146), white, rgb(145, 145, 145), black);
   border: 1px solid black;
   box-shadow: 2px 2px 5px gray;
   width: 97.5%;
   position: fixed;
+  background-color:  ;
 }
 li {
   margin: 5px;
 }
-.cubo{
+.cubo {
     transform-style: preserve-3d;
     width: 60px;
     margin-right: 70px;
     margin-top: -110px;
-    float: right
+    float: right;
 }
-.cubo img{
+.cubo img {
     position: absolute;
     opacity: 0.5;
 }
-.cubo img:nth-child(1){
+.cubo img:nth-child(1) {
     transform: rotateY(0deg) translateZ(50px);
 }
-.cubo img:nth-child(2){
+.cubo img:nth-child(2) {
     transform: rotateY(90deg) translateZ(50px);
 }
-.cubo img:nth-child(3){
+.cubo img:nth-child(3) {
     transform: rotateY(180deg) translateZ(50px);
 }
-.cubo img:nth-child(4){
+.cubo img:nth-child(4) {
     transform: rotateY(-90deg) translateZ(50px);
 }
-@keyframes loop{
-    from{transform: rotateY(0deg);}
-    to{transform: rotateY(360deg);}
+@keyframes loop {
+    from {transform: rotateY(0deg);}
+    to {transform: rotateY(360deg);}
 }
-.cubo{
+.cubo {
     animation: loop 10s linear infinite;
 }

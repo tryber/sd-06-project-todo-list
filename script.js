@@ -34,7 +34,20 @@ function criarTabela() {
 function limpaTexto() {
   const tarefa = document.getElementById('texto-tarefa');
   tarefa.value = '';
-  tarefa.focus()
+  tarefa.focus();
+}
+/* *********************************************** */
+function atribuirFuncaoClick() {
+  var item = document.querySelectorAll('li')
+  for (let i = 0; i < item.length; i += 1) {
+    item[i].addEventListener('click', function(e) {
+      if (item[i].style.backgroundColor === 'rgb(128, 128, 128)') { 
+        item[i].style.backgroundColor = 'transparent';
+      } else {
+        item[i].style.backgroundColor = 'rgb(128,128,128)';
+      }  
+    });
+  }
 }
 /* *********************************************** */
 function clickBtnCriarTarefa() {
@@ -43,6 +56,7 @@ function clickBtnCriarTarefa() {
   limparTabela();
   criarTabela();
   limpaTexto();
+  atribuirFuncaoClick();
 }
 function clickBtnApagarTudo() {
   limparTabela();
@@ -56,3 +70,4 @@ btnIncluir.addEventListener('click', function () {
 btnApagarTudo.addEventListener('click', function () {
   clickBtnApagarTudo();
 });
+/* *********************************************** */
