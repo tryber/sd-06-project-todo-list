@@ -46,10 +46,10 @@ taskList.addEventListener('dblclick', itensCompleted);
 
 /* Função para remover o item selecionado */
 const btnRemoveSelected = document.getElementById('remover-selecionado');
-function removeSelected(event) {
-  const itemSelected = event.target;
-  if (itemSelected.classList.contains('selected')) {
-    itemSelected.innerText = '';
+function removeSelected() {
+  const itemSelected = document.getElementsByClassName('selected');
+  for (let i = itemSelected.length - 1; i >= 0; i -= 1) {
+    itemSelected[i].remove();
   }
 }
 btnRemoveSelected.addEventListener('click', removeSelected);
