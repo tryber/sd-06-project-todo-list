@@ -1,19 +1,18 @@
 const inputElement = document.querySelector('#texto-tarefa');
+const elementOl = document.querySelector('#lista-tarefas');
 const createButton = document.querySelector('#criar-tarefa');
 const deleteAllButton = document.querySelector('#apaga-tudo');
-const elementOl = document.querySelector('#lista-tarefas');
-const tasks = [];
+const deleteCompletedButton = document.querySelector('#remover-finalizados');
 
 function createElementLiAndAppendToElementOl(orderedList, value) {
   const elementLi = document.createElement('li');
   elementLi.innerText = value;
   orderedList.appendChild(elementLi);
-  return elementLi;
 }
 
 createButton.addEventListener('click', () => {
   if (inputElement.value) {
-    tasks.push(createElementLiAndAppendToElementOl(elementOl, inputElement.value));
+    createElementLiAndAppendToElementOl(elementOl, inputElement.value);
     inputElement.value = '';
   }
 });
@@ -21,13 +20,13 @@ createButton.addEventListener('click', () => {
 deleteAllButton.addEventListener('click', () => {
   while (elementOl.firstChild) {
     elementOl.removeChild(elementOl.lastChild);
-    tasks.pop();
   }
 });
 
 elementOl.addEventListener('click', (event) => {
   event.preventDefault();
   const selectedTask = event.target;
+  const tasks = document.getElementsByTagName('li');
 
   for (let item = 0; item < tasks.length; item += 1) {
     if (tasks[item].classList.contains('selected')) {
@@ -43,5 +42,12 @@ elementOl.addEventListener('dblclick', (event) => {
     selectedTask.classList.remove('completed');
   } else {
     selectedTask.classList.add('completed');
+  }
+});
+
+deleteCompletedButton.addEventListener('click', () => {
+  const tasksCompleted = Array.from(document.querySelectorAll('.completed'));
+  for (let item = 0; item < tasksCompleted.length; item += 1) {
+    elementOl.removeChild(tasksCompleted[item]);
   }
 });
