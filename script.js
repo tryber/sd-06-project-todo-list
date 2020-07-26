@@ -6,7 +6,7 @@ window.onload = function () {
     document.getElementById('texto-tarefa').value = '';
   }
   
-  function selectListItem (event) {
+  function selectListItem(event) {
     for (let item of document.getElementsByTagName('li')) {
       if (item.className !== '') {
         item.className = '';
@@ -15,7 +15,7 @@ window.onload = function () {
     event.target.className = 'selected';
   }
 
-  function doubleSelectListItem (event) {
+  function doubleSelectListItem(event) {
     if (event.target.className === '') {
       event.target.className = 'completed';
     } else {
@@ -23,7 +23,7 @@ window.onload = function () {
     }
   }
 
-  function clearList () {
+  function clearList() {
     clone = [];
     for (let item of document.getElementsByTagName('li')) {
       clone.push(item);
@@ -33,18 +33,18 @@ window.onload = function () {
     }
   }
 
-  function clearCompleted () {
-    clone = [];
+  function clearCompleted() {
+    let clone = [];
     for (let item of document.querySelectorAll('.completed')) {
       clone.push(item);
     }
     for (let item of clone) {
-      document.getElementById("lista-tarefas").removeChild(item);
+      document.getElementById('lista-tarefas').removeChild(item);
     }
   }
 
-  function clearSelected () {
-    document.getElementById("lista-tarefas").removeChild(document.querySelector('.selected'));
+  function clearSelected() {
+    document.getElementById('lista-tarefas').removeChild(document.querySelector('.selected'));
   }
 
   document.getElementById('criar-tarefa').addEventListener('click', createListItem);
