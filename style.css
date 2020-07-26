@@ -1,0 +1,52 @@
+body {
+  background-color: #31587A;
+}
+
+header {
+  color: #F1FAEE;
+  background-color: #1d3557;
+  text-align: center;
+  text-decoration: solid;
+  font-size: 50px;
+
+}
+
+.classe {
+  text-align: center;
+}
+
+#inline {
+  display: inline-block;
+}
+
+#criar-tarefa {
+  background-color: greenyellow;
+}
+
+#funcionamento {
+  margin-right: 20px;
+  color: #F1FAEE;
+}
+
+#lista-tarefas {
+  margin-left: 350px;
+  color: white;
+
+}
+
+.botoes {
+  padding-right: 350px;
+  text-align: center;
+}
+
+#apaga-tudo {
+  background-color: red;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.selected {
+  background-color: rgb(128, 128, 128);
+}
