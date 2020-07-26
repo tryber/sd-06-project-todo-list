@@ -7,11 +7,11 @@ function errorAudio() {
 }
 
 function completedTask() {
-  const completedTask = this;
-  const completedTaskClass = this.classList;
-  for (let i = 0; i < completedTaskClass.length; i += 1) {
-    if (completedTaskClass[i] === 'completed') {
-      completedTask.classList.remove('completed');
+  const thisCompletedTask = this;
+  const thisCompletedTaskClass = this.classList;
+  for (let i = 0; i < thisCompletedTaskClass.length; i += 1) {
+    if (thisCompletedTaskClass[i] === 'completed') {
+      thisCompletedTask.classList.remove('completed');
       return;
     }
   }
@@ -79,13 +79,11 @@ function botaoExcluirTarefa() {
   apagaTarefaButton.addEventListener('click', apagaSelecionado);
 }
 
-
-
 window.onload = () => {
   criarTarefa();
   botaoApagarTudo();
   botaoExcluirTarefa();
-}
+};
 
 /**
  * Adicionar Tarefa
