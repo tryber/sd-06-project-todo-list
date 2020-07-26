@@ -1,11 +1,10 @@
 window.onload = function () {
   function createListItem () {
-    let item_text = document.getElementById('texto-tarefa').value;
     let item = document.createElement('li');
-    item.innerText = item_text;
+    item.innerText = document.getElementById('texto-tarefa').value;
     document.getElementById('lista-tarefas').appendChild(item)
+    document.getElementById('texto-tarefa').value = '';
   }
-  
   
   function selectListItem (event) {
     for (item of document.getElementsByTagName('li')) {
@@ -16,14 +15,12 @@ window.onload = function () {
     event.target.style.backgroundColor = 'rgb(128,128,128)';
   }
 
-
   function doubleSelectListItem (event) {
     if (event.target.className === '') {
       event.target.className = 'completed';
     } else {
       event.target.className = '';
     }
-    
   }
 
   document.getElementById('criar-tarefa').addEventListener('click', createListItem);
