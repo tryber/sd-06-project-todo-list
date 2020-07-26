@@ -8,11 +8,20 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-  <header>Minha Lista de Tarefas</header>
-  <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+<body class="boby">
+  
+  <div class="windowInterna">
+    <header>Minha Lista de Tarefas</header>
 
-  <script src="script.js"></script>
+    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+      
+    <form> 
+      <input type="text" id="texto-tarefa" name="texto-tarefa">
+      <input type="submit" value="Adicionar à lista">
+    </form>
+
+    <script src="script.js"></script>
+  </div>
 
 </body>
 
