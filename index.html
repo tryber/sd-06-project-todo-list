@@ -10,24 +10,21 @@
     <header>
       <h1>Minha Lista de Tarefas</h1>
     </header>
-    <section>
-      <div id="funcionamento">
-        <p>
-          Clique duas vezes em um item para marcá-lo como completo
-        </p>
-      </div>
-      <div>
-        <input id="texto-tarefa"> 
-      </div>
-      <div>
-        <ol id="lista-tarefas">
-
-        </ol>
-      </div>
-      <div>
-        <button id="criar-tarefa">Adicionar</button>
-      </div>
-    </section>
+    <div>
+      <p id="funcionamento">
+        Clique duas vezes em um item para marcá-locomo completo
+      </p>
+    </div>
+    <div>
+      <input id="texto-tarefa">
+    </div>
+    <div>
+      <ol id="lista-tarefas"> 
+      </ol>
+    </div>
+    <div>
+      <button id="criar-tarefa">Adicionar</button>
+    </div>
   </body>
   <script>
     window.onload = function() {
@@ -37,7 +34,7 @@
       document.querySelector('#texto-tarefa').value = "";
       let listaElemento = document.createElement ('li');
       listaElemento.innerText = textoInput;
-      document.querySelector('#lista-tarefas').appendChild(listaElemento);  
+      document.querySelector('#lista-tarefas').appendChild(listaElemento); 
     })
   }
   </script>
