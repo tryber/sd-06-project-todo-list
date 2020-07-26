@@ -31,6 +31,7 @@ function clearList() {
   for (let item of clone) {
     document.getElementById('lista-tarefas').removeChild(item);
   }
+  localStorage.removeItem('ol');
 }
 
 function clearCompleted() {
