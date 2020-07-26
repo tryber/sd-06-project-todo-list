@@ -1,12 +1,3 @@
-window.onload = function () {
-  document.getElementById('criar-tarefa').addEventListener('click', createListItem);
-  document.getElementById('lista-tarefas').addEventListener('click', selectListItem);
-  document.getElementById('lista-tarefas').addEventListener('dblclick', doubleSelectListItem);
-  document.getElementById('apaga-tudo').addEventListener('click', clearList);
-  document.getElementById('remover-finalizados').addEventListener('click', clearCompleted);
-  document.getElementById('remover-selecionado').addEventListener('click', clearSelected);
-}
-
 function createListItem() {
   const item = document.createElement('li');
   item.innerText = document.getElementById('texto-tarefa').value;
@@ -61,4 +52,13 @@ function moveUp() {
 
 function moveDown() {
   
+}
+
+window.onload = function () {
+  document.getElementById('criar-tarefa').addEventListener('click', createListItem);
+  document.getElementById('lista-tarefas').addEventListener('click', selectListItem);
+  document.getElementById('lista-tarefas').addEventListener('dblclick', doubleSelectListItem);
+  document.getElementById('apaga-tudo').addEventListener('click', clearList);
+  document.getElementById('remover-finalizados').addEventListener('click', clearCompleted);
+  document.getElementById('remover-selecionado').addEventListener('click', clearSelected);
 }
