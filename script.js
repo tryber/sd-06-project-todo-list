@@ -6,15 +6,21 @@ const deleteCompletedButton = document.querySelector('#remover-finalizados');
 const deleteSelectedButton = document.querySelector('#remover-selecionado');
 const saveTasksButton = document.querySelector('#salvar-tarefas');
 
-function createElementLiAndAppendToElementOl(orderedList, value) {
+function createElementLiAndAppendToElementOl(orderedList, value, completed = false) {
   const elementLi = document.createElement('li');
   elementLi.innerText = value;
   orderedList.appendChild(elementLi);
+  if (completed) {
+    elementLi.className = 'completed';
+  }
 }
 
 function updateElements(taskList) {
-  if (taskList.length >= 1) {
-    for (let item = 0; item < taskList.length; item += 1) {
+  for (let item = 0; item < taskList.length; item += 1) {
+    if (taskList[item].includes('.completed')) {
+      taskList[item] = taskList[item].replace('.completed', '');
+      createElementLiAndAppendToElementOl(elementOl, taskList[item], true);
+    } else {
       createElementLiAndAppendToElementOl(elementOl, taskList[item]);
     }
   }
@@ -80,6 +86,11 @@ deleteSelectedButton.addEventListener('click', () => {
 
 saveTasksButton.addEventListener('click', () => {
   const tasks = Array.from(document.getElementsByTagName('li'));
-  const taskList = tasks.map((task) => task.innerText);
+  const taskList = tasks.map((task) => {
+    if (task.classList.contains('completed')) {
+      return `${task.innerText}.completed`;
+    }
+    return task.innerText;
+  });
   localStorage.setItem('taskList', JSON.stringify(taskList));
 });
