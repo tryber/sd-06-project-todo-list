@@ -1,13 +1,13 @@
 window.onload = function () {
   function createListItem () {
-    let item = document.createElement('li');
+    const item = document.createElement('li');
     item.innerText = document.getElementById('texto-tarefa').value;
-    document.getElementById('lista-tarefas').appendChild(item)
+    document.getElementById('lista-tarefas').appendChild(item);
     document.getElementById('texto-tarefa').value = '';
   }
   
   function selectListItem (event) {
-    for (item of document.getElementsByTagName('li')) {
+    for (let item of document.getElementsByTagName('li')) {
       if (item.style.backgroundColor !== '') {
         item.style.backgroundColor = '';
       }
@@ -23,10 +23,22 @@ window.onload = function () {
     }
   }
 
+  function clearList () {
+    clone = [];
+    for (let item of document.getElementsByTagName('li')) {
+      clone.push(item);
+    }
+    for (let item of clone) {
+      document.getElementById("lista-tarefas").removeChild(item);
+    }
+  }
+
   document.getElementById('criar-tarefa').addEventListener('click', createListItem);
 
   document.getElementById('lista-tarefas').addEventListener('click', selectListItem);
 
   document.getElementById('lista-tarefas').addEventListener('dblclick', doubleSelectListItem);
+
+  document.getElementById('apaga-tudo').addEventListener('click', clearList);
 
 }
