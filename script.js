@@ -11,12 +11,11 @@ criarTarefa.addEventListener('click', function () {
     const liSelecionado = document.getElementsByClassName('itemSelecionado');
     if (liSelecionado.length > 0) {
       liSelecionado[0].classList.remove('itemSelecionado');
-    } 
+    }
     li.classList.add('itemSelecionado');
   });
-  
+
   li.addEventListener('dblclick', function () {
-    const clickDublo = document.getElementsByClassName('completed');
     li.classList.add('completed');
   });
   textoTarefa.value = '';
