@@ -35,26 +35,37 @@ window.onload = function () {
     todos.splice(0, todos.length)
     showTodos();
   })
-  listElement.addEventListener('click', function () {
+  listElement.addEventListener('click', function (event) {
+    console.log(document.getElementsByTagName('li').length);
     for (const j of document.getElementsByTagName('li')) {
-      if (j.className === "selected") {
-        j.classList = '';
-      } else {
-        event.target.classList = 'selected';
-      }
+        if (j.classList.contains('selected')) {
+        j.classList.remove('selected');
+      } 
     }
+    event.target.classList.add('selected');
   })
+
+
+  
 
   ereseSel.addEventListener('click', function() {
     let pos = todos.indexOf(document.querySelector('.selected').innerHTML)
     todos.splice(pos, 1);
     showTodos();
   })
-  listElement.addEventListener('dblclick', function () {
-      for(const i of document.getElementsByTagName('p')){
-        event.target.classList += " completed";
+  
+  listElement.addEventListener('dblclick', function (event) {
+      for(const i of document.getElementsByTagName('li')) {
+        if (event.target.classList.contains('completed')) {
+            event.target.classList.remove('completed');
+        }
+        else {
+            event.target.classList.add('completed')
+        } 
       }
+     
   })
+  
   ereseFin.addEventListener('click', function(){
     console.log(document.getElementsByClassName('completed'))
     let colecao = document.getElementsByClassName('completed')
@@ -67,15 +78,5 @@ window.onload = function () {
         }  
     }
     showTodos();
-
-    //        let clone = [];
-//    for( const item of document.querySelectorAll('.completed')){
-//         clone.push(item);
-//   }
-
-//     for (let item of clone){  
-//     document.getElementById('lista-tarefas').removeChild(item);
-//     todos.push()
-//   } 
   })
 }
