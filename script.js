@@ -13,6 +13,7 @@ function createListItem() {
   item.innerText = document.getElementById('texto-tarefa').value;
   document.getElementById('lista-tarefas').appendChild(item);
   document.getElementById('texto-tarefa').value = '';
+  saveList();
 }
 
 function selectListItem(event) {
@@ -71,7 +72,10 @@ function clearSelected() {
     arrayP.splice(index, 1);
     localStorage.ol = arrayP;
   }
-  document.getElementById('lista-tarefas').removeChild(document.querySelector('.selected'));
+  if (document.getElementsByTagName('li').length !== 0) {
+    document.getElementById('lista-tarefas').removeChild(document.querySelector('.selected'));
+  }
+  
 }
 
 function mountList() {
