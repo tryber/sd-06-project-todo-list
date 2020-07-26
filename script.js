@@ -4,11 +4,13 @@ function addLista () {
     let li = document.createElement('li');
     li.innerHTML = textoTarefa;
     list.appendChild(li);
-    textoTarefa.value = '';
-    document.getElementById('textoTarefa').value = '';
+    document.getElementById('texto-tarefa').value = '';
+
 }
 
 
 
 let criarTarefa = document.getElementById('criar-tarefa');
 criarTarefa.addEventListener('click', addLista);
+
+
