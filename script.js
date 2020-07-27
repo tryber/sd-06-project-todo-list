@@ -1,7 +1,9 @@
 const inputText = document.getElementById("texto-tarefa");
 const list = document.getElementById("lista-tarefas");
 const btnCriar = document.getElementById("criar-tarefa");
-const btnApagar = document.getElementById("apaga-tudo");
+const btnApagarTudo = document.getElementById("apaga-tudo");
+const btnRemoveSelecionado = document.getElementById("remover-selecionado");
+const btnRemoveFinalizados = document.getElementById("remover-finalizados");
 
 btnCriar.addEventListener('click', function () {
   let elementoLista = document.createElement("li");
@@ -35,9 +37,28 @@ list.addEventListener('dblclick', function (event) {
   }
 });
 
-btnApagar.addEventListener('click', function () {
+btnApagarTudo.addEventListener('click', function () {
   while (list.firstChild) {
     list.removeChild(list.firstChild);
   }
 });
 
+btnRemoveSelecionado.addEventListener('click', function () {
+  for (let i = 0; i < list.childNodes.length; i += 1) {
+    if (list.childNodes[i].style.backgroundColor === 'rgb(128, 128, 128)') {
+      list.removeChild(list.childNodes[i]);
+    }
+  }
+});
+
+btnRemoveFinalizados.addEventListener('click', function () {
+  for (let i = 0; i < list.childNodes.length;) {
+    if (list.childNodes[i].classList.contains('completed')) {
+      list.removeChild(list.childNodes[i]);
+      i = 0;
+    }
+    else{
+      i += 1;
+    }
+  }
+});
