@@ -11,6 +11,15 @@ window.onload = function (){
     textoTarefa.value = "";
   });
 
+  let previous = document.createElement('li');
+  previous.style.backgroundColor = 'white';
+  listaTarefas.addEventListener('click', function(event){
+    let itemSelected = event.target;
+    previous.style.backgroundColor = 'white'
+    itemSelected.style.backgroundColor = 'rgb(128, 128, 128)';
+    previous = itemSelected;
+  });
+
 
   
 }
