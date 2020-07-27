@@ -4,10 +4,8 @@ elementBtnAddTask.addEventListener('click', function() {
   const list = getOlElement();
   insertTask(list, taskName);
   clearInput();
-  markTaskIfClicked();
+  taskHighlighter();
 });
-
-
 
 function insertTask(list, taskName) {
   const listItem = document.createElement('li');
@@ -32,7 +30,7 @@ function clearInput() {
   elementInputTaskName.value = '';  
 }
 
-function markTaskIfClicked() {
+function taskHighlighter() {
   const elementOlTaskList = getOlElement();
   const taskElementsList = elementOlTaskList.children;
   for (index = 0; index < taskElementsList.length; index += 1) {
