@@ -2,6 +2,10 @@ body {
   font-family: Rowdies, cursive;
 }
 
-.tarefa-selecionada {
+.selected {
   background-color: gray;
+}
+
+.completed {
+  text-decoration: line-through solid black;
 }

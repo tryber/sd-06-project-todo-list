@@ -8,8 +8,12 @@ enviarTexto.addEventListener('click', function (event) {
   const novaTarefa = document.createElement('li');
   novaTarefa.innerHTML = textoTarefa.value;
   listaTarefa.appendChild(novaTarefa);
+
   novaTarefa.addEventListener('click', function () {
-    novaTarefa.classList.toggle('tarefa-selecionada');
+    novaTarefa.classList.toggle('selected');
+  });
+  novaTarefa.addEventListener('dblclick', function () {
+    novaTarefa.classList.toggle('completed');
   });
 
   textoTarefa.value = '';
