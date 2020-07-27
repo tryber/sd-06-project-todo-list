@@ -56,7 +56,6 @@ buttonRemoveCompleted.addEventListener('click', function () {
   const completed = document.getElementsByClassName('completed');
   for (let item = 0; item < completed.length; item += 1) {
     taskList.removeChild(completed[item]);
-    item -= 1;
   }
 });
 
@@ -106,7 +105,7 @@ moveDownButton.addEventListener('click', function () {
 });
 
 buttonRemoveSelected.addEventListener('click', function () {
-  document.getElementById('isSelected').remove(); 
+  document.getElementById('isSelected').remove();
 });
 
 function loadList() {
