@@ -53,10 +53,11 @@ buttonClearTaskList.addEventListener('click', function () {
 });
 
 buttonRemoveCompleted.addEventListener('click', function () {
-  const completed = document.getElementsByClassName('completed');
-  for (let item = 0; item < completed.length; item += 1) {
-    taskList.removeChild(completed[item]);
-    item -= 1;
+  const list = document.querySelectorAll('li');
+  for (let item = 0; item < list.length; item += 1) {
+    if (list[item].className === 'completed') {
+      list[item].remove();
+    }
   }
 });
 
