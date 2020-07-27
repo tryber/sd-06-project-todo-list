@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="./style.css">
+    <script src="./script.js"></script>
   </head>
   <body>
     <header>
@@ -24,18 +25,8 @@
     </div>
     <div>
       <button id="criar-tarefa">Adicionar</button>
+      <button id="apaga-tudo">Apagar</button>
     </div>
   </body>
-  <script>
-    window.onload = function() {
-    let botaoAdicionar = document.querySelector('#criar-tarefa');
-    botaoAdicionar.addEventListener('click', function() {
-      textoInput = document.querySelector('#texto-tarefa').value;
-      document.querySelector('#texto-tarefa').value = "";
-      let listaElemento = document.createElement ('li');
-      listaElemento.innerText = textoInput;
-      document.querySelector('#lista-tarefas').appendChild(listaElemento); 
-    })
-  }
-  </script>
+  
 </html>
