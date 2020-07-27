@@ -53,14 +53,10 @@ buttonClearTaskList.addEventListener('click', function () {
 });
 
 buttonRemoveCompleted.addEventListener('click', function () {
-  const list = document.getElementsByTagName('li');
-  for (let times = 0; times <= list.length; times += 1) {
-    for (let item = 0; item < list.length; item += 1) {
-      if (list[item].className === 'completed') {
-        list[item].remove();
-        item -= 1;
-      }
-    }
+  const completed = document.getElementsByClassName('completed');
+  for (let item = 0; item < completed.length; item += 1) {
+    taskList.removeChild(completed[item]);
+    item -= 1;
   }
 });
 
@@ -110,7 +106,7 @@ moveDownButton.addEventListener('click', function () {
 });
 
 buttonRemoveSelected.addEventListener('click', function () {
-  document.getElementById('isSelected').remove();
+  document.getElementById('isSelected').remove(); 
 });
 
 function loadList() {
