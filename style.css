@@ -4,6 +4,10 @@ html, body{
     margin: 0 auto;
 }
 
+.completed{
+    text-decoration: line-through;
+}
+
 #criar-tarefa{
     background-color: blue;
     border-radius: 20%;
