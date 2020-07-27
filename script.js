@@ -14,6 +14,7 @@ buttonCreateTask.addEventListener('click', function () {
     const newLine = document.createElement('li');
     newLine.innerHTML = taskInput;
     newLine.className = 'none';
+    newLine.id = 'none';
     taskList.appendChild(newLine);
     document.getElementById('texto-tarefa').value = '';
   } else {
@@ -24,9 +25,11 @@ buttonCreateTask.addEventListener('click', function () {
 taskList.addEventListener('click', function (event) {
   const listItem = document.getElementsByTagName('li');
   event.target.style.backgroundColor = 'rgb(128,128,128)';
+  event.target.id = 'isSelected';
   for (let i = 0; i < listItem.length; i += 1) {
     if (listItem[i] !== event.target) {
       listItem[i].style.backgroundColor = 'transparent';
+      listItem[i].id = 'none';
     }
   }
 });
@@ -50,11 +53,11 @@ buttonClearTaskList.addEventListener('click', function () {
 
 buttonRemoveCompleted.addEventListener('click', function () {
   const list = document.getElementsByTagName('li');
-  for (let times = 0; times < list.length; times += 1) {
+  for (let times = 0; times <= list.length; times += 1) {
     for (let item = 0; item < list.length; item += 1) {
       if (list[item].className === 'completed') {
         list[item].remove();
-        // item -= 1;
+        item -= 1;
       }
     }
   }
@@ -69,8 +72,15 @@ buttonSaveTaskList.addEventListener('click', function () {
   }
 });
 
-moveUpButton.addEventListener('click', function () {
-  console.log('up ok');
+moveUpButton.addEventListener('click', function (event) {
+  const tasks = document.getElementsByTagName('li');
+  for(let i = 1; i < tasks.length; i += 1) {
+    if (tasks[i].id === 'isSelected') {
+      const aux = tasks[i].innerText;
+      tasks[i].innerText = tasks[i - 1].innerText;
+      tasks[i - 1].innerText = aux;
+    }
+  }
 });
 
 moveDownButton.addEventListener('click', function () {
