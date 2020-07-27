@@ -35,11 +35,12 @@ window.onload = function () {
     todos.splice(0, todos.length)
     showTodos();
   })
-  listElement.addEventListener('click', function (event) {
+  listElement.addEventListener('click', function () {
     console.log(document.getElementsByTagName('li').length);
     for (const j of document.getElementsByTagName('li')) {
         if (j.classList.contains('selected')) {
         j.classList.remove('selected');
+        console.log(j);
       } 
     }
     event.target.classList.add('selected');
