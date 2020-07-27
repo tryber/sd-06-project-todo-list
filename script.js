@@ -20,6 +20,15 @@ window.onload = function (){
     previous = itemSelected;
   });
 
-
+  listaTarefas.addEventListener('dblclick', function(event){
+    let itemCompleted = event.target;
+    if (itemCompleted.className != 'completed'){
+      itemCompleted.className = 'completed'
+      itemCompleted.style.textDecoration = 'line-through solid rgb(0, 0, 0)'
+    }else {
+      itemCompleted.className = '';
+      itemCompleted.style.textDecoration = '';
+    }
+  });
   
 }
