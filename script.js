@@ -1,10 +1,10 @@
-window.onload = function(){
-  let botao = document.querySelector("#criar-tarefa");
-  botao.addEventListener('click', function(){
-    let areaTexto = document.querySelector("#texto-tarefa").value;
-    let tagli = document.createElement("li");
+window.onload = function () {
+  const botao = document.querySelector('#criar-tarefa');
+  botao.addEventListener('click', function () {
+    const areaTexto = document.querySelector('#texto-tarefa').value;
+    const tagli = document.createElement('li');
     tagli.innerHTML = areaTexto;
-    document.querySelector("#lista-tarefas").appendChild(tagli);
-    document.getElementById("texto-tarefa").value = " ";
+    document.querySelector('#lista-tarefas').appendChild(tagli);
+    document.getElementById('texto-tarefa').value = ' ';
   });
-}
+};
