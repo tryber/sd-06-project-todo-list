@@ -79,6 +79,10 @@ moveUpButton.addEventListener('click', function (event) {
       const aux = tasks[i].innerText;
       tasks[i].innerText = tasks[i - 1].innerText;
       tasks[i - 1].innerText = aux;
+      tasks[i - 1].style.backgroundColor = 'rgb(128,128,128)';
+      tasks[i - 1].id = 'isSelected';
+      tasks[i].style.backgroundColor = 'transparent';
+      tasks[i].id = 'none';
     }
   }
 });
