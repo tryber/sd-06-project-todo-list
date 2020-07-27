@@ -110,13 +110,8 @@ moveDownButton.addEventListener('click', function () {
 });
 
 buttonRemoveSelected.addEventListener('click', function () {
-  const list = document.getElementsByTagName('li');
-  for (let line = 0; line < list.length; line += 1) {
-    if (list[line].id === 'isSelected') {
-      list[line].remove();
-    }
-  }
-})
+  document.getElementById('isSelected').remove();
+});
 
 function loadList() {
   for (let i = 0; i < (localStorage.length / 2); i += 1) {
