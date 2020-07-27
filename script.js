@@ -11,6 +11,7 @@ buttonCreateTask.addEventListener('click', function () {
   if (taskInput !== '') {
     const newLine = document.createElement('li');
     newLine.innerHTML = taskInput;
+    newLine.className = 'none';
     taskList.appendChild(newLine);
     document.getElementById('texto-tarefa').value = '';
   } else {
@@ -20,7 +21,7 @@ buttonCreateTask.addEventListener('click', function () {
 
 taskList.addEventListener('click', function (event) {
   const listItem = document.getElementsByTagName('li');
-  event.target.style.backgroundColor = 'rgb(128,128,128';
+  event.target.style.backgroundColor = 'rgb(128,128,128)';
   for (let i = 0; i < listItem.length; i += 1) {
     if (listItem[i] !== event.target) {
       listItem[i].style.backgroundColor = 'transparent';
@@ -59,14 +60,17 @@ buttonSaveTaskList.addEventListener('click', function () {
   const list = document.getElementsByTagName('li');
   for (let item = 0; item < list.length; item += 1) {
     localStorage.setItem(item, list[item].innerHTML);
+    localStorage.setItem(list[item].innerText+'-class', list[item].className);
   }
 });
 
 function loadList() {
-  for (let i = 0; i < localStorage.length; i += 1) {
+  for (let i = 0; i < (localStorage.length / 2); i += 1) {
     const localLine = document.createElement('li');
     localLine.innerText = localStorage.getItem(i);
+    localLine.className = localStorage.getItem(localLine.innerText+'-class');
     taskList.appendChild(localLine);
+    console.log(localLine);
   }
 }
 
