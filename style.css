@@ -1,0 +1,7 @@
+.selected {
+  background-color: rgb(128, 128, 128) ;
+}
+
+.double-click {
+    text-decoration: line-through;
+}
