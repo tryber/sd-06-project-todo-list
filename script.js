@@ -1,8 +1,9 @@
-const btn = document.getElementById('criar-tarefa');
+const btnCreate = document.getElementById('criar-tarefa');
+const btnErase = document.getElementById('apaga-tudo');
 const list = document.getElementById('lista-tarefas');
 const text = document.getElementById('texto-tarefa');
 
-btn.addEventListener('click', function () {
+btnCreate.addEventListener('click', function () {
   const li = document.createElement('li');
   li.innerHTML = text.value;
   list.appendChild(li);
@@ -21,3 +22,7 @@ btn.addEventListener('click', function () {
     }
   });
 });
+
+btnErase.addEventListener('click', function () {
+  list.innerHTML = '';
+})
