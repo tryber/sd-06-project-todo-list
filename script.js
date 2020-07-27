@@ -23,11 +23,11 @@ list.addEventListener('click', function (event) {
   const li = event.target;
   for (let i = 0; i < list.childNodes.length; i += 1) {
     if (list.childNodes[i] !== li) {
-      list.childNodes[i].style.backgroundColor = 'white';
+      list.childNodes[i].style.backgroundColor = 'rgb(6, 133, 14)';
     }
   }
   if (li.style.backgroundColor === 'rgb(128, 128, 128)') {
-    li.style.backgroundColor = 'white';
+    li.style.backgroundColor = 'rgb(6, 133, 14';
   } else {
     li.style.backgroundColor = 'rgb(128, 128, 128)';
   }
@@ -71,7 +71,7 @@ btnSalvarLista.addEventListener('click', function () {
   localStorage.setItem('ListaTarefas', listaSalva);
 });
 
-btnUp.addEventListener('click', () => {
+btnUp.addEventListener('click', function () {
   const lista = list.childNodes;
   for (let i = 1; i < lista.length; i += 1) {
     if (lista[i].style.backgroundColor === 'rgb(128, 128, 128)') {
@@ -80,12 +80,11 @@ btnUp.addEventListener('click', () => {
   }
 });
 
-btnDown.addEventListener('click', () => {
+btnDown.addEventListener('click', function () {
   const lista = list.childNodes;
-  for (let i = 0; i < lista.length - 1; i += 1) {
+  for (let i = lista.length - 2; i >= 0 ; i -= 1) {
     if (lista[i].style.backgroundColor === 'rgb(128, 128, 128)') {
-      list.insertBefore(lista[i], lista[i + 2]);
-      break;
+      list.insertBefore(lista[i + 1], lista[i]);
     }
   }
 });
