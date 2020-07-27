@@ -1,6 +1,6 @@
 const btnCreate = document.getElementById('criar-tarefa');
 const btnErase = document.getElementById('apaga-tudo');
-const btnEraseTask = document.getElementById('remover-finalizados')
+const btnEraseTask = document.getElementById('remover-finalizados');
 const list = document.getElementById('lista-tarefas');
 const text = document.getElementById('texto-tarefa');
 
@@ -29,9 +29,8 @@ btnErase.addEventListener('click', function () {
 });
 
 btnEraseTask.addEventListener('click', function () {
-  for (let i = 0; i < document.querySelectorAll('li').length; i += 1) {
-    if (document.querySelectorAll('li')[i].className === 'completed') {
-      list.removeChild(document.querySelectorAll('li')[i]);
-    }
+  let completedItems = document.querySelectorAll('.completed');
+  for (let i = 0; i < completedItems.length; i += 1) {
+    list.removeChild(completedItems[i]);
   }
 });
