@@ -20,3 +20,11 @@ criarTarefa.addEventListener('click', function () {
   });
   textoTarefa.value = '';
 });
+
+const apagaTudo = document.getElementById('apaga-tudo');
+apagaTudo.addEventListener('click', function () {
+  const removerTudo = document.querySelectorAll('li');
+  for (let i = 0; i < removerTudo.length; i += 1) {
+    listaTarefas.removeChild(removerTudo[i]);
+  }
+});
