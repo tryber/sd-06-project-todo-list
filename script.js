@@ -56,6 +56,7 @@ buttonRemoveCompleted.addEventListener('click', function () {
   const completed = document.getElementsByClassName('completed');
   for (let item = 0; item < completed.length; item += 1) {
     taskList.removeChild(completed[item]);
+    item -= 1;
   }
 });
 
