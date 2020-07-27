@@ -37,6 +37,14 @@ window.onload = function (){
         listaTarefas.removeChild(eraseList[i]);
       }
     });
+
+    let removeFinishedButton = document.querySelector('#remover-finalizados');
+    removeFinishedButton.addEventListener('click', function(){
+      let removeList = document.querySelectorAll('.completed');
+      for (let i = 0 ; i < removeList.length ; i += 1){
+        listaTarefas.removeChild(removeList[i]);
+      }
+    });
   });
   
 }
