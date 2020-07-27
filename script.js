@@ -29,6 +29,14 @@ window.onload = function (){
       itemCompleted.className = '';
       itemCompleted.style.textDecoration = '';
     }
+
+    let eraseAllButton = document.querySelector('#apaga-tudo');
+    eraseAllButton.addEventListener('click', function(){
+      let eraseList = document.querySelectorAll('li');
+      for (let i = 0 ; i < eraseList.length ; i += 1){
+        listaTarefas.removeChild(eraseList[i]);
+      }
+    });
   });
   
 }
