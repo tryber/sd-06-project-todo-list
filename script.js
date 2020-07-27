@@ -10,7 +10,13 @@ enviarTexto.addEventListener('click', function (event) {
   listaTarefa.appendChild(novaTarefa);
 
   novaTarefa.addEventListener('click', function () {
-    novaTarefa.classList.toggle('selected');
+    const listaDeItens = document.getElementsByTagName('li');
+    for (let indice = 0; indice < listaDeItens.length; indice += 1) {
+      if (listaDeItens[indice] !== this) {
+        listaDeItens[indice].classList.remove('selected');
+      }
+    }
+    this.classList.toggle('selected');
   });
   novaTarefa.addEventListener('dblclick', function () {
     novaTarefa.classList.toggle('completed');
@@ -18,4 +24,3 @@ enviarTexto.addEventListener('click', function (event) {
 
   textoTarefa.value = '';
 });
-
