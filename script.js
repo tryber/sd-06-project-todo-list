@@ -16,3 +16,11 @@ selecao.addEventListener("click", function(){
     event.target.style.backgroundColor = "rgb(128,128,128)";
     event.target.classList.add("selected");
 })
+selecao.addEventListener("dblclick", function() {
+    console.log(event.target.className);
+    if (event.target.className === "item selected"){
+        event.target.classList.add("completed");
+    }else {
+        event.target.classList.remove("completed");
+    }
+})
