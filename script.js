@@ -3,6 +3,7 @@ const createTaskButton = document.querySelector('#criar-tarefa');
 const textInput = document.querySelector('#texto-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
 const removeAllTasksButton = document.querySelector('#apaga-tudo');
+const removeCompletedTasksButton = document.querySelector('#remover-finalizados');
 
 // Organizado em par função / evento
 
@@ -16,17 +17,17 @@ createTaskButton.addEventListener('click', createNewTask);
 
 function selectedTask() {
   const taskSelected = event.target;
-  const allTasks = document.querySelectorAll('#lista-tarefas li');
-  for (let i = 0; i < allTasks.length; i += 1) {
-    if (allTasks[i].classList.contains('selectedTask')) {
-      allTasks[i].classList.remove('selectedTask');
+  const allTasksArray = document.querySelectorAll('#lista-tarefas li');
+  for (let i = 0; i < allTasksArray.length; i += 1) {
+    if (allTasksArray[i].classList.contains('selectedTask')) {
+      allTasksArray[i].classList.remove('selectedTask');
     }
   }
   taskSelected.classList.add('selectedTask');
 }
 taskList.addEventListener('click', selectedTask);
 
-function scrachTask() {
+function scratchTask() {
   const doubleClickedTask = event.target;
   if (doubleClickedTask.classList.contains('completed')) {
     doubleClickedTask.classList.remove('completed');
@@ -34,12 +35,22 @@ function scrachTask() {
     doubleClickedTask.classList.add('completed');
   }
 }
-taskList.addEventListener('dblclick', scrachTask);
+taskList.addEventListener('dblclick', scratchTask);
 
 function removeAll() {
-  const allTasks = document.querySelector('#lista-tarefas');
-  while (allTasks.firstChild) {
-    allTasks.firstChild.remove();
+  const allTasksList = document.querySelector('#lista-tarefas');
+  while (allTasksList.firstChild) {
+    allTasksList.firstChild.remove();
   }
 }
 removeAllTasksButton.addEventListener('click', removeAll);
+
+function removeCompletedTasks() {
+  const allTasksArray = document.querySelectorAll('#lista-tarefas li');
+  for (let i = 0; i < allTasksArray.length; i += 1) {
+    if (allTasksArray[i].classList.contains('completed')) {
+      allTasksArray[i].remove();
+    }
+  }
+}
+removeCompletedTasksButton.addEventListener('click', removeCompletedTasks);
