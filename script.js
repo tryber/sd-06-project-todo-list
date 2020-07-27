@@ -3,6 +3,7 @@ const taskList = document.getElementById('lista-tarefas');
 const rmFinished = document.getElementById('remover-finalizados');
 const rmSelected = document.getElementById('remover-selecionado');
 const rmAll = document.getElementById('apaga-tudo');
+const saveTasks = document.getElementById('salvar-tarefas');
 
 newTask.addEventListener('click', function () {
     var textoTarefa = document.getElementById('texto-tarefa').value;
@@ -14,10 +15,10 @@ newTask.addEventListener('click', function () {
 });
 
 taskList.addEventListener('click', function(event) {
-    const li = document.getElementsByTagName('li');
-    for (let i = 0; i < li.length; i += 1) {
-        if (li[i].style.backgroundColor === 'rgb(128, 128, 128)') {
-            li[i].style.backgroundColor = 'transparent';
+    const aux = document.getElementsByTagName('li');
+    for (let i = 0; i < aux.length; i += 1) {
+        if (aux[i].style.backgroundColor === 'rgb(128, 128, 128)') {
+            aux[i].style.backgroundColor = 'transparent';
         } 
     }
     event.target.style.backgroundColor = 'rgb(128, 128, 128)';
@@ -54,6 +55,9 @@ rmAll.addEventListener('click', function() {
     }
    
 });
+
+
+
 
 
 
