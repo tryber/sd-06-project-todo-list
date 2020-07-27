@@ -6,6 +6,7 @@ const removeCompletedTasksButton = document.querySelector('#remover-finalizados'
 const saveTaskListButton = document.querySelector('#salvar-tarefas');
 const moveUpButton = document.querySelector('#mover-cima');
 const moveDownButton = document.querySelector('#mover-baixo');
+const removeSelectedTaskButton = document.querySelector('#remover-selecionado');
 
 
 // Organizado em par função / evento
@@ -114,3 +115,13 @@ function moveDown() {
   }
 }
 moveDownButton.addEventListener('click', moveDown);
+
+function removeSelectedTask() {
+  const allTasksArray = document.querySelectorAll('#lista-tarefas li');
+  for (let i = 0; i < allTasksArray.length; i += 1) {
+    if (allTasksArray[i].classList.contains('selectedTask')) {
+      allTasksArray[i].remove();
+    }
+  }
+}
+removeSelectedTaskButton.addEventListener('click', removeSelectedTask);
