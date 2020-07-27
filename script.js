@@ -17,14 +17,26 @@ function readCreateItem(textCopied,list) {
   textCopied.value = '';
 }
 
-function createListItem(button,textOrigin,action,list) {
-  button.addEventListener('click',function () {
-    action(textOrigin,list);
-  })
+function removeItems(listaTarefa){
+  while(listaTarefa.firstChild) {
+    listaTarefa.removeChild(listaTarefa.firstChild);
+  }
 }
 
-butao = $('#criar-tarefa');
+
+
+butaoCriar = $('#criar-tarefa');
 textoDigitado = $('#texto-tarefa');
 listaTarefa = $('#lista-tarefas');
+butaoApaga = $('#apaga-tudo');
 
-createListItem(butao,textoDigitado,readCreateItem,listaTarefa);
+
+
+
+butaoCriar.addEventListener('click', function () {
+  readCreateItem(textoDigitado,listaTarefa);
+})
+
+butaoApaga.addEventListener('click',function() {
+  removeItems(listaTarefa);
+})
