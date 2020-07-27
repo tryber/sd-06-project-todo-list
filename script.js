@@ -55,9 +55,18 @@ function color () {
 
 let deleteButton = document.getElementById('apaga-tudo');
 let listToDelete = document.getElementsByTagName('li');
-console.log(listToDelete)
 deleteButton.addEventListener('click',function(){
     while (listToDelete.length > 0){
         document.getElementsByTagName('li')[0].remove();
     }
 });
+
+let deleteDoneButton = document.getElementById('remover-finalizados');
+let itemsToDelete = document.getElementsByClassName('completed');
+console.log(itemsToDelete);
+deleteDoneButton.addEventListener('click',function(){
+    while (itemsToDelete.length > 0){
+        document.getElementsByClassName('completed')[0].remove();
+    }
+});
+
