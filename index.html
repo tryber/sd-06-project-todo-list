@@ -12,28 +12,13 @@
 </head>
 <body>
     <header>
-        Minha Lista de Tarefas
+        <h1>Minha Lista de Tarefas</h1>
     </header>
-    <p id="funcionamento">
-        Clique duas vezes em um item para marcá-lo como completo
-    </p>
+    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
     <form id="formulario">
     <input id="texto-tarefa">
     </form>
     <ol id="lista-tarefas"></ol>
     <button id="criar-tarefa">Criar Tarefa</button>
-
-    <script>
-        let form = document.getElementById('formulario');
-        let textoDaLinha=[];
-        form.addEventListener('submit',function(){textoDaLinha.push()})
-        let criarTarefa = document.getElementById("criar-tarefa");
-        criarTarefa.addEventListener('click',function(){
-            let criadorDeLinha = document.createElement("li");
-            criadorDeLinha.innerHTML = textoDaLinha[textoDaLinha.length];
-            push()
-            })
-    </script>
-    
 </body>
 </html>
