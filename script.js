@@ -4,6 +4,9 @@ const taskList = document.querySelector('#lista-tarefas');
 const removeAllTasksButton = document.querySelector('#apaga-tudo');
 const removeCompletedTasksButton = document.querySelector('#remover-finalizados');
 const saveTaskListButton = document.querySelector('#salvar-tarefas');
+const moveUpButton = document.querySelector('#mover-cima');
+const moveDownButton = document.querySelector('#mover-baixo');
+
 
 // Organizado em par função / evento
 
@@ -66,3 +69,48 @@ function recoverSavedTasks() {
   document.querySelector('#lista-tarefas').innerHTML = localStorage.getItem('List of all Tasks');
 }
 window.onload = recoverSavedTasks;
+
+function selectedTasksCount() {
+  let selectedTasksCounter = 0;
+  const allTasksArray = document.querySelectorAll('#lista-tarefas li');
+  for (let i = 0; i < allTasksArray.length; i += 1) {
+    if (allTasksArray[i].classList.contains('selectedTask')) {
+      selectedTasksCounter += 1;
+    }
+  }
+  return selectedTasksCounter;
+}
+
+function moveUp() {
+  if (selectedTasksCount() !== 1) {
+    alert('Select a task to move up!');
+  } else {
+    const taskSelected = document.getElementsByClassName('selectedTask')[0];
+    if (taskSelected.previousElementSibling !== null) {
+      const previousItem = taskSelected.previousElementSibling;
+      const textPreviousItem = previousItem.innerHTML;
+      previousItem.innerHTML = taskSelected.innerHTML;
+      taskSelected.innerHTML = textPreviousItem;
+      taskSelected.classList.remove('selectedTask');
+      previousItem.classList.add('selectedTask');
+    }
+  }
+}
+moveUpButton.addEventListener('click', moveUp);
+
+function moveDown() {
+  if (selectedTasksCount() !== 1) {
+    alert('Select a task to move down!');
+  } else {
+    const taskSelected = document.getElementsByClassName('selectedTask')[0];
+    if (taskSelected.nextElementSibling !== null) {
+      const nextItem = taskSelected.nextElementSibling;
+      const textNextItem = nextItem.innerHTML;
+      nextItem.innerHTML = taskSelected.innerHTML;
+      taskSelected.innerHTML = textNextItem;
+      taskSelected.classList.remove('selectedTask');
+      nextItem.classList.add('selectedTask');
+    }
+  }
+}
+moveDownButton.addEventListener('click', moveDown);
