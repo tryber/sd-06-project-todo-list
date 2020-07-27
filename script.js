@@ -1,30 +1,38 @@
-// Passar o highlighter para a função que cria a li
 
 const elementBtnAddTask = document.getElementById('criar-tarefa');
 elementBtnAddTask.addEventListener('click', function() {
-  const taskName = getTaskName();
+  const taskName = getTaskNameFromInput();
   const list = getOlElement();
-  insertTask(list, taskName);
+  insertTaskOnList(taskName, list);
   clearInput();
 });
 
-function insertTask(list, taskName) {
-  const listItem = document.createElement('li');
-  listItem.innerText = taskName;
-  taskHighlighter(listItem);
-  list.appendChild(listItem);
-}
-
-function getOlElement() {
-  const elementOlTaskList = document.getElementById('lista-tarefas');
-  return elementOlTaskList;
-
-}
-
-function getTaskName() {
+function getTaskNameFromInput() {
   const elementInputTaskName = document.getElementById('texto-tarefa');
   const taskName = elementInputTaskName.value;
   return taskName;
+}
+function getOlElement() {
+  const elementOlTaskList = document.getElementById('lista-tarefas');
+  return elementOlTaskList;
+}
+
+function taskHighlighter(task, list) {
+  task.addEventListener('click', function() {
+    // Removes grey background style from all other tasks
+    for (i = 0; i < list.children.length; i += 1) {
+      list.children[i].classList.remove('grey-background');
+    }
+    // Add grey background style to selected task
+    task.classList.add('grey-background');
+  });
+}
+
+function insertTaskOnList(taskName, list) {
+  const task = document.createElement('li');
+  task.innerText = taskName;
+  taskHighlighter(task, list);
+  list.appendChild(task);
 }
 
 function clearInput() {
@@ -32,8 +40,3 @@ function clearInput() {
   elementInputTaskName.value = '';  
 }
 
-function taskHighlighter(task) {
-  task.addEventListener('click', function() {
-    task.classList.add('grey-background');
-  });
-}
