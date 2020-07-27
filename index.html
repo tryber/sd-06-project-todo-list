@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{height:40px;
+        width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Minha Lista de Tarefas
+    </header>
+    <p id="funcionamento">
+        Clique duas vezes em um item para marcá-lo como completo
+    </p>
+    <form id="formulario">
+    <input id="texto-tarefa">
+    </form>
+    <ol id="lista-tarefas"></ol>
+    <button id="criar-tarefa">Criar Tarefa</button>
+
+    <script>
+        let form = document.getElementById('formulario');
+        let textoDaLinha=[];
+        form.addEventListener('submit',function(){textoDaLinha.push()})
+        let criarTarefa = document.getElementById("criar-tarefa");
+        criarTarefa.addEventListener('click',function(){
+            let criadorDeLinha = document.createElement("li");
+            criadorDeLinha.innerHTML = textoDaLinha[textoDaLinha.length];
+            push()
+            })
+    </script>
+    
+</body>
+</html>
