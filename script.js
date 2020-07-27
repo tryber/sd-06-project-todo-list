@@ -1,3 +1,6 @@
+// window.onload = function() {
+
+// }
 /* Função para adicionar uma nova tarefa */
 const task = document.getElementById('texto-tarefa');
 const btnCreateTask = document.getElementById('criar-tarefa');
@@ -63,3 +66,14 @@ function deleteFinished() {
   }
 }
 btnRemoveFinished.addEventListener('click', deleteFinished);
+
+/* Função para salvar lista */
+/* Função incompleta */
+const btnSaveList = document.getElementById('salvar-tarefas');
+function saveList() {
+  for(let i = 0; i < taskList.length; i++){
+    alert('entrou');
+    console.log(taskList[i]);
+  }
+}
+btnSaveList.addEventListener('click', saveList);
