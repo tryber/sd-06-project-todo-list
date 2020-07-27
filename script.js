@@ -20,5 +20,3 @@ function removeAllTasks() {
 
 const removeAllTasksButton = document.getElementById('apaga-tudo');
 removeAllTasksButton.addEventListener('click', removeAllTasks);
-
-
