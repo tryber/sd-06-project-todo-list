@@ -1,6 +1,7 @@
 const enviarTexto = document.querySelector('#criar-tarefa');
 const listaTarefa = document.querySelector('#lista-tarefas');
 const textoTarefa = document.querySelector('#texto-tarefa');
+const apagaLista = document.querySelector('#apaga-tudo');
 
 enviarTexto.addEventListener('click', function (event) {
   event.preventDefault();
@@ -23,4 +24,11 @@ enviarTexto.addEventListener('click', function (event) {
   });
 
   textoTarefa.value = '';
+});
+
+apagaLista.addEventListener('click', function () {
+  listaTarefa.innerHTML = '';
+  // if (listaTarefa.childElementCount > 0) {
+  //   listaTarefa.removeChild(listaTarefa.childNodes[0])
+  // } --> Apaga o primeiro [0]
 });
