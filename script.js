@@ -55,6 +55,16 @@ deleteButton.addEventListener('click',function(){
     }
 });
 
+let deleteButton2 = document.getElementById('remover-selecionado');
+let listToDelete2 = document.getElementsByTagName('li');
+deleteButton2.addEventListener('click',function(event){
+    for(let i = 0 ; i < listToDelete2.length ; i+=1){
+        if(listToDelete2[i].style.backgroundColor === 'rgb(128, 128, 128)'){
+        document.getElementsByTagName('li')[i].remove();
+        }
+    }
+});
+
 let deleteDoneButton = document.getElementById('remover-finalizados');
 let itemsToDelete = document.getElementsByClassName('completed');
 deleteDoneButton.addEventListener('click',function(){
