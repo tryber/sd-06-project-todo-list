@@ -1,15 +1,17 @@
+// Passar o highlighter para a função que cria a li
+
 const elementBtnAddTask = document.getElementById('criar-tarefa');
 elementBtnAddTask.addEventListener('click', function() {
   const taskName = getTaskName();
   const list = getOlElement();
   insertTask(list, taskName);
   clearInput();
-  taskHighlighter();
 });
 
 function insertTask(list, taskName) {
   const listItem = document.createElement('li');
   listItem.innerText = taskName;
+  taskHighlighter(listItem);
   list.appendChild(listItem);
 }
 
@@ -30,13 +32,8 @@ function clearInput() {
   elementInputTaskName.value = '';  
 }
 
-function taskHighlighter() {
-  const elementOlTaskList = getOlElement();
-  const taskElementsList = elementOlTaskList.children;
-  for (index = 0; index < taskElementsList.length; index += 1) {
-    const taskElement = taskElementsList[index];
-    taskElement.addEventListener('click', function() {
-      taskElement.classList.add('grey-background');
-    });
-  }
+function taskHighlighter(task) {
+  task.addEventListener('click', function() {
+    task.classList.add('grey-background');
+  });
 }
