@@ -59,7 +59,6 @@ buttonSaveTaskList.addEventListener('click', function () {
   for (let item = 0; item < list.length; item += 1) {
     localStorage.setItem(item, list[item].innerHTML);
     localStorage.setItem(list[item].innerText, list[item].className);
-    console.log(list[item]);
   }
 });
 
