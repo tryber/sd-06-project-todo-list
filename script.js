@@ -4,7 +4,9 @@ elementBtnAddTask.addEventListener('click', function() {
   const list = getOlElement();
   insertTask(list, taskName);
   clearInput();
+  markTaskIfClicked();
 });
+
 
 
 function insertTask(list, taskName) {
@@ -30,3 +32,13 @@ function clearInput() {
   elementInputTaskName.value = '';  
 }
 
+function markTaskIfClicked() {
+  const elementOlTaskList = getOlElement();
+  const taskElementsList = elementOlTaskList.children;
+  for (index = 0; index < taskElementsList.length; index += 1) {
+    const taskElement = taskElementsList[index];
+    taskElement.addEventListener('click', function() {
+      taskElement.classList.add('grey-background');
+    });
+  }
+}
