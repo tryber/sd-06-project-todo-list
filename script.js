@@ -68,7 +68,7 @@ function deleteFinished() {
 btnRemoveFinished.addEventListener('click', deleteFinished);
 
 /* Função para salvar lista */
-/* Função incompleta */
+/* Função ainda não finalizada*/
 const btnSaveList = document.getElementById('salvar-tarefas');
 function saveList() {
   for(let i = 0; i < taskList.length; i++){
