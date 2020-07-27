@@ -2,6 +2,7 @@ const buttonCreateTask = document.getElementById('criar-tarefa');
 const taskList = document.getElementById('lista-tarefas');
 const buttonClearTaskList = document.getElementById('apaga-tudo');
 const buttonRemoveCompleted = document.getElementById('remover-finalizados');
+const buttonRemoveSelected = document.getElementById('remover-selecionado');
 const buttonSaveTaskList = document.getElementById('salvar-tarefas');
 const moveUpButton = document.getElementById('mover-cima');
 const moveDownButton = document.getElementById('mover-baixo');
@@ -79,13 +80,13 @@ moveUpButton.addEventListener('click', function () {
       const aux = tasks[i].innerText;
       const auxClass = tasks[i].className;
       tasks[i].innerText = tasks[i - 1].innerText;
+      tasks[i].className = tasks[i - 1].className;
       tasks[i - 1].innerText = aux;
       tasks[i - 1].className = auxClass;
       tasks[i - 1].style.backgroundColor = 'rgb(128,128,128)';
       tasks[i - 1].id = 'isSelected';
       tasks[i].style.backgroundColor = 'transparent';
       tasks[i].id = 'none';
-      tasks[i].className = 'none';
     }
   }
 });
@@ -97,16 +98,25 @@ moveDownButton.addEventListener('click', function () {
       const aux = tasks[i].innerText;
       const auxClass = tasks[i].className;
       tasks[i].innerText = tasks[i + 1].innerText;
+      tasks[i].className = tasks[i + 1].className;
       tasks[i + 1].innerText = aux;
       tasks[i + 1].className = auxClass;
       tasks[i + 1].style.backgroundColor = 'rgb(128,128,128)';
-      tasks[i + 1].id = 'isSelected';      
+      tasks[i + 1].id = 'isSelected';
       tasks[i].style.backgroundColor = 'transparent';
       tasks[i].id = 'none';
-      tasks[i].className = 'none';
     }
   }
 });
+
+buttonRemoveSelected.addEventListener('click', function () {
+  const list = document.getElementsByTagName('li');
+  for (let line = 0; line < list.length; line += 1) {
+    if (list[line].id === 'isSelected') {
+      list[line].remove();
+    }
+  }
+})
 
 function loadList() {
   for (let i = 0; i < (localStorage.length / 2); i += 1) {
