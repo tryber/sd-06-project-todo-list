@@ -13,4 +13,11 @@ btn.addEventListener('click', function () {
     }
     li.style.backgroundColor = 'rgb(128, 128, 128)';
   });
+  li.addEventListener('dblclick', function () {
+    if (li.className === '') {
+      li.className = 'completed';
+    } else {
+      li.className = '';
+    }
+  });
 });

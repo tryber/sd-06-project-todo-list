@@ -2,3 +2,7 @@ p {
   color: dimgray;
   font-size: small;
 }
+
+.completed {
+  text-decoration: line-through;
+}
