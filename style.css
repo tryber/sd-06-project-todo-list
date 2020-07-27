@@ -1,0 +1,10 @@
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+    text-align: center;
+    width:400px;
+    display: flex;
+    flex-direction: column;
+}
