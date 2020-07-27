@@ -9,15 +9,12 @@ window.onload = function () {
     listaElemento.innerText = textoInput;
     document.querySelector('#lista-tarefas').appendChild(listaElemento);
   })
-
   //Ao fazer click  num elemento da lista ele coloca fundo cinzas
   let listaColor = document.querySelector('#lista-tarefas');
   listaColor.addEventListener('click', function(event) {
     let lista = event.target;
     lista.className = "grey"; 
   })
-
-
   //Botao para apagar tudo o conteudo da lista 
   let botaoApagar = document.querySelector('#apaga-tudo');
   botaoApagar.addEventListener('click', function() {
@@ -27,5 +24,4 @@ window.onload = function () {
       lista.removeChild(lista.children[0]);
     }
   })
-
 }
