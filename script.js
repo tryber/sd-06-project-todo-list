@@ -10,11 +10,11 @@ addTaskButton.addEventListener('click', function () {
 
   li.addEventListener('click', function (event) {
     if (!currentLi) {
-      event.path[0].className = 'selected';
+      event.target.className = 'selected';
       currentLi = li;
     } else {
       currentLi.classList.remove('selected');
-      currentLi = event.path[0];
+      currentLi = event.target;
       currentLi.className = 'selected';
     }
   })
