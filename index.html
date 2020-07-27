@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        button{height:40px;
-        width: 100px;
+        button{
+            height:40px;
+            width: 100px;
+            border-radius: 20px;
+            background-color:skyblue;
         }
     </style>
 </head>
@@ -14,11 +17,24 @@
     <header>
         <h1>Minha Lista de Tarefas</h1>
         <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-        <form id="formulario">
-            <input id="texto-tarefa">
-        </form>
-        <ol id="lista-tarefas"></ol>
-        <button id="criar-tarefa">Criar Tarefa</button>
+        <input type="text" id="texto-tarefa">
+        <button id="criar-tarefa">Adicionar</button>
     </header>
+        <ol id="lista-tarefas"></ol>
+    <script>
+        function inicia(){
+            document.getElementById("criar-tarefa").addEventListener("click",function(){
+                let listaDeatividadesOl = document.getElementById("lista-tarefas");
+                let textoDigitado = document.getElementById("texto-tarefa");
+                let novaAtividade = document.createElement("li");
+                novaAtividade.textContent = textoDigitado.value;
+                listaDeatividadesOl.appendChild(novaAtividade);
+                textoDigitado.value = "";
+                textoDigitado.focus();
+                
+            });
+        }
+        window.addEventListener("load",inicia());
+    </script>
 </body>
 </html>
