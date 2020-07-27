@@ -7,3 +7,7 @@
 .incompleted {
     text-decoration: none;
 }
+
+.selected {
+    background-color: gray;
+  }
