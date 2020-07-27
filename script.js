@@ -1,13 +1,14 @@
-// declarando as variáveis e os botões
+// declarando as variáveis globais e os botões
 const createTaskButton = document.querySelector('#criar-tarefa');
-const textInput = document.querySelector('#texto-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
 const removeAllTasksButton = document.querySelector('#apaga-tudo');
 const removeCompletedTasksButton = document.querySelector('#remover-finalizados');
+const saveTaskListButton = document.querySelector('#salvar-tarefas');
 
 // Organizado em par função / evento
 
 function createNewTask() {
+  const textInput = document.querySelector('#texto-tarefa');
   const newTask = document.createElement('li');
   newTask.innerHTML = textInput.value;
   taskList.appendChild(newTask);
@@ -54,3 +55,14 @@ function removeCompletedTasks() {
   }
 }
 removeCompletedTasksButton.addEventListener('click', removeCompletedTasks);
+
+function saveTasks() {
+  const allTasksList = document.querySelector('#lista-tarefas').innerHTML;
+  localStorage.setItem('List of all Tasks', allTasksList);
+}
+saveTaskListButton.addEventListener('click', saveTasks);
+
+function recoverSavedTasks() {
+  document.querySelector('#lista-tarefas').innerHTML = localStorage.getItem('List of all Tasks');
+}
+window.onload = recoverSavedTasks;
