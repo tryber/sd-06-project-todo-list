@@ -6,16 +6,12 @@ const buttonRemoveSelected = document.getElementById('remover-selecionado');
 const buttonSaveTaskList = document.getElementById('salvar-tarefas');
 const moveUpButton = document.getElementById('mover-cima');
 const moveDownButton = document.getElementById('mover-baixo');
-let taskInput = '';
-let isTaskCompleted = false;
 
 buttonCreateTask.addEventListener('click', function () {
-  taskInput = document.getElementById('texto-tarefa').value;
+  const taskInput = document.getElementById('texto-tarefa').value;
   if (taskInput !== '') {
     const newLine = document.createElement('li');
     newLine.innerHTML = taskInput;
-    newLine.className = 'none';
-    newLine.id = 'none';
     taskList.appendChild(newLine);
     document.getElementById('texto-tarefa').value = '';
   } else {
@@ -36,12 +32,10 @@ taskList.addEventListener('click', function (event) {
 });
 
 taskList.addEventListener('dblclick', function (event) {
-  if (!isTaskCompleted) {
+  if (event.target.className !== 'completed') {
     event.target.className = 'completed';
-    isTaskCompleted = true;
-  } else if (isTaskCompleted) {
-    event.target.className = 'none';
-    isTaskCompleted = false;
+  } else {
+    event.target.className = '';
   }
 });
 
@@ -53,7 +47,7 @@ buttonClearTaskList.addEventListener('click', function () {
 });
 
 buttonRemoveCompleted.addEventListener('click', function () {
-  let completed = document.querySelectorAll('.completed');
+  const completed = document.querySelectorAll('.completed');
   for (let i = 0; i < completed.length; i += 1) {
     completed[i].remove();
   }
@@ -65,6 +59,7 @@ buttonSaveTaskList.addEventListener('click', function () {
   for (let item = 0; item < list.length; item += 1) {
     localStorage.setItem(item, list[item].innerHTML);
     localStorage.setItem(list[item].innerText, list[item].className);
+    console.log(list[item]);
   }
 });
 
