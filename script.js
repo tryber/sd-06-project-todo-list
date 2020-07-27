@@ -51,6 +51,7 @@ buttonRemoveCompleted.addEventListener('click', function () {
   for (let item = 0; item < list.length; item += 1) {
     if (list[item].className === 'completed') {
       list[item].remove();
+      item -= 1;
     }
   }
 });
@@ -60,7 +61,7 @@ buttonSaveTaskList.addEventListener('click', function () {
   const list = document.getElementsByTagName('li');
   for (let item = 0; item < list.length; item += 1) {
     localStorage.setItem(item, list[item].innerHTML);
-    localStorage.setItem(list[item].innerText+'-class', list[item].className);
+    localStorage.setItem(list[item].innerText, list[item].className);
   }
 });
 
@@ -68,9 +69,8 @@ function loadList() {
   for (let i = 0; i < (localStorage.length / 2); i += 1) {
     const localLine = document.createElement('li');
     localLine.innerText = localStorage.getItem(i);
-    localLine.className = localStorage.getItem(localLine.innerText+'-class');
+    localLine.className = localStorage.getItem(localLine.innerText);
     taskList.appendChild(localLine);
-    console.log(localLine);
   }
 }
 
