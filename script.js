@@ -54,13 +54,22 @@ function clearTasks() {
     }
 }
 
-
+function removeTasksCompleted() {
+    let allTasks = document.querySelectorAll('#lista-tarefas li');
+    for (let i = 0; i < allTasks.length; i += 1) {
+        if (allTasks[i].classList.contains('completed')) {
+            allTasks[i].remove();
+        }
+    }
+}
 
 
 buttonAdd.addEventListener('click', createTask);
 list.addEventListener('click', taskSelected);
 list.addEventListener('dblclick', completedTasks)
 eraseButton.addEventListener('click', clearTasks);
+removeCompletedButton.addEventListener('click', removeTasksCompleted);
+
 
 
 
