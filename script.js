@@ -28,3 +28,13 @@ apagaTudo.addEventListener('click', function () {
     listaTarefas.removeChild(removerTudo[i]);
   }
 });
+
+const apagaDbClick = document.getElementById('remover-finalizados');
+apagaDbClick.addEventListener('click', function () {
+  const removeDbClick = document.querySelectorAll('li');
+  for (let i = 0; i < removeDbClick.length; i += 1) {
+    if (removeDbClick[i].classList.contains('completed')) {
+      listaTarefas.removeChild(removeDbClick[i]);
+    }
+  }
+});
