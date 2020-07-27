@@ -19,10 +19,27 @@ function addLista () {
         } else {
             li.className = 'incompleted';
         }
-           
-        
-       
     });
+    var rmFinalizado = document.getElementById('remover-finalizados');
+    rmFinalizado.addEventListener('click', function () {
+        let aux = document.getElementsByClassName('completed');
+        for (let i = 0; i < aux.length; i += 1) {
+            document.getElementById('lista-tarefas').removeChild(aux[i]);
+        }
+
+    });
+    var rmSelecionado = document.getElementById('remover-selecionado');
+    rmSelecionado.addEventListener('click', function() {
+        let aux = document.getElementsByTagName('li');
+        for(let i = 0; i < aux.length; i += 1) {
+            if (aux[i].style.backgroundColor === 'rgb(128, 128, 128)') {
+                document.getElementById('lista-tarefas').removeChild(aux[i]);
+            }
+        }
+        
+
+    });
+
 }
 
 
@@ -30,6 +47,8 @@ function addLista () {
 
 var criarTarefa = document.getElementById('criar-tarefa');
 criarTarefa.addEventListener('click', addLista);
+
+
 
 
 
