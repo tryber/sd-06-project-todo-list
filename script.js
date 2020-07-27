@@ -77,12 +77,15 @@ moveUpButton.addEventListener('click', function () {
   for (let i = 1; i < tasks.length; i += 1) {
     if (tasks[i].id === 'isSelected') {
       const aux = tasks[i].innerText;
+      const auxClass = tasks[i].className;
       tasks[i].innerText = tasks[i - 1].innerText;
       tasks[i - 1].innerText = aux;
+      tasks[i - 1].className = auxClass;
       tasks[i - 1].style.backgroundColor = 'rgb(128,128,128)';
       tasks[i - 1].id = 'isSelected';
       tasks[i].style.backgroundColor = 'transparent';
       tasks[i].id = 'none';
+      tasks[i].className = 'none';
     }
   }
 });
@@ -92,12 +95,15 @@ moveDownButton.addEventListener('click', function () {
   for (let i = tasks.length - 2; i >= 0; i -= 1) {
     if (tasks[i].id === 'isSelected') {
       const aux = tasks[i].innerText;
+      const auxClass = tasks[i].className;
       tasks[i].innerText = tasks[i + 1].innerText;
       tasks[i + 1].innerText = aux;
+      tasks[i + 1].className = auxClass;
       tasks[i + 1].style.backgroundColor = 'rgb(128,128,128)';
-      tasks[i + 1].id = 'isSelected';
+      tasks[i + 1].id = 'isSelected';      
       tasks[i].style.backgroundColor = 'transparent';
       tasks[i].id = 'none';
+      tasks[i].className = 'none';
     }
   }
 });
