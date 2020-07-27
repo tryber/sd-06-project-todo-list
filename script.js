@@ -9,7 +9,12 @@ botao.addEventListener("click", function() {
 })
 
 window.onclick = function(){
+    if (document.querySelector(".selected") != null) {
+        document.querySelector(".selected").style.backgroundColor = "white";
+        document.querySelector(".selected").classList.remove("selected");
+    }
     if (event.target.className === "item") {
         event.target.style.backgroundColor = "rgb(128,128,128)";
+        event.target.classList.add("selected");        
     }
 }
