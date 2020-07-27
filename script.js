@@ -10,8 +10,7 @@ adicionar.addEventListener('click', () => {
     tarefa.value = '';
 });
 
-lista.addEventListener('click', e => {
-    e.preventDefault();
+lista.addEventListener('click', ()  => {
     let itemLista = document.querySelectorAll('.item');
     itemLista.forEach(item =>  {
         item.addEventListener('click', () => {
@@ -23,12 +22,11 @@ lista.addEventListener('click', e => {
     })
 });
 
-lista.addEventListener('dblclick', e => {
-    e.preventDefault();
+lista.addEventListener('dblclick', () => {
     let itemLista = document.querySelectorAll('.item');
     itemLista.forEach(item =>  {
         item.addEventListener('dblclick', () => {
-            item.classList.toggle('double-click');
+            item.classList.toggle('completed');
         })
     })
 });
