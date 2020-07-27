@@ -1,6 +1,7 @@
 const tarefa = document.getElementById('texto-tarefa');
 const adicionar = document.getElementById('criar-tarefa');
 const lista = document.getElementById('lista-tarefas');
+const deletarTudo = document.getElementById('apaga-tudo');
 
 adicionar.addEventListener('click', () => {
     let elemento = document.createElement('li');
@@ -20,6 +21,11 @@ adicionar.addEventListener('click', () => {
     itemLista.forEach(item =>  {
         item.addEventListener('dblclick', () => {
             item.classList.toggle('completed');
+        })
+    })
+    deletarTudo.addEventListener('click', () =>{
+        itemLista.forEach(item => {
+            lista.removeChild(elemento)
         })
     })
 });
