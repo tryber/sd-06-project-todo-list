@@ -55,20 +55,19 @@ buttonRemoveCompleted.addEventListener('click', function () {
 });
 
 buttonSaveTaskList.addEventListener('click', function () {
+  localStorage.clear();
   const list = document.getElementsByTagName('li');
   for (let item = 0; item < list.length; item += 1) {
     localStorage.setItem(item, list[item].innerHTML);
   }
 });
 
-window.onload = loadList();
-
 function loadList() {
-  for (let i = 0; i < localStorage.length; i+= 1) {
-    let localLine = document.createElement('li');
+  for (let i = 0; i < localStorage.length; i += 1) {
+    const localLine = document.createElement('li');
     localLine.innerText = localStorage.getItem(i);
-    // localLine.className = '';
-    // console.log(localStorage.getItem(i).className);
     taskList.appendChild(localLine);
   }
 }
+
+window.onload = loadList();
