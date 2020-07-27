@@ -7,7 +7,7 @@ function initialLoad () {
 
 let addButton = document.querySelector("#criar-tarefa");
 addButton.addEventListener('click',function () {
-    let myList = document.querySelector("#lista-tarefa");
+    let myList = document.querySelector("#lista-tarefas");
     let myItem = document.createElement('li');
     myItem.className = 'itemList';
     myItem.innerText = document.getElementById('texto-tarefa').value;
