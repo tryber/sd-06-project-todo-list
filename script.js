@@ -1,15 +1,9 @@
 function initialLoad () {
-    localStorage.clear();
-    createTask();
-    
-    //localStorage.isColored = true;
+   //localStorage.clear();
+   createTask();
+   saveList();
 }
-
 window.onload = initialLoad;
-
-
-
-
 
 function createTask(){
 let addButton = document.querySelector("#criar-tarefa");
@@ -63,10 +57,44 @@ deleteButton.addEventListener('click',function(){
 
 let deleteDoneButton = document.getElementById('remover-finalizados');
 let itemsToDelete = document.getElementsByClassName('completed');
-console.log(itemsToDelete);
 deleteDoneButton.addEventListener('click',function(){
     while (itemsToDelete.length > 0){
         document.getElementsByClassName('completed')[0].remove();
     }
 });
 
+let saveTasksButton = document.getElementById('salvar-tarefas');
+let listToSave = document.getElementsByTagName('li');
+saveTasksButton.addEventListener('click',saveTask);
+
+function clearLocalStorage(){
+    localStorage.clear();
+}
+function saveTask(){
+    clearLocalStorage();
+    for (let i=0 ; i<listToSave.length ; i+=1){
+       localStorage.setItem([i],listToSave[i].innerText);
+    }
+}
+
+function saveList(){
+    for(let i = 0 ; i < localStorage.length ; i += 1){
+        let myList = document.querySelector("#lista-tarefas");
+        let myItem = document.createElement('li');
+        myItem.id = "itemListID";
+        myItem.className = 'itemList'
+        myItem.innerText =  localStorage.getItem(i , localStorage[i]);
+        myItem.addEventListener('dblclick',function(){
+            switch (myItem.className){
+                case 'completed':
+                    myItem.className='itemList';
+                break;
+                case 'itemList':
+                    myItem.className='completed';
+                break;
+            }
+        });     
+        myList.appendChild(myItem);
+        color(); 
+    }
+}
