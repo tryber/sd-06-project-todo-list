@@ -5,6 +5,9 @@ window.onload = function () {
     const tagli = document.createElement('li');
     tagli.innerHTML = areaTexto;
     document.querySelector('#lista-tarefas').appendChild(tagli);
-    document.getElementById('texto-tarefa').value = ' ';
   });
+
+  botao.addEventListener('click', function () {
+    document.getElementById('texto-tarefa').value = '';
+  })
 };
