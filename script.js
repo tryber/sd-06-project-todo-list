@@ -1,9 +1,12 @@
 function initialLoad () {
-    //localStorage.clear();
+    localStorage.clear();
+    
     //localStorage.isColored = true;
 }
 
-//window.onload = initialLoad;
+window.onload = initialLoad;
+
+
 
 let addButton = document.querySelector("#criar-tarefa");
 addButton.addEventListener('click',function () {
@@ -14,6 +17,7 @@ addButton.addEventListener('click',function () {
     myList.appendChild(myItem);     
     clearInput();   
     color();
+    
 });
 
 function clearInput () {
@@ -23,17 +27,22 @@ function clearInput () {
 function color () {
     let myListItem = document.getElementsByClassName('itemList');
     for (let i = 0 ; i < myListItem.length ; i += 1){
+        
         myListItem[i].addEventListener('click',function(){
-            if(localStorage.isColored == "true"){
             myListItem[i].style.backgroundColor = 'rgb(128, 128, 128)';
-            for (let x in myListItem) {
+        
+            for (let x = 0 ; x < myListItem.length ; x += 1) {
                 if (x != i) {
-                    myListItem[x].style.backgroundColor = "white";
+                    myListItem[x].style.backgroundColor = 'transparent';
                 }
            }
-           localStorage.isColored = "false";
-        }
         });
     }
+    
 }
+
+
+
+
+    
 
