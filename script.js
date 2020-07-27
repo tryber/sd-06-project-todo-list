@@ -53,11 +53,9 @@ buttonClearTaskList.addEventListener('click', function () {
 });
 
 buttonRemoveCompleted.addEventListener('click', function () {
-  const list = document.querySelectorAll('li');
-  for (let item = 0; item < list.length; item += 1) {
-    if (list[item].className === 'completed') {
-      list[item].remove();
-    }
+  let completed = document.querySelectorAll('.completed');
+  for (let i = 0; i < completed.length; i += 1) {
+    completed[i].remove();
   }
 });
 
