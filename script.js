@@ -17,16 +17,14 @@ function readCreateItem(textCopied,list) {
   textCopied.value = '';
 }
 
-function createListItem(button,textOrigin,action,list){
+function createListItem(button,textOrigin,action,list) {
   button.addEventListener('click',function () {
     action(textOrigin,list);
   })
-
 }
 
-butao =$('#criar-tarefa');
+butao = $('#criar-tarefa');
 textoDigitado = $('#texto-tarefa');
 listaTarefa = $('#lista-tarefas');
-
 
 createListItem(butao,textoDigitado,readCreateItem,listaTarefa);
