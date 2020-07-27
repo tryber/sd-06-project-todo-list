@@ -24,3 +24,11 @@ selecao.addEventListener("dblclick", function() {
         event.target.classList.remove("completed");
     }
 })
+const apagar = document.querySelector("#apaga-tudo");
+apagar.addEventListener("click", function(){
+    if (selecao.childNodes.length > 0){
+        for (let i = 0; i < selecao.childNodes.length; i++) {
+            selecao.remove(selecao.childNodes[i]);
+        }
+    }
+})
