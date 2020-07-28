@@ -1,0 +1,33 @@
+    body {
+        background-color: rgb(138, 204, 135);
+    }
+    h1 {
+        text-align: center;
+    }
+    nav {
+        text-align: center;
+    }
+    
+    ol {
+        text-align: center;
+    }
+
+    p {
+        font-size: 12px;
+    }
+  
+    .selected {
+        background-color: rgb(255, 0, 0);
+    }
+  
+    .completed {
+        text-decoration: line-through;
+    }
+  
+    ol {
+        background-color: sandybrown;
+        border: 1px rgb(128 , 128 , 128) solid;
+        margin-top: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
