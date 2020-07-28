@@ -25,11 +25,9 @@ selecao.addEventListener("dblclick", function() {
 })
 const apagar = document.querySelector("#apaga-tudo");
 apagar.addEventListener("click", function(){
-    if (selecao.childNodes.length > 0){
-        for (let i = 0; i < selecao.childNodes.length; i++) {
-            selecao.remove(selecao.childNodes[i]);
-        }
-    }
+    while (selecao.firstChild) {
+        selecao.removeChild(selecao.firstChild);
+      }
 })
 const apagarFinalizados = document.querySelector("#remover-finalizados");
 apagarFinalizados.addEventListener("click", function(){
@@ -65,3 +63,23 @@ if (localStorage.getItem('items') !==  null){
         document.querySelector("#lista-tarefas").appendChild(item);
     }
 }
+const cima = document.querySelector("#mover-cima");
+cima.addEventListener("click", function(){
+    let selecionado = document.querySelector(".selected");
+    let pai = selecionado.parentNode;
+    if (selecionado !== pai.firstChild){
+        let elementoCima = selecionado.previousElementSibling;
+        pai.insertBefore(selecionado, elementoCima);
+    }
+})
+const baixo = document.querySelector("#mover-baixo");
+baixo.addEventListener("click", function(){
+    let selecionado = document.querySelector(".selected");
+    let pai = selecionado.parentNode;
+    if (selecionado !== pai.lastChild){
+        let elementoBaixo = selecionado.nextElementSibling;
+        pai.insertBefore(selecionado, elementoBaixo.nextElementSibling);
+    }
+})
+
+
