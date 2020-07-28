@@ -17,7 +17,6 @@ selecao.addEventListener("click", function(){
     event.target.classList.add("selected");
 })
 selecao.addEventListener("dblclick", function() {
-    console.log(event.target.className);
     if (event.target.className === "item selected"){
         event.target.classList.add("completed");
     }else {
@@ -30,5 +29,12 @@ apagar.addEventListener("click", function(){
         for (let i = 0; i < selecao.childNodes.length; i++) {
             selecao.remove(selecao.childNodes[i]);
         }
+    }
+})
+const apagarFinalizados = document.querySelector("#remover-finalizados");
+apagarFinalizados.addEventListener("click", function(){
+    let completados = document.querySelectorAll(".completed");
+    for (let j = 0; j < completados.length; j++){
+        selecao.removeChild(completados[j]);
     }
 })
