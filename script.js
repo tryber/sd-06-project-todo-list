@@ -5,6 +5,7 @@ function newTask() {
   const novoItem = document.createElement("li");
   novoItem.innerHTML = caixaTexto.value;
   document.getElementById("lista-tarefas").appendChild(novoItem);
+  document.getElementById('texto-tarefa').value = "";
 }
 buttonNewTask = document.querySelector("#criar-tarefa");
 buttonNewTask.addEventListener("click", newTask)
