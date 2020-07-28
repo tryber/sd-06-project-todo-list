@@ -32,8 +32,7 @@ window.onload = function (){
   });
     let eraseAllButton = document.getElementById('apaga-tudo');
     eraseAllButton.addEventListener('click', function(){
-      console.log("AAAAAAAAAA");
-      let eraseList = document.getElementsByTagName('li');
+      let eraseList = document.querySelectorAll('li');
       console.log(eraseList);
       for (let i = 0 ; i < eraseList.length ; i += 1){
         listaTarefas.removeChild(eraseList[i]);
@@ -47,6 +46,5 @@ window.onload = function (){
         listaTarefas.removeChild(removeList[i]);
       }
     });
-  //});
   
 }
