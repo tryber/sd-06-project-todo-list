@@ -4,6 +4,15 @@ const rmFinished = document.getElementById('remover-finalizados');
 const rmSelected = document.getElementById('remover-selecionado');
 const rmAll = document.getElementById('apaga-tudo');
 const saveTasks = document.getElementById('salvar-tarefas');
+const iniList = localStorage.getItem('saveList');
+if (iniList) {
+    var list = document.getElementById('lista-tarefas');
+    for (let i = 0; i < iniList.length; i += 1) {
+        var li = document.createElement('li');
+        li.innerHTML = iniList[i];
+        list.appendChild(li);
+    }
+} 
 
 newTask.addEventListener('click', function () {
     var textoTarefa = document.getElementById('texto-tarefa').value;
@@ -55,6 +64,17 @@ rmAll.addEventListener('click', function() {
     }
    
 });
+
+saveTasks.addEventListener('click', function() {
+    let lStorage = [];
+    let aux = document.querySelectorAll('li');
+    for (let i = 0; i < aux.length; i +=1) {
+        lStorage.push(aux[i].value);
+    }
+    localStorage.setItem('saveList', lStorage);
+} )
+
+
 
 
 
