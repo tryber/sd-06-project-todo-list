@@ -21,29 +21,28 @@ const classeSelecionada = document.getElementsByClassName('selected');
 console.log(classeSelecionada.length);
 
 listaTarefa.addEventListener('click' , function(event){
-    if (event.target.classList.contains('tarefa') && classeSelecionada.length === 0){
-        event.target.classList.add('classeSelecionada');
-    }else{
-        event.target.classList.contains('tarefa') && classeSelecionada.length === 1
-    }
+  if (event.target.classList.contains('tarefa') && classeSelecionada.length === 0){
+    event.target.classList.add('classeSelecionada');
+  }else{
+    event.target.classList.contains('tarefa') && classeSelecionada.length === 1
+  }
     classeSelecionada[0].className = 'tarefa';
     event.target.classList.add('classeSelecionada');
 });
 
 listaTarefa.addEventListener('dbclick', function(event){
-    if (event.target.classList.contains('tarefa')){
-        event.target.className = 'completed';
-    }else{
-        event.target.className = 'tarefa';
-    }
+  if (event.target.classList.contains('tarefa')){
+    event.target.className = 'completed';
+  }else{
+    event.target.className = 'tarefa';
+  }
 });
 
 apagaTudo.addEventListener('click', function(){
-    numberOfTasks.innerHTML = '';
+  numberOfTasks.innerHTML = '';
 });
 
 removerFinalizados.addEventListener('click', function(){
 
 });
-
 }

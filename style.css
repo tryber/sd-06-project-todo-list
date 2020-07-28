@@ -1,60 +1,19 @@
-html, body{
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
+body, html {
+  height: 100%;
+  margin: 0;
+  width: 100%;
 }
 
-.completed{
-    text-decoration: line-through;
+.completed {
+  text-decoration: line-through;
 }
 
 .selected{
-    background-color: rgb(128, 128, 128);
+  background-color: rgb(128, 128, 128);
 }
 
-ol{
-    background-color: seagreen;
-    border: 1px solid rgb(128, 128, 128);
+ol {
+  background-color: seagreen;
+  border: 1px solid rgb(128, 128, 128);
 }
 
-#criar-tarefa{
-    background-color: blue;
-    border-radius: 20%;
-    border-bottom: groove;
-}
-
-#remover-selecionado{
-    background-color: red;
-    border-bottom: groove;
-    border-radius: 20%;
-}
-
-#mover-cima{
-    background-color: chocolate;
-    border-radius: 20%;
-    border-style: groove;
-}
-
-#mover-baixo{
-    background-color: chocolate;
-    border-radius: 20%;
-    border-bottom: groove
-}
-
-#apaga-tudo{
-    background-color: blue;
-    border-radius: 20%;
-    border-style: groove;
-}
-
-#remover-finalizados{
-    background-color: red;
-    border-radius: 20%;
-    border-style: groove;
-}
-
-#salvar-tarefas{
-    background-color: green;
-    border-radius: 20%;
-    border-style: groove;
-}
