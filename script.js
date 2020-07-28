@@ -28,9 +28,19 @@ window.onload = function () {
     if (event.target.classList.contains('task-iten')) {
       event.target.className = "completed"
     } else if (event.target.classList.contains('completed')) {
-      event.target.className = 'task-iten'
+      event.target.className = 'task-iten';
     }
-    
+  });
 
-  })
+  let clearAll = document.querySelector('#apaga-tudo')
+  let numberOfTasks = document.getElementById('lista-tarefas')
+  clearAll.addEventListener('click', function () {
+     numberOfTasks.innerHTML = '';
+  });
+
+  let clearCompleted = document.querySelector('#remover-finalizados');
+
+  clearCompleted.addEventListener('click', function () {
+      
+    });
 };

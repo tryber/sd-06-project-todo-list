@@ -9,3 +9,10 @@ p {
 .completed {
   text-decoration: line-through;
 }
+
+ol {
+  border: 1px rgb(128 , 128 , 128) solid;
+  margin-top: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
