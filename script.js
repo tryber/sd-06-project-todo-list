@@ -1,8 +1,7 @@
 
 const boxText = document.querySelector('#texto-tarefa');
-const liSelected = document.querySelector("#lista-tarefas");
-const buttonNewTask = document.querySelector("#criar-tarefa");
-const buttonClear = document.querySelector("#apaga-tudo");
+const buttonNewTask = document.querySelector('#criar-tarefa');
+const buttonClearAll = document.querySelector('#apaga-tudo');
 const listItem = document.getElementById('lista-tarefas');
 
 function newTask() {
@@ -11,23 +10,20 @@ function newTask() {
   document.getElementById("lista-tarefas").appendChild(novoItem);
   document.getElementById('texto-tarefa').value = "";
 }
-
 buttonNewTask.addEventListener("click", newTask);
 
-function clearAll() {
-  console.log("apagando");
-  document.getElementById('lista-tarefas').innerHTML = ''
+function completedItem(event){
+  const selectedItem = event.target;
+  if (selectedItem.classList.contains('selected')) {
+    selectedItem.classList.remove('selected');
+  }
+  if (selectedItem.classList.contains('completed')) {
+      selectedItem.classList.remove('completed');
+    } else {
+      selectedItem.classList.add('completed');
+    }
 }
-
-buttonClear.addEventListener("click", clearAll);
-
-// function selectLi(event) {
-//    console.log("chamou?")
-//    document.querySelector('selected').classList.remove('selected');
-//    event.target.classList.add('selected');
-// }
-
-// liSelected.addEventListener('click', selectLi)
+listItem.addEventListener("dblclick", completedItem);
 
 function selecionaItem(event) {
   const selectedItem = event.target;
@@ -40,4 +36,17 @@ function selecionaItem(event) {
   selectedItem.classList.add('selected');
 }
 listItem.addEventListener('click', selecionaItem)
+
+function clearAll() {
+  document.getElementById('lista-tarefas').innerHTML = '';
+}
+buttonClearAll.addEventListener("click", clearAll);
+
+
+
+const buttonClearChecked = document.querySelector('#remover-finalizados');
+function clearCheckedItems() {
+  document.querySelector('.completed').outerHTML = ''
+}
+buttonClearChecked.addEventListener("click", clearCheckedItems)
 
