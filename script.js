@@ -29,10 +29,12 @@ window.onload = function (){
       itemCompleted.className = '';
       itemCompleted.style.textDecoration = '';
     }
-
-    let eraseAllButton = document.querySelector('#apaga-tudo');
+  });
+    let eraseAllButton = document.getElementById('apaga-tudo');
     eraseAllButton.addEventListener('click', function(){
-      let eraseList = document.querySelectorAll('li');
+      console.log("AAAAAAAAAA");
+      let eraseList = document.getElementsByTagName('li');
+      console.log(eraseList);
       for (let i = 0 ; i < eraseList.length ; i += 1){
         listaTarefas.removeChild(eraseList[i]);
       }
@@ -45,6 +47,6 @@ window.onload = function (){
         listaTarefas.removeChild(removeList[i]);
       }
     });
-  });
+  //});
   
 }
