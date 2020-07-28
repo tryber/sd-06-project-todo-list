@@ -7,22 +7,22 @@
   <title>Document</title>
 </head>
 <body>
-  <header>Minha Lista de Tarefas</header>
+  <header><h1>Minha Lista de Tarefas</h1></header>
+  <div class="corpo">
+    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+    <nav class='entrada'>
+      <input id="texto-tarefa">
+      <button id="criar-tarefa">Enviar</button>
+    </nav>
+    <ol id="lista-tarefas"></ol>
 
-  <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-
-  <input id="texto-tarefa">
-  <button id="criar-tarefa">Enviar</button>
-
-  <ol id="lista-tarefas"></ol>
-
-  <button id="remover-selecionado">Apagar selecionado</button>
-  <button id="salvar-tarefas">Salvar Tarefas</button>
-  <button id="mover-cima">Subir</button>
-  <button id="mover-baixo">Descer</button>
-  <button id="remover-finalizados">Remover Finalizados</button>
-  <button id="apaga-tudo">Apaga Tudo</button>
-
+    <button id="remover-selecionado">Apagar selecionado</button>
+    <button id="mover-cima">Subir</button>
+    <button id="mover-baixo">Descer</button>
+    <button id="salvar-tarefas">Salvar Tarefas</button>
+    <button id="remover-finalizados">Remover Finalizados</button>
+    <button id="apaga-tudo">Apaga Tudo</button>
+  </div>
 
 
   <script src="script.js"></script>
