@@ -21,12 +21,5 @@ tarefaSelecionada.addEventListener('click', function() {
 
 tarefaSelecionada.addEventListener('dblclick', function () {
   let elementoSelecionado = event.target;
-  elementoSelecionado.classList.add('completed');
-})
-
-tarefaSelecionada.addEventListener('dblclick', function () {
-  elementoRiscado = document.querySelector('.completed');
-  if (event.target == elementoRiscado) {
-    elementoRiscado.classList.remove('.completed')
-  }
+  elementoSelecionado.classList.toggle('completed');
 })
