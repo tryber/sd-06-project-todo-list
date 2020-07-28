@@ -32,9 +32,12 @@ window.onload = function(){
     apagaTudo.addEventListener("click", function(){
         lista.innerHTML = "";
     })
-
     finalizados.addEventListener("click", function(){
-        
+        var finals = lista.querySelectorAll(".completed")
+        for(let i = 0; i < finals.length; i += 1){
+            lista.removeChild(finals[i])
+    
+        }
     })
 
 
