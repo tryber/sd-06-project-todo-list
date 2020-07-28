@@ -23,3 +23,9 @@ tarefaSelecionada.addEventListener('dblclick', function () {
   let elementoSelecionado = event.target;
   elementoSelecionado.classList.toggle('completed');
 })
+
+botaoApagar = document.querySelector('#apaga-tudo')
+
+botaoApagar.addEventListener('click', function () {
+  tarefaSelecionada.innerHTML = '';
+})
