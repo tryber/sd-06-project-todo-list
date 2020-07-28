@@ -14,3 +14,7 @@ p {
     margin: auto;
     padding: 10px;
 }
+
+ol li {
+    text-align: left;
+}
