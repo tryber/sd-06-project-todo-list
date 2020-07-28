@@ -26,11 +26,11 @@ list.addEventListener('click', function (event) {
       list.childNodes[i].style.backgroundColor = 'rgb(6, 133, 14)';
     }
   }
-  if (li.style.backgroundColor === 'rgb(128, 128, 128)') {
-    li.style.backgroundColor = 'rgb(6, 133, 14';
-  } else {
-    li.style.backgroundColor = 'rgb(128, 128, 128)';
-  }
+  // if (li.style.backgroundColor === 'rgb(128, 128, 128)') {
+    //li.style.backgroundColor = 'rgb(6, 133, 14)';
+// } else {
+  li.style.backgroundColor = 'rgb(128, 128, 128)';
+// }
 });
 
 list.addEventListener('dblclick', function (event) {
@@ -73,18 +73,18 @@ btnSalvarLista.addEventListener('click', function () {
 
 btnUp.addEventListener('click', function () {
   const lista = list.childNodes;
-  for (let i = 0; i < lista.length; i += 1) {
-    if (lista[i].style.backgroundColor === 'rgb(128, 128, 128)' && i !== 0) {
-      lista[i].parentNode.insertBefore(lista[i], lista[i - 1]);
+  for (let i = 1; i < lista.length; i += 1) {
+    if (lista[i].style.backgroundColor === 'rgb(128, 128, 128)') {
+     list.insertBefore(lista[i], lista[i - 1]);
     }
   }
 });
 
-btnDown.addEventListener('click', function () {
+btnDown.addEventListener('click', function (event) {
   const lista = list.childNodes;
-  for (let i = lista.length - 1; i >= 0; i -= 1) {
-    if (lista[i].style.backgroundColor === 'rgb(128, 128, 128)' && i !== lista.length - 1) {
-      lista[i].parentNode.insertBefore(lista[i + 1], lista[i]);
+  for (let i = lista.length - 2; i >= 0; i -= 1) {
+    if (lista[i].style.backgroundColor === 'rgb(128, 128, 128)') {
+      list.insertBefore(lista[i + 1], lista[i]);
     }
   }
 });
