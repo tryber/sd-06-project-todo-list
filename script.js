@@ -36,7 +36,19 @@ function color() {
         });
     }
 }
-       
+
+lista.className = 'itemList'
+lista.addEventListener('dblclick', function() {
+    switch (lista.className) {
+        case 'completed':
+            lista.className= 'itemList';
+        break;
+        case 'itemList':
+            lista.className= 'completed'; 
+        break       
+    }
+})
+     
    
 
 
