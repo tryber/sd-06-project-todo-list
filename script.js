@@ -65,20 +65,24 @@ if (localStorage.getItem('items') !==  null){
 }
 const cima = document.querySelector("#mover-cima");
 cima.addEventListener("click", function(){
-    let selecionado = document.querySelector(".selected");
-    let pai = selecionado.parentNode;
-    if (selecionado !== pai.firstChild && selecionado !== null){
-        let elementoCima = selecionado.previousElementSibling;
-        pai.insertBefore(selecionado, elementoCima);
+    if (document.querySelector(".selected") !== null){
+        let selecionado = document.querySelector(".selected");
+        let pai = selecionado.parentNode;
+        if (selecionado !== pai.firstChild){
+            let elementoCima = selecionado.previousElementSibling;
+            pai.insertBefore(selecionado, elementoCima);
+        }
     }
 })
 const baixo = document.querySelector("#mover-baixo");
 baixo.addEventListener("click", function(){
-    let selecionado = document.querySelector(".selected");
-    let pai = selecionado.parentNode;
-    if (selecionado !== pai.lastChild && selecionado !== null){
-        let elementoBaixo = selecionado.nextElementSibling;
-        pai.insertBefore(selecionado, elementoBaixo.nextElementSibling);
+    if (document.querySelector(".selected") !== null){
+        let selecionado = document.querySelector(".selected");
+        let pai = selecionado.parentNode;
+        if (selecionado !== pai.lastChild && selecionado !== null){
+            let elementoBaixo = selecionado.nextElementSibling;
+            pai.insertBefore(selecionado, elementoBaixo.nextElementSibling);
+        }
     }
 })
 const removerSelecionado = document.querySelector("#remover-selecionado");
