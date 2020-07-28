@@ -38,3 +38,27 @@ apagarFinalizados.addEventListener("click", function(){
         selecao.removeChild(completados[j]);
     }
 })
+const salvarTarefas = document.querySelector("#salvar-tarefas");
+salvarTarefas.addEventListener("click", function(){
+    let itensBrutos = document.querySelectorAll(".item");
+    let itensArray = [];
+    let itensClass = [];
+    for (let k = 0; k < itensBrutos.length; k++){
+        itensArray.push(itensBrutos[k].innerHTML);
+        itensClass.push(itensBrutos[k].classList);
+    }
+    localStorage.setItem('items', JSON.stringify(itensArray));
+    localStorage.setItem('classes', JSON.stringify(itensClass));
+})
+let listaSalva = JSON.parse(localStorage.getItem('items'));
+let classSalva = JSON.parse(localStorage.getItem('classes'));
+for (let i = 0; i < listaSalva.length; i++){
+    let item = document.createElement("li");
+    let classe = Object.values(classSalva[i]);
+    classe = classe.toString();
+    classe = classe.replace(","," ");
+    item.classList = classe;
+    item.innerHTML = listaSalva[i];
+    document.querySelector("#lista-tarefas").appendChild(item);
+}
+
