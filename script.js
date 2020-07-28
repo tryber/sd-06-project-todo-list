@@ -5,7 +5,15 @@ addButton.addEventListener('click', function () {
     var list = document.createElement('li');
     document.querySelector('#lista-tarefas').appendChild(list);
     list.innerText = input.value;
+    list.className = 'tarefa'
     input.value = ''
+    let count = 0
+    list.addEventListener('click', function (){
+    list.style.background = 'rgb(128, 128, 128)'; 
+    })
 })
+
+
+
 
 
