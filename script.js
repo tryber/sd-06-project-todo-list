@@ -82,6 +82,12 @@ window.onload = function (){
       }
     });
 
+    let removeSelectedButton = document.querySelector('#remover-selecionado');
+    removeSelectedButton.addEventListener('click', function(){
+      let removeItem = document.querySelector('.selected');
+      removeItem.parentElement.removeChild(removeItem);
+    });
+
     let saveTasksButton = document.querySelector('#salvar-tarefas');
     saveTasksButton.addEventListener('click', function(){
       let aux = document.querySelectorAll('li');
