@@ -52,15 +52,14 @@ moveUp.addEventListener('click', function () {
 
 moveDown.addEventListener('click', function () {
     let aux = document.getElementsByTagName('li');
-    for (let i = 0; i < aux.length; i += 1) {
+    for (let i = aux.length; i >= 0; i -= 1) {
         let aux2;
-        if (aux[i].style.backgroundColor === 'rgb(128, 128, 128)' && i <= aux.length) {
-            aux2 = aux[i+1].innerText;
-            aux[i+1].innerText = aux[i].innerText;
+        if (aux[i].style.backgroundColor === 'rgb(128, 128, 128)' && i < aux.length) {
+            aux2 = aux[i-1].innerText;
+            aux[i-1].innerText = aux[i].innerText;
             aux[i].innerText = aux2;
-            aux[i+1].style.backgroundColor = 'rgb(128, 128, 128)';
+            aux[i-1].style.backgroundColor = 'rgb(128, 128, 128)';
             aux[i].style.backgroundColor = 'transparent';
-            break;
         } 
     }
     
