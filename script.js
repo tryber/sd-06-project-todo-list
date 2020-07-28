@@ -27,7 +27,7 @@ list.addEventListener('click', function (event) {
     }
   }
   // if (li.style.backgroundColor === 'rgb(128, 128, 128)') {
-    //li.style.backgroundColor = 'rgb(6, 133, 14)';
+    // li.style.backgroundColor = 'rgb(6, 133, 14)';
 // } else {
   li.style.backgroundColor = 'rgb(128, 128, 128)';
 // }
@@ -75,12 +75,12 @@ btnUp.addEventListener('click', function () {
   const lista = list.childNodes;
   for (let i = 1; i < lista.length; i += 1) {
     if (lista[i].style.backgroundColor === 'rgb(128, 128, 128)') {
-     list.insertBefore(lista[i], lista[i - 1]);
+      list.insertBefore(lista[i], lista[i - 1]);
     }
   }
 });
 
-btnDown.addEventListener('click', function (event) {
+btnDown.addEventListener('click', function () {
   const lista = list.childNodes;
   for (let i = lista.length - 2; i >= 0; i -= 1) {
     if (lista[i].style.backgroundColor === 'rgb(128, 128, 128)') {
