@@ -1,3 +1,4 @@
+window.onload = function(){
 const criarTarefa = document.querySelector("#criar-tarefa");
 const listaTarefa = document.querySelector("#lista-tarefas");
 const textoTarefa = document.querySelector("#texto-tarefa");
@@ -8,32 +9,41 @@ const apagaTudo = document.querySelector("#apaga-tudo");
 const removerFinalizados = document.querySelector("#remover-finalizados");
 const salvarTarefas = document.querySelector("#salvar-tarefas");
 
-
 criarTarefa.addEventListener('click', criarElementLi);
-
 function criarElementLi(){
   let li = document.createElement('li');
   li.innerText = textoTarefa.value;
-  listaTarefa.appendChild(li);         
+  listaTarefa.appendChild(li);
+  li.className = 'tarefa';         
 };
 
+const classeSelecionada = document.getElementsByClassName('selected');
+console.log(classeSelecionada.length);
 
+listaTarefa.addEventListener('click' , function(event){
+    if (event.target.classList.contains('tarefa') && classeSelecionada.length === 0){
+        event.target.classList.add('classeSelecionada');
+    }else{
+        event.target.classList.contains('tarefa') && classeSelecionada.length === 1
+    }
+    classeSelecionada[0].className = 'tarefa';
+    event.target.classList.add('classeSelecionada');
+});
 
-//function muda BG
+listaTarefa.addEventListener('dbclick', function(event){
+    if (event.target.classList.contains('tarefa')){
+        event.target.className = 'completed';
+    }else{
+        event.target.className = 'tarefa';
+    }
+});
 
+apagaTudo.addEventListener('click', function(){
+    numberOfTasks.innerHTML = '';
+});
 
-//function risca li
+removerFinalizados.addEventListener('click', function(){
 
-//function add ao item clicado a classe completed
-
-//function mude o text-decoration para line-through
-
-//function button apaga tudo , zera os li
-
-//function para apagar os li riscados
-
-
-window.onload =function(){
-    criarElementLi()
+});
 
 }
