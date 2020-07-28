@@ -6,18 +6,18 @@ let removeCompletedButton = document.querySelector('#remover-finalizados');
 let saveTasksButton = document.querySelector('#salvar-tarefas');
 let moveUpBtn = document.querySelector('#mover-cima');
 let moveDownBtn = document.querySelector('#mover-baixo');
+let inputTarefa = document.querySelector('#texto-tarefa');
 
-function createTask() {
-    let inputTarefa = document.querySelector('#texto-tarefa');
+createTask = () => {
     let newTask = document.createElement('li');
     newTask.innerHTML = inputTarefa.value;
     list.appendChild(newTask);
     inputTarefa.value = '';
 };
 
-function counterSelectedTasks() {
-    let counter = 0;
+counterSelectedTasks = () => {
     let allTasks = document.querySelectorAll('#lista-tarefas li');
+    let counter = 0;
     for (let i = 0; i < allTasks.length; i++) {
         if (allTasks[i].classList.contains('selected')) {
             counter += 1;
@@ -26,7 +26,7 @@ function counterSelectedTasks() {
     return counter;
 }
 
-function taskSelected() {
+taskSelected = () => {
     let selectedTask = event.target;
     let allTasks = document.querySelectorAll('#lista-tarefas li');
     for (let i = 0; i < allTasks; i += 1) {
@@ -37,7 +37,7 @@ function taskSelected() {
     selectedTask.classList.add('selected')
 }
 
-function completedTasks() {
+completedTasks = () => {
     let doubleTask = event.target;
     if (doubleTask.classList.contains('completed')) {
         doubleTask.classList.remove('completed')
@@ -46,15 +46,13 @@ function completedTasks() {
     }
 }
 
-
-
-function clearTasks() {
+clearTasks = () => {
     while (list.firstChild) {
         list.firstChild.remove();
     }
 }
 
-function removeTasksCompleted() {
+removeTasksCompleted = () => {
     let allTasks = document.querySelectorAll('#lista-tarefas li');
     for (let i = 0; i < allTasks.length; i += 1) {
         if (allTasks[i].classList.contains('completed')) {
@@ -63,14 +61,34 @@ function removeTasksCompleted() {
     }
 }
 
+removeSelected = () => {
+    let allTasks = document.querySelectorAll('#lista-tarefas li');
+    for (let i = 0; i < allTasks.length; i++) {
+        if (allTasks[i].classList.contains('selected')) {
+            allTasks[i].remove();
+        }
+    }
+}
+
+storageTasks = () => {
+    const allTasks = list.innerHTML;
+    localStorage.setItem('List of Tasks', allTasks);
+}
+
+recoverTasks = () => {
+    list.innerHTML = localStorage.getItem('List of Tasks');
+}
+window.onload = recoverTasks;
+
+
 
 buttonAdd.addEventListener('click', createTask);
 list.addEventListener('click', taskSelected);
 list.addEventListener('dblclick', completedTasks)
 eraseButton.addEventListener('click', clearTasks);
 removeCompletedButton.addEventListener('click', removeTasksCompleted);
-
-
+selectedButton.addEventListener('click', removeSelected)
+saveTasksButton.addEventListener('click', storageTasks);
 
 
 
