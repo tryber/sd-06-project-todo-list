@@ -32,7 +32,7 @@ window.onload = function() {
       event.target.classList.add('selected');
   });
 
-  listaTarefa.addEventListener('dbclick', function(event){
+  listaTarefa.addEventListener('click', function(event){
     if (event.target.classList.contains('tarefa')){
       event.target.className = 'completed';
     }else{
