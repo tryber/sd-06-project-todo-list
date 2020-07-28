@@ -81,5 +81,10 @@ baixo.addEventListener("click", function(){
         pai.insertBefore(selecionado, elementoBaixo.nextElementSibling);
     }
 })
+const removerSelecionado = document.querySelector("#remover-selecionado");
+removerSelecionado.addEventListener("click",function(){
+    let itemSelected = document.querySelector(".selected");
+    itemSelected.remove();
+})
 
 
