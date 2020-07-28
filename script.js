@@ -3,6 +3,19 @@ window.onload = function (){
   let textoTarefa = document.querySelector('#texto-tarefa');
   let listaTarefas = document.querySelector('#lista-tarefas');
 
+  if (JSON.parse(localStorage.saveList !== undefined)){
+    let getTasks = JSON.parse(localStorage.getItem("saveList"));
+    for (let i = 0 ; i < getTasks.length ; i += 1){
+      let newElement = document.createElement('li');
+      newElement.className = getTasks[i].className;
+      newElement.innerHTML = getTasks[i].cont;
+      if (newElement.className === "completed"){
+        newElement.style.textDecoration = 'line-through solid rgb(0, 0, 0)'
+      } 
+      listaTarefas.appendChild(newElement);
+    }
+  }
+
   buttonCriarTarefa.addEventListener('click', function(){
     let elementList = document.createElement('li');
     elementList.innerHTML = textoTarefa.value;
@@ -33,7 +46,6 @@ window.onload = function (){
     let eraseAllButton = document.getElementById('apaga-tudo');
     eraseAllButton.addEventListener('click', function(){
       let eraseList = document.querySelectorAll('li');
-      console.log(eraseList);
       for (let i = 0 ; i < eraseList.length ; i += 1){
         listaTarefas.removeChild(eraseList[i]);
       }
@@ -45,6 +57,22 @@ window.onload = function (){
       for (let i = 0 ; i < removeList.length ; i += 1){
         listaTarefas.removeChild(removeList[i]);
       }
+    });
+
+    let saveTasksButton = document.querySelector('#salvar-tarefas');
+    saveTasksButton.addEventListener('click', function(){
+      let aux = document.querySelectorAll('li');
+      let saveList = [];
+      //console.log(aux);
+      for (let i = 0 ; i < aux.length ; i += 1){
+        let obj = new Object();
+        obj.className = aux[i].className
+        obj.cont = aux[i].innerHTML;
+        //console.log(aux[i].innerHTML);
+        saveList.push(obj);
+      }
+      //console.log(saveList);
+      localStorage.setItem('saveList', JSON.stringify(saveList));
     });
   
 }
