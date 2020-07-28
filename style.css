@@ -1,7 +1,7 @@
-li {
-  background-color:white;
-}
-
 .grey {
   background-color:rgb(128 , 128 , 128);
+}
+
+.completo {
+  text-decoration: line-through;
 }

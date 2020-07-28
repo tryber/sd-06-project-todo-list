@@ -1,5 +1,5 @@
 window.onload = function () {
-  //Boton Adicionar que cria elemnetos na lista ordenada, e os mostra. Apaga o conteudo da caixa de texto ao adicionar.
+  //  Boton Adicionar que cria elemnetos na lista ordenada, e os mostra. Apaga o conteudo da caixa de texto ao adicionar.
   let botaoAdicionar = document.querySelector('#criar-tarefa');
   botaoAdicionar.addEventListener('click', function() {
     textoInput = document.querySelector('#texto-tarefa').value;
@@ -8,7 +8,7 @@ window.onload = function () {
     listaElemento.innerText = textoInput;
     document.querySelector('#lista-tarefas').appendChild(listaElemento);
   });
-  //Ao fazer click  num elemento da lista ele coloca fundo cinzas
+  //  Ao fazer click num elemento da lista ele coloca fundo cinzas, da para selecionar so um
   let listaColor = document.querySelector('#lista-tarefas');
   listaColor.addEventListener('click', function(event) {
     let itemSelecionadoAntiguio = document.querySelector('.grey');
@@ -21,7 +21,18 @@ window.onload = function () {
       itemSelecionado.classList.add('grey');
     };
   });
-  //Botao para apagar tudo o conteudo da lista
+  //  Ao fazer doble click va se riscar elemento, vai se desfazer fazendo novamente dobleclick
+  listaColor.addEventListener('dblclick', function(event) {
+    let itemCompleto = event.target;
+    if (itemCompleto.classList[0] == 'completo') {
+      itemCompleto.classList.remove('completo');
+    }
+    else {
+      itemCompleto.classList.add('completo');
+    };
+  });
+
+  //  Botao para apagar tudo o conteudo da lista
   let botaoApagar = document.querySelector('#apaga-tudo');
   botaoApagar.addEventListener('click', function() {
     let lista = document.querySelector('#lista-tarefas');
