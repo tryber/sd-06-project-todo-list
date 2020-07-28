@@ -14,7 +14,9 @@ window.onload = function() {
     let li = document.createElement('li');
     li.innerText = textoTarefa.value;
     listaTarefa.appendChild(li);
-    li.className = 'tarefa';         
+    li.className = 'tarefa';
+    listaTarefa.appendChild(li);
+    textoTarefa.value = '';         
   };
 
   const classeSelecionada = document.getElementsByClassName('selected');
