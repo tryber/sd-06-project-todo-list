@@ -24,12 +24,12 @@ window.onload = function() {
 
   listaTarefa.addEventListener('click' , function(event){
     if (event.target.classList.contains('tarefa') && classeSelecionada.length === 0){
-      event.target.classList.add('classeSelecionada');
+      event.target.classList.add('selected');
     }else{
       event.target.classList.contains('tarefa') && classeSelecionada.length === 1
     }
       classeSelecionada[0].className = 'tarefa';
-      event.target.classList.add('classeSelecionada');
+      event.target.classList.add('selected');
   });
 
   listaTarefa.addEventListener('dbclick', function(event){
