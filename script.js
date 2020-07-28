@@ -37,7 +37,7 @@ function color() {
     }
 }
 
-lista.className = 'itemList'
+/*lista.className = 'itemList'
 lista.addEventListener('dblclick', function() {
     switch (lista.className) {
         case 'completed':
@@ -47,7 +47,7 @@ lista.addEventListener('dblclick', function() {
             lista.className= 'completed'; 
         break       
     }
-})
+}) */
      
    
 
