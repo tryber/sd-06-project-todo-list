@@ -24,11 +24,11 @@ window.onload = function () {
   //  Ao fazer doble click va se riscar elemento, vai se desfazer fazendo novamente dobleclick
   listaColor.addEventListener('dblclick', function(event) {
     let itemCompleto = event.target;
-    if (itemCompleto.classList[0] == 'completo') {
-      itemCompleto.classList.remove('completo');
+    if (itemCompleto.classList[0] == 'completed') {
+      itemCompleto.classList.remove('completed');
     }
     else {
-      itemCompleto.classList.add('completo');
+      itemCompleto.classList.add('completed');
     };
   });
 
