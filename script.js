@@ -9,7 +9,8 @@ window.onload = function (){
       let newElement = document.createElement('li');
       newElement.className = getTasks[i].className;
       newElement.innerHTML = getTasks[i].cont;
-      if (newElement.className === "completed"){
+      newElement.classList.remove('selected');
+      if (newElement.classList.contains("completed")){
         newElement.style.textDecoration = 'line-through solid rgb(0, 0, 0)'
       } 
       listaTarefas.appendChild(newElement);
@@ -29,18 +30,20 @@ window.onload = function (){
   listaTarefas.addEventListener('click', function(event){
     let itemSelected = event.target;
     previous.style.backgroundColor = 'white'
+    previous.classList.remove('selected');
     itemSelected.style.backgroundColor = 'rgb(128, 128, 128)';
+    itemSelected.classList.add('selected');
     previous = itemSelected;
   });
 
   listaTarefas.addEventListener('dblclick', function(event){
     let itemCompleted = event.target;
-    if (itemCompleted.className != 'completed'){
-      itemCompleted.className = 'completed'
-      itemCompleted.style.textDecoration = 'line-through solid rgb(0, 0, 0)'
-    }else {
-      itemCompleted.className = '';
+    if (itemCompleted.classList.contains('completed')){
+      itemCompleted.classList.remove('completed');
       itemCompleted.style.textDecoration = '';
+    }else {
+      itemCompleted.classList.add('completed')
+      itemCompleted.style.textDecoration = 'line-through solid rgb(0, 0, 0)'
     }
   });
     let eraseAllButton = document.getElementById('apaga-tudo');
@@ -56,6 +59,26 @@ window.onload = function (){
       let removeList = document.querySelectorAll('.completed');
       for (let i = 0 ; i < removeList.length ; i += 1){
         listaTarefas.removeChild(removeList[i]);
+      }
+    });
+
+    let moveUpButton = document.querySelector('#mover-cima');
+    moveUpButton.addEventListener('click', function(){
+      const auxList = document.querySelectorAll('li');
+      for (let i = 0 ; i < auxList.length ; i += 1){
+        if (auxList[i].classList.contains('selected') && i !== 0){
+          auxList[i].parentElement.insertBefore(auxList[i], auxList[i - 1]);
+        }
+      }
+    });
+
+    let moveDownButton = document.querySelector('#mover-baixo');
+    moveDownButton.addEventListener('click', function(){
+      const auxList = document.querySelectorAll('li');
+      for (let i = 0 ; i < auxList.length ; i += 1){
+        if (auxList[i].classList.contains('selected') && i !== auxList.length - 1){
+          auxList[i].parentElement.insertBefore(auxList[i + 1], auxList[i]);
+        }
       }
     });
 
