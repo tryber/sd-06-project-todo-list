@@ -56,9 +56,10 @@ for (let i = 0; i < listaSalva.length; i++){
     let item = document.createElement("li");
     let classe = Object.values(classSalva[i]);
     classe = classe.toString();
+    classe = classe.replace("selected"," ");
     classe = classe.replace(","," ");
+    classe = classe.replace(",","");
     item.classList = classe;
     item.innerHTML = listaSalva[i];
     document.querySelector("#lista-tarefas").appendChild(item);
 }
-
