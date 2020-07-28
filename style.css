@@ -1,3 +1,7 @@
+body {
+  font-family: Open Sans;
+}
+
 button {
   border-radius: 30px;
   color: #FFF;
@@ -6,7 +10,7 @@ button {
   cursor: pointer;
 }
 
-h2 {
+#funcionamento {
   font-size: large;
   font-weight: 300;
   font-style: italic;
