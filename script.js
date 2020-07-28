@@ -12,7 +12,7 @@ window.onload = function () {
     });
     let selected = document.getElementsByClassName('selected');
 
-    console.log(selected.length)
+    console.log(selected.length);
 
     taskList.addEventListener('click', function (event) {
         if (event.target.classList.contains('task-iten') && selected.length === 0) {
@@ -24,7 +24,7 @@ window.onload = function () {
     });
     taskList.addEventListener('dblclick', function (event) {
         if (event.target.classList.contains('task-iten')) {
-            event.target.className = "completed"
+            event.target.className = "completed";
         } else if (event.target.classList.contains('completed')) {
             event.target.className = 'task-iten';
         }
