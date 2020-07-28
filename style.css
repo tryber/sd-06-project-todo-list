@@ -28,7 +28,8 @@ main {
 }
 .selected {
     margin-right: 15px;
-    background-color: yellow;
+    background-color: rgb(128, 128, 128
+    );
 }
 
 .completed {

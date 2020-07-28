@@ -29,7 +29,7 @@ counterSelectedTasks = () => {
 taskSelected = () => {
     let selectedTask = event.target;
     let allTasks = document.querySelectorAll('#lista-tarefas li');
-    for (let i = 0; i < allTasks; i += 1) {
+    for (let i = 0; i < allTasks.length; i += 1) {
         if (allTasks[i].classList.contains('selected')) {
             allTasks[i].classList.remove('selected');
         }
