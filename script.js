@@ -32,7 +32,7 @@ window.onload = function() {
       event.target.classList.add('selected');
   });
 
-  listaTarefa.addEventListener('click', function(event){
+  listaTarefa.addEventListener('dbclick', function(event){
     if (event.target.classList.contains('tarefa')){
       event.target.className = 'completed';
     }else{
@@ -40,9 +40,16 @@ window.onload = function() {
     }
   });
 
-  apagaTudo.addEventListener('click', function(){
-    numberOfTasks.innerHTML = '';
-  });
+  
+
+  apagaTudo.addEventListener('click', doomsdayItem);
+
+  function doomsdayItem(event){
+    document.querySelectorAll('.tarefa').forEach(function(a){
+        a.remove()
+    });
+  }
+    
 
   removerFinalizados.addEventListener('click', function(){
 
