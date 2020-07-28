@@ -1,5 +1,8 @@
 let botaoAdicionar = document.querySelector('#criar-tarefa')
-console.log(botaoAdicionar);
-//botaoAdicionar.addEventListener('click', function() {
-  //console.log('teste')
-//})
+botaoAdicionar.addEventListener('click', function() {
+  let tarefaAdicionada = document.querySelector('#texto-tarefa');
+  let li = document.createElement('li');
+  li.innerHTML = tarefaAdicionada.value;
+  document.getElementById('lista-tarefas').appendChild(li);
+  tarefaAdicionada.value = ""
+})
