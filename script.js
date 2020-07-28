@@ -1,3 +1,11 @@
+function initialLoad () {
+    //localStorage.clear();
+    //createTask();
+    //saveList();
+      color();
+ }
+ window.onload = initialLoad;
+
 //Elementos
 let adicionandobotao = document.querySelector("#criar-tarefa");
 
@@ -13,6 +21,20 @@ function digitandoeAdicionandonaLista() {
     adicionandoTarefa.appendChild(lista);   	  //insere o elemento criado  
     textoTarefa.value = null;                    //limpa o input
 };
+
+function color() {
+    let corLista = document.getElementsByTagName('li');
+    for (let i = 0 ; i < corLista.length ; i += 1){
+        corLista[i].addEventListener('click',function(){
+            corLista[i].style.backgroundColor = 'rgb(128, 128, 128)';
+            for (let x = 0 ; x < corLista.length ; x += 1) {
+                if (x != i) {
+                    corLista[x].style.backgroundColor = 'transparent';
+                }
+           }
+        });
+    }
+}
 
 
 
