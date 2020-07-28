@@ -13,15 +13,24 @@ window.onload = function() {
     })
 
     let colorTask = "white";
+    let ultimo  = document.createElement("li");
 
+    ultimo.style.backgroundColor = "white";
     orderList.addEventListener("click", function(event) {
         let clickTask = event.target;
-        if (colorTask === "white") {
+            ultimo.style.backgroundColor = "white";
             clickTask.style.backgroundColor = "rgb(128, 128, 128)";
-            colorTask = "grey";
+            ultimo = clickTask;
+    })
+
+    orderList.addEventListener("dblclick", function(event) {
+        let markTask = event.target;
+        if (markTask.classList.contains("completed")) {
+            markTask.style.textDecoration = "";
+            markTask.classList.remove("completed");
         } else {
-            clickTask.style.backgroundColor = "white";
-            colorTask = "white";
+            markTask.style.textDecoration = "line-through solid rgb(0, 0, 0)"
+            markTask.classList.add("completed");
         }
     })
 
