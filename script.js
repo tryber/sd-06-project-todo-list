@@ -65,6 +65,16 @@ deleteButton2.addEventListener('click',function(event){
     }
 });
 
+let moveCima = document.getElementById('mover-cima');
+let itemToMove = document.getElementsByTagName('li');
+moveCima.addEventListener('click',function(event){
+    for(let i = 0 ; i < itemToMove.length ; i+=1){
+        if(itemToMove[i].style.backgroundColor === 'rgb(128, 128, 128)'){
+        document.getElementsByTagName('li')[i].add;
+        }
+    }
+});
+
 let deleteDoneButton = document.getElementById('remover-finalizados');
 let itemsToDelete = document.getElementsByClassName('completed');
 deleteDoneButton.addEventListener('click',function(){
