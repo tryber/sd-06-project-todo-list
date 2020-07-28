@@ -6,10 +6,9 @@ const deletarTudo = document.getElementById('apaga-tudo');
 adicionar.addEventListener('click', () => {
     let elemento = document.createElement('li');
     elemento.innerHTML = tarefa.value;
-    elemento.className += 'item';
     lista.appendChild(elemento);
     tarefa.value = '';
-    let itemLista = document.querySelectorAll('.item');
+    let itemLista = document.querySelectorAll('li');
     itemLista.forEach(item => {
         item.addEventListener('click', () => {
             itemLista.forEach(item => {
@@ -18,14 +17,13 @@ adicionar.addEventListener('click', () => {
             item.classList.add('selected');
         })
     })
-    itemLista.forEach(item =>  {
-        item.addEventListener('dblclick', () => {
-            item.classList.toggle('completed');
-        })
-    })
-    deletarTudo.addEventListener('click', () =>{
-        itemLista.forEach(item => {
-            lista.removeChild(elemento)
-        })
-    })
 });
+
+lista.addEventListener('dblclick', (e) => {
+    let completed = e.target;
+    if(!completed.classList.contains('completed')){
+        completed.className = 'completed';
+    } else {
+        completed.classList -= 'completed';
+    }
+})
