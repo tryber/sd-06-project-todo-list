@@ -50,16 +50,18 @@ salvarTarefas.addEventListener("click", function(){
     localStorage.setItem('items', JSON.stringify(itensArray));
     localStorage.setItem('classes', JSON.stringify(itensClass));
 })
-let listaSalva = JSON.parse(localStorage.getItem('items'));
-let classSalva = JSON.parse(localStorage.getItem('classes'));
-for (let i = 0; i < listaSalva.length; i++){
-    let item = document.createElement("li");
-    let classe = Object.values(classSalva[i]);
-    classe = classe.toString();
-    classe = classe.replace("selected"," ");
-    classe = classe.replace(","," ");
-    classe = classe.replace(",","");
-    item.classList = classe;
-    item.innerHTML = listaSalva[i];
-    document.querySelector("#lista-tarefas").appendChild(item);
+if (localStorage.getItem('items') !==  null){
+    let listaSalva = JSON.parse(localStorage.getItem('items'));
+    let classSalva = JSON.parse(localStorage.getItem('classes'));
+    for (let i = 0; i < listaSalva.length; i++){
+        let item = document.createElement("li");
+        let classe = Object.values(classSalva[i]);
+        classe = classe.toString();
+        classe = classe.replace("selected"," ");
+        classe = classe.replace(","," ");
+        classe = classe.replace(",","");
+        item.classList = classe;
+        item.innerHTML = listaSalva[i];
+        document.querySelector("#lista-tarefas").appendChild(item);
+    }
 }
