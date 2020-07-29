@@ -6,12 +6,17 @@ function riscarItem() {
   }
 }
 
+function alterarCor() {
+  this.classList.add('cor_alterada');
+}
+
 function listarItens() {
   const textoTarefa = document.getElementById('texto-tarefa');
   const listaTarefas = document.getElementById('lista-tarefas');
   const itemLista = document.createElement('li');
   listaTarefas.appendChild(itemLista);
   itemLista.addEventListener('dblclick', riscarItem);
+  itemLista.addEventListener('click', alterarCor);
   itemLista.innerHTML = textoTarefa.value;
   textoTarefa.value = '';
 }
