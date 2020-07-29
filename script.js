@@ -63,3 +63,24 @@ apagaFinalizados.addEventListener('click', function () {
     }
   }
 });
+
+const salvarTarefas = document.querySelector('#salvar-tarefas');
+
+salvarTarefas.addEventListener('click', function () {
+  const listaParaSalvar = document.querySelector('#lista-tarefas');
+  if (listaParaSalvar.firstElementChild) {
+    window.localStorage.setItem('lista', listaParaSalvar.innerHTML);
+  } else {
+    alert('Lista vazia.');
+  }
+});
+
+function confereSeTemLista () {
+  const checando = window.localStorage.getItem('lista');
+  if (checando) {
+    console.log(checando);
+    console.log('Achou que tem');
+  }
+}
+
+confereSeTemLista ();
