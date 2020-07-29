@@ -11,26 +11,26 @@ window.onload = function () {
         listaTarefas.appendChild(tarefa);
         texto.value = "";
     });
-
     
+    let click1 = 0;
+    let ultimoSelecionado;
     listaTarefas.addEventListener("click", function (event) {
-        if (document.querySelector(".selecionado")  === null) {
-            event.target.className = " selecionado";            
-        } else if (event.target.style.textDecoration === "line-through") {
-            document.querySelector(".selecionado").className = "";
-            event.target.className = " selecionado completed";
-        } else {
-            document.querySelector(".selecionado").className = "";
-            event.target.className = " selecionado";
-        }
-
+        if (click1 === 0){            
+            ultimoSelecionado = event.target;
+            event.target.style.backgroundColor = "rgb(128,128,128)";
+            click1 = 1;
+        } else {            
+            ultimoSelecionado.style.backgroundColor = "";
+            event.target.style.backgroundColor = "rgb(128,128,128)";
+            ultimoSelecionado = event.target;
+        }  
     });
 
     listaTarefas.addEventListener("dblclick", function (event) {
-        if (event.target.style.textDecoration !== "line-through"){
-            event.target.className = " selecionado completed";
+        if (event.target.className === "completed"){
+            event.target.className = "";
         } else {
-            event.target.className = " selecionado";
+            event.target.className = "completed";
         }
         
     });
