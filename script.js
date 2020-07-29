@@ -30,11 +30,11 @@ function changeBackground() {
 }
 
 btnAdc.onclick = () => {
-  let listConten = lazyCoder(2, 5);
+  const listConten = lazyCoder(2, 5);
   listConten.className = 'tarefas';
   liList.push(listConten);
 
-  listConten.textContent = lazyCoder(0, 0);
+  listConten.textContent = lazyCoder(0, 0).value;
   lazyCoder(0, 0).value = '';
   todoList.appendChild(listConten);
 };
@@ -44,10 +44,5 @@ todoList.addEventListener('click', (e) => {
 
   selected = e.target;
   selected.classList.add('selected');
-
-  for (let c in selected.classList) {
-    if (selected.classList[c] === 'selected') {
-      selected.style.backgroundColor = 'rgb(128, 128, 128)';
-    }
-  }
+  selected.style.backgroundColor = 'rgb(128, 128, 128)';
 });
