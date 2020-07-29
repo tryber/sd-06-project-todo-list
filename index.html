@@ -3,9 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Todo-list</title>
 </head>
 <body>
+    <header>
+        <h1>Minha Lista de Tarefas</h1>
+        <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+    </header>
+
+    <section>
+        <input id="texto-tarefa" type="text">
+        <ol id="lista-tarefas"></ol>
+            <button id="criar-tarefa">Adicionar uma tarefa</button><br><br><br>
+            <button id="apagar-tudo">Limpar todas as tarefas</button>
+            <button id="remover-finalizados">Remover tarefas finalizadas</button>
+            <button id="salvar-tarefas">Salvar lista de tarefas</button>
+            <button id="remover-selecionado">Remover item selecionado</button>
+            <button id="mover-cima">Mover para a de cima</button>
+            <button id="mover-baixo">Mover para a de baixo</button>
+    </section>
     
+
+
+    <script src="script.js"></script>
 </body>
 </html>
