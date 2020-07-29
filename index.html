@@ -1,25 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Todo List</title>
-</head>
-<body>
-  <header>
-    <h1>Minha Lista de Tarefas</h1>
-  </header>
 
-  <div>
-    <p id="funcionamento">
-      Clique duas vezes em um item para marcá-lo como completo
-    </p>
-    <input type="text" name="" id="texto-tarefa">
-  </div>
+  <head>
+    <meta charset="UTF-8">
+    <title>Todo List</title>
+  </head>
 
-  <div class="lista">
-    <ol id="lista-tarefas">
-      <li></li>
-    </ol>
-  </div>
-</body>
+  <body>
+    <header>
+      <h1>Minha Lista de Tarefas</h1>
+      <link rel="stylesheet" href="style.css">
+      <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    </header>
+
+    <div class="main-content">
+      <div>
+        <p id="funcionamento">
+          Clique duas vezes em um item para marcá-lo como completo
+        </p>
+        <input type="text" class="input-text" id="texto-tarefa">
+        <button id="criar-tarefa" class="add-btn">Adicionar</button>
+      </div>
+
+      <div class="todo">
+        <ol id="lista-tarefas" class="itens-lista">
+        </ol>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+
 </html>

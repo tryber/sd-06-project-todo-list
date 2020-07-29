@@ -1,0 +1,27 @@
+body {
+  font-family: 'Lato', sans-serif;
+  margin: 30px;
+}
+
+.main-content {
+  margin-top: 40px;
+}
+
+.todo {
+  margin-top: 40px;
+}
+
+.input-text {
+  border-radius: 4px;
+  height: 25px;
+  width: 150px;
+}
+
+.add-btn {
+  background-color: lavender;
+  border-radius: 5px;
+  font-size: 105%;
+  height: 30px;
+  margin-left: 20px;
+  width: 90px;
+}
