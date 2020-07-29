@@ -1,5 +1,6 @@
-let listaTarefas = document.getElementById('lista-tarefas');
-let addTarefaButton = document.getElementById('criar-tarefa');
+const listaTarefas = document.getElementById('lista-tarefas');
+const addTarefaButton = document.getElementById('criar-tarefa');
+const removeSelecionadoButton = document.getElementById('remover-selecionado');
 
 function addTarefa() {
     let inputTarefa = document.createElement('li');
@@ -30,3 +31,8 @@ function tarefaCompletada (event) {
     }
 }
 listaTarefas.addEventListener('dblclick', tarefaCompletada);
+
+function removeSelecionado (event) {
+    document.getElementById('isSelected').remove();
+}
+removeSelecionadoButton.addEventListener('click', removeSelecionado);
