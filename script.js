@@ -3,15 +3,6 @@
 const addTaskInput = document.getElementById('texto-tarefa');
 const addTaskButton = document.getElementById('criar-tarefa');
 
-function taskCreation() {
-  if (addTaskInput.value === '') {
-    return alert('Name a task before adding it!');
-  }
-  const li = addTask();
-  addText(li);
-  return
-}
-
 function addTask() {
   const ol = document.getElementById('lista-tarefas');
   const li = document.createElement('li');
@@ -24,4 +15,16 @@ function addText(li) {
   addTaskInput.value = '';
 }
 
-addTaskButton.onclick = taskCreation;
+function taskCreation() {
+  if (addTaskInput.value === '') {
+    return alert('Name a task before adding it!');
+  }
+  const li = addTask();
+  addText(li);
+}
+
+// addTaskButton.onclick = taskCreation;
+
+addTaskButton.addEventListener("click", function() {
+  taskCreation();
+})
