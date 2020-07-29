@@ -1,3 +1,7 @@
 .tarefa {
   font-size: 1.2em;
 }
+
+.selecionado {
+  background-color: rgb(128, 128, 128);
+}
