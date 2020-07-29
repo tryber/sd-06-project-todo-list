@@ -1,29 +1,32 @@
-//let cor = 'white';
+// 1let cor = 'white';
 window.onload = function () {
 
- /* fazendo a parte da adição de texto pelo botão */
-  const botao = document.getElementById('criar-tarefa');
+ /* parte da criação do botão */
+  const bottonList = document.getElementById('criar-tarefa');
   
-  botao.addEventListener('click', function (){
+ /* parte do botão funcionar*/ 
+ bottonList.addEventListener('click', function (){
     let texto = document.getElementById('texto-tarefa').value;
-    const lista = document.getElementById('lista-tarefas');
-    const listaOl = document.createElement('li');
-    listaOl.innerHTML = texto;
-    lista.appendChild(listaOl);
-    listaOl.className = 'bgColor';
-  
-    /*o que for realicionado ao li tem que ser chamado aqui*/
-    // listaOl.style.backgroundColor = 'white';
-    document.querySelector('.bgColor').style.backgroundColor = "white";
-   let cor = document.querySelector('.bgColor').style.backgroundColor.value;
+    const list = document.getElementById('lista-tarefas');
+    const listOl = document.createElement('li');
+    listOl.innerHTML = texto;
+    list.appendChild(listOl);
    
-   if (cor!== 'white'){
-    listaOl.addEventListener('click',fundoDeCor);
-   }
+   
+    /* parte da alteração de cor */
+    listOl.addEventListener('click',function(){
+     let textList = document.getElementsByTagName("li");
+    for(let i = 0; i < textList.length; i += 1) {
+            textList[i].classList.remove("bgColor")
+        }
+        listOl.classList.add("bgColor")
+        }
+    );
+   
   
    //duplo click//
-   listaOl.addEventListener('dblclick', function() {
-    listaOl.classList.toggle('completed');
+   listOl.addEventListener('dblclick', function() {
+    listOl.classList.toggle('completed');
     })
    
   
@@ -36,14 +39,9 @@ window.onload = function () {
   }
  const text = document.querySelector('#criar-tarefa');
  text.addEventListener('click', resetTexto);
-
- /*alterando a cor de fundo de um lista da lista*/
-   function fundoDeCor(){
-   let item = event.target;
-   //item.style.backgroundColor = 'rgb(128, 128, 128)';
-   document.querySelector('.bgColor').style.backgroundColor = 'rgb(128, 128, 128)' ;
-   }
-  
-  
+ 
 }
+  
+  
+
  
