@@ -9,11 +9,11 @@ html {
 #page-container {
   background: rgba(230, 236, 238, 74%);
   border-radius: 8px;
-  width: 45%;
   margin: 0 auto;
   min-height: 92vh;
   min-width: 600px;
   padding: 0;
+  width: 45%;
 }
 
 header {
@@ -29,7 +29,7 @@ header > h1 {
 }
 
 header #funcionamento {
-  background-color: rgba(235, 240, 244, 40%);
+  background: rgba(235, 240, 244, 40%);
   border-radius: 4px;
   color: rgb(20, 24, 27);
   display: inline-block;
@@ -42,7 +42,7 @@ header #funcionamento {
   border: 0;
   border-radius: 18px;
   font-size: 1.1em;
-  opacity: 70%;
+  opacity: .7;
   margin: 20px 20px 4px 20px;
   padding: 14px 16px;
   width: 70%;
@@ -50,7 +50,7 @@ header #funcionamento {
 
 #texto-tarefa:focus {
   outline: none;
-  opacity: 100%;
+  opacity: 1;
 }
 
 #criar-tarefa {
@@ -69,11 +69,11 @@ header #funcionamento {
 }
 
 #criar-tarefa:active {
-  opacity: 80%;
+  opacity: .8;
 }
 
 main {
-  background-color: rgba(36, 42, 52, 20%);
+  background: rgba(36, 42, 52, 20%);
   min-height: 60vh;
   margin-top: 20px;
   padding: 4px 12px;
@@ -118,13 +118,13 @@ main ol li:before {
 }
 
 #list-buttons button {
-  background-color: rgb(90, 155, 90);
+  background-color: rgb(218, 191, 75);
   border: 0;
   border-radius: 10px;
-  color: white;
-  font-size: 1em;
+  color: rgb(22, 20, 18);
+  font-size: 0.9em;
   font-weight: 600;
-  margin: 0 16px 0 16px;
+  margin: 0 0 0 16px;
   padding: 8px 18px;
 }
 
@@ -132,9 +132,10 @@ main ol li:before {
   outline: none; 
 }
 #list-buttons button:active {
-  opacity: 75%;
+  opacity: .75;
 }
 
 #list-buttons #apaga-tudo {
-  background-color: rgb(185, 80, 80);
+  background-color: rgb(192, 62, 62);
+  color: white;
 }
