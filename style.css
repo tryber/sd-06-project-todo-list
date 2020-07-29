@@ -1,0 +1,44 @@
+body {
+  background-color: teal;
+}
+
+#container {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "list"
+    "buttons";
+  width: 90%;
+  border-radius: 15px;
+  background-color: white;
+  padding: 15px;
+}
+
+#titulo #funcionamento #texto-tarefa {
+  grid-area: "header";
+}
+
+#titulo {
+  font-weight: 600;
+  font-size: 40px;
+}
+
+#adicionar-tarefa {
+  width: fit-content;
+}
+
+#lista-tarefas {
+  grid-area: "list";
+}
+
+#texto-tarefa {
+  width: 50%;
+}
+
+#buttons {
+  grid-area: "buttons";
+  display: grid;
+  grid-template-columns: repeat(6, auto);
+  justify-content: space-around;
+  width: 60%;
+}
