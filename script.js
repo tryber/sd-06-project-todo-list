@@ -1,21 +1,18 @@
-function readCreateItem (textCopied,list) {
-  let itemCreated = document.createElement("LI");
-  itemCreated.innerHTML = textCopied.value;
-  list.appendChild(itemCreated);
-  textCopied.value = '';
-  initList();
-}
-
-
-
 function changeBackground (event) {
   selectedItem = event.currentTarget;
   selectedItem.style.backgroundColor = `rgb(128, 128, 128)`;
   children = selectedItem.parentNode.children;
   for (let i = 0; i < children.length; i += 1) {
     if (children[i] !== selectedItem) {
-      children[i].style.backgroundColor = `rgb(255, 255, 255)`;
+      children[i].style.backgroundColor = ``;
     }
+  }
+}
+
+function removeFinalizados () {
+  finalizados = document.querySelectorAll('.completed');
+  for (let i = 0; i < finalizados.length; i += 1) {
+    finalizados[i].remove();
   }
 }
 
@@ -25,28 +22,43 @@ function removeItems (listaTarefa) {
   }
 }
 
-function itemDone(item) {
-  if (item.classList === `${item.className} completed`) {
+function itemDone(event) {
+  const item = event.currentTarget;
+  console.log(item);
+  if (item.className === `completed`) {
     item.classList.remove('completed');
   } else {
-    item.classList = `${item.className} completed`;
+    item.classList = `completed`;
   }
 }
 
 function initList () {
   selectedItem = document.querySelector('#lista-tarefas').lastChild;
-  selectedItem.addEventListener('click',function (event) {
-    changeBackground(event)
+
+  selectedItem.addEventListener('click', function (e) {
+    changeBackground(e);
   });
-  selectedItem.addEventListener('dblclick',function (event) {
-    completeItem(event.currentTarget)
+  selectedItem.addEventListener('dblclick', function (e) {
+    itemDone(e);
   });
 }
 
-butaoCriar = document.querySelector('#criar-tarefa');
+function readCreateItem (textCopied,list) {
+  let itemCreated = document.createElement("LI");
+  itemCreated.innerHTML = textCopied.value;
+  list.appendChild(itemCreated);
+  textCopied.value = '';
+  initList();
+  butaoApagaFinalizados.addEventListener('click',function () {
+    removeFinalizados();
+  });
+}
+
 textoDigitado = document.querySelector('#texto-tarefa');
 listaTarefa = document.querySelector('#lista-tarefas');
+butaoCriar = document.querySelector('#criar-tarefa');
 butaoApaga = document.querySelector('#apaga-tudo');
+butaoApagaFinalizados = document.querySelector('#remover-finalizados');
 
 butaoCriar.addEventListener('click', function () {
   readCreateItem(textoDigitado,listaTarefa)
