@@ -1,3 +1,5 @@
+let listBackground = document.getElementById('lista-tarefas');
+
 function getInputValue(){
   let listBuilder = document.getElementById('lista-tarefas');
   let inputVal = document.getElementById("texto-tarefa");  
@@ -7,9 +9,13 @@ function getInputValue(){
   listBuilder.appendChild(listElement);
 };
 
-function elementsBackgroundColor(event) {
+listBackground.addEventListener('click', function (event) {
   let oldSelectedElement = document.querySelector('.selected');
   let currentSelectedElement = event.target;
-  currentSelectedElement.classList.add('selected');
-  oldSelectedElement.classList.remove('selected');
-}
+  if(oldSelectedElement) {
+    currentSelectedElement.classList.add('selected');
+    oldSelectedElement.classList.remove('selected')
+  } else {
+    currentSelectedElement.classList.add('selected');
+  }
+});
