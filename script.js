@@ -32,21 +32,14 @@ function listing() {
             })
         })
         clearList.addEventListener('click', () =>{
-            itemLista.forEach(item => {
-                lista.removeChild(elemento)
+                listjobs.innerHTML=''; 
             })
-        })
-        
-
     })
 }
 
 aux = listing();
 console.log(aux);
 
-clearList.addEventListener('click', function () {
-    listjobs.removeChild();
-})
 
 
 
