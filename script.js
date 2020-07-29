@@ -3,9 +3,9 @@ function alternativeSaveList() {
   for (const item of document.getElementsByTagName('li')) {
     arrayLi.push(item.innerText, item.classList[0], item.classList[1]);
   }
-  if (arrayLi.length !== 0){
+  if (arrayLi.length !== 0) {
     localStorage.setItem('ol', arrayLi);
-  } 
+  }
 }
 
 function alternativeMountList() {
@@ -13,10 +13,10 @@ function alternativeMountList() {
     for (let itens = 0; itens < localStorage.ol.split(',').length; itens += 3) {
       const listItem = document.createElement('li');
       listItem.innerText = localStorage.ol.split(',')[itens];
-      if (localStorage.ol.split(',')[itens + 1] !== ''){
+      if (localStorage.ol.split(',')[itens + 1] !== '') {
         listItem.classList.add(localStorage.ol.split(',')[itens + 1]);
       }
-      if (localStorage.ol.split(',')[itens + 2] !== ''){
+      if (localStorage.ol.split(',')[itens + 2] !== '') {
         listItem.classList.add(localStorage.ol.split(',')[itens + 2]);
       }
       document.getElementById('lista-tarefas').appendChild(listItem);
@@ -26,7 +26,7 @@ function alternativeMountList() {
 
 function alternativeSelectListItem(event) {
   let session = localStorage.ol.split(',');
-  for(let item = 0; item < session.length; item +=3) {
+  for (let item = 0; item < session.length; item += 3) {
     if (session[item] === event.target.innerText) {
       session[item + 1] = 'selected';
     } else {
@@ -54,7 +54,7 @@ function alternativeCreateListItem() {
 
 function alternativeDoubleSelectListItem(event) {
   let session = localStorage.ol.split(',');
-  for(let item = 0; item < session.length; item +=3) {
+  for (let item = 0; item < session.length; item += 3) {
     if (session[item] === event.target.innerText) {
       if (session[item + 2] === 'completed') {
         session[item + 2] = 'not-completed';
@@ -100,7 +100,7 @@ function alternativeClearCompleted() {
   }
   for (const item of clone) {
     document.getElementById('lista-tarefas').removeChild(item);
-  } 
+  }
 }
 
 function clearList() {
@@ -131,4 +131,4 @@ window.onload = function () {
   document.getElementById('remover-selecionado').addEventListener('click', alternativeClearSelected);
   document.getElementById('salvar-tarefas').addEventListener('click', alternativeSaveList);
   alternativeMountList();
-}
+};
