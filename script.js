@@ -12,12 +12,20 @@ function addTarefa() {
   document.getElementById('texto-tarefa').value = '';
 }
 
+listaTarefas.addEventListener('click', function(e) {
+  let removeClass = document.querySelector('.selected');
+  if (removeClass !== null) {
+    removeClass.classList.remove('selected');
+  }
+  let selectClass = event.target;
+  selectClass.className = 'selected';
+});
+
 // Remover tudo
-let listItems = document.getElementById('lista-tarefas');
 const clearAllButton = document.getElementById('apaga-tudo');
 clearAllButton.addEventListener('click', function() {
-  while (listItems.firstChild) {
-    listItems.removeChild(listItems.firstChild);
+  while (listaTarefas.firstChild) {
+    listaTarefas.removeChild(listaTarefas.firstChild);
   }
 });
 
