@@ -54,3 +54,12 @@ removeSelectedButton.addEventListener('click', function () {
   const selectedClass = document.querySelector('.selected');
   listaTarefas.removeChild(selectedClass);
 });
+
+// Salvar a lista
+const saveButton = document.getElementById('salvar-tarefas');
+saveButton.addEventListener('click', function () {
+  localStorage.setItem('lista', listaTarefas.innerHTML);
+});
+if (localStorage.lista !== undefined) {
+  listaTarefas.innerHTML = localStorage.lista;
+}
