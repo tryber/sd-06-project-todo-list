@@ -5,4 +5,13 @@ document.getElementById("criar-tarefa").addEventListener('click', function(){
   liTag.innerHTML = inputText;
   oList.appendChild(liTag);
   document.getElementById("texto-tarefa").value = null;
+  addClickChangeColor()
 })
+
+function addClickChangeColor(){
+  document.querySelectorAll('li').forEach(item => {
+    item.addEventListener('click', event => {
+    item.style.backgroundColor = 'rgb(128, 128, 128)';
+  })
+})
+}
