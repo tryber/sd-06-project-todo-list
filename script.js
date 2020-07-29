@@ -43,6 +43,15 @@ window.onload = function() {
         }
     })
 
+    let eraseAll = document.querySelector("#apaga-tudo");
+
+    eraseAll.addEventListener("click", function() {
+        let pegaLista = document.querySelectorAll(".listTask");
+        for (let i = 0; i < pegaLista.length; i += 1){
+            orderList.removeChild(pegaLista[i]);
+        }
+    })
+
 
 
 
