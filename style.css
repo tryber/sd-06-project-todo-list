@@ -1,0 +1,141 @@
+html {
+  background: radial-gradient(ellipse at top left, rgb(30, 34, 35) 20%, rgb(36, 42, 52) 100%);
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  margin: 0;
+  min-height: 100vh;
+}
+
+#page-container {
+  background: rgba(230, 236, 238, 74%);
+  border-radius: 8px;
+  margin: 0 auto;
+  min-height: 92vh;
+  min-width: 600px;
+  padding: 0;
+  width: 45%;
+}
+
+header {
+  padding: 10px 20px;
+}
+
+header h1 {
+  color: rgb(10, 14, 17);
+  font-family: 'Recursive', sans-serif;
+  font-size: 2.5em;
+  font-weight: 600;
+  margin: 6px 12px 8px;
+}
+
+#funcionamento {
+  background: rgba(235, 240, 244, 40%);
+  border-radius: 4px;
+  color: rgb(20, 24, 27);
+  display: inline-block;
+  letter-spacing: 1px;
+  margin: 0;
+  padding: 9px 14px;
+}
+
+#texto-tarefa {
+  border: 0;
+  border-radius: 18px;
+  font-size: 1.1em;
+  opacity: .7;
+  padding: 14px 16px;
+  margin: 20px 20px 4px 20px;
+  width: 70%;
+}
+
+#texto-tarefa:focus {
+  opacity: 1;
+  outline: none;
+}
+
+#criar-tarefa {
+  background-color: rgb(100, 102, 122);
+  border: 0;
+  border-radius: 50%;
+  color: rgb(245, 251, 251);
+  font-size: 1.6em;
+  margin: 3px 0;
+  padding: 8px 12px;
+  vertical-align: sub;
+}
+
+#criar-tarefa:focus {
+  outline: none;
+}
+
+#criar-tarefa:active {
+  opacity: .8;
+}
+
+main {
+  background: rgba(36, 42, 52, 20%);
+  margin-top: 20px;
+  min-height: 60vh;
+  padding: 4px 12px;
+}
+
+#lista-tarefas {
+  counter-reset: myCounter;
+  padding: 0;
+}
+
+main ol li {
+  background-color: rgb(171, 177, 181);
+  border-radius: 8px;
+  counter-increment: myCounter;
+  font-family: 'Recursive', sans-serif;
+  list-style-type: none;
+  margin: 12px 0;
+  padding: 5px 8px 5px 0;
+}
+
+main ol li:before {
+  background-color: rgb(141, 141, 141);
+  border-radius: 8px 0 0 8px;
+  color: white;
+  content: counter(myCounter) "_";
+  font-style: italic;
+  margin: 0 6px 0 0;
+  padding: 5px 5px 5px 12px;
+}
+
+.selected {
+  background-color: rgb(128, 128, 128);
+}
+
+.completed {
+  text-decoration: line-through;
+  user-select: none;
+}
+
+#list-buttons {
+  margin: 20px 20px 4px 5px;
+}
+
+#list-buttons button {
+  background-color: rgb(218, 191, 75);
+  border: 0;
+  border-radius: 10px;
+  color: rgb(22, 20, 18);
+  font-size: 0.9em;
+  font-weight: 600;
+  margin: 0 0 0 16px;
+  padding: 8px 18px;
+}
+
+#list-buttons button:focus {
+  outline: none; 
+}
+#list-buttons button:active {
+  opacity: .75;
+}
+
+button#apaga-tudo {
+  background-color: rgb(192, 62, 62);
+  color: white;
+}
