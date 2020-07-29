@@ -1,10 +1,20 @@
 window.onload = function () {
-	// Altera a cor selecionada
-  // let myColor01 = document.getElementById("color01");
-  // myColor01.style.backgroundColor = "rgb(0 , 0 , 0)";
-	// myColor01.addEventListener("click", function () {
-	// 	chageSelected(myColor01);
-	// });	
+  
+  let myList = document.getElementById("myList");
+  let btnAdd = document.getElementById("criar-tarefa");
+  
+
+  btnAdd.addEventListener("click", function () {
+    let myText = document.getElementById("texto-tarefa");
+    addItem(myText.value)
+    myText.value = "";
+  });
+
+  function addItem(myText) {
+    let myItem = document.createElement('li');
+    myItem.appendChild(document.createTextNode(myText));
+    myList.appendChild(myItem);
+  }
 
   // let myColor02 = document.getElementById("color02");
   // myColor02.style.backgroundColor = "rgb(155 , 50 , 8)";  
