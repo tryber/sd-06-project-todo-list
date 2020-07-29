@@ -21,6 +21,9 @@ botao1.addEventListener("click", function () {
         lista[index].classList.remove("selected")
     }
     elementoLinha.classList.add("selected")
+    btnRemSelec.addEventListener("click", function (){
+      document.querySelector(".selected").remove()
+    })
   })  
 
   //Quando clica 2x na tarefa, add classe completed
@@ -33,14 +36,13 @@ botao1.addEventListener("click", function () {
     botaoApagaFinaliz.addEventListener("click", function () {
       document.querySelector(".completed").remove()
     })
+
   })
   botaoApaga.addEventListener("click", function () {
     document.querySelector("#lista-tarefas").removeChild(elementoLinha)
   })
 
-  btnRemSelec.addEventListener("click", function (){
-    document.querySelector(".selected").remove()
-  })
+
 })
 
 }
