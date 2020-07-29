@@ -4,6 +4,7 @@ window.onload = function () {
   const lista = document.querySelector('#lista-tarefas');
   const listItens = document.getElementsByTagName('li');
   const removeBtn = document.querySelector('#apaga-tudo');
+  const removeComplete = document.querySelector('#remover-finalizados');
   tarefaBtn.addEventListener('click', function () {
     lista.innerHTML += '<li>' + tarefa.value + '</li>';
     tarefa.value = '';
@@ -26,6 +27,13 @@ window.onload = function () {
           listItens[i].parentNode.removeChild(listItens[i]);
         }
       });
+    }
+  });
+  removeComplete.addEventListener('click', function () {
+    for (let i = 0; i < listItens.length; i += 1) {
+      if (listItens[i].classList.contains('completed') === true) {
+        listItens[i].parentNode.removeChild(listItens[i]);
+      }
     }
   });
 };
