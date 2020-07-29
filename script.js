@@ -8,6 +8,9 @@ let currentSelectedTask = "";
 
 addTaskButton.addEventListener("click", addTask);
 taskList.addEventListener("click", highlightTask);
+// taskList.addEventListener("dblclick", tickTask);
+
+
 
 function addTask(event){
     let newLi = document.createElement("li");
@@ -28,3 +31,9 @@ function highlightTask(event){
         previousSelectedTask.classList.remove("selected");
     }
 }
+
+// function tickTask(event){
+//     if (event.target.tagName.toLowerCase() == "li"){
+
+//     }
+// }
