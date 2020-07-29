@@ -1,4 +1,6 @@
 window.onload = function () {
+
+
     let texto = document.querySelector("#texto-tarefa");
     let bAdicionar = document.querySelector("#criar-tarefa");
     let listaTarefas = document.querySelector("#lista-tarefas");
@@ -13,11 +15,11 @@ window.onload = function () {
     let click1 = 0;
     listaTarefas.addEventListener("click", function (event) {
         if (click1 === 0) {
-            event.target.className = "selecionado";
+            event.target.className = " selecionado";
             click1 = 1;
         } else {
             document.querySelector(".selecionado").className = "";
-            event.target.className = "selecionado";
+            event.target.className = " selecionado";
         }
 
     });
