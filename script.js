@@ -1,14 +1,14 @@
-    const btnCreate = document.querySelector("#criar-tarefa")
-    const btnClearCompleted = document.querySelector("#remover-finalizados")
-    const btnClearList = document.querySelector("#apaga-tudo")
-    // const btnSave = document.querySelector("#salvar-tarefas")
-    const btnRemove = document.querySelector("#remover-selecionado")
-    const taskList = document.querySelector("#lista-tarefas")
+    let btnCreate = document.querySelector("#criar-tarefa")
+    let btnClearCompleted = document.querySelector("#remover-finalizados")
+    let btnClearList = document.querySelector("#apaga-tudo")
+    // let btnSave = document.querySelector("#salvar-tarefas")
+    let btnRemove = document.querySelector("#remover-selecionado")
+    let taskList = document.querySelector("#lista-tarefas")
    
     //lidando com a lista
 
     function selectedTask(event) {
-        const liSelectedTask = event.target;
+        let liSelectedTask = event.target;
         if (document.querySelector('.selectedTask') !== null) {
           document.querySelector('.selectedTask').classList.remove('selectedTask');
         }
@@ -16,7 +16,7 @@
     }
       
     function completedTask(event) {
-        const liCompletedTask = event.target;
+        let liCompletedTask = event.target;
         if (liCompletedTask.classList.contains('completed')) {
           liCompletedTask.classList.remove('completed');
         } else {
@@ -27,19 +27,17 @@
       //cria as tarefas
 
     function createTask() {
-        const liElement = document.createElement('li');
-        const task = document.getElementById('texto-tarefa').value;
+        let liElement = document.createElement('li');
+        let task = document.getElementById('texto-tarefa').value;
         liElement.innerHTML = task;
         taskList.appendChild(liElement);
         document.getElementById('texto-tarefa').value = '';
     }
       
-
-      
       //remove as completas
 
     function removeCompletedTasks() {
-        const liCompleted = document.querySelectorAll('.completed');
+        let liCompleted = document.querySelectorAll('.completed');
         for (let i = liCompleted.length - 1; i >= 0; i -= 1) {
           liCompleted[i].remove();
         }
@@ -53,15 +51,20 @@
         }
     }
 
-        //limpa tudo
-        
+      //limpa tudo
+
     function removeAllTasks() {
-        const liElements = document.getElementsByTagName('li');
+        let liElements = document.getElementsByTagName('li');
         for (let i = liElements.length - 1; i >= 0; i -= 1) {
           liElements[i].remove();
         }
     }
-      
+      //salva as tarefas
+    
+      let saveTasks = document.querySelector('#salvar-tarefas');
+      saveTasks.addEventListener('click', function () {
+        localStorage.setItem('items', taskList.innerHTML)
+      });
       
       //chama as funcoees e adiciona o evento click
 
