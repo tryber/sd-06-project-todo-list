@@ -79,10 +79,25 @@ function botaoExcluirTarefa() {
   apagaTarefaButton.addEventListener('click', apagaSelecionado);
 }
 
+function botaoExcluirRiscados() {
+  const taskContaneir = document.getElementById('lista-tarefas');
+  const btnRemoverRiscados = document.querySelector("#remover-finalizados");
+  btnRemoverRiscados.addEventListener('click', () => {
+    const tarefasRiscadas = document.querySelectorAll(".completed");
+    console.log('click')
+    console.log(tarefasRiscadas);
+    for (let i = 0; i < tarefasRiscadas.length; i += 1) {
+      taskContaneir.removeChild(tarefasRiscadas[i]);
+    }
+  })
+
+}
+
 window.onload = () => {
   criarTarefa();
   botaoApagarTudo();
   botaoExcluirTarefa();
+  botaoExcluirRiscados();
 };
 
 /**

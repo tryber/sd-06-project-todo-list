@@ -13,4 +13,6 @@
 
 .completed {
   text-decoration: line-through solid black;
+  color: grey;
+  background-color: greenyellow;
 }
