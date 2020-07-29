@@ -25,7 +25,9 @@ function turnGrey() {
 //Torna riscado itens com double click
 function scratchItem(){
   let selectedItem = event.target;
+  selectedItem.classList.add('completed');
   selectedItem.style.textDecoration = 'line-through'
+
 }
 
 // // Botão apaga tudo
