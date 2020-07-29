@@ -1,0 +1,39 @@
+body {
+  background-color: rgba(59 , 167 , 209 , 0.5);
+  font-family: Helvetica, sans-serif;
+  margin: 0 auto;
+  width: 940px;
+}
+
+header {
+  background-color: white;
+  border-radius: 8px 8px 0 0;
+  letter-spacing: 0.5px;
+  margin-top: 64px;
+  padding: 24px;
+}
+
+header p {
+  color: rgb(85 , 85 , 85);
+  font-style: italic;
+}
+
+button {
+  background-color: rgba(88 , 221 , 210 , 0.699);
+  border-radius: 4px;
+  padding: 8px 24px;
+}
+
+.main-content {
+  background-color: white;
+  border-radius: 0 0 8px 8px;
+  padding: 0 24px 40px;
+}
+
+.selected {
+  background-color: gray;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
