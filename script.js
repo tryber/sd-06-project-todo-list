@@ -61,4 +61,10 @@ window.onload = function () {
   };
 
   loadUserSettings();
+
+  let clearSelected = document.querySelector('#remover-selecionado');
+
+  clearSelected.addEventListener('click', function () {
+    selected[0].remove();
+  })
 };
