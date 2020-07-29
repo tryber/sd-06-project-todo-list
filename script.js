@@ -3,13 +3,14 @@ let taskInput = document.querySelector("#texto-tarefa");
 let taskList = document.querySelector("#lista-tarefas");
 let previousSelectedTask = "";
 let currentSelectedTask = "";
+let deleteTasksButton = document.querySelector("#apaga-tudo");
 
 
 
 addTaskButton.addEventListener("click", addTask);
 taskList.addEventListener("click", highlightTask);
 taskList.addEventListener("dblclick", tickTask);
-
+deleteTasksButton.addEventListener("click", deleteTasks);
 
 
 function addTask(event){
@@ -37,5 +38,13 @@ function tickTask(event){
         event.target.classList.remove("completed");
     } else if (event.target.tagName.toLowerCase() == "li"){
         event.target.classList.add("completed");
+    }
+}
+
+
+function deleteTasks(){
+    let tasks = document.querySelectorAll("li");
+    for (index = 0; index < tasks.length; index += 1){
+        taskList.removeChild(tasks[index]);
     }
 }
