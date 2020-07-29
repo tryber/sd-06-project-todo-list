@@ -12,9 +12,17 @@ botao1.addEventListener("click", function () {
   document.getElementById("lista-tarefas").appendChild(elementoLinha)
   elementoLinha.innerHTML = inputTarefa.value
   inputTarefa.value = "";
+
+  //Quando clica na tarefa, muda cor de fundo
   elementoLinha.addEventListener("click", function () {
-    elementoLinha.style.backgroundColor = "rgb(128,128,128)";
-  })
+    let lista = document.getElementsByTagName("li");
+    for(let index = 0; index < lista.length; index ++) {
+        lista[index].classList.remove("selected")
+    }
+    elementoLinha.classList.add("selected")
+  })  
+
+  //Quando clica 2x na tarefa, add classe completed
   elementoLinha.addEventListener("dblclick", function () {
     if (elementoLinha.className != "completed") {
       elementoLinha.className = "completed"
@@ -28,7 +36,6 @@ botao1.addEventListener("click", function () {
   botaoApaga.addEventListener("click", function () {
     document.querySelector("#lista-tarefas").removeChild(elementoLinha)
   })
-
 })
 
 }
