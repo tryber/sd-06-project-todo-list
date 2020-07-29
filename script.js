@@ -1,6 +1,6 @@
 const btnCreate = document.getElementById('criar-tarefa');
 const btnErase = document.getElementById('apaga-tudo');
-const btnEraseTask = document.getElementById('remover-finalizados');
+const btnEraseTask = document.getElementById('remover-selecionado');
 const btnSaveList = document.getElementById('salvar-tarefas');
 const list = document.getElementById('lista-tarefas');
 const text = document.getElementById('texto-tarefa');
@@ -45,8 +45,8 @@ function createElementList(textvalue) {
 window.onload = function () {
   if (localStorage.length > 0) {
     for (let i = 0; i < localStorage.length; i += 1) {
-      let saveList = JSON.parse(localStorage.getItem(i));
-      let newItem = createElementList(saveList.name);
+      const saveList = JSON.parse(localStorage.getItem(i));
+      createElementList(saveList.name);
     }
     for (let j = 0; j < localStorage.length; j += 1) {
       let saveList = JSON.parse(localStorage.getItem(j));
@@ -55,7 +55,7 @@ window.onload = function () {
     selectElement();
     completeTask();
   }
-}
+};
 
 btnCreate.addEventListener('click', function () {
   createElementList(text.value);
