@@ -2,6 +2,7 @@ const inputButton = document.getElementById('criar-tarefa');
 const listaTarefas = document.getElementById('lista-tarefas');
 inputButton.addEventListener('click', addTarefa);
 
+// Criar tarefa na lista
 function addTarefa() {
   let inputText = document.getElementById('texto-tarefa').value;
   const createListItem = document.createElement('li');
@@ -11,13 +12,14 @@ function addTarefa() {
   document.getElementById('texto-tarefa').value = '';
 }
 
-const listItems = document.querySelectorAll('.list-item');
-listItems.addEventListener('click', addNewBackgroundColor);
-
-function addNewBackgroundColor() {
-  for (item in listItems) {
-    item.className = 'selected';
+// Remover tudo
+let listItems = document.getElementById('lista-tarefas');
+const clearAllButton = document.getElementById('apaga-tudo');
+clearAllButton.addEventListener('click', function() {
+  while (listItems.firstChild) {
+    listItems.removeChild(listItems.firstChild);
   }
-}
+});
+
 
 
