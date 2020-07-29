@@ -21,13 +21,25 @@ window.onload = function () {
     }
   }
 
+  function completedTask(event) {
+    if (event.target.classList.contains('completed')) {
+      event.target.classList.remove('completed');
+    } else {
+      event.target.classList.add('completed');
+    }
+  }
+
   document.addEventListener('click', function (event) {
     if (event.target.classList.contains('list-item')) {
       selectedTask(event);
     }
-  })
+  });
+
+  document.addEventListener('dblclick', function (event) {
+    if (event.target.classList.contains('list-item')) {
+      completedTask(event);
+    }
+  });
 
   newTaskButton.addEventListener('click', newTask);
-
-
 };

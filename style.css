@@ -5,3 +5,7 @@ h1 {
 .selected {
   background-color: grey;
 }
+
+.completed {
+  text-decoration: line-through solid black;
+}
