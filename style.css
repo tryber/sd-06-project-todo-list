@@ -1,0 +1,15 @@
+button , ol li {
+  cursor: pointer;
+}
+
+h1 {
+  text-align: left;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.selectedTask {
+  background-color: gray;
+}
