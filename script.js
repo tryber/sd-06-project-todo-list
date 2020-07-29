@@ -37,3 +37,13 @@ function completedTasks(event) {
   }
 }
 lista.addEventListener('dblclick', completedTasks);
+
+function apagaTudo() {
+  const lista = document.querySelector('#lista-tarefas');
+  while (lista.firstChild) {
+    lista.removeChild(lista.firstChild);
+  }
+}
+
+const btnApaga = document.querySelector('#apaga-tudo');
+btnApaga.addEventListener('click', apagaTudo);
