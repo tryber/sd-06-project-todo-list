@@ -13,7 +13,7 @@ window.onload = function () {
     /*o que for realicionado ao li tem que ser chamado aqui*/
     listaOl.style.backgroundColor = 'white';
     listaOl.addEventListener('click',fundoDeCor);
-
+    
   });
  
   /* fazendo a parte do reset da imput*/
@@ -24,12 +24,9 @@ window.onload = function () {
  text.addEventListener('click', resetTexto);
 
  /*alterando a cor de fundo de um lista da lista*/
-  //const bgCor = document.querySelector('li');
-  //bgCor.addEventListener('click',fundoDeCor);
-
-  function fundoDeCor(){
+   function fundoDeCor(){
    let item = event.target;
-   item.style.backgroundColor = "rgb(128, 128, 128)";
+   item.style.backgroundColor = 'rgb(128, 128, 128)';
   }
  
 
