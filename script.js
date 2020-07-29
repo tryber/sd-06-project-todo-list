@@ -4,13 +4,13 @@ let taskList = document.querySelector("#lista-tarefas");
 let previousSelectedTask = "";
 let currentSelectedTask = "";
 let deleteTasksButton = document.querySelector("#apaga-tudo");
-
-
+let removeDoneTasksButton = document.querySelector("#remover-finalizados");
 
 addTaskButton.addEventListener("click", addTask);
 taskList.addEventListener("click", highlightTask);
 taskList.addEventListener("dblclick", tickTask);
 deleteTasksButton.addEventListener("click", deleteTasks);
+removeDoneTasksButton.addEventListener("click", removeDoneTasks);
 
 
 function addTask(event){
@@ -46,5 +46,12 @@ function deleteTasks(){
     let tasks = document.querySelectorAll("li");
     for (index = 0; index < tasks.length; index += 1){
         taskList.removeChild(tasks[index]);
+    }
+}
+
+function removeDoneTasks(){
+    let doneTasks = document.querySelectorAll(".completed");
+    for (index = 0; index < doneTasks.length; index += 1){
+        taskList.removeChild(doneTasks[index]);
     }
 }
