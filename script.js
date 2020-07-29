@@ -19,5 +19,25 @@ function changeTaskToGrey(event) {
   }
 }
 
+function isClassCompleted(classList) {
+  for (let index in classList) {
+    if (classList[index] === 'completed') {
+      return true;
+    }
+    return false;
+  }
+}
+
+function crossOutItem(event) {
+  let classList = event.target.classList;
+  let isCompleted = isClassCompleted(classList);
+  if (isCompleted) {
+    classList.remove('completed');
+    return
+  } 
+  classList.add('completed');
+}
+
 addTask.addEventListener('click', addTaskToList);
 taskList.addEventListener('click', changeTaskToGrey);
+taskList.addEventListener('dblclick', crossOutItem);
