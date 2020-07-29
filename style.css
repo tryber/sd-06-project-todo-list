@@ -44,3 +44,7 @@ button {
 .control {
   padding: 20px 0;
 }
+
+.selected {
+  background-color: rgb(128, 128, 128)
+}
