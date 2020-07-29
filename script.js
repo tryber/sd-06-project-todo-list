@@ -15,7 +15,7 @@ function addTarefa() {
 }
 addTarefaButton.addEventListener('click', addTarefa);
 
-function tarefaSelecionada (event) {
+function tarefaSelecionada(event) {
     const itemLista = document.getElementsByTagName('li');
     event.target.style.backgroundColor = 'rgb(128,128,128)';
     event.target.id = 'isSelected';
@@ -28,7 +28,7 @@ function tarefaSelecionada (event) {
 }
 listaTarefas.addEventListener('click', tarefaSelecionada);
 
-function tarefaCompletada (event) {
+function tarefaCompletada(event) {
     if (event.target.className !== 'completed') {
         event.target.className = 'completed';
     } else {
@@ -37,12 +37,12 @@ function tarefaCompletada (event) {
 }
 listaTarefas.addEventListener('dblclick', tarefaCompletada);
 
-function removeSelecionado (event) {
+function removeSelecionado(event) {
     document.getElementById('isSelected').remove();
 }
 removeSelecionadoButton.addEventListener('click', removeSelecionado);
 
-function removeFinalizados (event) {
+function removeFinalizados(event) {
     let completed = document.querySelectorAll('.completed');
     for (let i = 0; i < completed.length; i += 1) {
         completed[i].remove();
@@ -50,7 +50,7 @@ function removeFinalizados (event) {
 }
 removeFinalizadosButton.addEventListener('click', removeFinalizados);
 
-function apagaTudo (event) {
+function apagaTudo(event) {
     let todasTarefas = document.getElementsByTagName('li');
     for (let i = 0; i < todasTarefas.length; i += 0) {
         todasTarefas[i].remove();
