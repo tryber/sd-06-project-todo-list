@@ -96,39 +96,43 @@ function botaoExcluirRiscados() {
 
 function botaoMoverBaixo() {
   const buttonDw = document.querySelector("#mover-baixo");
-  const itemlist = document.querySelector("#lista-tarefas")
+  const tasklist = document.querySelector("#lista-tarefas");
   buttonDw.addEventListener('click', () => {
-    for (let i = 0; i < itemlist.childNodes.length; i += 1) {
-      const thisTask = itemlist.childNodes[i];
-      if (thisTask.classList.contains('selected')) {
-        const underTask = itemlist.childNodes[i+1];
-        let underTaskText = underTask.innerText;
-        underTask.innerText = thisTask.innerText;
-        thisTask.innerText = underTaskText;
-        console.log(underTask)
-        thisTask.classList.toggle('selected');
-      } 
+    const tasks = tasklist.childNodes;
+    for (let i = tasks.length - 2; i >= 0; i -= 1) {
+      if (tasks[i].classList.contains('selected')) {
+        tasklist.insertBefore(tasks[i + 1], tasks[i]);
+      }
     }
   });
 }
 
 function botaoMoverCima() {
   const buttonUp = document.querySelector("#mover-cima");
-  const itemlist = document.querySelector("#lista-tarefas")
+  const tasklist = document.querySelector("#lista-tarefas");
   buttonUp.addEventListener('click', () => {
-    for (let i = 0; i < itemlist.childNodes.length; i += 1) {
-      const thisTask = itemlist.childNodes[i];
-      if (thisTask.classList.contains('selected')) {
-        const underTask = itemlist.childNodes[i-1];
-        const thisTaskText = thisTask.innerText;
-        thisTask.innerText = underTask.innerText;
-        underTask.innerText = thisTaskText;
-        thisTask.classList.toggle('selected');
-        underTask.classList.toggle('selected');
-      } 
+    const tasks = tasklist.childNodes;
+    for (let i = 1; i < tasks.length; i += 1) {
+      if (tasks[i].classList.contains('selected')) {
+        tasklist.insertBefore(tasks[i], tasks[i - 1]);
+      }
     }
   });
 }
+
+// btnUp.addEventListener('click', function () {
+//   const lista = list.childNodes;
+//   for (let i = 1; i < lista.length; i += 1) {
+//     if (lista[i].style.backgroundColor === 'rgb(128, 128, 128)') {
+//       list.insertBefore(lista[i], lista[i - 1]);
+//     }
+//   }
+// });
+
+
+
+
+
 
 window.onload = () => {
   criarTarefa();
