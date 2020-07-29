@@ -1,9 +1,9 @@
 window.onload = function() {
   
-  let myList = document.getElementById("myList");
+  let myList = document.getElementById("lista-tarefas");
+  
   let btnAdd = document.getElementById("criar-tarefa");
   
-
   btnAdd.addEventListener("click", function () {
     let myText = document.getElementById("texto-tarefa");
     addItem(myText.value)
