@@ -1,1 +1,4 @@
-//sendo utilizada a resolução de tela de 1366 x 768 (1366 pixels de largura por 768 pixels de altura).
+window.onload = function(){
+
+    
+}
