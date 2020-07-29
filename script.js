@@ -21,3 +21,12 @@ function tarefaSelecionada (event) {
     }
 }
 listaTarefas.addEventListener('click', tarefaSelecionada);
+
+function tarefaCompletada (event) {
+    if (event.target.className !== 'completed') {
+        event.target.className = 'completed';
+    } else {
+        event.target.className = '';
+    }
+}
+listaTarefas.addEventListener('dblclick', tarefaCompletada);
