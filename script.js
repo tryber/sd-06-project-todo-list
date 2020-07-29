@@ -8,7 +8,7 @@ window.onload = function () {
     addBtn.addEventListener('click', function () {
         for (let index = 0; index < textInput.length; index += 1) {
             let liElement = document.createElement("li");
-            takeText[i] = elementoLi + textInput.value;
+            takeText[i] = liElement + textInput.value;
         }
     });
 
