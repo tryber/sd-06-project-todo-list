@@ -1,4 +1,4 @@
-let listBackground = document.getElementById('lista-tarefas');
+let listElements = document.getElementById('lista-tarefas');
 
 function getInputValue(){
   let listBuilder = document.getElementById('lista-tarefas');
@@ -9,7 +9,7 @@ function getInputValue(){
   listBuilder.appendChild(listElement);
 };
 
-listBackground.addEventListener('click', function (event) {
+listElements.addEventListener('click', function (event) {
   let oldSelectedElement = document.querySelector('.selected');
   let currentSelectedElement = event.target;
   if(oldSelectedElement) {
@@ -18,4 +18,8 @@ listBackground.addEventListener('click', function (event) {
   } else {
     currentSelectedElement.classList.add('selected');
   }
+});
+
+listElements.addEventListener('dblclick', function (event) {
+  
 });
