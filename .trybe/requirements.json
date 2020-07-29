@@ -6,7 +6,7 @@
     },
     {
       "description": "Abaixo do título deve haver um pequeno e discreto parágrafo com id=\"funcionamento\" e com o texto \"Clique duas vezes em um item para marcá-lo como completo\"",
-      "bonus": true
+      "bonus": false
     },
     {
       "description": "Deve haver um input com o id=\"texto-tarefa\" onde o usuário poderá digitar o nome do item que deseja adicionar à lista",
