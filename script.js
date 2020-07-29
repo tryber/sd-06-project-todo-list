@@ -1,6 +1,9 @@
 let addTaskButton = document.querySelector("#criar-tarefa");
 let taskInput = document.querySelector("#texto-tarefa");
 let taskList = document.querySelector("#lista-tarefas");
+let previousSelectedTask = "";
+let currentSelectedTask = "";
+
 
 
 addTaskButton.addEventListener("click", addTask);
@@ -14,7 +17,14 @@ function addTask(event){
 }
 
 function highlightTask(event){
-    if(event.target.tagName.toLowerCase() == "li"){
-        event.target.style.backgroundColor = "rgb(128, 128, 128)";
+    if(event.target.tagName.toLowerCase() == "li" && previousSelectedTask == ""){
+        currentSelectedTask = event.target;
+        currentSelectedTask.className = "selected";
+        previousSelectedTask = currentSelectedTask;
+    } else if (event.target.tagName.toLowerCase() == "li"){
+        previousSelectedTask = currentSelectedTask;
+        currentSelectedTask = event.target;
+        currentSelectedTask.className = "selected";
+        previousSelectedTask.classList.remove("selected");
     }
 }
