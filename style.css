@@ -1,1 +1,35 @@
-//Hello world!!
+body{
+    margin-left: 30px;
+    background-color: oldlace;
+}
+h1{
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: italic;
+    color: seagreen;
+    font-size: 40px;
+}
+p{
+    text-align: center;
+    font-family: sans-serif;
+    color: red;
+    font-style: oblique;
+}
+texto-tarefa{
+    border: black 5px solid;
+}
+    #criar-tarefa{
+        margin-left: 20px;
+    color: seagreen;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 15px;
+}
+nav{
+    text-align: center;
+}
+button{
+    border-radius: 15px;
+    background-color: ivory;
+    font-style: inherit;
+}

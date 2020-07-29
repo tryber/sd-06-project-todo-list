@@ -2,8 +2,9 @@
     let createButton = document.querySelector("#criar-tarefa");
     let taskList = document.querySelector("#lista-tarefas");
     let textInput = document.querySelector("#texto-tarefa");
-    let removeTasksDone = document.querySelector("#remover-finalizados")
-    let clearList = document.querySelector("#apagar-tudo");
+    let removeTasksDoneButton = document.querySelector("#remover-finalizados");
+    let removeSelectedTasksButton = document.querySelector("#remover-selecionado");
+    let clearListButton = document.querySelector("#apagar-tudo");
 
     
     function createTask() {
@@ -13,17 +14,16 @@
         taskList.appendChild(listItem);
         document.getElementById('texto-tarefa').value = '';
     }
-
     createButton.addEventListener('click', createTask);
 
 
     //Lidando com a tarefa selecionada
     function handleSelectedTask(event) {
         let listSelectedTask = event.target;
-            if (document.querySelector('.selectedTask') !== null) {
-                document.querySelector('.selectedTask').classList.remove('selectedTask');
+            if (document.querySelector('.selected') !== null) {
+                document.querySelector('.selected').classList.remove('selected');
             }
-        listSelectedTask.classList.add('selectedTask');
+        listSelectedTask.classList.add('selected');
     }
     taskList.addEventListener('click', handleSelectedTask);
 
@@ -37,6 +37,41 @@
         }
     }
     taskList.addEventListener('dblclick', HandleTasksDone);
+
+
+//Removendo as tarefas completadas
+    function removeTasksDone() {
+        let tasksCompleted = document.querySelectorAll('.completed');
+            for (let i = tasksCompleted.length - 1; i >= 0; i -= 1) {
+                tasksCompleted[i].remove();
+            }
+    }
+    removeTasksDoneButton.addEventListener('click', removeTasksDone);
+
+//Removendo as tarefas selecionadas
+    function removeSelectedTasks() {
+        if (document.querySelector('.selected') !== null) {
+            document.querySelector('.selected').remove();
+    }
+    }
+    removeSelectedTasksButton.addEventListener('click', removeSelectedTasks);
+
+    function removeAllTasks() {
+    let listElementsss = document.getElementsByTagName('li');
+        for (let i = listElementsss.length - 1; i >= 0; i -= 1) {
+            listElementsss[i].remove();
+    }
+    }
+    clearListButton.addEventListener('click', removeAllTasks);
+
+//Salvando a lista
+    let saveTasks = document.querySelector('#salvar-tarefas');
+        saveTasks.addEventListener('click', function () {
+            localStorage.setItem('items', taskList.innerHTML)
+    });
+    
+
+
 
         // function listingTheTasks('click', function(){
         //     let listItem = document.createElement('li');
