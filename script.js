@@ -1,7 +1,7 @@
 // variaveis
 const buttonCreate = document.querySelector('#criar-tarefa');
 const createText = document.querySelector('#texto-tarefa');
-const createList = document.querySelector('#lista-tarefas');
+const createList = document.getElementById('lista-tarefas');
 
 // functions
   // cria itens da lista
@@ -22,8 +22,15 @@ function createLi() {
 
     createList.appendChild(item);
     createText.value = '';
-    
+
   }
 }
 
 buttonCreate.addEventListener('click', createLi);
+
+let itemSelected = document.getElementsByTagName('li');
+createList.addEventListener('dblclick', function (e) {
+  e.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  console.log(e.target);
+});
+
