@@ -20,11 +20,11 @@ function taskCreation() {
     return alert('Name a task before adding it!');
   }
   const li = addTask();
-  addText(li);
+  return addText(li);
 }
 
 // addTaskButton.onclick = taskCreation;
 
-addTaskButton.addEventListener("click", function() {
+addTaskButton.addEventListener('click', function () {
   taskCreation();
-})
+});
