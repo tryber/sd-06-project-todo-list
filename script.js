@@ -9,11 +9,13 @@ function addButton () {
 
     let newItem = document.createElement("li");
 
-    newItem.appendChild(document.createTextNode(textInput.value)) ;
-
     orderedList.appendChild(newItem);
 
+    newItem.innerText = textInput.value;
+
     newItem.className="tarefa";
+
+    textInput.value = "";
 }
 
 let addButtonClick = document.querySelector("#criar-tarefa");
@@ -26,35 +28,29 @@ addButtonClick.addEventListener("click", function(){
 
 //changeBackgroundColor
 
+let list = document.getElementById("lista-tarefas");
 
-let itemSelecionado = document.getElementsByClassName("selected");
-let lista = document.querySelector("#lista-tarefas")
-
-lista.addEventListener("click" , function(event){
-
-    if (event.target.classList.contains("tarefa") && itemSelecionado.length === 0){
-
-      event.target.classList.add("selected");
-
-    }else{
-
-      event.target.classList.contains("tarefa") && itemSelecionado.length === 1
-
+list.addEventListener('click', function (event) {
+    const li = event.target;
+    for (let i = 0; i < list.childNodes.length; i += 1) {
+      if (list.childNodes[i] !== li) {
+        list.childNodes[i].style.backgroundColor = 'white';
+      }
     }
 
-    itemSelecionado[0].className = "tarefa";
-    event.target.classList.add("selected");
+    li.style.backgroundColor = 'rgb(128, 128, 128)';
+
 });
 
 
 //riscar tarefa finalizada
 
 
-lista.addEventListener("dblclick" , function(event){
+list.addEventListener("dblclick" , function(event){
 
     if (event.target.classList.contains("completed")){
 
-        event.target.classList.remove("tarefa");
+        event.target.classList.remove("completed");
 
     }
     else{
@@ -77,7 +73,10 @@ document.getElementById("apaga-tudo").addEventListener("click", function(){
 
 document.getElementById("remover-finalizados").addEventListener("click", function(){
 
-    let lista = document.getElementById("lista-tarefas");
-    let itensFinalizados = document.querySelectorAll(".completed");
-    lista.removeChild(itensFinalizados)
+    let li = document.querySelector("li");
+    li.addEventListener("click", function(event){
+        li.removeChild(".completed");
+        event.stopPropagation();
+    });
+    
 })
