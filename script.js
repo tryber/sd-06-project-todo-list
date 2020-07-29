@@ -12,13 +12,24 @@ function addTarefa() {
   document.getElementById('texto-tarefa').value = '';
 }
 
-listaTarefas.addEventListener('click', function(e) {
+// Add backgroundColor
+listaTarefas.addEventListener('click', function(event) {
   let removeClass = document.querySelector('.selected');
   if (removeClass !== null) {
     removeClass.classList.remove('selected');
   }
   let selectClass = event.target;
-  selectClass.className = 'selected';
+  selectClass.className += ' selected';
+});
+
+// Add linha riscada
+listaTarefas.addEventListener('dblclick', function(event) {
+  let completedClass = event.target;
+  if (completedClass.classList.contains('completed')) {
+    completedClass.classList.remove('completed');
+  } else {
+    completedClass.className += ' completed';
+  }
 });
 
 // Remover tudo
