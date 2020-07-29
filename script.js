@@ -8,7 +8,7 @@ let currentSelectedTask = "";
 
 addTaskButton.addEventListener("click", addTask);
 taskList.addEventListener("click", highlightTask);
-// taskList.addEventListener("dblclick", tickTask);
+taskList.addEventListener("dblclick", tickTask);
 
 
 
@@ -22,18 +22,18 @@ function addTask(event){
 function highlightTask(event){
     if(event.target.tagName.toLowerCase() == "li" && previousSelectedTask == ""){
         currentSelectedTask = event.target;
-        currentSelectedTask.className = "selected";
+        currentSelectedTask.classList.add("selected");
         previousSelectedTask = currentSelectedTask;
     } else if (event.target.tagName.toLowerCase() == "li"){
         previousSelectedTask = currentSelectedTask;
         currentSelectedTask = event.target;
-        currentSelectedTask.className = "selected";
+        currentSelectedTask.classList.add("selected");
         previousSelectedTask.classList.remove("selected");
     }
 }
 
-// function tickTask(event){
-//     if (event.target.tagName.toLowerCase() == "li"){
-
-//     }
-// }
+function tickTask(event){
+    if (event.target.tagName.toLowerCase() == "li"){
+        event.target.classList.add("completed");
+    }
+}
