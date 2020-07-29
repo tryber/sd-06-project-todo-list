@@ -2,7 +2,7 @@ const enviarTexto = document.querySelector('#criar-tarefa');
 const listaTarefa = document.querySelector('#lista-tarefas');
 const textoTarefa = document.querySelector('#texto-tarefa');
 const apagaLista = document.querySelector('#apaga-tudo');
-const apagaRealizados = document.querySelector('#remover-finalizados');
+const apagarSelecionado = document.querySelector('#remover-selecionado');
 
 enviarTexto.addEventListener('click', function (event) {
   event.preventDefault();
@@ -31,9 +31,9 @@ apagaLista.addEventListener('click', function () {
   listaTarefa.innerHTML = '';
 });
 
-apagaRealizados.addEventListener('click', function () {
+apagarSelecionado.addEventListener('click', function () {
   for (let indice = 0; indice < listaTarefa.childElementCount; indice += 1) {
-    if (listaTarefa.children[indice].classList.contains('completed')) {
+    if (listaTarefa.children[indice].classList.contains('selected')) {
       listaTarefa.removeChild(listaTarefa.childNodes[indice]);
     }
   }
