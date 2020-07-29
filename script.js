@@ -7,7 +7,13 @@ function riscarItem() {
 }
 
 function alterarCor() {
-  this.classList.add('cor_alterada');
+  const tagsLi = document.querySelectorAll('.color_gray');
+  for (let index = 0; index < tagsLi.length; index += 1) {
+    const tagLi = tagsLi[index];
+    tagLi.classList.remove('color_gray');
+  }
+  const tagSelecionada = this;
+  tagSelecionada.classList.add('color_gray');
 }
 
 function listarItens() {
