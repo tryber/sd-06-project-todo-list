@@ -12,11 +12,13 @@ window.onload = function () {
         texto.value = "";
     });
 
-    let click1 = 0;
+    
     listaTarefas.addEventListener("click", function (event) {
-        if (click1 === 0) {
-            event.target.className = " selecionado";
-            click1 = 1;
+        if (document.querySelector(".selecionado")  === null) {
+            event.target.className = " selecionado";            
+        } else if (event.target.style.textDecoration === "line-through") {
+            document.querySelector(".selecionado").className = "";
+            event.target.className = " selecionado completed";
         } else {
             document.querySelector(".selecionado").className = "";
             event.target.className = " selecionado";
@@ -24,9 +26,13 @@ window.onload = function () {
 
     });
 
-    /* listaTarefas.addEventListener("dblclick", function (event) {
-                
-
-    }); */
+    listaTarefas.addEventListener("dblclick", function (event) {
+        if (event.target.style.textDecoration !== "line-through"){
+            event.target.className = " selecionado completed";
+        } else {
+            event.target.className = " selecionado";
+        }
+        
+    });
 
 }
