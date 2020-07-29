@@ -42,8 +42,8 @@ function handleTaskSelection() {
   document.addEventListener('click', function (event) {
     if (event.target.classList.contains('list-item')) {
       selectedTask(event);
-    } else if (document.document.querySelector('.selected') != null) {
-      document.document.querySelector('.selected').classList.remove('selected');
+    } else if (document.querySelector('.selected') != null) {
+      document.querySelector('.selected').classList.remove('selected');
     }
   });
 }
