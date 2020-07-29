@@ -16,10 +16,10 @@ window.onload = function(){
     lista.addEventListener("click", function(event){
         for(let i = 1; i < lista.childNodes.length; i += 1){
             lista.childNodes[i].style.backgroundColor = "";
-            lista.childNodes[i].className = " ";
+            lista.childNodes[i].setAttribute('islect', ' ');
         } 
         event.target.style.backgroundColor = "rgb(128,128,128)";
-        event.target.className = "selected";
+        event.target.setAttribute('islect', 'selected');
     })
 
     lista.addEventListener("dblclick", function(event){
@@ -46,7 +46,7 @@ window.onload = function(){
     remSelected.addEventListener("click", function(){
         let element = lista.childNodes;
         for (let index = 1; index < element.length; index++) {
-            if(element[index].className == "selected"){
+            if(element[index].getAttribute('islect') == "selected"){
                 lista.removeChild(element[index])
             }
         }
