@@ -5,7 +5,8 @@ document.getElementById("criar-tarefa").addEventListener('click', function(){
   liTag.innerHTML = inputText;
   oList.appendChild(liTag);
   document.getElementById("texto-tarefa").value = null;
-  addClickChangeColor()
+  addClickChangeColor();
+  addClickToRisk();
 })
 
 function addClickChangeColor(){
@@ -20,5 +21,14 @@ function addClickChangeColor(){
 function clearBgFromList(){
   document.querySelectorAll('li').forEach(item => {
    item.style.backgroundColor = "";
+})
+}
+
+function addClickToRisk(){
+  document.querySelectorAll('li').forEach(item => {
+    item.addEventListener('dblclick', event => {
+      item.className = "completed";
+      item.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
+  })
 })
 }
