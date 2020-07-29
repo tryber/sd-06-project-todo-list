@@ -14,6 +14,7 @@ function addClickChangeColor(){
     item.addEventListener('click', event => {
       clearBgFromList();
       item.style.backgroundColor = 'rgb(128, 128, 128)';
+      item.classList.add('selected');
   })
 })
 }
@@ -21,6 +22,7 @@ function addClickChangeColor(){
 function clearBgFromList(){
   document.querySelectorAll('li').forEach(item => {
    item.style.backgroundColor = "";
+   item.classList.remove('selected');
 })
 }
 
@@ -62,3 +64,6 @@ document.getElementById('teste').addEventListener('click', function(){
   addRiskOnDblClick();
 })
 
+document.getElementById('remover-selecionado').addEventListener('click', function(){
+  document.querySelector('.selected').remove();
+})
