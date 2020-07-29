@@ -15,6 +15,7 @@ const newTaskButton = document.querySelector('#criar-tarefa');
 const tasksList = document.querySelector('#lista-tarefas');
 const eraseAllButton = document.querySelector('#apaga-tudo');
 const eraseCompletedButton = document.querySelector('#remover-finalizados');
+const selectedClassItem = document.querySelector('.selected');
 
 function newTask() {
   const newListItem = document.createElement('li');
@@ -29,7 +30,7 @@ function handleNewTaskButtonClick() {
 }
 
 function selectedTask(event) {
-  const oldSelectedItem = document.querySelector('.selected');
+  const oldSelectedItem = selectedClassItem;
   if (oldSelectedItem == null) {
     event.target.classList.add('selected');
   } else {
@@ -42,8 +43,8 @@ function handleTaskSelection() {
   document.addEventListener('click', function (event) {
     if (event.target.classList.contains('list-item')) {
       selectedTask(event);
-    } else {
-      document.querySelector('.selected').classList.remove('selected');
+    } else if (document.selectedClassItem != null) {
+      document.selectedClassItem.classList.remove('selected');
     }
   });
 }
@@ -73,12 +74,12 @@ function handleEraseAllButton() {
 }
 
 function eraseCompleted() {
-    const listItems = document.querySelectorAll('li');
-    for (let i = 0; i < listItems.length; i += 1) {
-      if (listItems[i].classList.contains('completed')) {
-        const item = listItems[i];
-        tasksList.removeChild(item);
-      }
+  const listItems = document.querySelectorAll('li');
+  for (let i = 0; i < listItems.length; i += 1) {
+    if (listItems[i].classList.contains('completed')) {
+      const item = listItems[i];
+      tasksList.removeChild(item);
+    }
   }
 }
 
