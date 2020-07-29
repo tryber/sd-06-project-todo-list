@@ -1,6 +1,8 @@
 function addTask() {
   let task = document.createElement('li');
   let lista = document.getElementById('lista-tarefas');
-  task.innerHTML = document.getElementById('texto-tarefa').value;
+  let input = document.getElementById('texto-tarefa');
+  task.innerHTML = input.value;
   lista.appendChild(task);
+  input.value = '';
 }
