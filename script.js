@@ -31,7 +31,6 @@ window.onload = function () {
       itemCompleto.classList.add('completed');
     };
   });
-
   //  Botao para apagar tudo o conteudo da lista
   let botaoApagar = document.querySelector('#apaga-tudo');
   botaoApagar.addEventListener('click', function() {
@@ -39,6 +38,17 @@ window.onload = function () {
     let iten = document.querySelectorAll('li');
     for (let i = 0; i < iten.length; i += 1) {
       lista.removeChild(lista.children[0]);
+    };
+  });
+  //  Botao para apagar os conteudos riscados
+  let botaoApagarCompletos = document.querySelector('#remover-finalizados');
+  botaoApagarCompletos.addEventListener('click', function () {
+    let tarefa = document.querySelectorAll('li');
+    let listaTarefas = document.querySelector('#lista-tarefas');
+    for (let i = 0; i < tarefa.length; i += 1) {
+      if (tarefa[i].className == 'completed' || tarefa[i].className == 'grey completed') {
+        listaTarefas.removeChild(tarefa[i]);
+      };
     };
   });
 };
