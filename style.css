@@ -45,3 +45,7 @@ header {
 #criar-tarefa {
   border-radius: 2em;
 }
+
+.completed {
+  text-decoration: line-through;
+}

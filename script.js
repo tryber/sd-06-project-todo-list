@@ -1,11 +1,16 @@
 
-const elementBtnAddTask = document.getElementById('criar-tarefa');
-elementBtnAddTask.addEventListener('click', function() {
-  const taskName = getTaskNameFromInput();
-  const list = getOlElement();
-  insertTaskOnList(taskName, list);
-  clearInput();
-});
+
+function insertTaskOnList(taskName, list) {
+  const task = document.createElement('li');
+  task.innerText = taskName;
+  taskHighlighter(task, list);
+  list.appendChild(task);
+}
+
+function clearInput() {
+  const elementInputTaskName = document.getElementById('texto-tarefa');
+  elementInputTaskName.value = '';  
+}
 
 function getTaskNameFromInput() {
   const elementInputTaskName = document.getElementById('texto-tarefa');
@@ -28,15 +33,21 @@ function taskHighlighter(task, list) {
   });
 }
 
-function insertTaskOnList(taskName, list) {
-  const task = document.createElement('li');
-  task.innerText = taskName;
-  taskHighlighter(task, list);
-  list.appendChild(task);
+function markTaskAsCompleted(event) {
+  event.target.classList.toggle('completed');
 }
 
-function clearInput() {
-  const elementInputTaskName = document.getElementById('texto-tarefa');
-  elementInputTaskName.value = '';  
-}
+const elementBtnAddTask = document.getElementById('criar-tarefa');
+elementBtnAddTask.addEventListener('click', function() {
+  const taskName = getTaskNameFromInput();
+  const list = getOlElement();
+  insertTaskOnList(taskName, list);
+  clearInput();
+});
+
+const elementOl = document.getElementById('lista-tarefas');
+elementOl.addEventListener('dblclick', markTaskAsCompleted);
+
+
+
 
