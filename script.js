@@ -24,4 +24,9 @@ window.onload = function () {
 
     });
 
+    /* listaTarefas.addEventListener("dblclick", function (event) {
+                
+
+    }); */
+
 }
