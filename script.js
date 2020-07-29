@@ -12,8 +12,8 @@ window.onload = function () {
     listOl.innerHTML = texto;
     list.appendChild(listOl);
    
-   
-    /* parte da alteração de cor */
+   /*o que for relacionado a lista ol tem que sair daqui, pois é aqui que é criada*/
+   /* parte da alteração de cor */
     listOl.addEventListener('click',function(){
      let textList = document.getElementsByTagName("li");
     for(let i = 0; i < textList.length; i += 1) {
