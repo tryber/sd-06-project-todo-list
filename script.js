@@ -1,22 +1,30 @@
 window.onload = function () {
-  const userInput = document.querySelector('#texto-tarefa');
-  const newTaskButton = document.querySelector('#criar-tarefa');
-  const tasksList = document.querySelector('#lista-tarefas');
 
-  function newTask() {
-    const newListItem = document.createElement('li');
-    newListItem.innerHTML = userInput.value;
-    newListItem.className = 'list-item';
-    tasksList.appendChild(newListItem);
-    userInput.value = '';
-  }
+  handleNewTaskButtonClick();
 
   handleTaskSelection();
 
-  handleTaskClick();
+  handleTaskCompletion();
 
-  newTaskButton.addEventListener('click', newTask);
+  handleEraseAllButton();
 };
+
+const userInput = document.querySelector('#texto-tarefa');
+const newTaskButton = document.querySelector('#criar-tarefa');
+const tasksList = document.querySelector('#lista-tarefas');
+const eraseAllButton = document.querySelector('#apaga-tudo');
+
+function newTask() {
+  const newListItem = document.createElement('li');
+  newListItem.innerHTML = userInput.value;
+  newListItem.className = 'list-item';
+  tasksList.appendChild(newListItem);
+  userInput.value = '';
+}
+
+function handleNewTaskButtonClick() {
+  newTaskButton.addEventListener('click', newTask);
+}
 
 function selectedTask(event) {
   const oldSelectedItem = document.querySelector('.selected');
@@ -46,10 +54,22 @@ function completedTask(event) {
   }
 }
 
-function handleTaskClick() {
+function handleTaskCompletion() {
   document.addEventListener('dblclick', function (event) {
     if (event.target.classList.contains('list-item')) {
       completedTask(event);
     }
   });
+}
+
+function eraseAll() {
+  tasksList.innerHTML = null;
+}
+
+function handleEraseAllButton() {
+  eraseAllButton.addEventListener('click', eraseAll);
+}
+
+function eraseCompleted() {
+  const completedTasks = document.querySelectorAll('.completed');
 }
