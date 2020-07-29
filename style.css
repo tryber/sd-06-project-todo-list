@@ -1,11 +1,57 @@
 header {
   display: block;
-  font-size: 40px;
+  font-size: 20px;
   font-weight: 700;
-  margin: 15px;
+  margin: 5px;
 }
 
-p {
-  font: italic 120% Georgia, Times, serif;
+.content {
+  max-width: 400px;
+  max-height: 600px;
+  margin: auto;
+  background: rgb(243, 243, 243);
+  height: 450px;
+  padding: 2%;
+  border: 1px solid;
+}
+.content p {
+  text-align: center;
+
+}
+input[type=text] {
+  height: 30px;
+  margin-bottom: 10px;
+  width: 80%;
+}
+input[type=button] {
+  border: none;
+  float: right;
+  height: 35px;
+  width: 17%;
+}
+button:hover, input[type=button]:hover {
+  background: rgb(204, 204, 204);
+}
+
+button, input[type=button] { 
+  cursor: pointer; 
+}
+
+button {
+  float: right;
+  width: 25px;
   padding: 5px;
+}
+
+ol {
+  padding: 20px;
+  height: 250px;
+  background: rgb(255, 255, 255);
+  overflow-y: auto;
+}
+
+li {
+  height: 40px;
+  margin: 15px 0px;
+  border-bottom: 1px solid;
 }
