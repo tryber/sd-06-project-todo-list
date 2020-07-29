@@ -1,7 +1,51 @@
 body {
   background-color: rgb(6 , 133 , 14);
+  font-family: monospace;
+  text-align: center;
+}
+
+.main {
+  background-color: white;
+}
+
+h1 {
+  color: black;
+  font-size: 40px;
+}
+
+p {
+  font-size: 20px;
+}
+
+ol {
+  display: inline-block;
+  text-align: initial;
+}
+
+li {
+  border: 1px solid white;
+  font-size: 30px;
+}
+
+input {
+  height: 20px;
+  width: 20%;
 }
 
 button {
+  background-color: rgba(5 , 98 , 141 , 0.774);
+  border-radius: 20px;
+  color: white;
+  font-size: 20px;
   margin: 2px;
+  min-width: 40px;
+  padding: 10px 15px;
+}
+
+.newTask {
+  background-color: black;
+}
+
+.deleteTask {
+  background-color: red;
 }

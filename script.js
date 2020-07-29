@@ -23,11 +23,11 @@ list.addEventListener('click', function (event) {
   const li = event.target;
   for (let i = 0; i < list.childNodes.length; i += 1) {
     if (list.childNodes[i] !== li) {
-      list.childNodes[i].style.backgroundColor = 'rgb(6, 133, 14)';
+      list.childNodes[i].style.backgroundColor = 'white';
     }
   }
-  // if (li.style.backgroundColor === 'rgb(128, 128, 128)') {
-    // li.style.backgroundColor = 'rgb(6, 133, 14)';
+//   if (li.style.backgroundColor === 'rgb(128, 128, 128)') {
+//     li.style.backgroundColor = 'white';
 // } else {
   li.style.backgroundColor = 'rgb(128, 128, 128)';
 // }
