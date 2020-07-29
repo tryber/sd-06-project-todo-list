@@ -1,10 +1,13 @@
 const button = document.getElementById('criar-tarefa');
 const list = document.getElementById('lista-tarefas');
 const removeAllButton = document.getElementById('apaga-tudo');
+const removeCheckedButton = document.getElementById('remover-finalizados');
 let items;
+let listChecked;
 
 button.addEventListener('click', function() {addNewItem()});
 removeAllButton.addEventListener('click', function() {removeAll()});
+removeCheckedButton.addEventListener('click', function() {removeChecked()});
 
 function addNewItem() {
   let input = document.getElementById('texto-tarefa');
@@ -20,8 +23,10 @@ function addNewItem() {
 }
 
 function changeBackground(item) {
-  let oldBg = document.getElementsByClassName('cinza')[0];
-  oldBg.classList.remove('cinza');
+  temp = document.getElementsByClassName('cinza');
+  if (temp.length) {
+    temp[0].classList.remove('cinza');
+  }
   item.classList.add('cinza');
 }
 
@@ -50,5 +55,13 @@ function findItemInElements(item, elements) {
 function removeAll() {
   while(list.firstChild){
     list.removeChild(list.firstChild);
+  }
+}
+
+function removeChecked() {
+  listChecked = document.getElementsByClassName('completed');
+  let temp = document.getElementById('lista-tarefas')
+  for (let i = 0; listChecked.length; i++) {
+    temp.removeChild(listChecked[0]);
   }
 }
