@@ -32,7 +32,7 @@ const createItemBtn = document.querySelector('#criar-tarefa');
 createItemBtn.addEventListener('click', createItem);
 
 function eraseAll(event) {
-  let tasks = document.querySelector('#tasks ol').children;
+  const tasks = document.querySelector('#tasks ol').children;
   if (tasks.length) {
     alert('Apagar tudo?');
     for (let task = tasks.length - 1; task >= 0; task -= 1) {
@@ -45,11 +45,11 @@ const eraseAllBtn = document.querySelector('#apaga-tudo');
 eraseAllBtn.addEventListener('click', eraseAll);
 
 function eraseCompleted(event) {
-  let tasks = document.querySelector('#tasks ol').children;
+  const tasks = document.querySelector('#tasks ol').children;
   if (tasks.length) {
     alert('Apagar as tarefas completadas?');
     for (let task = tasks.length - 1; task >= 0; task -= 1) {
-      if(tasks[task].classList.contains('completed')) {
+      if (tasks[task].classList.contains('completed')) {
         tasksList.removeChild(tasks[task]);
       }
     }
@@ -60,10 +60,10 @@ const eraseCompletedBtn = document.querySelector('#remover-finalizados');
 eraseCompletedBtn.addEventListener('click', eraseCompleted);
 
 function eraseSelected(event) {
-  let tasks = document.querySelector('#tasks ol').children;
+  const tasks = document.querySelector('#tasks ol').children;
   if (tasks.length) {
     for (let task = tasks.length - 1; task >= 0; task -= 1) {
-      if(tasks[task].classList.contains('selected')) {
+      if (tasks[task].classList.contains('selected')) {
         alert('Remover tarefa selecionada?');
         tasksList.removeChild(tasks[task]);
         break;

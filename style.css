@@ -20,7 +20,7 @@ header {
   padding: 10px 20px;
 }
 
-header > h1 {
+header h1 {
   color: rgb(10, 14, 17);
   font-family: 'Recursive', sans-serif;
   font-size: 2.5em;
@@ -28,7 +28,7 @@ header > h1 {
   margin: 6px 12px 8px;
 }
 
-header #funcionamento {
+#funcionamento {
   background: rgba(235, 240, 244, 40%);
   border-radius: 4px;
   color: rgb(20, 24, 27);
@@ -43,14 +43,14 @@ header #funcionamento {
   border-radius: 18px;
   font-size: 1.1em;
   opacity: .7;
-  margin: 20px 20px 4px 20px;
   padding: 14px 16px;
+  margin: 20px 20px 4px 20px;
   width: 70%;
 }
 
 #texto-tarefa:focus {
-  outline: none;
   opacity: 1;
+  outline: none;
 }
 
 #criar-tarefa {
@@ -74,8 +74,8 @@ header #funcionamento {
 
 main {
   background: rgba(36, 42, 52, 20%);
-  min-height: 60vh;
   margin-top: 20px;
+  min-height: 60vh;
   padding: 4px 12px;
 }
 
@@ -100,8 +100,8 @@ main ol li:before {
   color: white;
   content: counter(myCounter) "_";
   font-style: italic;
-  padding: 5px 5px 5px 12px;
   margin: 0 6px 0 0;
+  padding: 5px 5px 5px 12px;
 }
 
 .selected {
@@ -135,7 +135,7 @@ main ol li:before {
   opacity: .75;
 }
 
-#list-buttons #apaga-tudo {
+button#apaga-tudo {
   background-color: rgb(192, 62, 62);
   color: white;
 }
