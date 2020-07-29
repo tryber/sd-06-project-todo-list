@@ -61,3 +61,4 @@ document.getElementById('teste').addEventListener('click', function(){
   addClickChangeColor();
   addRiskOnDblClick();
 })
+
