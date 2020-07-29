@@ -21,5 +21,10 @@ button.addEventListener("click", function() {
       item[index].classList.remove("backGroundColor");
     }
      elementLi.classList.add("backGroundColor");
-   });  
+   });
+   
+   let clearAllButton = document.querySelector("#apaga-tudo");
+   clearAllButton.addEventListener("click", function() {
+      document.getElementById("lista-tarefas").removeChild(elementLi);
+      });     
 });
