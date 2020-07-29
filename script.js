@@ -45,6 +45,13 @@ function clearAll() {
   }
 }
 
+function removeCompletedTasks() {
+  const completedTasks = document.getElementsByClassName('completed');
+  while (completedTasks.length > 0) {
+    completedTasks[0].parentNode.removeChild(completedTasks[0]);
+  }
+}
+
 const elementBtnAddTask = document.getElementById('criar-tarefa');
 elementBtnAddTask.addEventListener('click', function() {
   const taskName = getTaskNameFromInput();
@@ -58,6 +65,9 @@ elementOl.addEventListener('dblclick', markTaskAsCompleted);
 
 const elementClearButton = document.getElementById('apaga-tudo');
 elementClearButton.addEventListener('click', clearAll);
+
+const elementRemoveCompleted = document.getElementById('remover-finalizados');
+elementRemoveCompleted.addEventListener('click', removeCompletedTasks);
 
 
 

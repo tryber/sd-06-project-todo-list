@@ -55,3 +55,9 @@ header {
   border-radius: 1em;
   color: white;
 }
+
+.remover-finalizados {
+  background-color: blue;
+  border-radius: 1em;
+  color: white;
+}
