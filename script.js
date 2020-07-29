@@ -94,28 +94,40 @@ function botaoExcluirRiscados() {
 
 }
 
-function botaoMover() {
-  const buttonUp = document.querySelector("#mover-cima");
+function botaoMoverBaixo() {
   const buttonDw = document.querySelector("#mover-baixo");
   const itemlist = document.querySelector("#lista-tarefas")
-  // const task = document.querySelector(".selected");
   buttonDw.addEventListener('click', () => {
     for (let i = 0; i < itemlist.childNodes.length; i += 1) {
-      let thisTask = itemlist.childNodes[i];
+      const thisTask = itemlist.childNodes[i];
       if (thisTask.classList.contains('selected')) {
-        let underTask = itemlist.childNodes[i+1];
-        console.log(thisTask)
+        const underTask = itemlist.childNodes[i+1];
+        let underTaskText = underTask.innerText;
+        underTask.innerText = thisTask.innerText;
+        thisTask.innerText = underTaskText;
         console.log(underTask)
-      } else if (underTask) {
-        console.log('true')
-
-      }
+        thisTask.classList.toggle('selected');
+      } 
     }
-    // const task = document.querySelector(".selected");
-    // itemlist.children().eq(task+1).after(itemlist.children().eq(task));task=task+1;    
-  })
+  });
+}
 
-
+function botaoMoverCima() {
+  const buttonUp = document.querySelector("#mover-cima");
+  const itemlist = document.querySelector("#lista-tarefas")
+  buttonUp.addEventListener('click', () => {
+    for (let i = 0; i < itemlist.childNodes.length; i += 1) {
+      const thisTask = itemlist.childNodes[i];
+      if (thisTask.classList.contains('selected')) {
+        const underTask = itemlist.childNodes[i-1];
+        const thisTaskText = thisTask.innerText;
+        thisTask.innerText = underTask.innerText;
+        underTask.innerText = thisTaskText;
+        thisTask.classList.toggle('selected');
+        underTask.classList.toggle('selected');
+      } 
+    }
+  });
 }
 
 window.onload = () => {
@@ -123,5 +135,6 @@ window.onload = () => {
   botaoApagarTudo();
   botaoExcluirTarefa();
   botaoExcluirRiscados();
-  botaoMover();
+  botaoMoverCima();
+  botaoMoverBaixo();
 };
