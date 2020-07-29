@@ -25,3 +25,11 @@ body {
   margin-left: 20px;
   width: 90px;
 }
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+.buttons {
+  margin-top: 50px;
+}
