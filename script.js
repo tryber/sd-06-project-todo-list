@@ -1,4 +1,4 @@
-window.onload = function () {
+window.onload = function() {
   
   let myList = document.getElementById("myList");
   let btnAdd = document.getElementById("criar-tarefa");
@@ -14,7 +14,27 @@ window.onload = function () {
     let myItem = document.createElement('li');
     myItem.appendChild(document.createTextNode(myText));
     myList.appendChild(myItem);
+    
+    myItem.addEventListener("click", function(){
+      myItem.style.backgroundColor = "rgb(128 , 128 , 128)";
+    });
   }
+
+  // function clearColorSelect() {
+  //   for(var i = 0; i < myList.length; i += 1) {
+  //     let myItem = myList[i];
+  //     myList.style.backgroundColor = "rgb(64 , 119 , 100)";
+  //   }
+  // }
+
+  // let btnClear = document.getElementById("clear-board");
+  // btnClear.addEventListener('click', function() {
+  //   for(var i = 0; i < Pixels.length; i += 1) {
+  //     let myItemPixel = Pixels[i];
+  //     myItemPixel.style.backgroundColor = "rgb(255 , 255 , 255)";
+  //   }
+  // });
+
 
   // let myColor02 = document.getElementById("color02");
   // myColor02.style.backgroundColor = "rgb(155 , 50 , 8)";  
