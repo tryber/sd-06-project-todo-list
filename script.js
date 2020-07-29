@@ -3,6 +3,7 @@ const boxText = document.querySelector('#texto-tarefa');
 const buttonNewTask = document.querySelector('#criar-tarefa');
 const buttonClearAll = document.querySelector('#apaga-tudo');
 const listItem = document.getElementById('lista-tarefas');
+const buttonClearChecked = document.querySelector('#remover-finalizados');
 
 function newTask() {
   const novoItem = document.createElement("li");
@@ -42,11 +43,13 @@ function clearAll() {
 }
 buttonClearAll.addEventListener("click", clearAll);
 
-
-
-const buttonClearChecked = document.querySelector('#remover-finalizados');
 function clearCheckedItems() {
-  document.querySelector('.completed').outerHTML = ''
+  const taskList = document.querySelectorAll('#lista-tarefas li');
+  for (let i = 0; i < taskList.length; i += 1) {
+    if (taskList[i].classList.contains('completed')) {
+      taskList[i].outerHTML = '';
+    }
+  }
 }
-buttonClearChecked.addEventListener("click", clearCheckedItems)
+buttonClearChecked.addEventListener("click", clearCheckedItems);
 
