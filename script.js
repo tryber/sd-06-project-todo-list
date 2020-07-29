@@ -11,7 +11,14 @@ document.getElementById("criar-tarefa").addEventListener('click', function(){
 function addClickChangeColor(){
   document.querySelectorAll('li').forEach(item => {
     item.addEventListener('click', event => {
-    item.style.backgroundColor = 'rgb(128, 128, 128)';
+      clearBgFromList();
+      item.style.backgroundColor = 'rgb(128, 128, 128)';
   })
+})
+}
+
+function clearBgFromList(){
+  document.querySelectorAll('li').forEach(item => {
+   item.style.backgroundColor = "";
 })
 }
