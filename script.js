@@ -8,7 +8,7 @@ function listing() {
    aux.innerHTML = textInput.value;
    listjobs.appendChild(aux);
    textInput.value="";
-   return aux;
+   //return aux;
 }
 console.log(aux);
 buttonText.addEventListener('click', function () {
