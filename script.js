@@ -4,6 +4,8 @@ const removeSelecionadoButton = document.getElementById('remover-selecionado');
 const removeFinalizadosButton = document.getElementById('remover-finalizados');
 const apagaTudoButton = document.getElementById('apaga-tudo');
 const salvarTarefasButton = document.getElementById('salvar-tarefas');
+const moverCimaButton = document.getElementById('mover-cima');
+const moverBaixoButton = document.getElementById('mover-baixo');
 
 function addTarefa() {
     let inputTarefa = document.createElement('li');
@@ -74,5 +76,22 @@ function carregarLista() {
       listaTarefas.appendChild(localLine);
     }
   }
+window.onload = carregarLista();
+
+moverCimaButton.addEventListener('click', function () {
+    const lista = listaTarefas.childNodes;
+    for (let i = 1; i < lista.length; i += 1) {
+      if (lista[i].style.backgroundColor === 'rgb(128, 128, 128)') {
+        listaTarefas.insertBefore(lista[i], lista[i - 1]);
+      }
+    }
+});
   
-  window.onload = carregarLista();
+moverBaixoButton.addEventListener('click', function () {
+    const lista = listaTarefas.childNodes;
+    for (let i = lista.length - 2; i >= 0; i -= 1) {
+      if (lista[i].style.backgroundColor === 'rgb(128, 128, 128)') {
+        listaTarefas.insertBefore(lista[i + 1], lista[i]);
+      }
+    }
+});
