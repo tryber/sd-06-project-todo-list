@@ -16,7 +16,11 @@ criarTarefa.addEventListener('click', function () {
   });
 
   li.addEventListener('dblclick', function () {
-    li.classList.add('completed');
+    if (li.classList.contains('completed')) {
+      li.classList.remove('completed');
+    } else {
+      li.classList.add('completed');
+    }
   });
   textoTarefa.value = '';
 });
