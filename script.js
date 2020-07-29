@@ -15,7 +15,6 @@ const newTaskButton = document.querySelector('#criar-tarefa');
 const tasksList = document.querySelector('#lista-tarefas');
 const eraseAllButton = document.querySelector('#apaga-tudo');
 const eraseCompletedButton = document.querySelector('#remover-finalizados');
-let selectedClassItem = document.querySelector('.selected');
 
 function newTask() {
   const newListItem = document.createElement('li');
@@ -43,8 +42,8 @@ function handleTaskSelection() {
   document.addEventListener('click', function (event) {
     if (event.target.classList.contains('list-item')) {
       selectedTask(event);
-    } else if (document.selectedClassItem != null) {
-      document.selectedClassItem.classList.remove('selected');
+    } else if (document.document.querySelector('.selected') != null) {
+      document.document.querySelector('.selected').classList.remove('selected');
     }
   });
 }
