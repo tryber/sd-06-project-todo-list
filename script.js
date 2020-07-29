@@ -17,6 +17,9 @@ window.onload = function () {
         }
         listItens[i].classList.add('selected');
       });
+      listItens[i].addEventListener('dblclick', function () {
+        listItens[i].classList.toggle('completed');
+      });
     }
   });
 };
