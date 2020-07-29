@@ -73,7 +73,7 @@ window.onload = function () {
   let moveUp = document.querySelector('#mover-cima');
   
   moveUp.addEventListener('click', function () {
-    if (selected[0].innerText != taskList.firstChild.innerText) {
+    if (selected.length === 1  && selected[0].innerText != taskList.firstChild.innerText) {
       let elementBefore = selected[0].previousSibling;
       taskList.insertBefore(selected[0], elementBefore);
     }
@@ -81,12 +81,13 @@ window.onload = function () {
 
   let moveDown = document.querySelector('#mover-baixo');
   
+  console.log(selected.length)
   moveDown.addEventListener('click', function () {
-    if (selected[0].innerText != taskList.lastChild.innerText && selected[0].classList.length === 2) { 
+    if (selected.length === 1 && selected[0].innerText != taskList.lastChild.innerText) { 
       let elementAfter = selected[0].nextSibling;
       console.log(selected[0].classList.length)
       taskList.insertBefore(elementAfter, selected[0]);
       taskList.lastChild.innerText;
-    }
+    } 
   });
 };
