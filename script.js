@@ -25,11 +25,7 @@ listaTarefas.addEventListener('click', function(event) {
 // Add linha riscada
 listaTarefas.addEventListener('dblclick', function(event) {
   let completedClass = event.target;
-  if (completedClass.classList.contains('completed')) {
-    completedClass.classList.remove('completed');
-  } else {
-    completedClass.className += ' completed';
-  }
+  completedClass.classList.toggle('completed');
 });
 
 // Remover tudo
@@ -37,6 +33,17 @@ const clearAllButton = document.getElementById('apaga-tudo');
 clearAllButton.addEventListener('click', function() {
   while (listaTarefas.firstChild) {
     listaTarefas.removeChild(listaTarefas.firstChild);
+  }
+});
+
+// Remover itens finalizados
+const removeDoneButton = document.getElementById('remover-finalizados');
+removeDoneButton.addEventListener('click', function() {
+  let listaLength = listaTarefas.childNodes.length-1;
+  for (listaLength; listaLength >= 0; listaLength -= 1) {
+    if (listaTarefas.childNodes[listaLength].classList.contains('completed')) {
+      listaTarefas.removeChild(listaTarefas.childNodes[listaLength]);
+    }
   }
 });
 
