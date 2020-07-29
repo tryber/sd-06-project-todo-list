@@ -31,6 +31,12 @@ function listing() {
                 item.classList.add('selected');
             })
         })
+        clearList.addEventListener('click', () =>{
+            itemLista.forEach(item => {
+                lista.removeChild(elemento)
+            })
+        })
+        
 
     })
 }
