@@ -25,6 +25,7 @@ botao1.addEventListener("click", function () {
       document.querySelector(".selected").remove()
     })
   })  
+  
 
   //Quando clica 2x na tarefa, add classe completed
   elementoLinha.addEventListener("dblclick", function () {
