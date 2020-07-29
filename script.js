@@ -13,6 +13,11 @@ window.onload = function () {
       itenLi = event.target;
       itenLi.style.backgroundColor = 'rgb(128, 128, 128)';
     })
+
+    // add line through in li when double click
+    itenLi.addEventListener('dblclick', function() {
+      itenLi.classList.toggle('completed');
+    })
   }
 
   const button = document.querySelector('#criar-tarefa');
@@ -25,6 +30,4 @@ window.onload = function () {
 
   const text = document.querySelector('#criar-tarefa');
   text.addEventListener('click', cleanTextInput);
-
-
 }
