@@ -16,3 +16,8 @@ list.addEventListener('click', function(ev) {
     ev.target.classList.toggle('checked');
   }
 }, false);
+list.addEventListener('dblclick', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('completed');
+  }
+}, false);
