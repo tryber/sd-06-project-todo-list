@@ -1,10 +1,10 @@
 //criar filho de head com o output da lista
 
-let elementUl = document.createElement('ol');
+let elementOl = document.createElement('ol');
   // Reqquisito 4
-  // elementUl.idName = "lista-tarefas";
-  document.body.appendChild(elementUl);  
-  // console.log(elementUl);
+  elementOl.id = "lista-tarefas";
+  document.body.appendChild(elementOl);  
+  console.log(elementOl);
 
 let button = document.getElementById("criar-tarefa");
       
@@ -16,7 +16,7 @@ button.addEventListener("click", function makeList() {
   let elementLi = document.createElement('li');
     // elementLi.innerHTML = `${activity}`;
     elementLi.innerHTML = activity.value;
-    elementUl.appendChild(elementLi);
+    elementOl.appendChild(elementLi);
     // console.log(`${activity}`);
     activity.value = "";  
   });  
