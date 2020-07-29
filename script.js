@@ -93,7 +93,7 @@ const functionalities = {
   move: {
     moveUp: function MoveUp() {
       const itemSelected = document.querySelector('.selected');
-      const permission = (itemSelected !== null) ? true : false;
+      const permission = (itemSelected !== null) ? 1 : 0;
       const allListItem = document.querySelectorAll('li');
       let item = 0;
       while (permission === true && itemSelected !== allListItem[item]) {
