@@ -42,10 +42,24 @@ listaTarefas.addEventListener('dblclick', function() {
 const apagaTudo = document.querySelector('#apaga-tudo');
 
 apagaTudo.addEventListener('click', function() {
-  const ondeApagar = document.querySelector('#lista-tarefas'); 
+  const ondeApagar = document.querySelector('#lista-tarefas');
   if (ondeApagar.firstElementChild) {
     ondeApagar.innerHTML = '';
   } else {
     alert('Lista Vazia.');
+  }
+});
+
+const apagaFinalizados = document.querySelector('#remover-finalizados');
+
+apagaFinalizados.addEventListener('click', function() {
+  const ondeApagar = document.querySelector('#lista-tarefas');
+  const analizando = ondeApagar.firstElementChild;
+
+  for (let x = analizando; x; x = x.nextElementSibling) {
+    if (x.classList.contains('completed')) {
+      x.remove();
+      x = ondeApagar.firstElementChild;
+    }
   }
 });
