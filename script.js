@@ -4,7 +4,8 @@ window.onload = function(){
     var lista = document.querySelector("#lista-tarefas");
     var apagaTudo = document.querySelector("#apaga-tudo");
     var finalizados  = document.querySelector("#remover-finalizados");
-
+    var save = document.querySelector("#salvar-tarefas");
+    var remSelected = document.querySelector("#remover-selecionado");
     btnTarefa.addEventListener("click", function(){
        var insideList = document.createElement("li");
        lista.appendChild(insideList)
@@ -15,8 +16,10 @@ window.onload = function(){
     lista.addEventListener("click", function(event){
         for(let i = 1; i < lista.childNodes.length; i += 1){
             lista.childNodes[i].style.backgroundColor = "";
+            lista.childNodes[i].className = " ";
         } 
         event.target.style.backgroundColor = "rgb(128,128,128)";
+        event.target.className = "selected";
     })
 
     lista.addEventListener("dblclick", function(event){
@@ -39,6 +42,16 @@ window.onload = function(){
     
         }
     })
+
+    remSelected.addEventListener("click", function(){
+        let element = lista.childNodes;
+        for (let index = 1; index < element.length; index++) {
+            if(element[index].className == "selected"){
+                lista.removeChild(element[index])
+            }
+        }
+    })
+
 
 
 
