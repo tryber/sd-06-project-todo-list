@@ -41,6 +41,9 @@ window.onload = function () {
   let clearCompleted = document.querySelector('#remover-finalizados');
 
   clearCompleted.addEventListener('click', function () {
-      
-    });
+    document.querySelectorAll('.completed').forEach(function(item) {
+      item.remove();
+    })
+  });
+
 };
