@@ -1,0 +1,11 @@
+body {
+  background-color: bisque;
+}
+
+.color_gray {
+  background-color: gray;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
