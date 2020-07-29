@@ -19,9 +19,11 @@ window.onload = function () {
     if (event.target.classList.contains('task-iten') && selected.length === 0) {
       event.target.classList.add('selected');
     } else if (event.target.classList.contains('task-iten') && selected.length === 1) {
-      selected[0].className = 'task-iten';
+      selected[0].classList.remove('selected')
       event.target.classList.add('selected');
-    }
+    } else if (event.target.classList.contains('completed') && selected.length === 0) {
+      event.target.classList.add('selected');
+    } 
   });
 
   taskList.addEventListener('dblclick', function(event) {
@@ -78,10 +80,11 @@ window.onload = function () {
   });
 
   let moveDown = document.querySelector('#mover-baixo');
-
+  
   moveDown.addEventListener('click', function () {
-    if (selected[0].innerText != taskList.lastChild.innerText) { 
+    if (selected[0].innerText != taskList.lastChild.innerText && selected[0].classList.length === 2) { 
       let elementAfter = selected[0].nextSibling;
+      console.log(selected[0].classList.length)
       taskList.insertBefore(elementAfter, selected[0]);
       taskList.lastChild.innerText;
     }
