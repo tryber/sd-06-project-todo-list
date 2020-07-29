@@ -7,7 +7,7 @@ criaLista();
 
 function addTarefa() {
   const lista = document.querySelector('#lista-tarefas');
-  const textItem = document.querySelector('#texto-tarefa');  
+  const textItem = document.querySelector('#texto-tarefa');
   const item = document.createElement('li');
   item.innerHTML = textItem.value;
   textItem.value = '';
@@ -18,7 +18,9 @@ btnAdd.addEventListener('click', addTarefa);
 
 function changingCollor(event) {
   const item = event.target;
-  item.style.background = 'rgb(128 , 128 , 128)';
+  const oldStyle = document.querySelector('.selected');
+  item.classList.add('selected');
+  oldStyle.classList.remove('selected');
 }
 const lista = document.querySelector('#lista-tarefas');
 lista.addEventListener('click', changingCollor);
