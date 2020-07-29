@@ -106,4 +106,11 @@ window.onload = function() {
         
     })
 
+    let rmvSlc = document.querySelector("#remover-selecionado");
+
+    rmvSlc.addEventListener("click", function() {
+        let selectedRm = document.querySelector(".selected");
+        selectedRm.parentElement.removeChild(selectedRm);
+    })
+
 }
