@@ -6,8 +6,8 @@ function criaLista() {
 criaLista();
 
 function addTarefa() {
-  const textItem = document.querySelector('#texto-tarefa');
   const lista = document.querySelector('#lista-tarefas');
+  const textItem = document.querySelector('#texto-tarefa');  
   const item = document.createElement('li');
   item.innerHTML = textItem.value;
   textItem.value = '';
@@ -15,3 +15,10 @@ function addTarefa() {
 }
 const btnAdd = document.querySelector('#criar-tarefa');
 btnAdd.addEventListener('click', addTarefa);
+
+function changingCollor(event) {
+  const item = event.target;
+  item.style.background = 'rgb(128 , 128 , 128)';
+}
+const lista = document.querySelector('#lista-tarefas');
+lista.addEventListener('click', changingCollor);
