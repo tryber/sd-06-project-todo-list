@@ -13,19 +13,14 @@ const TAGS = {
   5: 'li',
 };
 
-const btnAdc = lazyCoder(0, 1);
-const todoList = lazyCoder(0, 2);
-let selected = {};
-let liList = [];
-
-
 function lazyCoder(keyMethod, keyDiv) {
   return document[`${METHODS[keyMethod]}`](TAGS[keyDiv]);
 }
 
-function returnCreatedElement(tagName) {
-  return document.createElement(tagName);
-}
+const btnAdc = lazyCoder(0, 1);
+const todoList = lazyCoder(0, 2);
+const liList = [];
+let selected = {};
 
 function changeBackground() {
   liList.forEach((e) => {
@@ -40,7 +35,7 @@ btnAdc.onclick = () => {
   liList.push(listConten);
 
   listConten.textContent = lazyCoder(0, 0);
-  inputText.value = '';
+  lazyCoder(0, 0).value = '';
   todoList.appendChild(listConten);
 };
 
