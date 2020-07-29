@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TODO List Project</title>
+  <link href="style.css" rel="stylesheet">
 </head>
 <body>
   <header>
@@ -13,15 +14,16 @@
   </header>
   <div>
     <input id="texto-tarefa" type="text">
-    <button id="criar-tarefa"></button>
+    <button id="criar-tarefa">New Task</button>
   </div>
     <ol id="lista-tarefas"></ol>
-  <div>
-    <buton id="salvar-tarefas">Save TODO-List</buton>
-    <buton id="remover-finalizados">Delete DONE</buton>
-    <buton id="remover-selecionado">Delete SELECTED</buton>
+  <div class="btns">
+    <button id="salvar-tarefas">Save TODO-List</buton>
+    <button id="remover-finalizados">Delete DONE</buton>
+    <button id="remover-selecionado">Delete SELECTED</buton>
     <button id="apaga-tudo">Delete ALL</button>
   </div>
   <script src="script.js"></script>
 </body>
+
 </html>
