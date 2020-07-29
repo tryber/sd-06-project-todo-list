@@ -5,7 +5,7 @@
       "bonus": false
     },
     {
-      "description": "Abaixo do título deve haver um pequeno e discreto parágrafo com id=\"funcionamento\" e com o texto \"Clique duas vezes em um item para marcá-lo como completo\"",
+      "description": "Abaixo do título deve haver um pequeno e discreto parágrafo com id=\"funcionamento\" e com o texto \"Clique duas vezes em um item para marcá-lo como completo\" explicando o funcionamento da lista para o usuário.",
       "bonus": false
     },
     {
