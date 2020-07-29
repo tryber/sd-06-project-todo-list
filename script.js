@@ -5,11 +5,11 @@ window.onload = function() {
     let orderList = document.querySelector("#lista-tarefas");
 
     if (JSON.parse(localStorage.savedTasks !== undefined)){
-        let retrieveTask = JSON.parse(localStorage.getItem("tasks"))    ;
+        let retrieveTask = JSON.parse(localStorage.getItem("savedTasks"));
         for (let i = 0; i < retrieveTask.length; i += 1){
-            let newLine = createElement("li");
+            let newLine = document.createElement("li");
             newLine.className = retrieveTask[i].className;
-            newLine.innerHTML = retrieveTask[i].content;
+            newLine.innerHTML = retrieveTask[i].cont;
             newLine.classList.remove("selected");
             if (newLine.classList.contains("completed")) {
                 newLine.style.textDecoration = "line-through solid rgb(0, 0, 0)";
@@ -72,15 +72,15 @@ window.onload = function() {
 
     saveTasks.addEventListener("click", function() {
         let pegaLista = document.querySelectorAll("li");
-        let savedTasks = [];
-        let obj = new Object();
-        for (i = 0; i < pegaLista.length; i += 1){
+        let savedTasks = [];        
+        for (let i = 0; i < pegaLista.length; i += 1){
+            let obj = new Object();
             obj.className = pegaLista[i].className;
-            obj.content = pegaLista[i].innerHTML;
+            obj.cont = pegaLista[i].innerHTML;
             savedTasks.push(obj);
         }
-        localStorage.setItem("tasks", JSON.stringify(savedTasks));
-
+        console.log(savedTasks);
+        localStorage.setItem("savedTasks", JSON.stringify(savedTasks));
     })
 
     let moveUp = document.querySelector("#mover-cima");
