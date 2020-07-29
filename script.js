@@ -76,15 +76,9 @@ apagaTudo.addEventListener('click', function () {
 let apagaFinalizados = document.getElementById("remover-finalizados");
 
 apagaFinalizados.addEventListener('click', function () {
-    if (event.target.classList.contains("completed")){
+    for (let i = (list.childNodes.length - 1); i >= 0; i -= 1) {
+      if (list.childNodes[i].classList.contains('completed')) {
+        list.removeChild(list.childNodes[i]);
+      }
     }
-
-    else{
-
-        while (list.firstChild) {
-            list.removeChild(list.firstChild.completed);
-
-        }
-    
-    }
-});
+  });
