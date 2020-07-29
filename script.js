@@ -82,7 +82,6 @@ const functionalities = {
   addSavedListItem: function addSavedListItem(taskName, taskClass) {
     const listElement = document.querySelector('#lista-tarefas');
     const listItem = document.createElement('li');
-    const inputElement = document.querySelector('#texto-tarefa');
     listItem.innerHTML = taskName;
     listItem.className = taskClass;
     listElement.appendChild(listItem);
