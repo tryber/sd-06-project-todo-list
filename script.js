@@ -15,5 +15,6 @@ button.addEventListener('click', function(){
         alert("Por favor, Digite algo no input");
     } else{
         list.appendChild(tarefa);
+        input.value="";
     };
 });
