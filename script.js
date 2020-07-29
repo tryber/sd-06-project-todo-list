@@ -4,7 +4,7 @@ const createText = document.querySelector('#texto-tarefa');
 const createList = document.querySelector('#lista-tarefas');
 
 // functions
-
+ // cria itens da lista
 function createLi() {
   let itemList = createText.value;
   let item = document.createElement('li');
