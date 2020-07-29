@@ -1,22 +1,30 @@
 window.onload = function () { 
   // Button click add iten list
-  let button = document.querySelector('#criar-tarefa');
-  button.addEventListener('click', buttonAddItenList);
-
   function buttonAddItenList() {
     let inputText = document.querySelector('#texto-tarefa').value;
     let list = document.querySelector('#lista-tarefas');
     let itenLi = document.createElement('li');
-
+    itenLi.style.backgroundColor = 'white';
     itenLi.innerHTML = inputText;
     list.appendChild(itenLi);
+
+    // Add color background in li line when clicked
+    itenLi.addEventListener('click', function() {
+      itenLi = event.target;
+      itenLi.style.backgroundColor = 'rgb(128, 128, 128)';
+    })
   }
+
+  const button = document.querySelector('#criar-tarefa');
+  button.addEventListener('click', buttonAddItenList);
+
   // Function reset input text
   function cleanTextInput () {
     document.querySelector('#texto-tarefa').value = '';
   }
 
-  let text = document.querySelector('#criar-tarefa');
+  const text = document.querySelector('#criar-tarefa');
   text.addEventListener('click', cleanTextInput);
+
 
 }
