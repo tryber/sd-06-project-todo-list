@@ -7,12 +7,15 @@ window.onload = function () {
   handleTaskCompletion();
 
   handleEraseAllButton();
+
+  handleEraseCompletedButton();
 };
 
 const userInput = document.querySelector('#texto-tarefa');
 const newTaskButton = document.querySelector('#criar-tarefa');
 const tasksList = document.querySelector('#lista-tarefas');
 const eraseAllButton = document.querySelector('#apaga-tudo');
+const eraseCompletedButton = document.querySelector('#remover-finalizados');
 
 function newTask() {
   const newListItem = document.createElement('li');
@@ -63,7 +66,7 @@ function handleTaskCompletion() {
 }
 
 function eraseAll() {
-  tasksList.innerHTML = null;
+  tasksList.innerHTML = '';
 }
 
 function handleEraseAllButton() {
@@ -71,5 +74,17 @@ function handleEraseAllButton() {
 }
 
 function eraseCompleted() {
-  const completedTasks = document.querySelectorAll('.completed');
+  if (tasksList.innerHTML !== '') {
+    const listItems = document.querySelectorAll('li');
+    for (let i = 0; i < listItems.length; i += 1) {
+      if (listItems[i].classList.contains('completed')) {
+        let item = listItems[i];
+        tasksList.removeChild(item);
+      }
+    }
+  }
+}
+
+function handleEraseCompletedButton() {
+  eraseCompletedButton.addEventListener('click', eraseCompleted);
 }
