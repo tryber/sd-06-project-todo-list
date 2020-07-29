@@ -13,27 +13,13 @@ button.addEventListener("click", function() {
   let elementLi = document.createElement('li');    
     elementLi.innerHTML = activity.value;
     elementOl.appendChild(elementLi);
-    activity.value = "";  
-  });  
-
-// let lineElement = document.getElementsByTagName("li");
-
-// elementOl.addEventListener("click", function() {
-//   for(let index = 0; index < lineElement.length; index += 1) {
-//     lineElement[index].classList.remove("backGroundColor");
-//   // }
-//   // lineElement.classList.add("backGroundColor");
-//   });
-
-
-//   // id="apaga-tudo">Apagar Lista</button> <button id="remover-finalizados">
-
-// let buttonCleanAll = document.querySelector("#apaga-tudo");
-//   buttonCleanAll.addEventListener("click", function() {
-//   document.getElementById("lista-tarefas").removeChild(elementLi);
-//   console.log("oi");
-// });
-
-
-
-  
+    activity.value = "";
+    
+   elementLi.addEventListener("click", function(){
+    let item = document.getElementsByTagName("li");
+    for(let index = 0; index < item.length; index ++) {
+      item[index].classList.remove("backGroundColor");
+    }
+     elementLi.classList.add("backGroundColor");
+   });  
+});
