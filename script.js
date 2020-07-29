@@ -33,7 +33,9 @@ function highlightTask(event){
 }
 
 function tickTask(event){
-    if (event.target.tagName.toLowerCase() == "li"){
+    if (event.target.tagName.toLowerCase() == "li" && event.target.classList.contains("completed")){
+        event.target.classList.remove("completed");
+    } else if (event.target.tagName.toLowerCase() == "li"){
         event.target.classList.add("completed");
     }
 }
