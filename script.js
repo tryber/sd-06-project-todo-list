@@ -35,3 +35,14 @@ function adicionaSelecao(event) {
   }
   event.target.classList.add("selecionado");
 }
+
+// Marcar item como completo com duplo click
+listaTarefas.addEventListener("dblclick", marcaCompleto);
+
+function marcaCompleto(event) {
+  if(event.target.classList.contains("completed")) {
+    event.target.classList.remove("completed");
+  } else {
+    event.target.classList.add("completed");
+  }
+}

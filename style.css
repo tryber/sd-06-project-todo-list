@@ -31,10 +31,21 @@ body {
   grid-area: "list";
 }
 
+li {
+  border-radius: 5px;
+}
+li:hover {
+  background-color: rgb(0, 186, 192);
+}
+
 .selecionado {
   background-color: rgb(128, 128, 128);
   font-weight: 600;
-  border-radius: 2px;
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
+  font-style: italic;
 }
 
 #texto-tarefa {
