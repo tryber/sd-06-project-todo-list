@@ -1,3 +1,4 @@
+//let cor = 'white';
 window.onload = function () {
 
  /* fazendo a parte da adição de texto pelo botão */
@@ -9,11 +10,15 @@ window.onload = function () {
     const listaOl = document.createElement('li');
     listaOl.innerHTML = texto;
     lista.appendChild(listaOl);
+    listaOl.className = 'bgColor';
   
     /*o que for realicionado ao li tem que ser chamado aqui*/
-    listaOl.style.backgroundColor = 'white';
+   // listaOl.style.backgroundColor = 'white';
+   let cor = document.querySelector('.bgColor').style.backgroundColor.value;
+   
+   if (cor!== 'white'){
     listaOl.addEventListener('click',fundoDeCor);
-    
+   }
   });
  
   /* fazendo a parte do reset da imput*/
@@ -26,10 +31,10 @@ window.onload = function () {
  /*alterando a cor de fundo de um lista da lista*/
    function fundoDeCor(){
    let item = event.target;
-   item.style.backgroundColor = 'rgb(128, 128, 128)';
-  }
- 
-
+   //item.style.backgroundColor = 'rgb(128, 128, 128)';
+   document.querySelector('.bgColor').style.backgroundColor = 'rgb(128, 128, 128)' ;
+   }
   
-
+  
 }
+ 
