@@ -28,10 +28,10 @@ window.onload = function() {
     // adicionando a classe de completados aos li's que receberem dobleclick
     // e que quando receber outro dobleclick deixar de receber a classe completados
     linhaLista.addEventListener("dblclick", function() {
-      if(linhaLista.className != "completed") {
-        linhaLista.className = "completed"
+        if(linhaLista.classList.contains("completed")) {
+            linhaLista.classList.remove("completed")
       } else {
-        linhaLista.className = ""
+          linhaLista.classList.add("completed")
       }
     // adicionando botão que exclui os itens marcados como completados da lista
         let botaoFinalizados = document.querySelector("#remover-finalizados")
