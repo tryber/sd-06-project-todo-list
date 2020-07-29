@@ -9,6 +9,7 @@ const clearButton = document.getElementById('apaga-tudo');
 function addItens() {
     if (typedtext.value !== '') {
         const listItens = document.createElement('li');
+        listItens.className = 'iten';
         listItens.innerHTML = typedtext.value;
         orderedList.appendChild(listItens);
         typedtext.value = '';
@@ -19,19 +20,18 @@ addTaskButton.addEventListener('click', addItens);
 //Order itens
 
 //Change the background color of a selected iten when clicked
-orderedList.childNodes.addEventListener('click', function(event) {
-  let liItens = target.event;
-  for (let index = 0; index < orderedList.childNodes.length; index += 1) {
-    if (orderedList.childNodes[index] !== liItens) {
-      orderedList.childNodes[index].style.backgroundColor = 'white';
-    }
+orderedList.addEventListener('click', function() {
+  if (document.querySelector('.selected-task') !== null) {
+    document.querySelector('.selected-task').style.backgroundColor = 'white';
+    document.querySelector('.selected-task').classList.remove('selected-task');
   }
-  if (liItens.style.backgroundColor === 'rgb(128, 128, 128)') {
-    liItens.style.backgroundColor = 'white';
-  } else {
-    liItens.style.backgroundColor = 'rgb(128, 128, 128)';
+  if (event.target.className === 'iten') {
+    event.target.style.backgroundColor = 'rgb(128,128,128)';
+    event.target.classList.add('selected-task');
   }
-  })
+  event.target.style.backgroundColor = 'rgb(128,128,128)'
+  event.target.classList.add('selected-task');
+})
 
   //Clear the list content
   clearButton.addEventListener('click', function() {
