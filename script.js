@@ -84,3 +84,29 @@ function confereSeTemLista() {
 }
 
 confereSeTemLista();
+
+const moverCima = document.querySelector('#mover-cima');
+
+moverCima.addEventListener('click', function () {
+  const lista = document.querySelector('#lista-tarefas');
+  const nodesDaLista = lista.childNodes;
+
+  for (let x = 1; x < nodesDaLista.length; x += 1) {
+    if (nodesDaLista[x].classList.contains('selecionado') && nodesDaLista[x - 1].nodeName !== '#text') {
+      lista.insertBefore(nodesDaLista[x], nodesDaLista[x - 1]);
+    }
+  }
+});
+
+const moverBaixo = document.querySelector('#mover-baixo');
+
+moverBaixo.addEventListener('click',  function () {
+  const lista = document.querySelector('#lista-tarefas');
+  const nodesDaLista = lista.childNodes;
+  
+  for (let x = nodesDaLista.length - 2; x >= 0; x -= 1) {
+    if (nodesDaLista[x].classList.contains('selecionado') && nodesDaLista[x + 1].nodeName !== '#text') {
+      lista.insertBefore(nodesDaLista[x + 1], nodesDaLista[x]);
+    }
+  }
+});
