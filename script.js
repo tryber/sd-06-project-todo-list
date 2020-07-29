@@ -1,5 +1,4 @@
 window.onload = function () {
-
   handleNewTaskButtonClick();
 
   handleTaskSelection();
@@ -74,14 +73,12 @@ function handleEraseAllButton() {
 }
 
 function eraseCompleted() {
-  if (tasksList.innerHTML !== '') {
     const listItems = document.querySelectorAll('li');
     for (let i = 0; i < listItems.length; i += 1) {
       if (listItems[i].classList.contains('completed')) {
-        let item = listItems[i];
+        const item = listItems[i];
         tasksList.removeChild(item);
       }
-    }
   }
 }
 
