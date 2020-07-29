@@ -12,8 +12,6 @@ tarefaBtn.addEventListener('click', function () {
   tarefa.value = '';
 });
 
-
- 
 lista.addEventListener('click', function (event) {
   for (let i = 0; i < listItens.length; i += 1) {
     if (listItens[i].classList.contains('selected') === true) {
@@ -21,14 +19,14 @@ lista.addEventListener('click', function (event) {
     }
   }
   event.target.classList.add('selected');
-  if (lista.classList.contains('selected') === true){
+  if (lista.classList.contains('selected') === true) {
     lista.classList.remove('selected');
   }
 });
 
 lista.addEventListener('dblclick', function (event) {
   event.target.classList.toggle('completed');
-  if (lista.classList.contains('completed') === true){
+  if (lista.classList.contains('completed') === true) {
     lista.classList.remove('completed');
   }
 });
