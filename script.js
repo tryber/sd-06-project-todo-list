@@ -1,10 +1,10 @@
 const criarTarefa = document.querySelector('#criar-tarefa');
 
-criarTarefa.addEventListener('click', function() {
-  let novaTarefa = document.querySelector('#texto-tarefa').value;
+criarTarefa.addEventListener('click', function () {
+  const novaTarefa = document.querySelector('#texto-tarefa').value;
   const ondeCriar = document.querySelector('#lista-tarefas');
   const tarefaCriada = document.createElement('li');
-  
+
   if (novaTarefa !== '') {
     tarefaCriada.className = 'tarefa';
     tarefaCriada.innerText = novaTarefa;
@@ -18,7 +18,7 @@ criarTarefa.addEventListener('click', function() {
 const listaTarefas = document.querySelector('#lista-tarefas');
 let itemSelecionado = '';
 
-listaTarefas.addEventListener('click', function() {
+listaTarefas.addEventListener('click', function () {
   const tarefaSelecionada = event.target;
 
   if (itemSelecionado) {
@@ -29,19 +29,19 @@ listaTarefas.addEventListener('click', function() {
   itemSelecionado = event.target;
 });
 
-listaTarefas.addEventListener('dblclick', function() {
+listaTarefas.addEventListener('dblclick', function () {
   const tarefaSelecionada = event.target;
 
   if (tarefaSelecionada.classList.contains('completed') === true) {
     tarefaSelecionada.classList.remove('completed');
   } else {
-  tarefaSelecionada.classList.add('completed');
+    tarefaSelecionada.classList.add('completed');
   }
 });
 
 const apagaTudo = document.querySelector('#apaga-tudo');
 
-apagaTudo.addEventListener('click', function() {
+apagaTudo.addEventListener('click', function () {
   const ondeApagar = document.querySelector('#lista-tarefas');
   if (ondeApagar.firstElementChild) {
     ondeApagar.innerHTML = '';
@@ -52,7 +52,7 @@ apagaTudo.addEventListener('click', function() {
 
 const apagaFinalizados = document.querySelector('#remover-finalizados');
 
-apagaFinalizados.addEventListener('click', function() {
+apagaFinalizados.addEventListener('click', function () {
   const ondeApagar = document.querySelector('#lista-tarefas');
   const analizando = ondeApagar.firstElementChild;
 
