@@ -4,8 +4,20 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+.todolist {
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+button {
+    border-radius: 5px;
+    background-color: darkblue;
+    color: white;
+}
+
 #title {
-    color: rgb(255 , 255 , 255);
+    color: darkblue;
     font-family: 'Galada', cursive;
     font-size: 40px;
 }

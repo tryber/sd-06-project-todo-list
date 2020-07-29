@@ -3,6 +3,7 @@ const addTarefaButton = document.getElementById('criar-tarefa');
 const removeSelecionadoButton = document.getElementById('remover-selecionado');
 const removeFinalizadosButton = document.getElementById('remover-finalizados');
 const apagaTudoButton = document.getElementById('apaga-tudo');
+const salvarTarefasButton = document.getElementById('salvar-tarefas');
 
 function addTarefa() {
     let inputTarefa = document.createElement('li');
@@ -54,3 +55,24 @@ function apagaTudo (event) {
     }
 }
 apagaTudoButton.addEventListener('click', apagaTudo);
+
+function salvarTarefas() {
+    localStorage.clear();
+    const lista = document.getElementsByTagName('li');
+    for (let item = 0; item < lista.length; item += 1) {
+      localStorage.setItem(item, lista[item].innerHTML);
+      localStorage.setItem(lista[item].innerText, lista[item].className);
+    }
+}
+salvarTarefasButton.addEventListener('click', salvarTarefas);
+
+function carregarLista() {
+    for (let i = 0; i < (localStorage.length / 2); i += 1) {
+      const localLine = document.createElement('li');
+      localLine.innerText = localStorage.getItem(i);
+      localLine.className = localStorage.getItem(localLine.innerText);
+      listaTarefas.appendChild(localLine);
+    }
+  }
+  
+  window.onload = carregarLista();
