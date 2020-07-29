@@ -13,52 +13,55 @@
           document.querySelector('.selectedTask').classList.remove('selectedTask');
         }
         liSelectedTask.classList.add('selectedTask');
-      }
+    }
       
-      function completedTask(event) {
+    function completedTask(event) {
         const liCompletedTask = event.target;
         if (liCompletedTask.classList.contains('completed')) {
           liCompletedTask.classList.remove('completed');
         } else {
           liCompletedTask.classList.add('completed');
         }
-      }
+    }
       
       //cria as tarefas
 
-      function createTask() {
+    function createTask() {
         const liElement = document.createElement('li');
         const task = document.getElementById('texto-tarefa').value;
         liElement.innerHTML = task;
         taskList.appendChild(liElement);
         document.getElementById('texto-tarefa').value = '';
-      }
+    }
       
-      //limpa tudo
 
-      function removeAllTasks() {
-        const liElements = document.getElementsByTagName('li');
-        for (let i = liElements.length - 1; i >= 0; i -= 1) {
-          liElements[i].remove();
-        }
-      }
       
       //remove as completas
 
-      function removeCompletedTasks() {
+    function removeCompletedTasks() {
         const liCompleted = document.querySelectorAll('.completed');
         for (let i = liCompleted.length - 1; i >= 0; i -= 1) {
           liCompleted[i].remove();
         }
-      }
+    }
       
       //remove as selecionadas
 
-      function removeSelectedTasks() {
+    function removeSelectedTasks() {
         if (document.querySelector('.selectedTask') !== null) {
           document.querySelector('.selectedTask').remove();
         }
-      }
+    }
+
+        //limpa tudo
+        
+    function removeAllTasks() {
+        const liElements = document.getElementsByTagName('li');
+        for (let i = liElements.length - 1; i >= 0; i -= 1) {
+          liElements[i].remove();
+        }
+    }
+      
       
       //chama as funcoees e adiciona o evento click
 
