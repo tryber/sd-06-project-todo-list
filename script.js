@@ -34,6 +34,14 @@ window.onload = function() {
         }
     })
 
+    let removeFinalizado = document.querySelector("#remover-finalizados");
+
+    removeFinalizado.addEventListener("click", function(evnt) {
+        let removerFinal = document.querySelectorAll(".completed");
+        for (i = 0; i < removerFinal.length; i += 1){
+            orderList.removeChild(removerFinal[i]);
+        }
+    })
 
 
 
