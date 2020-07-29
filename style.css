@@ -1,0 +1,50 @@
+body {
+  font-family: Open Sans;
+}
+
+button {
+  border-radius: 30px;
+  color: #FFF;
+  padding: 5px 15px;
+  border-style: none;
+  cursor: pointer;
+}
+
+#funcionamento {
+  font-size: large;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.container {
+  width: 960px;
+	margin: 0 auto;
+  /* display:flex; */
+  border-radius: 30px;
+  padding: 20px 20px;
+  background-color: #FFF;
+}
+
+.bgGreen {
+  background-color: #40AD40;
+}
+
+.bgRed {
+  background-color: #90191B;
+}
+
+.bgOrange {
+  background-color: #FC7F00;
+}
+
+.bgBlue {
+ background-color: #0087CF;
+}
+
+.control {
+  padding: 20px 0;
+}
+
+.selected {
+  background-color: rgb(128, 128, 128)
+}
