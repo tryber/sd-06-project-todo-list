@@ -8,7 +8,9 @@ const buttonClearChecked = document.querySelector('#remover-finalizados');
 function newTask() {
   const novoItem = document.createElement("li");
   novoItem.innerHTML = boxText.value;
-  document.getElementById("lista-tarefas").appendChild(novoItem);
+  let x = boxText.value;
+  localStorage.setItem(boxText.value, boxText.value);// Tentativa item bônus
+  listItem.appendChild(novoItem);
   document.getElementById('texto-tarefa').value = "";
 }
 buttonNewTask.addEventListener("click", newTask);
@@ -40,6 +42,7 @@ listItem.addEventListener('click', selecionaItem)
 
 function clearAll() {
   document.getElementById('lista-tarefas').innerHTML = '';
+  localStorage.clear();// Tentativa item bônus
 }
 buttonClearAll.addEventListener("click", clearAll);
 
