@@ -1,4 +1,4 @@
-// Adding it just to make a new commit to test
+
 // Functions
 const functionalities = {
   // Add a task to list
@@ -111,14 +111,14 @@ const functionalities = {
     },
     moveDown: function MoveDown() {
       const itemSelected = document.querySelector('.selected');
-      const permission = (itemSelected !== null) ? true : false;
+      const permission = (itemSelected !== null) ? 1 : 0;
       const allListItem = document.querySelectorAll('li');
       let item = 0;
-      while (permission === true  && itemSelected !== allListItem[item]) {
+      while (permission === 1 && itemSelected !== allListItem[item]) {
         item += 1;
       }
       const positionInList = item;
-      if (permission === true  && positionInList !== allListItem.length - 1) {
+      if (permission === 1 && positionInList !== allListItem.length - 1) {
         const htmlToPass = itemSelected.innerHTML;
         const classToPass = itemSelected.className;
         allListItem[positionInList].innerHTML = allListItem[positionInList + 1].innerHTML;
