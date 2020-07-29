@@ -8,4 +8,5 @@ function addTask(event){
     let newLi = document.createElement("li");
     newLi.innerText = taskInput.value;
     taskList.appendChild(newLi);
+    taskInput.value = "";
 }
