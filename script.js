@@ -55,9 +55,9 @@ removeSelecionado.addEventListener('click', function () {
 
 const moverParaCima = document.getElementById('mover-cima');
 moverParaCima.addEventListener('click', function () {
-  let paraCima = document.querySelectorAll('li');
+  const paraCima = document.querySelectorAll('li');
   for (let i = 0; i < paraCima.length; i += 1) {
-    if (paraCima[i].classList.contains('itemSelecionado')) {
+    if (paraCima[i].classList.contains('itemSelecionado') && (i !== 0)) {
       paraCima[i].parentNode.insertBefore(paraCima[i], paraCima[i - 1]);
     }
   }
@@ -65,7 +65,7 @@ moverParaCima.addEventListener('click', function () {
 
 const moverParaBaixo = document.getElementById('mover-baixo');
 moverParaBaixo.addEventListener('click', function () {
-  let paraBaixo = document.querySelectorAll('li');
+  const paraBaixo = document.querySelectorAll('li');
   for (let i = 0; i < paraBaixo.length; i += 1) {
     if (paraBaixo[i].classList.contains('itemSelecionado')) {
       paraBaixo[i].parentNode.insertBefore(paraBaixo[i + 1], paraBaixo[i]);
