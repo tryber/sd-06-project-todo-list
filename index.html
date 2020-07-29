@@ -16,15 +16,17 @@
 
   <div class='content'>
     <section id="creat-task-section">
-      <input id="texto-tarefa" type="text">
+      <input id="texto-tarefa" type="text" maxlength="60">
       <button id="criar-tarefa">add Tarefa</button>
     </section>
     <section id="task-list-section">
       <ol id="lista-tarefas"></ol>
     </section>
+    <section class="arrow-buttons">
+      <button id="mover-cima" class='arrow-btn'>↑ Up</button>
+      <button id="mover-baixo" class='arrow-btn'>↓ Dw</button>
+    </section>
     <section id="button-section">
-      <button id="mover-cima">Subir</button>
-      <button id="mover-baixo">Descer</button>
       <button id="remover-selecionado">Remover selecionado</button>
       <button id="remover-finalizados">Limpa finalizados</button>
       <button id="apaga-tudo">Limpar lista</button>

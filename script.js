@@ -37,6 +37,7 @@ function incluirTarefa() {
     li.innerText = textoTarefa;
     li.addEventListener('click', selectedTask);
     li.addEventListener('dblclick', completedTask);
+    li.classList.add('task');
     textoContainer.appendChild(li);
     document.querySelector('#texto-tarefa').value = '';
   } else {
@@ -93,17 +94,26 @@ function botaoExcluirRiscados() {
 
 }
 
+function botaoMover() {
+  const buttonUp = document.querySelector("#mover-cima");
+  const buttonDw = document.querySelector("#mover-baixo");
+  const itemlist = document.querySelector("#lista-tarefas")
+  // const task = document.querySelector(".selected");
+  buttonDw.addEventListener('click', () => {
+    console.log(itemlist.childNodes.entries)
+    const task = document.querySelector(".selected");
+    
+    
+    // itemlist.children().eq(task+1).after(itemlist.children().eq(task));task=task+1;    
+  })
+
+
+}
+
 window.onload = () => {
   criarTarefa();
   botaoApagarTudo();
   botaoExcluirTarefa();
   botaoExcluirRiscados();
+  botaoMover();
 };
-
-/**
- * Adicionar Tarefa
- * Selecionar Tarefa
- * Excluir Tarefa
- * Riscar Tarefa
- * Limpar lista de tarefas
- */

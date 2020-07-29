@@ -1,10 +1,18 @@
 .body {
-  background-color: rgb(182 , 182 , 182);
+  background-color: #4c6970;
   font-family: Ubuntu, sans-serif;
+  text-align: center;
 }
 
 .content {
-  background-color: rgb(237 , 237 , 237);
+  background-color: #ecf7f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1%;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .selected {
@@ -15,4 +23,17 @@
   text-decoration: line-through solid black;
   color: grey;
   background-color: greenyellow;
+}
+
+#lista-tarefas {
+  min-height: 200px;
+}
+
+.arrow-buttons {
+  margin: 10px;
+  justify-content: center;
+}
+
+.arrow-btn {
+  font-weight: 800;
 }
