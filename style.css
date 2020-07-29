@@ -1,0 +1,27 @@
+body {
+  background-color: rgb(48 , 68 , 80);
+  color: white;
+  font-family: Pacifico, cursive;
+}
+
+header {
+  margin: 8%;
+}
+
+h1 {
+  font-weight: 300;
+  font-size: 2.2em;
+  color: rgb(200 , 200 , 228);
+}
+
+p{
+  font-size: 1.5em;
+}
+
+li {
+  font-size: 1.3em;
+}
+
+button, input {
+  padding: 0.5em;
+}
