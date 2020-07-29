@@ -74,7 +74,7 @@ header #funcionamento {
 
 main {
   background-color: rgba(36, 42, 52, 20%);
-  min-height: 65vh;
+  min-height: 60vh;
   margin-top: 20px;
   padding: 4px 12px;
 }
@@ -111,4 +111,30 @@ main ol li:before {
 .completed {
   text-decoration: line-through;
   user-select: none;
+}
+
+#list-buttons {
+  margin: 20px 20px 4px 5px;
+}
+
+#list-buttons button {
+  background-color: rgb(90, 155, 90);
+  border: 0;
+  border-radius: 10px;
+  color: white;
+  font-size: 1em;
+  font-weight: 600;
+  margin: 0 16px 0 16px;
+  padding: 8px 18px;
+}
+
+#list-buttons button:focus {
+  outline: none; 
+}
+#list-buttons button:active {
+  opacity: 75%;
+}
+
+#list-buttons #apaga-tudo {
+  background-color: rgb(185, 80, 80);
 }
