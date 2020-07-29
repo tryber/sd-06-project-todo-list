@@ -3,6 +3,7 @@ window.onload = function() {
 }
 const btn = document.getElementById('criar-tarefa');
 const btn2 = document.getElementById('apaga-tudo');
+const btn3 = document.getElementById('remover-finalizados');
 const insert = document.getElementById('texto-tarefa');
 const ordList = document.getElementById('lista-tarefas');
 function adicionaTarefa() {
@@ -29,4 +30,3 @@ function apagaTudo() {
     ordList.innerHTML = '';
 }
 btn2.addEventListener('click', apagaTudo);
-
