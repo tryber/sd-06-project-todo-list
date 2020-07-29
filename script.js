@@ -7,7 +7,7 @@ window.onload = function () {
     lista.innerHTML += '<li>' + tarefa.value + '</li>';
     tarefa.value = '';
   });
-  lista.addEventListener('click', function () {
+  tarefaBtn.addEventListener('click', function () {
     for (let i = 0; i < listItens.length; i += 1) {
       listItens[i].addEventListener('click', function () {
         for (let j = 0; j < listItens.length; j += 1) {
@@ -15,8 +15,8 @@ window.onload = function () {
             listItens[j].classList.remove('selected');
           }
         }
-        listItens[i].classList.add('selected');   
+        listItens[i].classList.add('selected');
       });
     }
   });
-}
+};
