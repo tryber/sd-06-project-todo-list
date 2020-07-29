@@ -75,12 +75,12 @@ salvarTarefas.addEventListener('click', function () {
   }
 });
 
-function confereSeTemLista () {
+function confereSeTemLista() {
   const checando = window.localStorage.getItem('lista');
   if (checando) {
-    console.log(checando);
-    console.log('Achou que tem');
+    const lista = document.querySelector('#lista-tarefas');
+    lista.innerHTML = checando;
   }
 }
 
-confereSeTemLista ();
+confereSeTemLista();
