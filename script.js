@@ -14,5 +14,7 @@ function addTask(event){
 }
 
 function highlightTask(event){
-    event.target.style.backgroundColor = "rgb(128, 128, 128)";
+    if(event.target.tagName.toLowerCase() == "li"){
+        event.target.style.backgroundColor = "rgb(128, 128, 128)";
+    }
 }
