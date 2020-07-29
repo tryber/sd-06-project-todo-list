@@ -42,3 +42,33 @@ apagaDbClick.addEventListener('click', function () {
     }
   }
 });
+
+const removeSelecionado = document.getElementById('remover-selecionado');
+removeSelecionado.addEventListener('click', function () {
+  const selecionado = document.querySelectorAll('li');
+  for (let i = 0; i < selecionado.length; i += 1) {
+    if (selecionado[i].classList.contains('itemSelecionado')) {
+      listaTarefas.removeChild(selecionado[i]);
+    }
+  }
+});
+
+const moverParaCima = document.getElementById('mover-cima');
+moverParaCima.addEventListener('click', function () {
+  let paraCima = document.querySelectorAll('li');
+  for (let i = 0; i < paraCima.length; i += 1) {
+    if (paraCima[i].classList.contains('itemSelecionado')) {
+      paraCima[i].parentNode.insertBefore(paraCima[i], paraCima[i - 1]);
+    }
+  }
+});
+
+const moverParaBaixo = document.getElementById('mover-baixo');
+moverParaBaixo.addEventListener('click', function () {
+  let paraBaixo = document.querySelectorAll('li');
+  for (let i = 0; i < paraBaixo.length; i += 1) {
+    if (paraBaixo[i].classList.contains('itemSelecionado')) {
+      paraBaixo[i].parentNode.insertBefore(paraBaixo[i + 1], paraBaixo[i]);
+    }
+  }
+});
