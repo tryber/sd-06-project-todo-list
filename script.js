@@ -20,8 +20,14 @@ button.addEventListener("click", function makeList() {
     // console.log(`${activity}`);
     activity.value = "";  
   });  
-      
-  
+
+elementLi.addEventListener("click", function(){
+  let lineElement = document.getElementsByTagName("li");
+  for(let index = 0; index < lineElement.length; index += 1) {
+      lineElement[index].classList.remove("backGroundColor");
+  }
+  lineElement.classList.add("backGroundColor");
+  });
 
 
   
