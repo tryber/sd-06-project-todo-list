@@ -20,7 +20,7 @@ button.addEventListener('click', function () {
     };
 });
 
-
+let itemSelected = document.getElementsByTagName('li');
 list.addEventListener ('dblclick', function(e) {
-    e.target.style.backgroundColor = 'rgb(128,128,128)'
+    e.target.style.backgroundColor = 'rgb(128, 128, 128)';
 })
