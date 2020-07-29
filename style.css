@@ -1,0 +1,7 @@
+.completed {
+  text-decoration: line-through;
+}
+
+.selectedTask {
+  background-color: gray;
+}
