@@ -1,6 +1,7 @@
 const listaTarefas = document.getElementById('lista-tarefas');
 const addTarefaButton = document.getElementById('criar-tarefa');
 const removeSelecionadoButton = document.getElementById('remover-selecionado');
+const removeFinalizadosButton = document.getElementById('remover-finalizados');
 
 function addTarefa() {
     let inputTarefa = document.createElement('li');
@@ -36,3 +37,11 @@ function removeSelecionado (event) {
     document.getElementById('isSelected').remove();
 }
 removeSelecionadoButton.addEventListener('click', removeSelecionado);
+
+function removeFinalizados (event) {
+    let completed = document.querySelectorAll('.completed');
+    for (let i = 0; i < completed.length; i += 1) {
+        completed[i].remove();
+    }
+}
+removeFinalizadosButton.addEventListener('click', removeFinalizados);
