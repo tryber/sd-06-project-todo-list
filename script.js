@@ -12,37 +12,37 @@ window.onload = function () {
   botao.addEventListener('click', function () {
     document.getElementById('texto-tarefa').value = '';
   });
-  addSelectedClass();
-  oneItemSelected();
+  // addSelectedClass();
+  // oneItemSelected();
   parafor();
   addItembackgroundColor();
 };
 
 // adding selected class to element
-function addSelectedClass () {
-  const itemLista = document.querySelector('#lista-tarefas');
-  itemLista.addEventListener('click', function(event){
-    const nome = event.target.className;
-    document.querySelector('.'+nome).classList.add('selected');
-  });
-}
+// function addSelectedClass () {
+//   const itemLista = document.querySelector('#lista-tarefas');
+//   itemLista.addEventListener('click', function(event){
+//     const nome = event.target.className;
+//     document.querySelector('.'+nome).classList.add('selected');
+//   });
+// }
 
-function oneItemSelected () {
-  const itemSelected = document.querySelector('#lista-tarefas');
-  itemSelected.addEventListener('click', function (event) {
-    const currentItem = document.querySelector('.selected');
-    const newItem = event.target;
-    currentItem.classList.remove('selected');
-    console.log(currentItem);
-    newItem.classList.add('selected');
-    console.log(newItem);
-  });
-}
+// function oneItemSelected () {
+//   const itemSelected = document.querySelector('#lista-tarefas');
+//   itemSelected.addEventListener('click', function (event) {
+//     const currentItem = document.querySelector('.selected');
+//     const newItem = event.target;
+//     currentItem.classList.remove('selected');
+//     console.log(currentItem);
+//     newItem.classList.add('selected');
+//     console.log(newItem);
+//   });
+// }
 
 function addItembackgroundColor () {
   const changeColor = document.querySelector('#lista-tarefas');
   changeColor.addEventListener('click', function (event) {
-    const backgoundItem = document.querySelector('.selected');
+    const backgoundItem = event.target;
     backgoundItem.style.backgroundColor = 'rgb(128 , 128 , 128)';
   });
 }
