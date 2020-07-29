@@ -1,0 +1,12 @@
+.selecionada {
+  background-color: gray;
+}
+
+.concluida {
+  text-decoration: line-through;
+}
+
+li {
+  width: fit-content;
+}
+
