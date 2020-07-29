@@ -1,7 +1,7 @@
 const buttonText =  document.querySelector('#criar-tarefa');
 const listjobs =  document.querySelector('#lista-tarefas');
 const textInput = document.querySelector('#texto-tarefa');
-let aux;
+
 
 function listing() {
     const aux = document.createElement('li');
@@ -33,19 +33,5 @@ buttonText.addEventListener('click', function () {
         }       
      })  
   }
-
- //Até aqui enviou os li's ao ol como filhos
-   //let optionJob = document.querySelectorAll('li');
-
-  /*optionJob.forEach(item => {
-      item.addEventListener('click', () => {
-          optionJob.forEach(item => {
-              item.classList.remove('selected');
-              
-          }) //a partir de cada click é enviado o conteudo presente em option (um array) para a lista e add e remove quando pedir
-          item.classList.add('selected');
-      })
-  })*/
-
 
  
