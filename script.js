@@ -2,15 +2,24 @@ const olElement = document.getElementById('lista-tarefas');
 const removeAllTasksButton = document.getElementById('apaga-tudo');
 const createTaskButton = document.getElementById('criar-tarefa');
 const removeCompletedTasksButton = document.getElementById('remover-finalizados');
+const removeSelectedTasksButton = document.getElementById('remover-selecionado');
+
 
 function selectedTask(event) {
   const liSelectedTask = event.target;
-  liSelectedTask.classList.contains('selectedTask') ? liSelectedTask.classList.remove('selectedTask') : liSelectedTask.classList.add('selectedTask');
+  if (document.querySelector('.selectedTask') !== null) {
+    document.querySelector('.selectedTask').classList.remove('selectedTask');
+  }
+  liSelectedTask.classList.add('selectedTask');
 }
 
 function completedTask(event) {
   const liCompletedTask = event.target;
-  liCompletedTask.classList.contains('completed') ? liCompletedTask.classList.remove('completed') : liCompletedTask.classList.add('completed');
+  if (liCompletedTask.classList.contains('completed')) {
+    liCompletedTask.classList.remove('completed');
+  } else {
+    liCompletedTask.classList.add('completed');
+  }
 }
 
 function createTask() {
@@ -23,7 +32,6 @@ function createTask() {
 
 function removeAllTasks() {
   const liElements = document.getElementsByTagName('li');
-
   for (let i = liElements.length - 1; i >= 0; i -= 1) {
     liElements[i].remove();
   }
@@ -36,8 +44,15 @@ function removeCompletedTasks() {
   }
 }
 
+function removeSelectedTasks() {
+  if (document.querySelector('.selectedTask') !== null) {
+    document.querySelector('.selectedTask').remove();
+  }
+}
+
 olElement.addEventListener('click', selectedTask);
 olElement.addEventListener('dblclick', completedTask);
 createTaskButton.addEventListener('click', createTask);
 removeAllTasksButton.addEventListener('click', removeAllTasks);
 removeCompletedTasksButton.addEventListener('click', removeCompletedTasks);
+removeSelectedTasksButton.addEventListener('click', removeSelectedTasks);
