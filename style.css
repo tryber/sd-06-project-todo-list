@@ -30,11 +30,20 @@ header h1 {
   text-align: center;
 }
 
+#div-input {
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-top: 20px;
+}
+
 #funcionamento {
   font-size: 14px;
   margin-top: 10px;
   text-align: center;
-  color: rgb(255 , 255 , 255);  
+  color: rgb(255 , 255 , 255);
+  font-weight: lighter;
 }
 
 /* #color-palette {
