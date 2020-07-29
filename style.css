@@ -4,3 +4,8 @@ header {
   font-weight: 700;
   margin: 15px;
 }
+
+p {
+  font: italic 120% Georgia, Times, serif;
+  padding: 5px;
+}
