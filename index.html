@@ -10,25 +10,21 @@
 
 <body>
   <section class="content">
-    <div class="row">
-      <div class="col-12">
-        <header class="title">Minha Lista de Tarefas</header>
-        <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-        <form>
-          <input type="text" name="task" id="texto-tarefa" placeholder='Nova tarefa...'>
-          <input type="button" id="criar-tarefa" name="" value="Adicionar" onclick="addTask();">
-        </form>
+    <section>
+      <header class="title">Minha Lista de Tarefas</header>
+      <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+      <form>
+        <input type="text" name="task" id="texto-tarefa" placeholder='Nova tarefa...'>
+        <input type="button" id="criar-tarefa" name="" value="Adicionar" onclick="addTask();">
+      </form>
+    </section>
+    <section>
+      <div class="to-do-list-box">
+        <label>Lista de tarefas</label>
+        <ol id="lista-tarefas">
+        </ol>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <div class="to-do-list-box">
-          <label>Lista de tarefas</label>
-          <ol id="lista-tarefas">
-          </ol>
-        </div>
-      </div>
-    </div>
+    </section>
   </section>
   <script src="script.js"></script>
 </body>
