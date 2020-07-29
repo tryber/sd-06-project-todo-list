@@ -33,3 +33,6 @@ button{
     background-color: ivory;
     font-style: inherit;
 }
+.completed {
+    text-decoration: line-through solid white;
+  } 
