@@ -4,24 +4,16 @@ window.onload = function () {
   const tasksList = document.querySelector('#lista-tarefas');
 
   function newTask() {
-    let newListItem = document.createElement('li');
+    const newListItem = document.createElement('li');
     newListItem.innerHTML = userInput.value;
     newListItem.className = 'list-item';
     tasksList.appendChild(newListItem);
     userInput.value = '';
   }
-  
-  document.addEventListener('click', function (event) {
-    if (event.target.classList.contains('list-item')) {
-      selectedTask(event);
-    }
-  });
 
-  document.addEventListener('dblclick', function (event) {
-    if (event.target.classList.contains('list-item')) {
-      completedTask(event);
-    }
-  });
+  handleTaskSelection();
+
+  handleTaskClick();
 
   newTaskButton.addEventListener('click', newTask);
 };
@@ -36,10 +28,28 @@ function selectedTask(event) {
   }
 }
 
+function handleTaskSelection() {
+  document.addEventListener('click', function (event) {
+    if (event.target.classList.contains('list-item')) {
+      selectedTask(event);
+    } else {
+      document.querySelector('.selected').classList.remove('selected');
+    }
+  });
+}
+
 function completedTask(event) {
   if (event.target.classList.contains('completed')) {
     event.target.classList.remove('completed');
   } else {
     event.target.classList.add('completed');
   }
+}
+
+function handleTaskClick() {
+  document.addEventListener('dblclick', function (event) {
+    if (event.target.classList.contains('list-item')) {
+      completedTask(event);
+    }
+  });
 }
