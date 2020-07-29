@@ -1,6 +1,6 @@
 const btnCreate = document.getElementById('criar-tarefa');
 const btnErase = document.getElementById('apaga-tudo');
-const btnEraseTask = document.getElementById('remover-selecionado');
+const btnEraseTask = document.getElementById('remover-finalizados');
 const btnSaveList = document.getElementById('salvar-tarefas');
 const list = document.getElementById('lista-tarefas');
 const text = document.getElementById('texto-tarefa');
@@ -49,7 +49,7 @@ window.onload = function () {
       createElementList(saveList.name);
     }
     for (let j = 0; j < localStorage.length; j += 1) {
-      let saveList = JSON.parse(localStorage.getItem(j));
+      const saveList = JSON.parse(localStorage.getItem(j));
       document.querySelectorAll('li')[j].className = saveList.class;
     }
     selectElement();
