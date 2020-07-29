@@ -26,9 +26,9 @@ const lista = document.querySelector('#lista-tarefas');
 lista.addEventListener('click', changingCollor);
 
 let click = false;
-function completedTasks(event) {  
+function completedTasks(event) {
   const completedTask = event.target;
-  if (click === false)  {
+  if (click === false) {
     completedTask.classList.add('completed');
     click = true;
   } else if (click === true) {
@@ -44,6 +44,25 @@ function apagaTudo() {
     lista.removeChild(lista.firstChild);
   }
 }
+const btnApagaTudo = document.querySelector('#apaga-tudo');
+btnApagaTudo.addEventListener('click', apagaTudo);
 
-const btnApaga = document.querySelector('#apaga-tudo');
-btnApaga.addEventListener('click', apagaTudo);
+Element.prototype.remove = function() {
+  this.parentNode.removeChild;
+}
+NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
+  for (var i = this.length - 1; i >= 0; i -= 1) {
+    if (this[i] && this[i].parentElement) {
+      this[i].parentElement.removeChild(this[i]);
+    }
+  }
+}
+function removerFinalizados() {
+  const finalizados = document.querySelectorAll('.completed');
+  finalizados.remove();
+}
+const btnApagaFinalizados = document.querySelector('#remover-finalizados');
+btnApagaFinalizados.addEventListener('click', removerFinalizados);
+
+
+
