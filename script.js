@@ -4,22 +4,21 @@ let elementUl = document.createElement('ol');
   // Reqquisito 4
   // elementUl.idName = "lista-tarefas";
   document.body.appendChild(elementUl);  
-  console.log(elementUl);
+  // console.log(elementUl);
 
 let button = document.getElementById("criar-tarefa");
       
 button.addEventListener("click", function makeList() {
-  let activity = document.getElementById("texto-tarefa").value;
-  console.log(activity);
+  let activity = document.getElementById("texto-tarefa");
+  // console.log(activity);
      
   // let activityArray
   let elementLi = document.createElement('li');
-    elementLi.innerHTML = `${activity}`;
+    // elementLi.innerHTML = `${activity}`;
+    elementLi.innerHTML = activity.value;
     elementUl.appendChild(elementLi);
-    console.log(`${activity}`);
-    activity = "";
-  // Requisito 5  
-  // limpar caixa
+    // console.log(`${activity}`);
+    activity.value = "";  
   });  
       
   
