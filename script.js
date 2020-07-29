@@ -1,8 +1,17 @@
+function riscarItem() {
+  if (this.classList.contains('completed')) {
+    this.classList.remove('completed');
+  } else {
+    this.classList.add('completed');
+  }
+}
+
 function listarItens() {
   const textoTarefa = document.getElementById('texto-tarefa');
   const listaTarefas = document.getElementById('lista-tarefas');
   const itemLista = document.createElement('li');
   listaTarefas.appendChild(itemLista);
+  itemLista.addEventListener('dblclick', riscarItem);
   itemLista.innerHTML = textoTarefa.value;
   textoTarefa.value = '';
 }
