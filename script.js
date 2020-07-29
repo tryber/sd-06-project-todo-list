@@ -45,3 +45,19 @@ function removeRiskOnDblClick(){
 document.getElementById("apaga-tudo").addEventListener('click', function(){
   document.getElementById('lista-tarefas').innerHTML = '';
 })
+
+document.getElementById("remover-finalizados").addEventListener('click', function(){
+  document.querySelectorAll('.completed').forEach(item => {
+    item.remove();
+ })
+})
+
+document.getElementById('teste').addEventListener('click', function(){
+  for (i = 0; i <= 5; i += 1){
+  let liTag = document.createElement('li');
+  liTag.innerHTML = 'TESTE';
+  oList.appendChild(liTag);
+  }
+  addClickChangeColor();
+  addRiskOnDblClick();
+})
