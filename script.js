@@ -28,7 +28,6 @@ function addClickToRisk(){
   document.querySelectorAll('li').forEach(item => {
     item.addEventListener('dblclick', event => {
       item.className = "completed";
-      item.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
   })
 })
 }
