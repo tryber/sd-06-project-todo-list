@@ -5,6 +5,7 @@ let botaoApaga = document.querySelector("#apaga-tudo")
 let botaoApagaFinaliz = document.querySelector("#remover-finalizados")
 let inputTarefa = document.querySelector("#texto-tarefa")
 let list = document.querySelector("#lista-tarefas")
+let btnRemSelec = document.querySelector("#remover-selecionado")
 
 //Add novo item ao final da lista
 botao1.addEventListener("click", function () {
@@ -35,6 +36,10 @@ botao1.addEventListener("click", function () {
   })
   botaoApaga.addEventListener("click", function () {
     document.querySelector("#lista-tarefas").removeChild(elementoLinha)
+  })
+
+  btnRemSelec.addEventListener("click", function (){
+    document.querySelector(".selected").remove()
   })
 })
 
