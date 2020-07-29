@@ -2,20 +2,15 @@
 // Functions
 const functionalities = {
   // Add a task to list
-  addListItem: function addListItem(newOrSavedIndicator, taskName, taskClass) {
+  addNewListItem: function addNewListItem() {
     const listElement = document.querySelector('#lista-tarefas');
     const listItem = document.createElement('li');
     const inputElement = document.querySelector('#texto-tarefa');
-    if (newOrSavedIndicator === 0) {
-        listItem.innerHTML = inputElement.value;
-    } else {  
-        listItem.innerHTML = taskName;
-        listItem.className = taskClass; 
-    }
+    listItem.innerHTML = inputElement.value;
     listElement.appendChild(listItem);
     functionalities.clearInputField();
-    listItem.addEventListener('click', (event) => functionalities.changeItemColor(listItem)); 
-    listItem.addEventListener('dblclick', (event) => functionalities.scratchItem(listItem)); 
+    listItem.addEventListener('click', (event) => functionalities.changeItemColor(event.target));
+    listItem.addEventListener('dblclick', (event) => functionalities.scratchItem(event.target));
   },
   // Delete selected item on list
   deleteSelectedItem: function deleteSelectedItem() {
@@ -28,15 +23,15 @@ const functionalities = {
     const inputElement = document.querySelector('#texto-tarefa');
     inputElement.value = '';
   },
-  // Change background color of list item 
+  // Change background color of list item
   changeItemColor: function changeItemColor(listItemToChange) {
     if (listItemToChange.className.includes('selected') === false) {
-      listItemToChange.className = listItemToChange.className.concat(' selected'); 
+      listItemToChange.className = listItemToChange.className.concat(' selected');
     }
     const allListItem = document.querySelectorAll('li');
     for (let item = 0; item < allListItem.length; item += 1) {
       if (allListItem[item] !== listItemToChange) {
-        allListItem[item].className = allListItem[item].className.replace('selected', ''); 
+        allListItem[item].className = allListItem[item].className.replace('selected', '');
       }
     }
   },
@@ -53,7 +48,7 @@ const functionalities = {
     const allListItem = document.querySelectorAll('li');
     const listElement = document.querySelector('#lista-tarefas');
     for (let item = 0; item < allListItem.length; item += 1) {
-      listElement.removeChild(allListItem[item])
+      listElement.removeChild(allListItem[item]);
     }
   },
   // Delete all completed tasks
@@ -61,27 +56,39 @@ const functionalities = {
     const allCompletedListItem = document.querySelectorAll('.completed');
     const listElement = document.querySelector('#lista-tarefas');
     for (let item = 0; item < allCompletedListItem.length; item += 1) {
-      listElement.removeChild(allCompletedListItem[item])
+      listElement.removeChild(allCompletedListItem[item]);
     }
   },
   // Save the list of tasks on localStorage
   saveList: function saveListItem() {
     const allListItem = document.querySelectorAll('li');
     for (let item = 0; item < allListItem.length; item += 1) {
-      let taskName = 'task' + item;
-      let taskClass = 'taskClass' + item;
+      const taskName = ('task').concat(item);
+      const taskClass = ('taskClass').concat(item);
       localStorage[taskName] = allListItem[item].innerHTML;
       localStorage[taskClass] = allListItem[item].className.replace('selected', '');
       localStorage.numberOfTasks = allListItem.length;
     }
   },
-  //Recover the list from localStorage
+  // Recover the list from localStorage
   recoverList: function recover() {
     for (let item = 0; item < localStorage.numberOfTasks; item += 1) {
-      let taskName = 'task' + item;
-      let taskClass = 'taskClass' + item;
-      functionalities.addListItem(1, localStorage[taskName], localStorage[taskClass]);
+      const taskName = ('task').concat(item);
+      const taskClass = ('taskClass').concat(item);
+      functionalities.addSavedListItem(localStorage[taskName], localStorage[taskClass]);
     }
+  },
+  // Add saved list item
+  addSavedListItem: function addSavedListItem(taskName, taskClass) {
+    const listElement = document.querySelector('#lista-tarefas');
+    const listItem = document.createElement('li');
+    const inputElement = document.querySelector('#texto-tarefa');
+    listItem.innerHTML = taskName;
+    listItem.className = taskClass;
+    listElement.appendChild(listItem);
+    functionalities.clearInputField();
+    listItem.addEventListener('click', (event) => functionalities.changeItemColor(event.target));
+    listItem.addEventListener('dblclick', (event) => functionalities.scratchItem(event.target));
   },
   // Move task up or down
   move: {
@@ -93,7 +100,7 @@ const functionalities = {
         item += 1;
       }
       const positionInList = item;
-      if (positionInList != 0) {
+      if (positionInList !== 0) {
         const htmlToPass = itemSelected.innerHTML;
         const classToPass = itemSelected.className;
         allListItem[positionInList].innerHTML = allListItem[positionInList - 1].innerHTML;
@@ -110,7 +117,7 @@ const functionalities = {
         item += 1;
       }
       const positionInList = item;
-      if (positionInList != allListItem.length - 1) {
+      if (positionInList !== allListItem.length - 1) {
         const htmlToPass = itemSelected.innerHTML;
         const classToPass = itemSelected.className;
         allListItem[positionInList].innerHTML = allListItem[positionInList + 1].innerHTML;
@@ -149,12 +156,12 @@ window.onload = function () {
   // 6. Event to move up a task when click on button
   // 7. Event to move down a task when click on button
   // 8. Call to recover data saved on localSotorage when the window is loaded
-  buttonAddElement.addEventListener('click', (event) => functionalities.addListItem(0, null, null));
+  buttonAddElement.addEventListener('click', functionalities.addNewListItem);
   buttonRemoveTaskElement.addEventListener('click', functionalities.deleteSelectedItem);
-  buttonDeleteElement.addEventListener('click', functionalities.deleteAllListItem); 
+  buttonDeleteElement.addEventListener('click', functionalities.deleteAllListItem);
   buttonDeleteCompletedElement.addEventListener('click', functionalities.deleteCompletedItens);
   buttonSaveElement.addEventListener('click', functionalities.saveList);
   buttonMoveUpTaskElement.addEventListener('click', functionalities.move.moveUp);
-  buttonMoveDownTaskElement.addEventListener('click',  functionalities.move.moveDown); 
+  buttonMoveDownTaskElement.addEventListener('click', functionalities.move.moveDown);
   functionalities.recoverList();
 };
