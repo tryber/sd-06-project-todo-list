@@ -49,3 +49,9 @@ header {
 .completed {
   text-decoration: line-through;
 }
+
+.apaga-tudo {
+  background-color: crimson;
+  border-radius: 1em;
+  color: white;
+}

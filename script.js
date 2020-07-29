@@ -37,6 +37,14 @@ function markTaskAsCompleted(event) {
   event.target.classList.toggle('completed');
 }
 
+function clearAll() {
+  const list = getOlElement();
+  while (list.firstElementChild) {
+    list.firstElementChild.remove();
+    //list.removeChild(list.firstElementChild);
+  }
+}
+
 const elementBtnAddTask = document.getElementById('criar-tarefa');
 elementBtnAddTask.addEventListener('click', function() {
   const taskName = getTaskNameFromInput();
@@ -48,6 +56,8 @@ elementBtnAddTask.addEventListener('click', function() {
 const elementOl = document.getElementById('lista-tarefas');
 elementOl.addEventListener('dblclick', markTaskAsCompleted);
 
+const elementClearButton = document.getElementById('apaga-tudo');
+elementClearButton.addEventListener('click', clearAll);
 
 
 
