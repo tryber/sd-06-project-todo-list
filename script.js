@@ -3,7 +3,7 @@ window.onload = function () {
   //  Apaga o conteudo da caixa de texto ao adicionar.
   const botaoAdicionar = document.querySelector('#criar-tarefa');
   botaoAdicionar.addEventListener('click', function () {
-    let textoInput = document.querySelector('#texto-tarefa').value;
+    const textoInput = document.querySelector('#texto-tarefa').value;
     document.querySelector('#texto-tarefa').value = '';
     const listaElemento = document.createElement('li');
     listaElemento.innerText = textoInput;
@@ -17,8 +17,7 @@ window.onload = function () {
     if (itemSelecionadoAntiguio) {
       itemSelecionadoAntiguio.classList.remove('grey');
       itemSelecionado.classList.add('grey');
-    } 
-    else {
+    } else {
       itemSelecionado.classList.add('grey');
     }
   });
@@ -27,8 +26,7 @@ window.onload = function () {
     const itemCompleto = event.target;
     if (itemCompleto.classList[0] === 'completed') {
       itemCompleto.classList.remove('completed');
-    }
-    else {
+    } else {
       itemCompleto.classList.add('completed');
     }
   });
