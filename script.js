@@ -63,20 +63,28 @@ list.addEventListener("dblclick" , function(event){
 
 //botao apaga-tudo
 
-document.getElementById("apaga-tudo").addEventListener("click", function(){
+let apagaTudo = document.getElementById("apaga-tudo");
 
-    let lista = document.getElementById("lista-tarefas");
-    lista.innerHTML = '';
-})
+apagaTudo.addEventListener('click', function () {
+    while (list.firstChild) {
+      list.removeChild(list.firstChild);
+    }
+});
 
 //botao remover finalizados
 
-document.getElementById("remover-finalizados").addEventListener("click", function(){
+let apagaFinalizados = document.getElementById("remover-finalizados");
 
-    let li = document.querySelector("li");
-    li.addEventListener("click", function(event){
-        li.removeChild(".completed");
-        event.stopPropagation();
-    });
+apagaFinalizados.addEventListener('click', function () {
+    if (event.target.classList.contains("completed")){
+    }
+
+    else{
+
+        while (list.firstChild) {
+            list.removeChild(list.firstChild.completed);
+
+        }
     
-})
+    }
+});
