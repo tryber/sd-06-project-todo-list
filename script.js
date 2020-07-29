@@ -2,6 +2,7 @@ const listaTarefas = document.getElementById('lista-tarefas');
 const addTarefaButton = document.getElementById('criar-tarefa');
 const removeSelecionadoButton = document.getElementById('remover-selecionado');
 const removeFinalizadosButton = document.getElementById('remover-finalizados');
+const apagaTudoButton = document.getElementById('apaga-tudo');
 
 function addTarefa() {
     let inputTarefa = document.createElement('li');
@@ -45,3 +46,11 @@ function removeFinalizados (event) {
     }
 }
 removeFinalizadosButton.addEventListener('click', removeFinalizados);
+
+function apagaTudo (event) {
+    let todasTarefas = document.getElementsByTagName('li');
+    for (let i = 0; i < todasTarefas.length; i += 0) {
+        todasTarefas[i].remove();
+    }
+}
+apagaTudoButton.addEventListener('click', apagaTudo);
