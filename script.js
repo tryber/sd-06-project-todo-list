@@ -10,7 +10,7 @@ function criarTarefa () {
   let tarefa = document.createElement('li');
   let textNode = document.createTextNode(textoTarefa);
 
-  document.getElementById('texto-tarefa').value = null;
   tarefa.appendChild(textNode);
-  document.getElementById('lista-tarefas').appendChild(tarefa)
+  document.getElementById('lista-tarefas').appendChild(tarefa);
+  document.getElementById('texto-tarefa').value = null;
 }
