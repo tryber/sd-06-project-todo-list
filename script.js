@@ -6,3 +6,10 @@ function getInputValue(){
   inputVal.value = '';
   listBuilder.appendChild(listElement);
 };
+
+function elementsBackgroundColor(event) {
+  let oldSelectedElement = document.querySelector('.selected');
+  let currentSelectedElement = event.target;
+  currentSelectedElement.classList.add('selected');
+  oldSelectedElement.classList.remove('selected');
+}
