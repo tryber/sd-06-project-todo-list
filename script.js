@@ -15,7 +15,7 @@ const newTaskButton = document.querySelector('#criar-tarefa');
 const tasksList = document.querySelector('#lista-tarefas');
 const eraseAllButton = document.querySelector('#apaga-tudo');
 const eraseCompletedButton = document.querySelector('#remover-finalizados');
-const selectedClassItem = document.querySelector('.selected');
+let selectedClassItem = document.querySelector('.selected');
 
 function newTask() {
   const newListItem = document.createElement('li');
@@ -30,7 +30,7 @@ function handleNewTaskButtonClick() {
 }
 
 function selectedTask(event) {
-  const oldSelectedItem = selectedClassItem;
+  const oldSelectedItem = document.querySelector('.selected');
   if (oldSelectedItem == null) {
     event.target.classList.add('selected');
   } else {
