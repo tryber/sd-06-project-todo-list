@@ -119,21 +119,7 @@ function botaoMoverCima() {
     }
   });
 }
-
-// btnUp.addEventListener('click', function () {
-//   const lista = list.childNodes;
-//   for (let i = 1; i < lista.length; i += 1) {
-//     if (lista[i].style.backgroundColor === 'rgb(128, 128, 128)') {
-//       list.insertBefore(lista[i], lista[i - 1]);
-//     }
-//   }
-// });
-
-
-
-
-
-
+//call
 window.onload = () => {
   criarTarefa();
   botaoApagarTudo();
