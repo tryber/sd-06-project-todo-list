@@ -67,4 +67,23 @@ window.onload = function () {
   clearSelected.addEventListener('click', function () {
     selected[0].remove();
   })
+
+  let moveUp = document.querySelector('#mover-cima');
+  
+  moveUp.addEventListener('click', function () {
+    if (selected[0].innerText != taskList.firstChild.innerText) {
+      let elementBefore = selected[0].previousSibling;
+      taskList.insertBefore(selected[0], elementBefore);
+    }
+  });
+
+  let moveDown = document.querySelector('#mover-baixo');
+
+  moveDown.addEventListener('click', function () {
+    if (selected[0].innerText != taskList.lastChild.innerText) { 
+      let elementAfter = selected[0].nextSibling;
+      taskList.insertBefore(elementAfter, selected[0]);
+      taskList.lastChild.innerText;
+    }
+  });
 };
