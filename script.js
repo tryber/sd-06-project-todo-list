@@ -3,6 +3,7 @@ window.onload = function () {
   const tarefaBtn = document.querySelector('#criar-tarefa');
   const lista = document.querySelector('#lista-tarefas');
   const listItens = document.getElementsByTagName('li');
+  const removeBtn = document.querySelector('#apaga-tudo');
   tarefaBtn.addEventListener('click', function () {
     lista.innerHTML += '<li>' + tarefa.value + '</li>';
     tarefa.value = '';
@@ -19,6 +20,11 @@ window.onload = function () {
       });
       listItens[i].addEventListener('dblclick', function () {
         listItens[i].classList.toggle('completed');
+      });
+      removeBtn.addEventListener('click', function () {
+        if (listItens[i] !== undefined) {
+          listItens[i].parentNode.removeChild(listItens[i]);
+        }
       });
     }
   });
