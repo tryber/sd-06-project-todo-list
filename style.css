@@ -1,0 +1,11 @@
+body {
+    background-color: #4f772d;
+    margin: 30px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#title {
+    color: rgb(255 , 255 , 255);
+    font-family: 'Galada', cursive;
+    font-size: 40px;
+}
