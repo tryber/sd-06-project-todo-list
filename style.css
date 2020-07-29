@@ -1,0 +1,31 @@
+header {
+
+}
+
+#funcionamento{
+
+}
+
+#texto-tarefa{
+
+}
+
+#criar-tarefa{
+
+}
+
+#lista-tarefas{
+
+}
+
+li {
+    background-color: white;
+}
+
+.selected{
+    background-color: rgb(128, 128, 128);
+}
+
+.completed{
+    text-decoration: line-through;
+}

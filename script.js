@@ -1,10 +1,4 @@
-window.onload=function(){
-
-    localStorage.clear();
-    localStorage.setItem("selected-color", "black");
-
-}
-
+//addButton
 
 
 function addButton () {
@@ -18,33 +12,72 @@ function addButton () {
     newItem.appendChild(document.createTextNode(textInput.value)) ;
 
     orderedList.appendChild(newItem);
+
+    newItem.className="tarefa";
 }
 
 let addButtonClick = document.querySelector("#criar-tarefa");
 
 addButtonClick.addEventListener("click", function(){
     addButton ();
+})
+
+
+
+//changeBackgroundColor
+
+
+let itemSelecionado = document.getElementsByClassName("selected");
+let lista = document.querySelector("#lista-tarefas")
+
+lista.addEventListener("click" , function(event){
+
+    if (event.target.classList.contains("tarefa") && itemSelecionado.length === 0){
+
+      event.target.classList.add("selected");
+
+    }else{
+
+      event.target.classList.contains("tarefa") && itemSelecionado.length === 1
+
+    }
+
+    itemSelecionado[0].className = "tarefa";
+    event.target.classList.add("selected");
 });
 
 
+//riscar tarefa finalizada
 
 
+lista.addEventListener("dblclick" , function(event){
 
-function selectColor(color){
+    if (event.target.classList.contains("completed")){
 
-    localStorage.setItem("selected-color", color);
+        event.target.classList.remove("tarefa");
 
-    if(localStorage.getItem("selected-color")=="rgb(113, 222, 226)"){
-        document.getElementById("blue").classList.add("selected")
-        document.getElementById("black").classList.remove("selected")
-        document.getElementById("yellow").classList.remove("selected")
-        document.getElementById("red").classList.remove("selected")
     }
-}
+    else{
 
-//
+        event.target.className="completed";
 
-let blackButton = document.getElementById("black");
-blackButton.addEventListener("click", function(){
-    selectColor("black");
+    }
+
+})
+
+//botao apaga-tudo
+
+document.getElementById("apaga-tudo").addEventListener("click", function(){
+
+    let lista = document.getElementById("lista-tarefas");
+    lista.innerHTML = '';
+})
+
+//botao remover finalizados
+
+document.getElementById("remover-finalizados").addEventListener("click", function(){
+
+    let lista = document.getElementById("lista-tarefas");
+    let itensFinalizados = document.querySelectorAll(".completed");
+    lista.removeChild(itensFinalizados)
 })
