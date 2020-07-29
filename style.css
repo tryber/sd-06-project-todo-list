@@ -1,0 +1,26 @@
+body {
+  background-color: gray;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  margin: 32px auto;
+  width: 500px;
+  height: 900px;
+  background-color: black;
+  border-radius: 30px;
+  padding-top: 40px;
+}
+
+.content {
+  background-color: white;
+  border-radius: 16px;
+  margin: 0 auto;
+  width: 94%;
+  height: 99%;
+}
