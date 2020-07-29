@@ -67,7 +67,7 @@ const moverParaBaixo = document.getElementById('mover-baixo');
 moverParaBaixo.addEventListener('click', function () {
   const paraBaixo = document.querySelectorAll('li');
   for (let i = 0; i < paraBaixo.length; i += 1) {
-    if (paraBaixo[i].classList.contains('itemSelecionado')) {
+    if (paraBaixo[i].classList.contains('itemSelecionado') && (i !== paraBaixo.length - 1)) {
       paraBaixo[i].parentNode.insertBefore(paraBaixo[i + 1], paraBaixo[i]);
     }
   }
