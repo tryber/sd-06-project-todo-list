@@ -13,13 +13,22 @@ window.onload = function () {
     listaOl.className = 'bgColor';
   
     /*o que for realicionado ao li tem que ser chamado aqui*/
-   // listaOl.style.backgroundColor = 'white';
+    // listaOl.style.backgroundColor = 'white';
+    document.querySelector('.bgColor').style.backgroundColor = "white";
    let cor = document.querySelector('.bgColor').style.backgroundColor.value;
    
    if (cor!== 'white'){
     listaOl.addEventListener('click',fundoDeCor);
    }
+  
+   //duplo click//
+   listaOl.addEventListener('dblclick', function() {
+    listaOl.classList.toggle('completed');
+    })
+   
+  
   });
+ 
  
   /* fazendo a parte do reset da imput*/
   function resetTexto () {
