@@ -93,13 +93,14 @@ const functionalities = {
   move: {
     moveUp: function MoveUp() {
       const itemSelected = document.querySelector('.selected');
+      const permission = (itemSelected !== null) ? true : false;
       const allListItem = document.querySelectorAll('li');
       let item = 0;
-      while (itemSelected !== allListItem[item]) {
+      while (permission === true && itemSelected !== allListItem[item]) {
         item += 1;
       }
       const positionInList = item;
-      if (positionInList !== 0) {
+      if (permission === true && positionInList !== 0) {
         const htmlToPass = itemSelected.innerHTML;
         const classToPass = itemSelected.className;
         allListItem[positionInList].innerHTML = allListItem[positionInList - 1].innerHTML;
@@ -110,13 +111,14 @@ const functionalities = {
     },
     moveDown: function MoveDown() {
       const itemSelected = document.querySelector('.selected');
+      const permission = (itemSelected !== null) ? true : false;
       const allListItem = document.querySelectorAll('li');
       let item = 0;
-      while (itemSelected !== allListItem[item]) {
+      while (permission === true  && itemSelected !== allListItem[item]) {
         item += 1;
       }
       const positionInList = item;
-      if (positionInList !== allListItem.length - 1) {
+      if (permission === true  && positionInList !== allListItem.length - 1) {
         const htmlToPass = itemSelected.innerHTML;
         const classToPass = itemSelected.className;
         allListItem[positionInList].innerHTML = allListItem[positionInList + 1].innerHTML;
