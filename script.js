@@ -6,11 +6,13 @@ function readCreateItem (textCopied,list) {
   initList();
 }
 
+
+
 function changeBackground (event) {
   selectedItem = event.currentTarget;
   selectedItem.style.backgroundColor = `rgb(128, 128, 128)`;
   children = selectedItem.parentNode.children;
-  for (let i = 0; i < filhos.length; i += 1){
+  for (let i = 0; i < children.length; i += 1) {
     if (children[i] !== selectedItem) {
       children[i].style.backgroundColor = `rgb(255, 255, 255)`;
     }
@@ -28,9 +30,6 @@ function initList () {
   selectedItem.addEventListener('click',function (event) {
     changeBackground(event)
   });
-
-
-
 }
 
 butaoCriar = document.querySelector('#criar-tarefa');
@@ -45,5 +44,3 @@ butaoCriar.addEventListener('click', function () {
 butaoApaga.addEventListener('click',function() {
   removeItems(listaTarefa)
 });
-
-
