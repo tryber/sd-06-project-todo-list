@@ -25,10 +25,21 @@ function removeItems (listaTarefa) {
   }
 }
 
+function itemDone(item) {
+  if (item.classList === `${item.className} completed`) {
+    item.classList.remove('completed');
+  } else {
+    item.classList = `${item.className} completed`;
+  }
+}
+
 function initList () {
   selectedItem = document.querySelector('#lista-tarefas').lastChild;
   selectedItem.addEventListener('click',function (event) {
     changeBackground(event)
+  });
+  selectedItem.addEventListener('dblclick',function (event) {
+    completeItem(event.currentTarget)
   });
 }
 
@@ -44,3 +55,5 @@ butaoCriar.addEventListener('click', function () {
 butaoApaga.addEventListener('click',function() {
   removeItems(listaTarefa)
 });
+
+
