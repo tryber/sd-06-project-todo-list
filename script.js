@@ -15,7 +15,7 @@ const listaTarefas = document.querySelector('#lista-tarefas');
 let itemSelecionado = '';
 
 function marcadorDeTarefas () {
-  let tarefaSelecionada = event.target;
+  const tarefaSelecionada = event.target;
 
   if (itemSelecionado) {
     itemSelecionado.classList.remove('selecionado');
@@ -26,3 +26,15 @@ function marcadorDeTarefas () {
 }
 
 listaTarefas.addEventListener('click', marcadorDeTarefas);
+
+function marcadorDeTarefasCompletadas () {
+  const tarefaSelecionada = event.target;
+
+  if (tarefaSelecionada.classList.contains('completed') === true) {
+    tarefaSelecionada.classList.remove('completed');
+  } else {
+  tarefaSelecionada.classList.add('completed');
+  }
+}
+
+listaTarefas.addEventListener('dblclick', marcadorDeTarefasCompletadas);
