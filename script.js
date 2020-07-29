@@ -46,4 +46,19 @@ window.onload = function () {
     })
   });
 
+  let saveTasks = document.querySelector('#salvar-tarefas');
+
+  saveTasks.addEventListener('click', function () {
+    localStorage.setItem('items', taskList.innerHTML)
+  });
+
+  function loadUserSettings () {
+    let saved = localStorage.getItem('items')
+    console.log(saved)
+    if (saved) {
+      taskList.innerHTML = saved;
+    }
+  };
+
+  loadUserSettings();
 };
