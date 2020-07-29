@@ -6,23 +6,30 @@ const removeBtn = document.querySelector('#apaga-tudo');
 const removeComplete = document.querySelector('#remover-finalizados');
 
 tarefaBtn.addEventListener('click', function () {
-  lista.innerHTML += '<li>' + tarefa.value + '</li>';
+  const element = document.createElement('li');
+  element.innerText = tarefa.value;
+  lista.appendChild(element);
   tarefa.value = '';
 });
 
-tarefaBtn.addEventListener('click', function () {
+
+ 
+lista.addEventListener('click', function (event) {
   for (let i = 0; i < listItens.length; i += 1) {
-    listItens[i].addEventListener('click', function () {
-      for (let j = 0; j < listItens.length; j += 1) {
-        if (listItens[j].classList.contains('selected') === true) {
-          listItens[j].classList.remove('selected');
-        }
-      }
-      listItens[i].classList.add('selected');
-    });
-    listItens[i].addEventListener('dblclick', function () {
-      listItens[i].classList.toggle('completed');
-    });
+    if (listItens[i].classList.contains('selected') === true) {
+      listItens[i].classList.remove('selected');
+    }
+  }
+  event.target.classList.add('selected');
+  if (lista.classList.contains('selected') === true){
+    lista.classList.remove('selected');
+  }
+});
+
+lista.addEventListener('dblclick', function (event) {
+  event.target.classList.toggle('completed');
+  if (lista.classList.contains('completed') === true){
+    lista.classList.remove('completed');
   }
 });
 
@@ -32,8 +39,10 @@ removeBtn.addEventListener('click', function () {
 
 removeComplete.addEventListener('click', function () {
   for (let i = 0; i < listItens.length; i += 1) {
-    if (listItens[i].classList.contains('completed') === true) {
-      listItens[i].parentNode.removeChild(listItens[i]);
+    for (let j = 0; j < listItens.length; j += 1) {
+      if (listItens[i] !== undefined && listItens[i].classList.contains('completed') === true) {
+        lista.removeChild(listItens[i]);
+      }
     }
   }
 });
