@@ -28,10 +28,10 @@ botao1.addEventListener("click", function () {
 
   //Quando clica 2x na tarefa, add classe completed
   elementoLinha.addEventListener("dblclick", function () {
-    if (elementoLinha.className != "completed") {
-      elementoLinha.className = "completed"
+    if (elementoLinha.classList.contains("completed")) {
+      elementoLinha.classList.remove("completed")
     } else {
-      elementoLinha.className = ""
+      elementoLinha.classList.add("completed")
     }
     botaoApagaFinaliz.addEventListener("click", function () {
       document.querySelector(".completed").remove()
