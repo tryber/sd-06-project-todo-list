@@ -1,6 +1,7 @@
-const buttonText =  document.querySelector('#criar-tarefas');
+const buttonText =  document.querySelector('#criar-tarefa');
 const listjobs =  document.querySelector('#lista-tarefas');
 const textInput = document.querySelector('#texto-tarefa');
+const clearList =  document.querySelector('#apaga-tudo');
 
 function listing() {
     aux = document.createElement('li');
@@ -19,6 +20,9 @@ aux = listing();
         aux.style.backgroundColor = 'rgb(128, 128, 128)';  
     })
     console.log(aux); 
+ })
+ clearList.addEventListener('click', function() {
+     listjobs.removeChild(aux);
  })
 
 
