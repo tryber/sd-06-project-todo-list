@@ -6,13 +6,13 @@ header {
 }
 
 .content {
-  background: rgb(243 , 243 , 243);
+  background: rgb(188, 195, 160);
   border: 1px solid;
-  height: 450px;
+  height: 550px;
   max-width: 400px;
   max-height: 600px;
   margin: auto;
-  padding: 2%;
+  padding: 5%;
 }
 .content p {
   text-align: center;
@@ -25,6 +25,7 @@ input[type=text] {
 }
 
 input[type=button] {
+  background-color: burlywood;
   border: none;
   float: right;
   height: 35px;
@@ -32,7 +33,7 @@ input[type=button] {
 }
 
 button:hover , input[type=button]:hover {
-  background: rgb(204 , 204 , 204);
+  background: rgb(223, 86, 86);
 }
 
 button , input[type=button] {
@@ -56,4 +57,19 @@ li {
   border-bottom: 1px solid;
   height: 40px;
   margin: 15px;
+}
+
+.line-one {
+  align-items: center;
+  display: inline-block;
+  padding: 5px;
+  width: 300px;
+}
+
+.line-two {
+  align-items: center;
+  display: inline-block;
+  float: right;
+  padding: 5px;
+  width: 700px;
 }
