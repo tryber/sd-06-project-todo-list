@@ -24,9 +24,9 @@ function changingCollor(event) {
 }
 const lista = document.querySelector('#lista-tarefas');
 lista.addEventListener('click', changingCollor);
+
 let click = false;
-function completedTasks(event) {
-  
+function completedTasks(event) {  
   const completedTask = event.target;
   if (click === false)  {
     completedTask.classList.add('completed');
@@ -34,7 +34,6 @@ function completedTasks(event) {
   } else if (click === true) {
     completedTask.classList.remove('completed');
     click = false;
-    console.log('entrou');
   }
 }
 lista.addEventListener('dblclick', completedTasks);
