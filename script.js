@@ -6,7 +6,7 @@ document.getElementById("criar-tarefa").addEventListener('click', function(){
   oList.appendChild(liTag);
   document.getElementById("texto-tarefa").value = null;
   addClickChangeColor();
-  addClickToRisk();
+  addRiskOnDblClick();
 })
 
 function addClickChangeColor(){
@@ -24,10 +24,24 @@ function clearBgFromList(){
 })
 }
 
-function addClickToRisk(){
+function addRiskOnDblClick(){
   document.querySelectorAll('li').forEach(item => {
     item.addEventListener('dblclick', event => {
-      item.className = "completed";
+      item.classList.add("completed");
+      removeRiskOnDblClick();
   })
 })
 }
+
+function removeRiskOnDblClick(){
+  document.querySelectorAll('.completed').forEach(item => {
+    item.addEventListener('dblclick', event => {
+      item.classList.remove('completed');
+      addRiskOnDblClick();
+  })
+})
+}
+
+document.getElementById("apaga-tudo").addEventListener('click', function(){
+  document.getElementById('lista-tarefas').innerHTML = '';
+})
