@@ -100,10 +100,18 @@ function botaoMover() {
   const itemlist = document.querySelector("#lista-tarefas")
   // const task = document.querySelector(".selected");
   buttonDw.addEventListener('click', () => {
-    console.log(itemlist.childNodes.entries)
-    const task = document.querySelector(".selected");
-    
-    
+    for (let i = 0; i < itemlist.childNodes.length; i += 1) {
+      let thisTask = itemlist.childNodes[i];
+      if (thisTask.classList.contains('selected')) {
+        let underTask = itemlist.childNodes[i+1];
+        console.log(thisTask)
+        console.log(underTask)
+      } else if (underTask) {
+        console.log('true')
+
+      }
+    }
+    // const task = document.querySelector(".selected");
     // itemlist.children().eq(task+1).after(itemlist.children().eq(task));task=task+1;    
   })
 
