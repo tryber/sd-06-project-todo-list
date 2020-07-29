@@ -1,0 +1,12 @@
+.header {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+.cinza {
+  background-color: rgb(128, 128, 128);
+}
