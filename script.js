@@ -96,11 +96,11 @@ const functionalities = {
       const permission = (itemSelected !== null) ? 1 : 0;
       const allListItem = document.querySelectorAll('li');
       let item = 0;
-      while (permission === true && itemSelected !== allListItem[item]) {
+      while (permission === 1 && itemSelected !== allListItem[item]) {
         item += 1;
       }
       const positionInList = item;
-      if (permission === true && positionInList !== 0) {
+      if (permission === 1 && positionInList !== 0) {
         const htmlToPass = itemSelected.innerHTML;
         const classToPass = itemSelected.className;
         allListItem[positionInList].innerHTML = allListItem[positionInList - 1].innerHTML;
