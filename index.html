@@ -16,7 +16,17 @@
         <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
         <form>
           <input type="text" name="task" id="texto-tarefa" placeholder='Nova tarefa...'>
+          <input type="button" id="criar-tarefa" name="" value="addTask" onclick="addTask();">
         </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="to-do-list-box">
+          <label>Lista de tarefas</label>
+          <ol id="lista-tarefas">
+          </ol>
+        </div>
       </div>
     </div>
   </section>
