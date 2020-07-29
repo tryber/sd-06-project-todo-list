@@ -31,6 +31,12 @@ body {
   grid-area: "list";
 }
 
+.selecionado {
+  background-color: rgb(128, 128, 128);
+  font-weight: 600;
+  border-radius: 2px;
+}
+
 #texto-tarefa {
   width: 50%;
 }

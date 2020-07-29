@@ -2,7 +2,6 @@
 let textInput = document.getElementById("texto-tarefa");
 let addBtn = document.getElementById("criar-tarefa");
 let listaTarefas = document.getElementById("lista-tarefas");
-let itemSelecionado = document.getElementsByClassName("selecionado");
 
 // Funções e eventos para adicionar novo item à lista de tarefas
 addBtn.addEventListener('click', adicionarTarefa);
@@ -25,4 +24,14 @@ textInput.addEventListener("keyup", function(event){
 });
 
 // Função e evento para selecionar item da lista
-listaTarefas.addEventListener("click", selecionarItem);
+listaTarefas.addEventListener("click", adicionaSelecao);
+
+function adicionaSelecao(event) {
+  let itens = listaTarefas.getElementsByTagName("li");
+  for(let i = 0; i < itens.length; i += 1) {
+    if(itens[i].classList.contains("selecionado")) {
+      itens[i].classList.remove("selecionado");
+    }
+  }
+  event.target.classList.add("selecionado");
+}
