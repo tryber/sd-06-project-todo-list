@@ -1,17 +1,22 @@
 window.onload = function() {
   
   let myList = document.getElementById("lista-tarefas");
-  
-  let btnAdd = document.getElementById("criar-tarefa");
 
-  let allItens;
-  
-  // Requisito 05 - adicionar o item
+  // Tratamento do botão para incluir o item
+  let btnAdd = document.getElementById("criar-tarefa");
   btnAdd.addEventListener("click", function () {
     let myText = document.getElementById("texto-tarefa");
     addItem(myText.value);
     myText.value = "";
-   
+  });
+
+  // Tratamento do botão para limpar a lista
+  let btnClearAll = document.getElementById("apaga-tudo");
+  btnClearAll.addEventListener("click", function () {
+    const myList = document.getElementById("lista-tarefas");
+    while (myList.firstChild) {
+      myList.removeChild(myList.lastChild);
+    }  
   });
 
   // Função para adicionar um item na lista
