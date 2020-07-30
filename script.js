@@ -13,7 +13,7 @@ function addTask() {
 function selectItem(event) {
   let selectItemList = event.target;
   let listaItems = document.getElementsByTagName('li');
-  for (let i in listaItems) {
+  for (let i = 0; i < listaItems.length; i += 1) {
     listaItems[i].classList.remove('selected');
   }
   selectItemList.className = 'selected';
