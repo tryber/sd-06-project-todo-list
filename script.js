@@ -2,6 +2,8 @@ const btnCreate = document.getElementById('criar-tarefa');
 const btnErase = document.getElementById('apaga-tudo');
 const btnEraseTask = document.getElementById('remover-finalizados');
 const btnSaveList = document.getElementById('salvar-tarefas');
+const btnUp = document.getElementById('mover-cima');
+const btnDown = document.getElementById('mover-baixo');
 const list = document.getElementById('lista-tarefas');
 const text = document.getElementById('texto-tarefa');
 
@@ -79,5 +81,50 @@ btnSaveList.addEventListener('click', function () {
     saveItem.name = document.querySelectorAll('li')[i].innerHTML;
     saveItem.class = document.querySelectorAll('li')[i].className;
     localStorage.setItem(i, JSON.stringify(saveItem));
+  }
+});
+
+btnUp.addEventListener('click', function () {
+  for (let i = 0; i < document.querySelectorAll('li').length; i += 1) {
+    if (document.querySelectorAll('li')[i].style.backgroundColor === 'rgb(128, 128, 128)' && document.querySelectorAll('li')[i - 1]) {
+      let aux = document.querySelectorAll('li')[i - 1].innerHTML;
+      document.querySelectorAll('li')[i - 1].innerHTML = document.querySelectorAll('li')[i].innerHTML;
+      document.querySelectorAll('li')[i].innerHTML = aux;
+      document.querySelectorAll('li')[i].style.backgroundColor = 'white';
+      document.querySelectorAll('li')[i - 1].style.backgroundColor = 'rgb(128, 128, 128)';
+      if (document.querySelectorAll('li')[i].className === 'completed' && document.querySelectorAll('li')[i - 1].className === ' ') {
+        document.querySelectorAll('li')[i].className = ' ';
+        document.querySelectorAll('li')[i - 1].className = 'completed';
+      } else if (document.querySelectorAll('li')[i].className === 'completed' && document.querySelectorAll('li')[i - 1].className === 'completed'){
+          document.querySelectorAll('li')[i].className = 'completed';
+          document.querySelectorAll('li')[i - 1].className = 'completed';
+      } else {
+          document.querySelectorAll('li')[i].className = ' ';
+          document.querySelectorAll('li')[i - 1].className = ' ';
+      }
+    }
+  }
+});
+
+btnDown.addEventListener('click', function () {
+  for (let i = 0; i < document.querySelectorAll('li').length; i += 1) {
+    if (document.querySelectorAll('li')[i].style.backgroundColor === 'rgb(128, 128, 128)' && document.querySelectorAll('li')[i + 1]) {
+      let aux2 = document.querySelectorAll('li')[i].innerHTML;
+      document.querySelectorAll('li')[i].innerHTML = document.querySelectorAll('li')[i + 1].innerHTML;
+      document.querySelectorAll('li')[i + 1].innerHTML = aux2;
+      if (document.querySelectorAll('li')[i].className === 'completed' && document.querySelectorAll('li')[i + 1].className === ' ') {
+        document.querySelectorAll('li')[i].className = ' ';
+        document.querySelectorAll('li')[i + 1].className = 'completed';
+      } else if (document.querySelectorAll('li')[i].className === 'completed' && document.querySelectorAll('li')[i + 1].className === 'completed'){
+          document.querySelectorAll('li')[i].className = 'completed';
+          document.querySelectorAll('li')[i + 1].className = 'completed';
+      } else {
+          document.querySelectorAll('li')[i].className = ' ';
+          document.querySelectorAll('li')[i + 1].className = ' ';
+      }
+      document.querySelectorAll('li')[i].style.backgroundColor = 'white';
+      document.querySelectorAll('li')[i + 1].style.backgroundColor = 'rgb(128, 128, 128)';
+      break;
+    }
   }
 });
