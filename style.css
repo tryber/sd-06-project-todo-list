@@ -33,20 +33,14 @@ ol li {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    width: 50%;
 }
 
 
 /* Set all odd list items to a different color (zebra-stripes) */
 
 ol li:nth-child(odd) {
-    background: #f9f9f9;
-}
-
-
-/* Darker background-color on hover */
-
-ol li:hover {
-    background: #ddd;
+    background: white
 }
 
 

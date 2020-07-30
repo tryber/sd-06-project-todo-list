@@ -1,5 +1,9 @@
 window.onload = function() {
     // apagar tudo
+
+    if (localStorage.ListaTarefas !== undefined) {
+        document.getElementById('lista-tarefas').innerHTML = localStorage.ListaTarefas;
+    }
     let eraseAll = document.getElementById("apaga-tudo")
 
     function eraseAllTasks() {
@@ -9,30 +13,6 @@ window.onload = function() {
         }
     }
     eraseAll.addEventListener("click", eraseAllTasks)
-
-
-
-    var myNodelist = document.getElementsByTagName("li");
-    var i;
-    for (i = 0; i < myNodelist.length; i++) {
-        var rmvBtn = document.createElement("button");
-        var txt = document.createTextNode("Remover Tarefa");
-        rmvBtn.className = "close";
-        rmvBtn.appendChild(txt);
-        myNodelist[i].appendChild(rmvBtn);
-        rmvBtn.setAttribute("id", "remover-tarefa")
-    }
-
-    // botão para remover tarefa
-    var close = document.getElementsByClassName("close");
-    var i;
-    for (i = 0; i < close.length; i++) {
-        close[i].onclick = function() {
-            var div = this.parentElement;
-            div.style.display = "none";
-        }
-        onclick
-    }
 
     // add classe completed
     var list = document.querySelector('ol');
@@ -58,19 +38,6 @@ window.onload = function() {
         }
         document.getElementById("texto-tarefa").value = "";
 
-        var rmvBtn = document.createElement("button");
-        var txt = document.createTextNode("Remover Tarefa");
-        rmvBtn.className = "close";
-        rmvBtn.appendChild(txt);
-        li.appendChild(rmvBtn);
-        rmvBtn.setAttribute("id", "remover-tarefa")
-
-        for (i = 0; i < close.length; i++) {
-            close[i].onclick = function() {
-                var div = this.parentElement;
-                div.style.display = "none";
-            }
-        }
     }
     addTask.addEventListener("click", newTask)
 
