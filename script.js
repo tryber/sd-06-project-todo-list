@@ -6,6 +6,10 @@ window.onload = function(){
     var finalizados  = document.querySelector("#remover-finalizados");
     var save = document.querySelector("#salvar-tarefas");
     var remSelected = document.querySelector("#remover-selecionado");
+    var moverCima = document.querySelector("#mover-cima");
+    var moverBaixo = document.querySelector("#mover-baixo");
+
+
     btnTarefa.addEventListener("click", function(){
        var insideList = document.createElement("li");
        lista.appendChild(insideList)
@@ -52,8 +56,43 @@ window.onload = function(){
         }
     })
 
+    
+moverBaixo.addEventListener("click",function(){
+        let elements = lista.childNodes;
+        for (let index = 1; index < elements.length; index++) {
+            if(elements[index].getAttribute('islect') === "selected"){
+                if(index != elements.length - 1){
+                    elements[index].removeAttribute("style");
+                elements[index + 1].style.backgroundColor = "rgb(128,128,128)";
+                elements[index + 1].setAttribute('islect', 'selected');
+                elements[index].removeAttribute('islect');
+                break;  
+                }
+              
+               
+                
+            }
+        }
+    })
 
 
+    moverCima.addEventListener("click",function(){
+        let elements = lista.childNodes;
+        for (let index = 1; index < elements.length; index++) {
+            if(elements[index].getAttribute('islect') === "selected"){
+                if(index != 1){
+                   elements[index].removeAttribute("style");
+                elements[index - 1].style.backgroundColor = "rgb(128,128,128)";
+                elements[index - 1].setAttribute('islect', 'selected');
+                elements[index].removeAttribute('islect'); 
+                }
+                
+                
+            }
+        }
+    })
+
+    
 
     
 }
