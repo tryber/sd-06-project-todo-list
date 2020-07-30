@@ -1,3 +1,7 @@
 .completed {
   text-decoration: line-through solid black;
 }
+
+.selected-task {
+  background-color: rgb(128 , 128 , 128);
+}
