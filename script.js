@@ -29,4 +29,17 @@ removeSelected.addEventListener("click",function(){
     let itemSelected = document.querySelector(".selected");
     itemSelected.remove();
 })
+let clear = document.querySelector("#apaga-tudo");
+clear.addEventListener("click", function(){
+    while (selected.firstChild) {
+        selected.removeChild(selected.firstChild);
+      }
+})
+let clearFinalized = document.querySelector("#remover-finalizados");
+clearFinalized.addEventListener("click", function(){
+    let finished = document.querySelectorAll(".completed");
+    for (let i = 0; i < finished.length; i++){
+        selected.removeChild(finished[i]);
+    }
+})
 
