@@ -20,15 +20,15 @@ body {
 }
 
 header {
-  background-color: #f6d55a;
+  background-color: rgb(246 , 213 , 90);
   font-family: Proza Libre, sans-serif;
   font-size: 42px;
   padding: 16px 33% 16px 5%;
 }
 
 .main-container {
-  background-color: #f6f7f7;
-  font-family: 'Proza Libre', sans-serif;
+  background-color: rgb(246 , 247 , 247);
+  font-family: Proza Libre, sans-serif;
   padding: 16px 33% 32px 5%;
 }
 
