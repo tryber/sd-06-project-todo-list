@@ -33,18 +33,16 @@ function handleSelectedItem(event) {
   }
 }
 
-// add class to risk item
+// add completed class to completed tasks
 
-// function riskListItem(event) {
-//   const selectedItem = event.target;
-//   if (selectedItem.style.textDecoration === 'line-through') {
-//     selectedItem.classList.remove('selected');
-//     selectedItem.style.removeProperty('text-decoration');
-//   } else {
-//     selectedItem.classList.remove('selected');
-//     selectedItem.style.textDecoration = 'line-through';
-//   }
-// }
+function addCompletedTask(event) {
+  const selectedItem = event.target;
+  if (selectedItem.classList.contains('completed')) {
+    selectedItem.classList.remove('completed');
+  } else {
+    selectedItem.classList.add('completed');
+  }
+}
 
 btnNewTask.addEventListener('click', pushListItem);
 
@@ -54,7 +52,7 @@ btnDeleteSelected.addEventListener('click', function () {
 });
 
 btnDeleteCompleted.addEventListener('click', function () {
-  const completedItem = document.getElementsByTagName('li');
+  const completedItem = document.querySelectorAll('.completed');
   for (let i = 0; i < completedItem.length; i += 1) {
     if (completedItem[i].classList.contains('completed')) {
       completedItem[i].remove();
@@ -63,7 +61,7 @@ btnDeleteCompleted.addEventListener('click', function () {
 });
 
 btnDeleteAll.addEventListener('click', function () {
-  const allList = document.querySelectorAll('.item');
+  const allList = document.querySelectorAll('#lista-tarefas');
   for (let i = 0; i < allList.length; i += 1) {
     allList[i].remove();
   }
@@ -75,11 +73,4 @@ document
 
 document
   .querySelector('#lista-tarefas')
-  .addEventListener('dblclick', function (event) {
-    const selectedItem = event.target;
-    if (selectedItem.classList.contains('completed')) {
-      selectedItem.classList.remove('completed');
-    } else {
-      selectedItem.classList.add('completed');
-    }
-  });
+  .addEventListener('dblclick', addCompletedTask);
