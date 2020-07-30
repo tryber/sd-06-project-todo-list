@@ -24,7 +24,7 @@ function clickItem(event) {
 };
 function doubleClick1(event) {
     let itemSelected = event.target;
-    itemSelected.classList.toggle('completed');
+    itemSelected.classList.add('completed');
 }
 function doubleClick2(event) {
     let itemSelected = event.target;
@@ -34,3 +34,8 @@ function apagaTudo() {
     ordList.innerHTML = '';
 }
 btn2.addEventListener('click', apagaTudo);
+function removeEnded() {
+    let selecionado = document.querySelector('.completed');
+    selecionado.parentNode.removeChild(selecionado);
+}
+btn3.addEventListener('click', removeEnded);
