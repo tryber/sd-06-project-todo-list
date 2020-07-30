@@ -3,6 +3,7 @@ const orderedList = document.getElementById('lista-tarefas');
 const typedtext = document.getElementById('texto-tarefa');
 const addTaskButton = document.getElementById('criar-tarefa');
 const clearButton = document.getElementById('apaga-tudo');
+const removeCompletedItens = document.getElementById('remover-finalizados');
 
 
 //Create the list itens, and add them in the orderedList when the button is clicked.
@@ -44,8 +45,16 @@ orderedList.addEventListener('dblclick', function() {
 
   //Clear the list content
   clearButton.addEventListener('click', function() {
-    let displayList = document.querySelectorAll('li');
+    let displayList = document.querySelectorAll('.iten');
     for (let index in displayList) {
       orderedList.removeChild(displayList[index]);
+    }
+  })
+
+  //Clear only the completed itens
+  removeCompletedItens.addEventListener('click', function() {
+    let completedItens = document.querySelectorAll('.completed');
+    for (let index in completedItens) {
+      orderedList.removeChild(completedItens[index]);
     }
   })
