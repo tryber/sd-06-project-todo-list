@@ -62,11 +62,14 @@ moverBaixo.addEventListener("click",function(){
         for (let index = 1; index < elements.length; index++) {
             if(elements[index].getAttribute('islect') === "selected"){
                 if(index != elements.length - 1){
-                    elements[index].removeAttribute("style");
-                elements[index + 1].style.backgroundColor = "rgb(128,128,128)";
+                let textload = elements[index + 1].innerText;
+                elements[index + 1].innerText = elements[index].innerText
+                elements[index].innerText = textload;
+                elements[index].removeAttribute("style");
+                elements[index + 1].style.backgroundColor = "rgb(128,128,128)"
                 elements[index + 1].setAttribute('islect', 'selected');
                 elements[index].removeAttribute('islect');
-                break;  
+                break;
                 }
               
                
@@ -81,10 +84,14 @@ moverBaixo.addEventListener("click",function(){
         for (let index = 1; index < elements.length; index++) {
             if(elements[index].getAttribute('islect') === "selected"){
                 if(index != 1){
-                   elements[index].removeAttribute("style");
-                elements[index - 1].style.backgroundColor = "rgb(128,128,128)";
-                elements[index - 1].setAttribute('islect', 'selected');
-                elements[index].removeAttribute('islect'); 
+                    let textload = elements[index - 1].innerText;
+                    elements[index - 1].innerText = elements[index].innerText
+                    elements[index].innerText = textload;
+                    elements[index].removeAttribute("style");
+                    elements[index - 1].style.backgroundColor = "rgb(128,128,128)"
+                    elements[index - 1].setAttribute('islect', 'selected');
+                    elements[index].removeAttribute('islect');
+                    break;
                 }
                 
                 
