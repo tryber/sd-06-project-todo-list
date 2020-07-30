@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+  
   <title>Project - Todo List</title>
 </head>
 <body>
@@ -13,10 +13,15 @@
     <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
   </header>
   <main>
-    <input id="texto-tarefa" type="text" placeholder="Input some task">
-    <ol id="lista-tarefas">
-      <!-- <li></li> -->
-    </ol>
+    <input id="texto-tarefa" type="text" placeholder="Input some task"> 
+    <button id="criar-tarefa" type="submit">Add task</button>
+    <div id="list-container">
+      <ol id="lista-tarefas">
+        <!-- <li></li> -->
+      </ol>
+    </div>
   </main>
+<script src="script.js"></script>  
 </body>
+
 </html>
