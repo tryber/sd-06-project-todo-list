@@ -3,7 +3,7 @@ window.onload = () => {
 
     const addNewTodo = (i) => {
 
-        let todoAdd = document.querySelector('#todoAddInput').value;
+        let todoAdd = document.querySelector('#texto-tarefa').value;
 
         initialState.push({
             todo: todoAdd
