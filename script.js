@@ -46,7 +46,7 @@ orderedList.addEventListener('dblclick', function() {
   //Clear the list content
   clearButton.addEventListener('click', function() {
     let displayList = document.querySelectorAll('.iten');
-    for (let index in displayList) {
+    for (let index = 0; index < displayList.length; index += 1) {
       orderedList.removeChild(displayList[index]);
     }
   })
@@ -54,7 +54,7 @@ orderedList.addEventListener('dblclick', function() {
   //Clear only the completed itens
   removeCompletedItens.addEventListener('click', function() {
     let completedItens = document.querySelectorAll('.completed');
-    for (let index in completedItens) {
+    for (let index = 0; index < completedItens.length; index += 1) {
       orderedList.removeChild(completedItens[index]);
     }
   })
