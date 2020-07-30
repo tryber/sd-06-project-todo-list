@@ -9,4 +9,11 @@ function inicia() {
    texto.focus()
  });
 }
+
+function apagarTudo(){
+  lista.removeChild(list.childNodes[lista.lengh])
+
+  
+  
+}
 window.addEventListener("load", inicia);

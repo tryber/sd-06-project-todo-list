@@ -1,0 +1,4 @@
+.backgroundLi{
+    background-color: rgb(128, 128, 128);
+}
+/*quando criar cada elemento add uma class="item" (event.target)*/
