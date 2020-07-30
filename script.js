@@ -89,26 +89,3 @@ function doubleClickAdd(event){
 
 
 
-
-  /*  list.addEventListener('click', function (){
-      list.style.background = 'rgb(128, 128, 128)'; 
-      if(list.style.background === 'rgb(128, 128, 128)') {
-        list.addEventListener('click', function (){
-          list.style.background = 'white'
-        })
-      }
-    })
-    list.addEventListener('dblclick', function () {
-      list.classList.add('completed')
-      if (list.classList.contains('completed')) {
-        list.addEventListener('dblclick', function(){
-          list.classList.remove('completed')
-        })
-      }
-    })
-  })*/
-
-
-
-
-
