@@ -47,6 +47,14 @@ function selectItem(event) {
   selectItemList.addEventListener('dblclick', itemCompleted);
 }
 
+//Remove item selcionado
+function removeSelected() {
+  let itemSelected = document.getElementsByClassName('selected');
+  while (itemSelected.length > 0) {
+    itemSelected[0].remove();
+  }
+}
+
 //Seta item como completado
 function itemCompleted(event) {
   let completedItem = event.target;
