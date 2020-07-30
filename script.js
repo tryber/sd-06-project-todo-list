@@ -80,18 +80,18 @@ function enableMovingButtons() {
   }
 }
 
-function hideBtn() {
-  const upDownBtnElement = document.querySelector('.up-down-control');
-  const controlContainer = document.querySelector('.control');
+// function hideBtn() {
+//   const upDownBtnElement = document.querySelector('.up-down-control');
+//   const controlContainer = document.querySelector('.control');
 
-  if (todoList[0]) {
-    upDownBtnElement.classList.remove('hide');
-    controlContainer.classList.remove('hide');
-  } else {
-    upDownBtnElement.classList.add('hide');
-    controlContainer.classList.add('hide');
-  }
-}
+//   if (todoList[0]) {
+//     upDownBtnElement.classList.remove('hide');
+//     controlContainer.classList.remove('hide');
+//   } else {
+//     upDownBtnElement.classList.add('hide');
+//     controlContainer.classList.add('hide');
+//   }
+// }
 
 function clickTodo(event) {
   const previousSelected = document.querySelector('.selected');
@@ -129,7 +129,7 @@ function renderTodaysTodos() {
   const orderedListElem = document.getElementById("lista-tarefas");
   orderedListElem.innerHTML = '';
 
-  hideBtn();
+  // hideBtn();
 
   todoList.forEach((todo) => {
     const listItem = document.createElement('li');
