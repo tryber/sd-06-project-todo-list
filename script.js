@@ -28,7 +28,7 @@ window.onload = function() {
     let oldSelected = document.querySelector(".selected");
     if (oldSelected) {
       oldSelected.classList.remove("selected");
-      newSelected.style.backgroundColor = "";
+      oldSelected.style.backgroundColor = "";
     }
     newSelected.classList.add("selected");
     newSelected.style.backgroundColor = "rgb(128 , 128 , 128)";
