@@ -1,3 +1,18 @@
+// get saved List
+
+const ol = document.getElementById('lista-tarefas');
+
+if (localStorage.getItem('myTasks')) {
+  let myTasks = JSON.parse(localStorage.getItem('myTasks'));
+  // console.log(myTasks)
+
+  for (let task of myTasks) {
+    task = document.createRange().createContextualFragment(task);
+    ol.appendChild(task);
+  }
+}
+
+
 // Add task
 
 const addTaskInput = document.getElementById('texto-tarefa');
@@ -27,8 +42,6 @@ addTaskButton.onclick = taskCreation;
 
 // Select element
 
-// let taskList = document.querySelectorAll('li');
-
 function resetSelection() {
   const selectedTask = document.querySelector('.selected');
   if (selectedTask) {
@@ -51,7 +64,6 @@ function markAsCompleted(task) {
   }
 }
 
-const ol = document.getElementById('lista-tarefas');
 
 function childChanges() {
   const taskList = document.querySelectorAll('li');
@@ -88,7 +100,7 @@ removeAllButton.onclick = removeAllTasks;
 
 function removeCompletedTasks() {
   const completedTasks = document.querySelectorAll('.completed');
-  completedTasks.forEach(completedTask => completedTask.remove());
+  completedTasks.forEach((completedTask) => completedTask.remove());
 }
 
 const removeCompletedTasksButton = document.getElementById('remover-finalizados');
@@ -112,7 +124,7 @@ function moveUpTask() {
     if (tasks[i].classList.contains('selected') && (i !== 0)) {
       tasks[i].parentNode.insertBefore(tasks[i], tasks[i - 1]);
     }
-  };
+  }
 }
 
 const moveUpButton = document.getElementById('mover-cima');
@@ -124,8 +136,25 @@ function moveDownTask() {
     if (tasks[i].classList.contains('selected') && (i !== tasks.length - 1)) {
       tasks[i].parentNode.insertBefore(tasks[i + 1], tasks[i]);
     }
-  };
+  }
 }
 
 const moveDownButton = document.getElementById('mover-baixo');
 moveDownButton.onclick = moveDownTask;
+
+// Save on localStorage
+
+function saveList() {
+  const savedTasks = document.querySelectorAll('li');
+  let storage = [];
+
+  for (task of savedTasks) {
+    const li = `<li class="${task.className}" style="${task.style.cssText}">${task.innerText}</li>`;
+    storage.push(li)
+  }
+
+  localStorage.setItem('myTasks',JSON.stringify(storage));
+}
+
+const saveButton = document.getElementById('salvar-tarefas');
+saveButton.onclick = saveList;
