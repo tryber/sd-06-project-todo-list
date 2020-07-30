@@ -17,11 +17,12 @@ const TAGS = {
   9: '#mover-cima',
   10: '#mover-baixo',
   11: '.selected',
-  12: 'li',
+  12: '#salvar-tarefas',
+  13: 'li',
 };
 
 function lazyCoder(keyMethod, keyDiv) {
   return document[`${METHODS[keyMethod]}`](TAGS[keyDiv]);
 }
 
-export { lazyCoder as default };
+export { lazyCoder as lazyCoder };
