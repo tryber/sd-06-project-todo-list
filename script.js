@@ -13,7 +13,7 @@ selected.addEventListener("click", function(){
         document.querySelector(".selected").style.backgroundColor = "white";
         document.querySelector(".selected").classList.remove("selected");
     }
-    event.target.style.backgroundColor = "rgb(128,128,129)";
+    event.target.style.backgroundColor = "rgb(128,128,128)";
     event.target.classList.add("selected");
 })
 selected.addEventListener("dblclick", function() {
