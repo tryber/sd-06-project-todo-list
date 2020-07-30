@@ -9,7 +9,6 @@ function createLi() {
   const itemList = createText.value;
   const item = document.createElement('li');
   item.innerText = itemList;
-  item.className = 'work';
   if (itemList === '') {
 
     const span = document.createElement('span');
@@ -28,9 +27,16 @@ function createLi() {
 
 buttonCreate.addEventListener('click', createLi);
 
-let itemSelected = document.getElementsByTagName('li');
-createList.addEventListener('dblclick', function (e) {
-  e.target.style.backgroundColor = 'rgb(128, 128, 128)';
-  console.log(e.target);
-});
+// const selected = document.querySelector('li');
 
+function changeSelected(select) {
+  let selected = document.querySelector('.selected');
+  selected.classList.remove('selected');
+  select.className += ' selected';
+}
+
+let itemSelected = document.querySelectorAll('li');
+createList.addEventListener('click', function (e) {
+  changeSelected(e.target);
+  // e.target.className = 'selected';
+});
