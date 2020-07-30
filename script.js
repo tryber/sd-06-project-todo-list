@@ -14,6 +14,13 @@ addTask = () => {
 createItemEl = (itemValue, itemId) => {
   const li = document.createElement('li');
   li.setAttribute('index', itemId);
+  li.className = ('task');
   li.appendChild(document.createTextNode(itemValue));
   return li;
+}
+
+removeTask = () => {
+  if (document.getElementById('lista-tarefas').innerHTML.value != ''){    
+    document.querySelectorAll('.task').forEach(e => e.remove());
+  }
 }
