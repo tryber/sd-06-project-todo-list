@@ -60,16 +60,17 @@ window.onload = function () {
 
     });
 
-    /* bLImparCompletos.addEventListener("click", function (event) {
+    bLImparCompletos.addEventListener("click", function (event) {
         let tamanhoLista = listaTarefas.children.length
-        for (let n = 0; n < tamanhoLista; n += 1) {
-            if (listaTarefas.children[n].className === "completed") {
-                listaTarefas.removeChild(listaTarefas.children[n]);
-                n -= 1;
+        let n2 = 0;
+        for (let n = 0; n < tamanhoLista; n += 1) {            
+            if (listaTarefas.children[n-n2].className === "completed") {
+                listaTarefas.removeChild(listaTarefas.children[n-n2]);
+                n2 += 1;
             }
             
         }
 
-    }); */
+    });
 
 }

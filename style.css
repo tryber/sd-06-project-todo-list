@@ -1,3 +1,7 @@
 .completed {
     text-decoration: line-through;
 }
+body {
+    background-color: rgb(133, 177, 144);
+    font: 1em sans-serif;
+}
