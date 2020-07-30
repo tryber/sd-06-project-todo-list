@@ -93,7 +93,7 @@ function enableMovingButtons() {
       const todoText = currentlySelected.innerText;
       executingTodos.push(todoText);
       renderDoingTodos();
-      currentlySelected.classList.add('doing')
+      currentlySelected.classList.add('doing');
     }
   }
 }
@@ -156,6 +156,8 @@ function renderTodaysTodos() {
 
     if (doneTodos.includes(todo)) {
       listItem.classList.add('completed');
+    } else if (executingTodos.includes(todo)) {
+      listItem.classList.add('doing');
     }
 
     if (selectedTodo == todoList.indexOf(todo)) {
