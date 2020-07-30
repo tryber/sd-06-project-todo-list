@@ -9,7 +9,7 @@ window.onload = () => {
             todo: todoAdd
         });
 
-        let ul = document.querySelector('#todoList');
+        let ul = document.querySelector('#lista-tarefas');
         let node = document.createElement('LI');
         let textNode = document.createTextNode(initialState[i].todo);
         node.className = "todoLi";
