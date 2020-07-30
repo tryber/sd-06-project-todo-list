@@ -1,5 +1,8 @@
 .selecionada {
   background-color: gray;
+  border-radius: 6px;
+  padding: 0 .4em;
+  margin: 0;
 }
 
 .concluida {
@@ -7,6 +10,8 @@
 }
 
 li {
+  line-height: 2;
   width: fit-content;
+  
 }
 
