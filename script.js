@@ -1,6 +1,3 @@
-window.onload = function () {
-
-
   const inputElement = document.querySelector('#texto-tarefa');
   const submitElement = document.querySelector('#criar-tarefa');
   const listElement = document.querySelector('#lista-tarefas');
@@ -13,12 +10,9 @@ window.onload = function () {
 
   const todos = [];
 
-  if (localStorage.ListaDeTarefas !== undefined) {
-    listElement.innerHTML = localStorage.ListaDeTarefas;
-  }
 
   function showTodos() {
-    listElement.innerHTML = '';
+    listElement.innerHTML = ' ';
     for (let todo of todos) {
       const showElement = document.createElement('li');
       const showText = document.createTextNode(todo);
@@ -28,7 +22,15 @@ window.onload = function () {
     }
   }
 
-  submitElement.addEventListener('click', function () {
+  function carregarPag() {
+    if (localStorage.ListaDeTarefas !== undefined) {
+      listElement.innerHTML = localStorage.ListaDeTarefas;
+    }else{
+      showTodos();
+    }
+  }
+  
+   submitElement.addEventListener('click', function () {
     let inputString = inputElement.value;
     todos.push(inputString);
     inputElement.value = '';
@@ -105,4 +107,4 @@ saveBT.addEventListener('click', function () {
   localStorage.setItem('ListaDeTarefas', liSalvo);
 });
 
-}
+
