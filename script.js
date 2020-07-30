@@ -59,20 +59,12 @@ const btnApagaTudo = document.querySelector('#apaga-tudo');
 btnApagaTudo.addEventListener('click', apagaTudo);
 
 
-// Essa parte eu copiei da internet, está funcionando mas além de eu não entender o que está sendo feito, o evaluator não valida. - REMOVER FINALIZADOS
-Element.prototype.remove = function () {
-  this.parentNode.removeChild;
-}
-NodeList.prototype.remove = HTMLCollection.prototype.remove = function () {
-  for (var i = this.length - 1; i >= 0; i -= 1) {
-    if (this[i] && this[i].parentElement) {
-      this[i].parentElement.removeChild(this[i]);
-    }
-  }
-}
+// Remover os ítens finalizados
 function removerFinalizados() {
   const itens = document.querySelectorAll('.completed');
-  itens.remove();
+  for (let index = 0; index < itens.length; index += 1) {
+    lista.removeChild(itens[index]);
+  }
 }
 const btnApagaFinalizados = document.querySelector('#remover-finalizados');
 btnApagaFinalizados.addEventListener('click', removerFinalizados);
