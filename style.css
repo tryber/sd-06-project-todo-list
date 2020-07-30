@@ -1,70 +1,70 @@
 body {
+  background: black;
   margin: 0;
   padding: 0;
-  background: black;
 }
 .input {
   margin-left: 30px;
 }
-#remover-selecionado, #mover-cima, #mover-baixo, #apaga-tudo, #remover-finalizados, #salvar-tarefas, #criar-tarefa {
+.butao {
   background: repeating-linear-gradient(black, gray, black);
   color: white;
+  cursor: pointer;
   margin: 0 10px 0 5px;
   padding: 5px;
   width: 15%;
-  cursor: pointer;
 }
 header {
-  margin: 10px;
-  padding: 5px;
   background: repeating-linear-gradient(black, rgb(146, 146, 146), white, rgb(145, 145, 145), black);
   border: 1px solid black;
   box-shadow: 2px 2px 5px gray;
+  margin: 10px;
+  padding: 5px;
   position: fixed top;
 }
-header h1 {
+h1 {
   color: black;
   text-align: center;
 }
 header p {
-  font-style: italic;
   color: black;
+  font-style: italic;
   margin-left: 25px;
 }
 .lista-de-tarefas {
-  margin: 10px;
-  padding: 5px;
   background: repeating-linear-gradient(rgb(11, 102, 109), rgb(29, 232, 247), rgb(11, 102, 109));
   border: 1px solid black;
   box-shadow: 2px 2px 5px gray;
-  height: 300px;
-  width: 97.5%;
-  overflow: auto;
   font-size: 18px;
+  height: 300px;
+  margin: 10px;
+  overflow: auto;
+  padding: 5px;
+  width: 97.5%;
 }
 .btn {
-  margin: 10px;
-  padding: 5px;
   background: repeating-linear-gradient(black, rgb(146, 146, 146), white, rgb(145, 145, 145), black);
   border: 1px solid black;
   box-shadow: 2px 2px 5px gray;
-  width: 97.5%;
+  margin: 10px;
+  padding: 5px;
   position: fixed;
+  width: 97.5%;
 
 }
 li {
   margin: 5px;
 }
 .cubo {
-    transform-style: preserve-3d;
-    width: 60px;
-    margin-right: 70px;
-    margin-top: -110px;
-    float: right;
+  float: right;
+  margin-right: 70px;
+  margin-top: -110px;
+  transform-style: preserve-3d;
+  width: 60px;
 }
 .cubo img {
-    position: absolute;
-    opacity: 0.5;
+  opacity: 0.5;
+  position: absolute;
 }
 .cubo img:nth-child(1) {
     transform: rotateY(0deg) translateZ(50px);
