@@ -1,6 +1,7 @@
 const todoList = JSON.parse(localStorage.getItem('todo-list')) || [];
 const executingTodos = JSON.parse(localStorage.getItem('executing-list')) || [];
 const doneTodos = JSON.parse(localStorage.getItem('finished-list')) || [];
+let selectedTodo = Number((localStorage.getItem('selectedTodo')) || 'none')
 
 function saveTodos() {
   localStorage.setItem('todo-list', JSON.stringify(todoList));
@@ -19,6 +20,11 @@ function enableMovingButtons() {
     if (currentlySelected) {
       const currentText = currentlySelected.innerText;
       currentlySelected.remove();
+
+      const todoIndex = todoList.indexOf(currentText);
+      todoList.splice(todoIndex, 1);
+      renderTodaysTodos();
+
       if (doneTodos.includes(currentText)) {
         const textIndex = doneTodos.indexOf(currentText);
         doneTodos.splice(textIndex, 1);
@@ -96,6 +102,8 @@ function enableMovingButtons() {
 function clickTodo(event) {
   const previousSelected = document.querySelector('.selected');
   event.target.classList.toggle('selected');
+  selectedTodo = todoList.indexOf(event.target.innerText);
+  localStorage.setItem('selectedTodo', selectedTodo);
 
   if (previousSelected) {
     previousSelected.classList.remove('selected')
@@ -109,10 +117,9 @@ function doubleClickTodo(event) {
   if (executingTodos.includes(todoText)) {
     event.target.classList.remove('doing');
     const textIndex = executingTodos.indexOf(todoText);
-    executingTodos.splice(todoText, 1);
+    executingTodos.splice(textIndex, 1);
     renderDoingTodos();
   }
-
 
   if (doneTodos.includes(todoText)) {
     let indexOfTodo = doneTodos.indexOf(todoText);
@@ -135,6 +142,14 @@ function renderTodaysTodos() {
     const listItem = document.createElement('li');
     listItem.classList.add("todo-item");
     listItem.classList.add("daily");
+
+    if (doneTodos.includes(todo)) {
+      listItem.classList.add('completed');
+    }
+
+    if (selectedTodo == todoList.indexOf(todo)) {
+      listItem.classList.add('selected');
+    }
 
     listItem.addEventListener('click', clickTodo);
     listItem.addEventListener('dblclick', doubleClickTodo);
@@ -210,6 +225,7 @@ function enableDeleteAll() {
     todoList.splice(0, todoList.length);
     executingTodos.splice(0, executingTodos.length);
     doneTodos.splice(0, doneTodos.length);
+    selectedTodo = null;
     renderTodaysTodos();
     renderDoneTodos();
     renderDoingTodos();
