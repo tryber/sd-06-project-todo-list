@@ -1,6 +1,5 @@
 body {
-  height: 720px;
-  width: 1200px;
+  font-family: 'Recursive', sans-serif;
 }
 
 .selected {
@@ -9,4 +8,48 @@ body {
 
 .completed {
   text-decoration: line-through;
+}
+
+header {
+  font-family: 'Dancing Script', cursive;
+  font-size: 30px;
+  text-align: center;
+}
+
+.infos {
+  text-align: center;
+}
+
+.input-list {
+  text-align: center;
+}
+
+.output-list {
+  text-align: center;
+  padding: 8px;
+}
+
+.list-item {
+  text-decoration: none;
+}
+
+.buttons {
+  text-align: center;
+  margin: 5px;
+}
+
+button {
+  border-radius: 8px;
+  transition-duration: 0.2s;
+}
+
+button:hover {
+  background-color: gray;
+  color: white;
+}
+
+button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
