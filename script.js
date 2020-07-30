@@ -1,4 +1,4 @@
-//  Criando variaveis
+//  Criando as variaveis do html
 const criarTarefa = document.getElementById('criar-tarefa');
 const textoTarefa = document.getElementById('texto-tarefa');
 const itemlistaTarefas = document.getElementById('lista-tarefas');
