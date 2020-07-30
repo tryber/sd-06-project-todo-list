@@ -18,8 +18,6 @@ function addItens() {
 }
 addTaskButton.addEventListener('click', addItens);
 
-//Order itens
-
 //Change the background color of a selected iten when clicked
 orderedList.addEventListener('click', function() {
   if (document.querySelector('.selected-task') !== null) {
