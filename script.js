@@ -1,4 +1,6 @@
 const btnAddTasks = document.querySelector('#criar-tarefa');
+const btnClearAll = document.querySelector('#apaga-tudo');
+const btnRemoveDone = document.querySelector('#remover-finalizados');
 const taskText = document.querySelector('#texto-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
 
@@ -6,6 +8,7 @@ const taskList = document.querySelector('#lista-tarefas');
 function generateList() {
   const taskItem = document.createElement('li');
   taskList.appendChild(taskItem);
+  taskItem.className = 'task';
   taskItem.innerHTML = taskText.value;
   taskText.value = '';
 }
@@ -18,11 +21,27 @@ taskList.addEventListener('click', function (event) {
   if (selectItem !== null) {
     selectItem.classList.remove('selected');
   }
-  currentTaskItem.classList.add('selected');  
-})
+  currentTaskItem.classList.add('selected');
+});
 
 // Risca as tarefas já finalizadas;
 taskList.addEventListener('dblclick', function (event) {
   const completeTask = event.target;
   completeTask.classList.toggle('completed');
-})
+});
+
+// Apaga todas as tarefas registradas;
+btnClearAll.addEventListener('click', function () {
+  const allTask = document.querySelectorAll('.task')
+  for (let index in allTask) {
+    allTask[index].remove();
+  }
+});
+
+// Remove apenas os itens completados;
+btnRemoveDone.addEventListener('click', function () {
+  const tasksDone = document.querySelectorAll('.completed')
+  for (let index in tasksDone) {
+    tasksDone[index].remove();
+  }
+});
