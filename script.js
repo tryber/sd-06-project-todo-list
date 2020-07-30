@@ -11,13 +11,13 @@ taskList.id = 'lista-tarefas';
 document.querySelector('.lista-tarefas').appendChild(taskList);
 
 function generateItemList() {
-  let task = document.querySelector('#texto-tarefa').value;
-  itemList = document.createElement('li');
+  const task = document.querySelector('#texto-tarefa').value;
+  const itemList = document.createElement('li');
   itemList.classList = 'lista';
   itemList.appendChild(document.createTextNode(task));
   taskList.appendChild(itemList);
-  let LISTA = document.querySelector('li');
+  const LISTA = document.querySelector('li');
   LISTA.classList = 'selected';
   document.querySelector('#texto-tarefa').value = '';
-};
+}
 buttonAdd.addEventListener('click', generateItemList);
