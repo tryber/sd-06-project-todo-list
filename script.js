@@ -1,4 +1,13 @@
-
+function taskHighlighter(task, list) {
+  task.addEventListener('click', function() {
+    // Removes grey background style from all other tasks
+    for (let i = 0; i < list.children.length; i += 1) {
+      list.children[i].classList.remove('grey-background');
+    }
+    // Add grey background style to selected task
+    task.classList.add('grey-background');
+  });
+}
 
 function insertTaskOnList(taskName, list) {
   const task = document.createElement('li');
@@ -9,7 +18,7 @@ function insertTaskOnList(taskName, list) {
 
 function clearInput() {
   const elementInputTaskName = document.getElementById('texto-tarefa');
-  elementInputTaskName.value = '';  
+  elementInputTaskName.value = '';
 }
 
 function getTaskNameFromInput() {
@@ -22,17 +31,6 @@ function getOlElement() {
   return elementOlTaskList;
 }
 
-function taskHighlighter(task, list) {
-  task.addEventListener('click', function() {
-    // Removes grey background style from all other tasks
-    for (i = 0; i < list.children.length; i += 1) {
-      list.children[i].classList.remove('grey-background');
-    }
-    // Add grey background style to selected task
-    task.classList.add('grey-background');
-  });
-}
-
 function markTaskAsCompleted(event) {
   event.target.classList.toggle('completed');
 }
@@ -41,7 +39,6 @@ function clearAll() {
   const list = getOlElement();
   while (list.firstElementChild) {
     list.firstElementChild.remove();
-    //list.removeChild(list.firstElementChild);
   }
 }
 
@@ -55,7 +52,6 @@ function removeCompletedTasks() {
 function saveTasks() {
   const list = document.getElementById('lista-tarefas');
   localStorage.setItem('savedTasks', list.innerHTML);
-  console.log(localStorage.getItem('savedTasks'));
 }
 
 function restoreTasks() {
@@ -76,7 +72,7 @@ function clearSavedList() {
 }
 
 const elementBtnAddTask = document.getElementById('criar-tarefa');
-elementBtnAddTask.addEventListener('click', function() {
+elementBtnAddTask.addEventListener ('click', function() {
   const taskName = getTaskNameFromInput();
   const list = getOlElement();
   insertTaskOnList(taskName, list);
@@ -99,6 +95,3 @@ const elementclearSavedList = document.getElementById('limpa-lista-gravada');
 elementclearSavedList.addEventListener('click', clearSavedList);
 
 window.onload = restoreTasks();
-
-
-
