@@ -15,16 +15,16 @@ function resetSelectedTask() {
 }
 
 function switchDoneUndone(task, priorClass) {
-  if (priorClass === 'completed') {
-    task.className = '';
+  if (task.classList.contains('completed')) {
+    task.classList.remove('completed');
   } else {
-    task.className = 'completed';
+    task.classList.add('completed');
   }
 }
 
 LISTSHOWN.addEventListener('click', (event) => {
   resetSelectedTask();
-  event.target.className = 'selected-task';
+  event.target.classList.add('selected-task');
 });
 
 document.querySelector('#criar-tarefa').addEventListener('click', () => {
@@ -47,5 +47,5 @@ document.querySelector('#apaga-tudo').addEventListener('click', () => {
   let listedItems = document.querySelectorAll('li');
   listedItems.forEach(element => {
     element.remove();
-  })
+  });
 });
