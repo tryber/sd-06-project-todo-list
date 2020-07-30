@@ -24,7 +24,7 @@ input[type=text] {
   width: 80%;
 }
 
-input[type=button] {
+button {
   background-color: burlywood;
   border: none;
   float: right;
@@ -32,18 +32,12 @@ input[type=button] {
   width: 17%;
 }
 
-button:hover , input[type=button]:hover {
+button:hover {
   background: rgb(223, 86, 86);
 }
 
-button , input[type=button] {
-  cursor: pointer;
-}
-
 button {
-  float: right;
-  padding: 5px;
-  width: 25px;
+  cursor: pointer;
 }
 
 ol {

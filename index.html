@@ -15,7 +15,7 @@
       <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
       <form>
         <input type="text" name="task" id="texto-tarefa" placeholder='Nova tarefa...'>
-        <input type="button" id="criar-tarefa" name="" value="Adicionar" onclick="addTask();">
+        <button id="criar-tarefa" name="" onclick="addTask();">Adicionar</button>
       </form>
     </section>
     <section>
@@ -26,15 +26,14 @@
       </div>
     </section>
     <section class="line-one">
-      <input type="button" value="X">
-      <input type="button" value="&#8593;">
-      <input type="button" value="&#8595;">
+      <button>X</button>
+      <button>&#8593;</button>
+      <button>&#8595;</button>
     </section>
     <section class="line-two">
-      <input type="button" value="Limpar Completos">
-      <input type="button" value="Limpar Lista"
-      id="apaga-tudo" onclick="removeTask();">
-      <input type="button" value="Salvar Lista">
+      <button>Limpar Completos</button>
+      <button id="apaga-tudo" onclick="removeTask();">Limpar Lista</button>
+      <button>Salvar Lista</button>
     </section>
   </section>
   <script src="script.js"></script>

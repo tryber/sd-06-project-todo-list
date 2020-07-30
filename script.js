@@ -1,6 +1,9 @@
+
 const ol = document.getElementById('lista-tarefas');
 
 addTask = () => {
+  event.preventDefault();
+
   if (document.getElementById('texto-tarefa').value != '') {
     const item = document.getElementById('texto-tarefa');
     const itemId = ol.childElementCount;
