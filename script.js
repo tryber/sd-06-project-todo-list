@@ -6,40 +6,34 @@ button.addEventListener('click', insertTask);
 function insertTask() {
     let task =  document.querySelector('#texto-tarefa').value;
     let btn = document.createElement('li');
-    btn.className = 'item';
+    // btn.className = 'item';
     btn.innerHTML = task;
     list.appendChild(btn);
 
     let cleanInput = document.getElementById("texto-tarefa").value = "";
 }
 
-function changeSelected(select){
-
-}
 
 list.addEventListener('click', function(event) {
-    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-    console.log(event.target);
+    let oldDiv = document.querySelector('.selected');  
+    console.log(oldDiv);
+    
 
-    if (event.target.className === 'item'){
-      event.target.classList.add('selected')
-    } else if(event.target.item.className === 'item selected'){
+    item = event.target; //quem recebe o click
+    item.classList.add('selected') 
+    console.log(item);
+    oldDiv.classList.remove('selected');
+    
 
-    }
+  // let oldDiv = document.querySelector('.selected');
+  // let currentDiv = event.target;
+  // let backgroundColor = currentDiv.style.backgroundColor;
+  // console.log(backgroundColor);
+
+
+  // currentDiv.classList.add('selected');
+  
+  // selectedColor = backgroundColor;     
     
 
 });
-
-
-
-// function handlePalletItemEvent(event){
-//     let oldSelectedDiv = document.querySelector('.selected');
-//     let currentSelectedDiv = event.target;
-//     let backgroundColor = currentSelectedDiv.style.backgroundColor;
-//     console.log(backgroundColor);
-
-//     oldSelectedDiv.classList.remove('selected');
-//     currentSelectedDiv.classList.add('selected');
-    
-//     selectedColor = backgroundColor;     
-// }
