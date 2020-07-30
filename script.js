@@ -93,3 +93,13 @@ function removeCompletedTasks() {
 
 const removeCompletedTasksButton = document.getElementById('remover-finalizados');
 removeCompletedTasksButton.onclick = removeCompletedTasks;
+
+// Remove selected
+
+function removeSelectedTask() {
+  const selectedTask = document.querySelector('.selected');
+  selectedTask.remove();
+}
+
+const removeSelectedTaskButton = document.getElementById('remover-selecionado');
+removeSelectedTaskButton.onclick = removeSelectedTask;
