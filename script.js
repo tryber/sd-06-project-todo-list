@@ -32,7 +32,6 @@ list.addEventListener ('dblclick', function(event){
 })
 
 let cleanUp = document.querySelector('#apaga-tudo');
-
 cleanUp.addEventListener ('click', function(){
   let items = document.querySelectorAll('.item');
   for (let i = 0; i < items.length; i += 1) {
@@ -40,3 +39,12 @@ cleanUp.addEventListener ('click', function(){
   }
 })
 
+let clean = document.querySelector('#remover-finalizados');
+clean.addEventListener('click', function(){
+  let items = document.querySelectorAll('.item');
+  for (let i = 0; i < items.length; i += 1){
+    if (items[i].classList.contains('completed')){
+      list.removeChild(items[i]);
+    }
+  }
+})
