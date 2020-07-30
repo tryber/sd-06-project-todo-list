@@ -1,0 +1,19 @@
+.selected {
+  background-color: gray;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
+
+.boxList {
+  display: inline-block;
+  height: 300px;
+  overflow: inherit;
+  position: relative;
+  width: 50%;
+}
+
+.buttons {
+  margin-right: 2%;
+}
