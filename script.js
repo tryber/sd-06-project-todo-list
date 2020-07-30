@@ -1,10 +1,10 @@
 function changeBackground (event) {
   selectedItem = event.currentTarget;
-  selectedItem.style.backgroundColor = `rgb(128, 128, 128)`;
+  selectedItem.classList.add(`selected`);
   children = selectedItem.parentNode.children;
   for (let i = 0; i < children.length; i += 1) {
     if (children[i] !== selectedItem) {
-      children[i].style.backgroundColor = ``;
+      children[i].classList.remove('selected');
     }
   }
 }
@@ -32,6 +32,58 @@ function itemDone(event) {
   }
 }
 
+function moveUp (event) {
+  const items = document.querySelector('#lista-tarefas').children;
+  let selected = document.querySelector('.selected');
+
+  let anterior;
+
+
+  for (let i = 0 ; i < items.length ; i += 1) {
+    if (items[i] === selected && i > 0) {
+      anterior = items[i - 1];
+      event.stopImmediatePropagation();
+
+    }
+  }
+  if(anterior !== undefined) {
+    anterior.classList = selected.classList;
+    selected.classList.remove('selected');
+    let copytext = anterior.innerHTML;
+    anterior.innerHTML = selected.innerHTML;
+    selected.innerHTML = copytext;
+  }
+}
+
+function moveDown (event) {
+  const items = document.querySelector('#lista-tarefas').children;
+  let selected = document.querySelector('.selected');
+
+  let proximo;
+
+
+  for (let i = items.length ; i > 0  ; i -= 1) {
+    if (items[i] === selected && i > 0) {
+      proximo = items[i + 1];
+      event.stopImmediatePropagation();
+
+    }
+  }
+  if(proximo !== undefined) {
+    proximo.classList = selected.classList;
+    selected.classList.remove('selected');
+    let copytext = proximo.innerHTML;
+    proximo.innerHTML = selected.innerHTML;
+    selected.innerHTML = copytext;
+  }
+}
+
+
+
+
+
+
+
 function initList () {
   selectedItem = document.querySelector('#lista-tarefas').lastChild;
 
@@ -44,6 +96,14 @@ function initList () {
   butaoApagaFinalizados.addEventListener('click',function () {
     removeFinalizados();
   });
+
+  butaoCima.addEventListener('click',function (e) {
+    moveUp(e);
+  })
+
+  butaoBaixo.addEventListener('click', function (e) {
+    moveDown(e);
+  })
 }
 
 function readCreateItem (textCopied,list) {
@@ -59,7 +119,7 @@ function SaveTasks () {
   for (let i = 0; i < tasks.length; i += 1 ) {
     localStorage.setItem(`content ${i}`, tasks[i].innerHTML );
     localStorage.setItem(`class ${i}`, tasks[i].classList);
-    localStorage.setItem(`style ${i}`, tasks[i].style.backgroundColor);
+
   }
   localStorage.setItem(`length`, tasks.length);
 }
@@ -71,7 +131,6 @@ function loadTasks () {
       const tasks = localStorage.getItem(`content ${i}`);
       let itemCreated = document.createElement("LI");
       itemCreated.classList = localStorage.getItem(`class ${i}`)
-      itemCreated.style.backgroundColor = localStorage.getItem(`style ${i}`);
       itemCreated.append(tasks);
       const list = document.querySelector('#lista-tarefas');
       list.appendChild(itemCreated); //
@@ -86,6 +145,8 @@ butaoCriar = document.querySelector('#criar-tarefa');
 butaoApaga = document.querySelector('#apaga-tudo');
 butaoApagaFinalizados = document.querySelector('#remover-finalizados');
 butaoSalvarTarefa = document.querySelector('#salvar-tarefa');
+butaoCima = document.querySelector('#mover-cima');
+butaoBaixo = document.querySelector('#mover-baixo');
 
 butaoCriar.addEventListener('click', function () {
   readCreateItem(textoDigitado,listaTarefa)
