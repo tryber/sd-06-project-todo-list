@@ -1,12 +1,14 @@
+// Criar a lista
 function criaLista() {
-  const lista = document.createElement('ol');
-  lista.id = 'lista-tarefas';
-  document.body.appendChild(lista);
+  const listaItem = document.createElement('ol');
+  listaItem.id = 'lista-tarefas';
+  document.body.appendChild(listaItem);
 }
 criaLista();
 
+
+// Adicionar tarefa na lista
 function addTarefa() {
-  const lista = document.querySelector('#lista-tarefas');
   const textItem = document.querySelector('#texto-tarefa');
   const item = document.createElement('li');
   item.innerHTML = textItem.value;
@@ -16,6 +18,8 @@ function addTarefa() {
 const btnAdd = document.querySelector('#criar-tarefa');
 btnAdd.addEventListener('click', addTarefa);
 
+
+// Mudar cor de somente 1 elemento selecionado
 function changingCollor(event) {
   const oldSelected = document.querySelector('.selected');
   const selected = event.target;
@@ -25,6 +29,8 @@ function changingCollor(event) {
 const lista = document.querySelector('#lista-tarefas');
 lista.addEventListener('click', changingCollor);
 
+
+// Riscar as tarefas completas
 let click = false;
 function completedTasks(event) {
   const completedTask = event.target;
@@ -38,8 +44,9 @@ function completedTasks(event) {
 }
 lista.addEventListener('dblclick', completedTasks);
 
+
+// Apagar todos os ítens da lista
 function apagaTudo() {
-  const lista = document.querySelector('#lista-tarefas');
   while (lista.firstChild) {
     lista.removeChild(lista.firstChild);
   }
@@ -47,10 +54,12 @@ function apagaTudo() {
 const btnApagaTudo = document.querySelector('#apaga-tudo');
 btnApagaTudo.addEventListener('click', apagaTudo);
 
-Element.prototype.remove = function() {
+
+// Essa parte eu copiei da internet, está funcionando mas além de eu não entender o que está sendo feito, o evaluator não valida. - REMOVER FINALIZADOS
+Element.prototype.remove = function () {
   this.parentNode.removeChild;
 }
-NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
+NodeList.prototype.remove = HTMLCollection.prototype.remove = function () {
   for (var i = this.length - 1; i >= 0; i -= 1) {
     if (this[i] && this[i].parentElement) {
       this[i].parentElement.removeChild(this[i]);
@@ -58,11 +67,49 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
   }
 }
 function removerFinalizados() {
-  const finalizados = document.querySelectorAll('.completed');
-  finalizados.remove();
+  const itens = document.querySelectorAll('.completed');
+  itens.remove();
 }
 const btnApagaFinalizados = document.querySelector('#remover-finalizados');
 btnApagaFinalizados.addEventListener('click', removerFinalizados);
 
+/********************************************** */
+
+// Salvar os dados no local storage
+function salvarDados() {
+  let dados = [];
+  let org = [];
+  const itens = document.querySelectorAll('li');
+
+  for (let index = 0; index < itens.length; index += 1) {
+    dados[index] = { item: itens[index], itemTexto: itens[index].innerHTML };
+    console.log(dados[index]);
+  }
+
+  // for (let j = 0; j < dados.length; j += 1) {
+  //   localStorage.setItem('position', JSON.stringify(dados[j]));
+  // }
+
+  // for (let ij = 0; ij < dados.length; ij += 1) {
+  //   console.log(JSON.parse(localStorage.getItem('position' + ij)));
+  // }
+
+}
+const btnSalvar = document.querySelector('#salvar-tarefas');
+btnSalvar.addEventListener('click', salvarDados);
 
 
+// Mover elementos na lista
+function moverAcima() {
+  let selecao = document.querySelector('.selected');
+  let temp = selecao.previousSibling;
+
+  console.log(selecao.previousSibling);
+  selecao.previousSibling = selecao;
+  console.log(selecao.previousSibling);
+
+  selecao = temp;
+  console.log(selecao.previousSibling);
+}
+const btnMoveCima = document.querySelector('#mover-cima');
+btnMoveCima.addEventListener('click', moverAcima);
