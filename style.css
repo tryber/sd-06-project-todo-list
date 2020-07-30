@@ -1,0 +1,11 @@
+.tarefa {
+  font-size: 1.2em;
+}
+
+.selecionado {
+  background-color: gray;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
