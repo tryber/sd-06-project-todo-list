@@ -104,7 +104,7 @@ moverBaixo.addEventListener('click', function () {
   const lista = document.querySelector('#lista-tarefas');
   const nodesDaLista = lista.children;
 
-  for (let x = nodesDaLista.length - 2; x >= 0; x -= 1) {
+  for (let x = nodesDaLista.length - 1; x >= 0; x -= 1) {
     if (nodesDaLista[x].classList.contains('selecionado')) {
       lista.insertBefore(nodesDaLista[x + 1], nodesDaLista[x]);
     }
