@@ -68,3 +68,10 @@ document.querySelector('#apaga-tudo').addEventListener('click', () => {
     element.remove();
   });
 });
+
+document.querySelector('#remover-finalizados').addEventListener('click', () => {
+  let classCompleted = document.querySelectorAll('.completed');
+  classCompleted.forEach(element => {
+    element.remove();
+  });
+});
