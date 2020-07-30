@@ -39,7 +39,7 @@ main {
   align-items: center;
 }
 
-.input-todo {
+/* .input-todo {
   position: relative;
   width: 200px;
   height: 48px;
@@ -53,22 +53,22 @@ main {
   outline: none;
   padding-top: 12px;
   letter-spacing: 0.5px;
-}
+} */
 
 /* aqui tem que ser .label-todo .input-text
 pq o '+' é para o elemento IMEDIATAMENTE
 depois que atende à query que colocamos*/
-.input-tarefa:focus + .label-todo .input-text ,
+/* .input-tarefa:focus + .label-todo .input-text ,
 .input-tarefa:not(:placeholder-shown) + .label-todo .input-text {
   transform: translateY(-150%);
   font-size: 12px;
   left: 0;
-}
+} */
 /* input:valid não ia funcionar pq checa a validade
 fo input pelo HTML - ex: se é um input de email
 e o usuario digita qualquer coisa, não funciona */
 
-.label-todo {
+/* .label-todo {
   position: absolute;
   bottom: 0px;
   left: 0;
@@ -103,8 +103,7 @@ e o usuario digita qualquer coisa, não funciona */
   font-weight: 700;
   pointer-events: none;
   transition: all 0.4s ease;
-}
-
+} */
 
 /* button add todo */
 .add-todos button {
@@ -298,3 +297,4 @@ h4 {
   border-radius: 8px;
   padding: 8px;
 }
+

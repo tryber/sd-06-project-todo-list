@@ -189,10 +189,13 @@ function enableAddBtn() {
 
 function addTodo() {
   const addInput = document.getElementById("texto-tarefa");
-  let todoText = addInput.value;
-  todoList.push(todoText);
-  renderTodaysTodos();
-  addInput.value = '';
+  let todoText = addInput.value.trim();
+  if (todoText) {
+    todoList.push(todoText);
+    renderTodaysTodos();
+    addInput.value = '';
+  }
+
 }
 
 function enableSaving() {
