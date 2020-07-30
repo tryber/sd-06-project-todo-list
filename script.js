@@ -30,3 +30,12 @@ list.addEventListener('click',function(e){
     changeSelected(e.target);
 })
 
+list.addEventListener('dblclick',function(e){
+    let completed = e.target;
+    if(completed.classList.contains('completed')){
+        completed.classList.remove('completed');
+    } else {
+        completed.className += ' completed';
+    }
+})
+
