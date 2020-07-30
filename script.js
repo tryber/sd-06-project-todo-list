@@ -11,7 +11,18 @@ function generateList() {
 }
 btnAddTasks.addEventListener('click', generateList);
 
+// Seleciona items da lista de tarefas;
 taskList.addEventListener('click', function (event) {
-  const taskItem = event.target;
-  taskItem.style.backgroundColor = 'rgb(128 , 128 , 128)';
+  const currentTaskItem = event.target;
+  const selectItem = document.querySelector('.selected');
+  if (selectItem !== null) {
+    selectItem.classList.remove('selected');
+  }
+  currentTaskItem.classList.add('selected');  
+})
+
+// Risca as tarefas já finalizadas;
+taskList.addEventListener('dblclick', function (event) {
+  const completeTask = event.target;
+  completeTask.classList.toggle('completed');
 })
