@@ -34,9 +34,21 @@ function changeSelected(select) {
   selected.classList.remove('selected');
   select.className += ' selected';
 }
+function completed(complete) {
+  if(complete.classList.contains('completed')) {
+    complete.classList.remove('completed');
+  } else {
+    complete.className += ' completed';
+  }
+}
 
 let itemSelected = document.querySelectorAll('li');
 createList.addEventListener('click', function (e) {
   changeSelected(e.target);
   // e.target.className = 'selected';
+});
+
+createList.addEventListener('dblclick', function (e) {
+  completed(e.target);
+  
 });
