@@ -1,0 +1,8 @@
+ 
+.completed {
+    text-decoration: line-through solid rgb(5, 0, 68);
+  }
+  
+.bgColor {
+    background-color: rgb(78, 0, 65);
+  }
