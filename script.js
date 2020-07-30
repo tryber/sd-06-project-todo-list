@@ -26,8 +26,8 @@ button.addEventListener("click", function() {
    
    let clearAllButton = document.querySelector("#apaga-tudo");
    clearAllButton.addEventListener("click", function() {
-     for (let index = 0; index < elementLi.length; index += 1) {
-       console.log(elementLi.length);
+     for (let index = 0; index < elementOl.children.length; index += 1) {
+       console.log(elementOl.children.length);
       document.getElementById("lista-tarefas").removeChild(elementOl.childNodes[index]);
      }
       });
