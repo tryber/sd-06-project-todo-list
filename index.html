@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="normalize.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+
+  <title>To-do List</title>
+</head>
+<body>
+  <div class="container">
+    <div class="content">
+      <header>
+        <div class="top-bar">
+          <div class="hour">17:44</div>
+        </div>
+        <h1>Minha Lista de Tarefas</h1>
+        <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+      </header>
+      <main>
+        <section class="utils">
+          <div>
+            <input id="texto-tarefa" type="text">
+            <button id="criar-tarefa">Add</button>
+          </div>
+          <div>
+            <button id="salvar-tarefas">Sv</button>
+            <button id="remover-selecionado">Rs</button>
+            <button id="remover-finalizados">Rf</button>
+            <button id="apaga-tudo">Rm</button>
+          </div>
+        </section>
+        <article>
+          <div class="list-container">
+            <div class="list-header left-margin">
+              <div>
+                <h2>Chores</h2>
+                <div id="task-counter" class="task-counter">5</div>
+              </div>
+              <div>
+                <button id="mover-cima">Up</button>
+                <button id="mover-baixo">Dw</button>
+                <div><i id="more-options" class="fas fa-ellipsis-v"></i></div>
+              </div>
+            </div>
+            <ol id="lista-tarefas" class="toDo-list">
+            </ol>
+          </div>
+        </article>
+      </main>
+    </div>
+  </div>
+  <script src="./script.js"></script>
+</body>
+</html>
