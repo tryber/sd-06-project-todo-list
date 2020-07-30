@@ -39,7 +39,6 @@ function resetSelection() {
 
 function selectTask(task) {
   resetSelection();
-  // task.className = 'selected';
   task.classList.add('selected');
   return task.style.backgroundColor = 'rgb(128, 128, 128)';
 }
@@ -48,43 +47,39 @@ function markAsCompleted(task) {
   if (task.classList.contains('completed')) {
     task.classList.remove('completed');
   } else {
-    task.classList.add('completed')
+    task.classList.add('completed');
   }
 }
 
-function triggerEvent(task) {
-  task.addEventListener('dblclick', function () {
-        console.log(task)
-    //     markAsCompleted(this);
-      });
-}
+const ol = document.getElementById('lista-tarefas');
 
 function childChanges() {
+  const taskList = document.querySelectorAll('li');
 
-// function childChanges(mutations)
-  // for (let mutation of mutations) {
-    // if (mutation.type === 'childList') {
-
-      const taskList = document.querySelectorAll('li');
-
-      for (let i = 0; i < taskList.length; i += 1) {
-        let task = ol.children[i];
-        task.onclick = function () {
-          selectTask(task);
-        }
-        task.ondblclick = function () {
-          markAsCompleted(this);
-        }
-      }
-
-    // }
-  // }
-
+  for (let i = 0; i < taskList.length; i += 1) {
+    let task = ol.children[i];
+    task.onclick = function () {
+      selectTask(this);
+    }
+    task.ondblclick = function () {
+      markAsCompleted(this);
+    }
+  }
 }
 
-const ol = document.getElementById('lista-tarefas');
 const options = {
   childList: true,
 };
 const observer = new MutationObserver(childChanges);
 observer.observe(ol, options);
+
+// Remove-all button
+
+function removeAllTasks() {
+  while (ol.firstChild) {
+    ol.removeChild(ol.firstChild);
+  }
+}
+
+const removeAllButton = document.getElementById('apaga-tudo');
+removeAllButton.onclick = removeAllTasks;

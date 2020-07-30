@@ -61,10 +61,15 @@ h1 {
 }
 
 .list-header {
-  align-items: center;
   border-bottom: 1px solid rgba(185 , 185 , 185 , 0.5);
   display: flex;
   padding-bottom: 8px;
+  justify-content: space-between;
+}
+
+.list-header > div {
+  align-items: center;
+  display: flex;
 }
 
 h2 {
@@ -73,10 +78,23 @@ h2 {
   margin-right: 4px;
 }
 
-.list-header > div:nth-child( 2 ) {
+.list-header .task-counter {
   color: rgb(121 , 121 , 121);
   font-size: 14px;
   font-weight: 700;
+}
+
+.list-header > div:last-child {
+  margin-right: 1%;
+}
+
+.list-header > div:last-child > button {
+  margin-right: 8px;
+}
+
+.list-header > div:last-child .fas.fa-ellipsis-v {
+  color: rgb(156,156,156);
+  font-size: 24px;
 }
 
 .left-margin {

@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="normalize.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+    integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" 
+    crossorigin="anonymous"
+  >
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
 
@@ -23,21 +27,28 @@
       <main>
         <section class="utils">
           <div>
-            <button id="mover-cima">Up</button>
-            <button id="mover-baixo">Dw</button>
             <input id="texto-tarefa" type="text">
             <button id="criar-tarefa">Add</button>
           </div>
           <div>
+            <button id="salvar-tarefas">Sv</button>
             <button id="remover-selecionado">Rs</button>
             <button id="remover-finalizados">Rf</button>
+            <button id="apaga-tudo">Rm</button>
           </div>
         </section>
         <article>
           <div class="list-container">
             <div class="list-header left-margin">
-              <h2>Chores</h2>
-              <div id="amount-of-chores">5</div>
+              <div>
+                <h2>Chores</h2>
+                <div id="task-counter" class="task-counter">5</div>
+              </div>
+              <div>
+                <button id="mover-cima">Up</button>
+                <button id="mover-baixo">Dw</button>
+                <div><i id="more-options" class="fas fa-ellipsis-v"></i></div>
+              </div>
             </div>
             <ol id="lista-tarefas" class="toDo-list">
             </ol>
