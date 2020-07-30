@@ -15,14 +15,25 @@ function selectItem(event) {
   let listaItems = document.getElementsByTagName('li');
   let contador = 0;
   for (let i in listaItems) {
-    //console.log(listaItems[i].className);
-    if (listaItems[i].className === 'select') {
+    if (listaItems[i].className === 'selected') {
       contador += 1;
     }else if (contador > 0) {
-      for (i in listaItems ) {
-        listaItems[i].className = '';
+      for (i in listaItems) {
+        listaItems[i].classList.remove('selected');
       }  
     }
   }
-  selectItemList.className = 'select';
+  selectItemList.className = 'selected';
+  selectItemList.addEventListener('dblclick', itemCompleted);
+}
+//Seta item como completado
+function itemCompleted(event) {
+  let completedItem = event.target;
+  if ( completedItem.classList != 'completed'){
+    completedItem.classList.add('completed');
+    console.log(completedItem);
+  }else {
+    completedItem.classList.remove('completed');
+    console.log(completedItem);
+  }
 }
