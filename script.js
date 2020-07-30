@@ -11,15 +11,24 @@ function createTask() {
   listOl.appendChild(newItem);
   newItem.innerHTML = input.value;
   newItem.className = "tarefa";
-  newItem.addEventListener('click', turnGrey);
+  newItem.addEventListener('click', changeColor);
   newItem.addEventListener('dblclick', scratchItem);
   input.value = '';
 }
 
-// Torna cinza itens com um click
-function turnGrey() {
-  const selectedItem = event.target;
-  selectedItem.style.backgroundColor = 'grey';
+// Torna cinza itens clicados e de-seleciona itens anteriores
+function changeColor() {
+  const createdItem = document.getElementsByTagName('li');
+  for (let i = 0 ; i < createdItem.length ; i += 1){
+    createdItem[i].addEventListener('click',function(){
+      createdItem[i].style.backgroundColor = 'rgb(128, 128, 128)';
+        for (let x = 0 ; x < createdItem.length ; x += 1) {
+          if (x != i) {
+            createdItem[x].style.backgroundColor = 'transparent';
+          }
+        }
+    });
+  }
 }
 
 // Torna riscado itens com double click
