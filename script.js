@@ -47,10 +47,10 @@ window.onload = function () {
     }
   }
   /* botão apaga selecionados */
-  function removeComplet(){
-    const removeText = document.querySelector('.completed');
-       if (removeText){
-        removeText.remove();
-      }
+  function removeComplet() {
+    const removeText = document.querySelectorAll('.completed');
+    for(let i = 0; i <= removeText.length; i += 1){
+      removeText[i].remove()
+    }      
   }
 };
