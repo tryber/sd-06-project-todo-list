@@ -7,6 +7,7 @@ const removeComplete = document.querySelector('#remover-finalizados');
 const save = document.querySelector('#salvar-tarefas');
 const btnUp = document.querySelector('#mover-cima');
 const btnDown = document.querySelector('#mover-baixo');
+const removeSelected = document.querySelector('#remover-selecionado');
 
 window.onload = function () {
   list.innerHTML = localStorage.getItem('list');
@@ -74,6 +75,14 @@ btnDown.addEventListener('click', function () {
   for (let i = listItens.length - 2; i >= 0; i -= 1) {
     if (listItens[i].classList.contains('selected') === true) {
       list.insertBefore(list.children[i + 1], list.children[i]);
+    }
+  }
+});
+
+removeSelected.addEventListener('click', function () {
+  for (let i = 0; i < listItens.length; i += 1) {
+    if (listItens[i].classList.contains('selected') === true) {
+      list.removeChild(listItens[i]);
     }
   }
 });
