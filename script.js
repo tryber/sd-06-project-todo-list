@@ -1,6 +1,9 @@
-// btn to create new task
+// buttons
 
 const btnNewTask = document.getElementById('criar-tarefa');
+const btnDeleteSelected = document.getElementById('remover-selecionado');
+const btnDeleteDone = document.getElementById('remover-finalizados');
+const btnDeleteAll = document.getElementById('apaga-tudo');
 
 // create list item, get input value and push list value
 
@@ -31,14 +34,7 @@ function handleSelectedItem(event) {
   }
 }
 
-// function setBgColor() {
-//   const lastSelectedItem = document.querySelector('.selected');
-//   lastSelectedItem.classList.remove('selected');
-//   const currentSelectedItem = event.target;
-//   currentSelectedItem.classList.add('selected');
-// }
-
-// risk list item
+// add class to risk item
 
 function riskListItem(event) {
   const selectedItem = event.target;
@@ -53,19 +49,38 @@ function riskListItem(event) {
 
 btnNewTask.addEventListener('click', pushListItem);
 
+btnDeleteSelected.addEventListener('click', function () {
+  const getSelected = document.querySelector('.selected');
+  getSelected.remove();
+});
+
+btnDeleteDone.addEventListener('click', function () {
+  const doneItem = document.querySelectorAll('.line-through');
+  for (let i = 0; i < doneItem.length; i += 1) {
+    doneItem[i].remove();
+  }
+});
+
+btnDeleteDone.addEventListener('click', function () {
+  const doneItem = document.querySelectorAll('.item');
+  for (let i = 0; i < doneItem.length; i += 1) {
+    if (doneItem[i].style.textDecoration === 'line-through') {
+      doneItem[i].remove();
+    }
+  }
+});
+
+btnDeleteAll.addEventListener('click', function () {
+  const allList = document.querySelectorAll('.item');
+  for (let i = 0; i < allList.length; i += 1) {
+    allList[i].remove();
+  }
+});
+
 document
-.querySelector('#lista-tarefas')
+  .querySelector('#lista-tarefas')
   .addEventListener('click', handleSelectedItem);
 
 document
-.querySelector('#lista-tarefas')
-.addEventListener('dblclick', riskListItem);
-
-//  document
-//    .querySelector('.selected')
-//    .addEventListener('click', function (event) {
-//      const lastSelectedItem = document.querySelector('.selected');
-//      const currentSelectedItem = event.target;
-//      lastSelectedItem.style.removeProperty('background-color');
-//      currentSelectedItem.classList.add('selected');
-//    });
+  .querySelector('#lista-tarefas')
+  .addEventListener('dblclick', riskListItem);
