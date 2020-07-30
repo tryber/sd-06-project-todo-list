@@ -21,14 +21,29 @@ function botao() {
 function clickItem(event) {
     let itemSelected = event.target;
     itemSelected.style.background = 'rgb(128, 128, 128)';
+    
 };
 function doubleClick1(event) {
     let itemSelected = event.target;
-    itemSelected.classList.add('completed');
+    if (itemSelected.classList !== 'completed') {
+        itemSelected.classList.add('completed');
+    } else {
+        itemSelected.classList.remove('completed');
+    }
 }
 function doubleClick2(event) {
     let itemSelected = event.target;
-    itemSelected.style.textDecoration = 'line-through';
+    let listando = document.getElementsByTagName('li');
+    let iter = 0;
+    for (let i  in listando) {
+        if (listando[i].style.textDecoration === 'selected') {
+            iter += 1;
+        } else if (iter > 0) {
+            for (i in listando) {
+                listando[i].classList.remove('selected');
+            }
+        }
+    }
 }
 function apagaTudo() {
     ordList.innerHTML = '';
