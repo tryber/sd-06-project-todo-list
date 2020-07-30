@@ -22,6 +22,10 @@ window.onload = function () {
       const cleanLi = list;
       cleanLi.removeChild(itenLi);
     });
+
+    // Button remove all list completed
+    const buttonRemoveCompleted = document.querySelector('#remover-finalizados');
+    buttonRemoveCompleted.addEventListener('click', removeAllCompleted);
   }
 
   // Button click add iten list
@@ -45,4 +49,12 @@ window.onload = function () {
   }
   const text = document.querySelector('#criar-tarefa');
   text.addEventListener('click', cleanTextInput);
+
+  // Function button remove all list completed
+  function removeAllCompleted() {
+    let lineCompleted = document.querySelectorAll('.completed');
+    for (let index = 0; index < lineCompleted.length; index += 1) {
+     lineCompleted[index].remove();
+    }
+  }
 };
