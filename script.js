@@ -2,28 +2,10 @@
 if (localStorage.getItem('my-tasks') !== null) {
   document.getElementById('lista-tarefas').innerHTML = localStorage.getItem('my-tasks');
 }
-//Atribui as funcionalidades aos botões importados do local storage
-document.querySelectorAll('.tasks').forEach((eachTask) => {
-  tasksListenerClick(eachTask);
-  tasksListenerDbClick(eachTask);
-});
 
 const btSave = document.getElementById('salvar-tarefas');
 btSave.addEventListener('click', function () {
-  localStorage.setItem('my-tasks', document.getElementById('lista-tarefas').innerHTML)
-});
-
-const btAdd = document.getElementById('criar-tarefa');
-btAdd.addEventListener('click', function () {
-  const newTask = document.getElementById('texto-tarefa').value;
-  const tagLi = document.createElement('li');
-  tagLi.innerHTML = newTask;
-  tagLi.className = 'tasks';
-  tagLi.style.cursor = 'pointer';
-  document.querySelector('#lista-tarefas').appendChild(tagLi);
-  document.getElementById('texto-tarefa').value = '';
-  tasksListenerClick(tagLi);
-  tasksListenerDbClick(tagLi);
+  localStorage.setItem('my-tasks', document.getElementById('lista-tarefas').innerHTML);
 });
 
 function unsetBgTasks() {
@@ -50,6 +32,25 @@ function tasksListenerDbClick(tagLi) {
   });
 }
 
+const btAdd = document.getElementById('criar-tarefa');
+btAdd.addEventListener('click', function () {
+  const newTask = document.getElementById('texto-tarefa').value;
+  const tagLi = document.createElement('li');
+  tagLi.innerHTML = newTask;
+  tagLi.className = 'tasks';
+  tagLi.style.cursor = 'pointer';
+  document.querySelector('#lista-tarefas').appendChild(tagLi);
+  document.getElementById('texto-tarefa').value = '';
+  tasksListenerClick(tagLi);
+  tasksListenerDbClick(tagLi);
+});
+
+// Atribui as funcionalidades aos botões importados do local storage
+document.querySelectorAll('.tasks').forEach((eachTask) => {
+  tasksListenerClick(eachTask);
+  tasksListenerDbClick(eachTask);
+});
+
 const btRemoveAll = document.querySelector('#apaga-tudo');
 btRemoveAll.addEventListener('click', function () {
   document.querySelector('#lista-tarefas').innerHTML = '';
@@ -72,7 +73,8 @@ moveUp.addEventListener('click', function () {
     if (listLis[i].style.backgroundColor === 'rgb(128, 128, 128)') {
       const listOfTasks = document.querySelector('#lista-tarefas');
       if (i > 0) {
-        listOfTasks.insertBefore(listLis[i], listLis[i - 1]); // listLis[i - 1] é o mesmo que listLis[i].previousSibling
+        listOfTasks.insertBefore(listLis[i], listLis[i - 1]);
+        // listLis[i - 1] é o mesmo que listLis[i].previousSibling
       }
     }
   }
