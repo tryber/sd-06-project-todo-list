@@ -47,7 +47,7 @@ window.onload = function () {
             } else {
                 selecionado2.className = "completed";
             }
-            /* console.log(selecionado2.style.textDecoration); */
+            
         }
 
     });
@@ -60,7 +60,7 @@ window.onload = function () {
 
     });
 
-    bLImparCompletos.addEventListener("click", function (event) {
+    /* bLImparCompletos.addEventListener("click", function (event) {
         let tamanhoLista = listaTarefas.children.length
         for (let n = 0; n < tamanhoLista; n += 1) {
             if (listaTarefas.children[n].className === "completed") {
@@ -70,6 +70,6 @@ window.onload = function () {
             
         }
 
-    });
+    }); */
 
 }
