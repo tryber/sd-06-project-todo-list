@@ -1,22 +1,26 @@
+window.onload = function () {
 
-const ol = document.getElementById('lista-tarefas');
+  const botaoCriarTarefa = document.getElementById('criar-tarefa');
+  const botaoApagarTudo = document.getElementById('apaga-tudo');
+  
+  botaoCriarTarefa.addEventListener('click', addTask);
+  botaoApagarTudo.addEventListener('click', removeTask);
+  
+}
 
 addTask = () => {
+  const ol = document.getElementById('lista-tarefas');
   event.preventDefault();
-
   if (document.getElementById('texto-tarefa').value != '') {
     const item = document.getElementById('texto-tarefa');
-    const itemId = ol.childElementCount;
-
-    const li = createItemEl(item.value, itemId);
+    const li = createItemEl(item.value);
     ol.appendChild(li);
     item.value = '';
   }
 }
 
-createItemEl = (itemValue, itemId) => {
+createItemEl = (itemValue) => {
   const li = document.createElement('li');
-  li.setAttribute('index', itemId);
   li.className = ('task');
   li.appendChild(document.createTextNode(itemValue));
   return li;

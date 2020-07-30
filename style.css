@@ -55,14 +55,12 @@ li {
 
 .line-one {
   align-items: center;
-  display: inline-block;
   padding: 5px;
   width: 300px;
 }
 
 .line-two {
   align-items: center;
-  display: inline-block;
   float: right;
   padding: 5px;
   width: 700px;
