@@ -1,0 +1,10 @@
+header {
+    margin: auto;
+}
+
+.selected-task {
+    background-color: grey;
+}
+.completed {
+    text-decoration: line-through solid black;
+}
