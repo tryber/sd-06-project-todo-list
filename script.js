@@ -31,9 +31,17 @@ botaoApagar.addEventListener('click', function () {
 })
 
 let botaoRemoverFinalizados = document.querySelector('#remover-finalizados');
+
 botaoRemoverFinalizados.addEventListener('click', function () {
   let elementoFinalizado = document.querySelectorAll('.completed');
    for (let index = 0; index < elementoFinalizado.length; index += 1) {
      elementoFinalizado[index].remove();
   }
+})
+
+let botaoRemoverSelecionado = document.querySelector('#remover-selecionado');
+
+botaoRemoverSelecionado.addEventListener('click', function () {
+  let elementoSelecionado = document.querySelector('.selected');
+  elementoSelecionado.remove();
 })
