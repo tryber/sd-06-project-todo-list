@@ -16,7 +16,7 @@ window.onload = function () {
     listOl.addEventListener('dblclick', function () {
       listOl.classList.toggle('completed');
     });
-    /* botão apagar tudo*/
+    /* botão apagar tudo */
     const bottonListDelete = document.getElementById('apaga-tudo');
     bottonListDelete.addEventListener('click', deleteList);
   });
@@ -26,21 +26,21 @@ window.onload = function () {
   }
   const text = document.querySelector('#criar-tarefa');
   text.addEventListener('click', resetTexto);
-  /* mudando a cor de fundo*/
+  /* mudando a cor de fundo */
   function backColor() {
     let listOl = document.querySelectorAll('li');
     listOl = event.target;
-    let bgColor = document.querySelector('.bgColor');
+    const bgColor = document.querySelector('.bgColor');
     if (bgColor) {
-    bgColor.classList.remove('bgColor');
-  }
+      bgColor.classList.remove('bgColor');
+    }
     listOl.classList.add('bgColor');
   }
-  /* botão apaga tudo*/
+  /* botão apaga tudo */
   function deleteList() {
     const list = document.getElementById('lista-tarefas');
     while (list.firstChild) {
-    list.removeChild(list.firstChild);
-  }
+      list.removeChild(list.firstChild);
+    }
   }
 };
