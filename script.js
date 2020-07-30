@@ -3,6 +3,7 @@ const listaTarefa = document.querySelector('#lista-tarefas');
 const textoTarefa = document.querySelector('#texto-tarefa');
 const apagaLista = document.querySelector('#apaga-tudo');
 const apagarSelecionado = document.querySelector('#remover-selecionado');
+const apagaCompletados = document.querySelector('#remover-finalizados');
 
 enviarTexto.addEventListener('click', function (event) {
   event.preventDefault();
@@ -20,8 +21,9 @@ enviarTexto.addEventListener('click', function (event) {
     }
     this.classList.toggle('selected');
   });
+
   novaTarefa.addEventListener('dblclick', function () {
-    novaTarefa.classList.toggle('completed');
+    this.classList.toggle('completed');
   });
 
   textoTarefa.value = '';
@@ -36,5 +38,12 @@ apagarSelecionado.addEventListener('click', function () {
     if (listaTarefa.children[indice].classList.contains('selected')) {
       listaTarefa.removeChild(listaTarefa.childNodes[indice]);
     }
+  }
+});
+
+apagaCompletados.addEventListener('click', function () {
+  const tarefasCompletadas = document.querySelectorAll('.completed');
+  for (let indice = 0; indice < tarefasCompletadas.length; indice += 1) {
+    tarefasCompletadas[indice].remove();
   }
 });
