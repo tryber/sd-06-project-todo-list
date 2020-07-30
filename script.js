@@ -50,4 +50,11 @@ window.onload = function () {
       }
     }
   });
+  //  Botao remover item selecionado.
+  const botaoApagarSelecionado = document.querySelector('#remover-selecionado');
+  botaoApagarSelecionado.addEventListener('click', function () {
+    const grey = document.querySelector('.grey');
+    const listaTarefas = document.querySelector('#lista-tarefas');
+    listaTarefas.removeChild(grey);
+  })
 };
