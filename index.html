@@ -23,15 +23,28 @@
       </div>
 
       <div class="todo">
-        <ol id="lista-tarefas" class="itens-lista"></ol>
+        <ol id="lista-tarefas" class="itens-lista">
+          <li>risso monstro</li>
+          <li>lugh bil bil</li>
+          <li>matheus hacker</li>
+          <li>ohlsen rei do design</li>
+        </ol>
       </div>
 
-      <div class="buttons"></div>
-      <button id="apaga-tudo">Remover Tudo</button>
-      <button id="remover-finalizados">Remover Finalizadas</button>
+      <div class="buttons">
+        <button id="apaga-tudo" class="btn">Remover Tudo</button>
+        <button id="remover-selecionado" class="btn">Remover Selecionados</button>
+        <button id="remover-finalizados" class="btn">Remover Finalizadas</button>
+      </div>
+
+      <div class="mover">
+        <button id="mover-cima" class="btn">Mover para cima</button>
+        <button id="mover-baixo" class="btn">Mover para baixo</button>
+      </div>
     </div>
 
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
+    <script type="module" src="lazy-coder.js"></script>
   </body>
 
 </html>

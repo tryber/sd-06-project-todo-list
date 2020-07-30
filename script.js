@@ -1,66 +1,52 @@
-const METHODS = {
-  0: 'querySelector',
-  1: 'querySelectorAll',
-  2: 'createElement',
-};
-
-const TAGS = {
-  0: '#texto-tarefa',
-  1: '#criar-tarefa',
-  2: '#lista-tarefas',
-  3: '#generate-board',
-  4: '.input-text',
-  5: '#apaga-tudo',
-  6: '.tarefas',
-  7: '#remover-finalizados',
-  8: 'li',
-};
-
-function lazyCoder(keyMethod, keyDiv) {
-  return document[`${METHODS[keyMethod]}`](TAGS[keyDiv]);
-}
+import { lazyCoder } from './lazy-coder.js';
 
 const btnAdc = lazyCoder(0, 1);
 const todoList = lazyCoder(0, 2);
-const liList = [];
+const updateLiList = function () { liList = lazyCoder(1, 12); }
+let liList = {};
 
 function changeBackground() {
-  liList.forEach((e) => {
-    e.classList.remove('selected');
-    e.style.backgroundColor = 'white';
-  });
+  for (const value of Object.values(liList)) {
+    if (value.classList.contains('selected')) {
+      value.classList.remove('selected');
+      value.style.backgroundColor = 'white';
+    }
+  }
 }
 
 btnAdc.onclick = () => {
-  const listConten = lazyCoder(2, 8);
-  listConten.className = 'tarefas';
-  liList.push(listConten);
+  if (lazyCoder(0, 0).value === '') {
+    alert('Digite algo no input!')
+  } else {
+    const listConten = lazyCoder(2, 12);
+    listConten.className = 'tarefas';
 
-  listConten.textContent = lazyCoder(0, 0).value;
-  lazyCoder(0, 0).value = '';
-  todoList.appendChild(listConten);
+    listConten.textContent = lazyCoder(0, 0).value;
+    lazyCoder(0, 0).value = '';
+
+    todoList.appendChild(listConten);
+    updateLiList();
+  }
 };
 
 todoList.addEventListener('click', (e) => {
   changeBackground();
-  const selected = e.target;
 
-  selected.classList.add('selected');
-  selected.style.backgroundColor = 'rgb(128, 128, 128)';
+  e.target.classList.add('selected');
+  e.target.style.backgroundColor = 'rgb(128, 128, 128)';
 });
 
 todoList.addEventListener('dblclick', (e) => {
-  const selected = e.target;
-
-  if (selected.classList.contains('completed')) {
-    selected.classList.remove('completed');
+  if (e.target.classList.contains('completed')) {
+    e.target.classList.remove('completed');
   } else {
-    selected.classList.add('completed');
+    e.target.classList.add('completed');
   }
 });
 
 lazyCoder(0, 5).onclick = () => {
   lazyCoder(1, 6).forEach((e) => e.remove());
+  updateLiList();
 };
 
 lazyCoder(0, 7).onclick = () => {
@@ -69,4 +55,33 @@ lazyCoder(0, 7).onclick = () => {
       e.remove();
     }
   });
+  updateLiList();
+};
+
+lazyCoder(0, 8).onclick = () => {
+  lazyCoder(1, 6).forEach((e) => {
+    if (e.classList.contains('selected')) {
+      e.remove();
+    }
+  });
+  updateLiList();
+};
+
+
+lazyCoder(0, 9).onclick = () => {
+  updateLiList();
+  for (let i = 0; i < liList.length; i += 1) {
+    if (liList[i].classList.contains('selected') && i !== 0) {
+      todoList.insertBefore(liList[i], liList[i - 1]);
+    }
+  }
+};
+
+lazyCoder(0, 10).onclick = () => {
+  updateLiList();
+  for (let i = 0; i < liList.length; i += 1) {
+    if (liList[i].classList.contains('selected') && i !== liList.length - 1) {
+      todoList.insertBefore(liList[i + 1], liList[i]);
+    }
+  }
 };

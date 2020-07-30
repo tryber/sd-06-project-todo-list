@@ -27,9 +27,21 @@ body {
 }
 
 .completed {
-  text-decoration: line-through solid rgb(0, 0, 0);
+  text-decoration: line-through solid black;
 }
 
 .buttons {
   margin-top: 50px;
+}
+
+.btn {
+  background-color: lavender;
+  border-radius: 5px;
+  height: 50px;
+  margin-right: 20px;
+  width: 100px;
+}
+
+.mover {
+  margin: 20px 50px;
 }
