@@ -1,0 +1,64 @@
+.container .button-primary {
+    outline: none;
+    color: white;
+    border: transparent;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    background-color: #0087cf;
+    border-radius: 14px;
+}
+
+.container .done {
+    text-decoration: line-through;
+    color: grey;
+}
+
+.container .selected {
+    background-color: #d8d8d8;
+}
+
+.container .actions {
+    margin-top: 2rem;
+}
+
+.container .actions button {
+    margin-right: 1rem;
+}
+
+.container .buttonWarning {
+    background-color: #90191b;
+    color: white;
+    border-radius: 14px;
+    outline: none;
+    border: transparent;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+.container .buttonSuccess {
+    background-color: #40ad40;
+    color: white;
+    border-radius: 14px;
+    outline: none;
+    border: transparent;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+.container .buttonAlert {
+    background-color: #fc7f00;
+    color: white;
+    border-radius: 14px;
+    outline: none;
+    border: transparent;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
