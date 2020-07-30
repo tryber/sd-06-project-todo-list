@@ -18,7 +18,7 @@ body {
 }
 
 header {
-  background: repeating-linear-gradient(black , rgb(146, 146, 146) , white , rgb(145, 145, 145) , black);
+  background: repeating-linear-gradient(black , rgb(146 , 146 , 146) , white , rgb(145 , 145 , 145) , black);
   border: 1px solid black;
   box-shadow: 2px 2px 5px gray;
   margin: 10px;
@@ -38,7 +38,7 @@ header p {
 }
 
 .lista-de-tarefas {
-  background: repeating-linear-gradient(rgb(11, 102, 109) , rgb(29, 232, 247) , rgb(11, 102, 109));
+  background: repeating-linear-gradient(rgb(11 , 102 , 109) , rgb(29 , 232 , 247) , rgb(11 , 102 , 109));
   border: 1px solid black;
   box-shadow: 2px 2px 5px gray;
   font-size: 18px;
