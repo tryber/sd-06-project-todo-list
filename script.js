@@ -73,10 +73,10 @@ function apagaCompletos() {
   }
 }
 
-// Botões de subir e descer item na lista
-subir.addEventListener("click", sobeItem);
-descer.addEventListener("click", desceItem);
+// // Botões de subir e descer item na lista
+// subir.addEventListener("click", sobeItem);
+// descer.addEventListener("click", desceItem);
 
-function sobeItem() {
-  let anterior = event.target.
-}
+// function sobeItem(event) {
+
+// }
