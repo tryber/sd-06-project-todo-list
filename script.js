@@ -7,7 +7,6 @@
   const upBtn = document.querySelector('#mover-cima');
   const downBtn = document.querySelector('#mover-baixo');
   const saveBT = document.querySelector('#salvar-tarefas');
-
   const todos = [];
 
   function showTodos() {
