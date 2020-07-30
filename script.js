@@ -30,10 +30,10 @@ botaoApagar.addEventListener('click', function () {
   tarefaSelecionada.innerHTML = '';
 })
 
-// let botaoRemoverFinalizados = document.querySelector('#remover-finalizados');
-// botaoRemoverFinalizados.addEventListener('click', function () {
-//   let elementoFinalizado = document.querySelector('.completed');
-//   for (index = 0; index < elementoFinalizado.length; index += 1) {
-//     document.getElementById('lista-tarefas').removeChild(elementoFinalizado[index])
-//   }
-// })
+let botaoRemoverFinalizados = document.querySelector('#remover-finalizados');
+botaoRemoverFinalizados.addEventListener('click', function () {
+  let elementoFinalizado = document.querySelectorAll('.completed');
+   for (let index = 0; index < elementoFinalizado.length; index += 1) {
+     elementoFinalizado[index].remove();
+  }
+})
