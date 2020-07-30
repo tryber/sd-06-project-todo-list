@@ -24,9 +24,9 @@ window.onload = function () {
     listaTarefas.addEventListener("click", function (event) {        
         let selecionado1 = event.target;
         if (selecionado1.id !== "lista-tarefas") {        
-            if (selecionado1.children.length === 0){
+            /* if (selecionado1.children.length === 0){
                 selecionado1 = selecionado1.parentElement.parentElement;
-            }
+            } */
                        
             ultimoSelecionado.style.backgroundColor = "";
             selecionado1.style.backgroundColor = "rgb(128,128,128)";
@@ -38,9 +38,9 @@ window.onload = function () {
     listaTarefas.addEventListener("dblclick", function (event) {
         let selecionado2 = event.target;
         if (selecionado2.id !== "lista-tarefas") { 
-            if (selecionado2.children.length === 0){
+            /* if (selecionado2.children.length === 0){
                 selecionado2 = selecionado2.parentElement.parentElement;
-            }
+            } */
             
             if (selecionado2.className === "completed"){
                 selecionado2.className = "";
