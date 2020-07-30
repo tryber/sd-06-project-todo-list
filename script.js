@@ -28,3 +28,10 @@ function itemCompleted(event) {
     completedItem.classList.add('completed');
   }
 }
+
+function clearList() {
+  let list = document.querySelector('#lista-tarefas');
+  while(list.firstChild) {
+    list.removeChild(list.firstChild);
+  }
+}
