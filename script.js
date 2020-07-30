@@ -115,12 +115,15 @@ function enableMovingButtons() {
 
 function clickTodo(event) {
   const previousSelected = document.querySelector('.selected');
-  event.target.classList.toggle('selected');
-  selectedTodo = todoList.indexOf(event.target.innerText);
+  if (event.target !== previousSelected) {
+    event.target.classList.toggle('selected');
+    selectedTodo = todoList.indexOf(event.target.innerText);
 
-  if (previousSelected) {
-    previousSelected.classList.remove('selected')
+    if (previousSelected) {
+      previousSelected.classList.remove('selected')
+    }
   }
+
 }
 
 function doubleClickTodo(event) {
