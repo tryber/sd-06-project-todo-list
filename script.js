@@ -25,48 +25,32 @@ function removeItems (listaTarefa) {
 function itemDone(event) {
   const item = event.currentTarget;
   console.log(item);
-  if (item.className === `completed`) {
-    while(item.classList.contains('completed')){
-      item.classList.remove('completed');
-    }
-  } else {
-    item.classList = `${item.classList} completed`;
-  }
+  item.classList.toggle('completed');
 }
 
 function moveUp (event) {
   const items = document.querySelector('#lista-tarefas').children;
   let selected = document.querySelector('.selected');
-
   let anterior;
-
-
   for (let i = 0 ; i < items.length ; i += 1) {
-    if (items[i] === selected ) {
+    if (items[i] === selected) {
       anterior = items[i - 1];
       event.stopImmediatePropagation();
-
     }
   }
   if(anterior !== undefined) {
-
     selected.parentNode.insertBefore(selected,anterior);
-
   }
 }
 
 function moveDown (event) {
   const items = document.querySelector('#lista-tarefas').children;
   let selected = document.querySelector('.selected');
-
   let proximo;
-
-
   for (let i = items.length ; i >= 0  ; i -= 1) {
     if (items[i] === selected ) {
       proximo = items[i + 1];
       event.stopImmediatePropagation();
-
     }
   }
   if(proximo !== undefined) {
@@ -74,11 +58,12 @@ function moveDown (event) {
   }
 }
 
-
-
-
-
-
+function removerSelecionado (event) {
+  const items = document.querySelector('#lista-tarefas');
+  let selected = document.querySelector('.selected');
+  items.removeChild(selected);
+  event.stopImmediatePropagation();
+}
 
 function initList () {
   selectedItem = document.querySelector('#lista-tarefas').lastChild;
@@ -99,6 +84,10 @@ function initList () {
 
   butaoBaixo.addEventListener('click', function (e) {
     moveDown(e);
+  })
+
+  butaoRemoverSelecionado.addEventListener('click' , function (e) {
+    removerSelecionado(e);
   })
 }
 
@@ -134,15 +123,15 @@ function loadTasks () {
     }
   }
 }
-
 textoDigitado = document.querySelector('#texto-tarefa');
 listaTarefa = document.querySelector('#lista-tarefas');
 butaoCriar = document.querySelector('#criar-tarefa');
 butaoApaga = document.querySelector('#apaga-tudo');
 butaoApagaFinalizados = document.querySelector('#remover-finalizados');
-butaoSalvarTarefa = document.querySelector('#salvar-tarefa');
+butaoSalvarTarefa = document.querySelector('#salvar-tarefas');
 butaoCima = document.querySelector('#mover-cima');
 butaoBaixo = document.querySelector('#mover-baixo');
+butaoRemoverSelecionado = document.querySelector('#remover-selecionado');
 
 butaoCriar.addEventListener('click', function () {
   readCreateItem(textoDigitado,listaTarefa)
