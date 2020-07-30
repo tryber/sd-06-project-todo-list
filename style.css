@@ -55,6 +55,9 @@ header p {
 li {
   margin: 5px;
 }
+.marcado {
+  background: rgb(128, 128, 128);
+}
 .cubo {
   float: right;
   margin-right: 70px;
