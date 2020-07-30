@@ -1,0 +1,11 @@
+.lines {
+  background-color: white;
+}
+
+.line-selected {
+  background-color: gray;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
