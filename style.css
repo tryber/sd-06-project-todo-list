@@ -1,27 +1,27 @@
 body {
-    background-color: #4f772d;
-    font-family: 'Montserrat', sans-serif;
-    margin: 30px;
+  background-color: green;
+  font-family: Montserrat, sans-serif;
+  margin: 30px;
 }
 
 .todolist {
-    background-color: white;
-    border-radius: 5px;
-    padding: 10px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
 }
 
 button {
-    background-color: darkblue;
-    border-radius: 5px;
-    color: rgb(197,167,167);
+  background-color: darkblue;
+  border-radius: 5px;
+  color: white;
 }
 
 .title {
-    color: darkblue;
-    font-family: 'Galada', cursive;
-    font-size: 40px;
+  color: darkblue;
+  font-family: Galada, cursive;
+  font-size: 40px;
 }
 
 .completed {
-    text-decoration: line-through solid rgb(0,0,0);
+  text-decoration: line-through solid black;
 }
