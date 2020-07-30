@@ -33,6 +33,9 @@ button{
     background-color: ivory;
     font-style: inherit;
 }
-.completed {
+.completed{
     text-decoration: line-through solid white;
   } 
+  .selected{
+    background-color: rgb(128 , 128 , 128);
+  }
