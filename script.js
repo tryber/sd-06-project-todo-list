@@ -14,7 +14,7 @@ function selectItem(event) {
   let selectItemList = event.target;
   let listaItems = document.getElementsByTagName('li');
   for (let i in listaItems) {
-    listaItems[i].className = '';
+    listaItems[i].classList.remove('selected');
   }
   selectItemList.className = 'selected';
   selectItemList.addEventListener('dblclick', itemCompleted);
@@ -24,10 +24,10 @@ function itemCompleted(event) {
   let completedItem = event.target;
   if ( completedItem.classList != 'completed'){
     completedItem.classList.add('completed');
-    //console.log(completedItem);
+    // console.log(completedItem);
   }else {
     completedItem.classList.remove('completed');
-    //console.log(completedItem);
+    // console.log(completedItem);
   }
 }
 
