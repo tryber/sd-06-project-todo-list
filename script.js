@@ -17,18 +17,14 @@ function adicionaTarefa() {
 function botao() {
     btn.addEventListener('click', adicionaTarefa);
 }
-function clickItem(event) {
+function clickItem() {
     let itemSelected = event.target;
-    itemSelected.style.background = 'rgb(128, 128, 128)';
+    itemSelected.classList.toggle('selected');
     
 };
-function doubleClick1(event) {
+function doubleClick1() {
     let itemSelected = event.target;
-    if (itemSelected.classList !== 'completed') {
-        itemSelected.classList.add('completed');
-    } else {
-        itemSelected.classList.remove('completed');
-    }
+    itemSelected.classList.toggle('completed');
 }
 
 function apagaTudo() {
