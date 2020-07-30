@@ -2,6 +2,7 @@ const addButton = document.getElementById('criar-tarefa');
 const input = document.getElementById('texto-tarefa');
 const listaMae = document.querySelector('#lista-tarefas')
 const apagaButton = document.getElementById('apaga-tudo')
+const rmvFinalizados = document.getElementById('remover-finalizados')
 
 window.onload = function (){
   setupClickButton();
@@ -15,13 +16,20 @@ function setupClickButton(){
     listItem.className = 'tarefa'
     input.value = ''
     listItem.addEventListener('click', clickCorSelected);
-    listItem.addEventListener('dblclick', doubleClickAdd)
+    listItem.addEventListener('dblclick', doubleClickAdd);
   })
   apagaButton.addEventListener('click', function () {
-    let tarefas = document.getElementsByClassName('tarefas')
     while (listaMae.firstChild) {
       listaMae.removeChild(listaMae.lastChild)
     }
+  })  
+  rmvFinalizados.addEventListener('click', function () {
+    let completados = document.querySelectorAll('.completed');
+    completados.forEach(function(listaMae) {
+      listaMae.parentNode.removeChild(listaMae);
+    });
+
+    
   })
 }
 
