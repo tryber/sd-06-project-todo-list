@@ -14,7 +14,6 @@ window.onload = function () {
   oneLineSelection();
   addItembackgroundColor();
   scratch();
-  erase();
 };
 
 function addItembackgroundColor () {
@@ -41,15 +40,12 @@ function scratch () {
   const eventSelect = document.querySelector('#lista-tarefas');
   eventSelect.addEventListener('dblclick', function (event) {
     let scratchItem = event.target;
-    scratchItem.classList.add('completed');  
+    console.log(scratchItem.classList.contains('completed'));
+    if (scratchItem.classList.contains('completed') == false){
+      scratchItem.classList.add('completed'); 
+    }else{
+      scratchItem.classList.remove('completed');
+    }
+     
   });
-}
-
-function erase () {
-  const eventSelect = document.querySelector('#lista-tarefas');
-  eventSelect.addEventListener('dblclick', function (event) {
-    let eraseItem = event.target;
-    eraseItem.classList.remove('completed');
-  });
-
 }
