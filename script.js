@@ -81,6 +81,40 @@ recoverTasks = () => {
 window.onload = recoverTasks;
 
 
+moveUp = () => {
+    if (counterSelectedTasks() !== 1) {
+        alert('Selecione uma tarefa para mover para cima!');
+    } else {
+        const selectedTask = document.getElementsByClassName('selected')[0];
+        if (selectedTask.previousElementSibling !== null) {
+            const previousItem = selectedTask.previousElementSibling;
+            const previousItemTask = previousItem.innerHTML;
+            previousItem.innerHTML = selectedTask.innerHTML;
+            selectedTask.innerHTML = previousItemTask;
+            selectedTask.classList.remove('selected');
+            previousItem.classList.add('selected')
+        }
+    }
+}
+
+moveDown = () => {
+    if (counterSelectedTasks() !== 1) {
+        alert('Selecione uma tarefa para mover para baixo!');
+    } else {
+        const selectedTask = document.getElementsByClassName('selected')[0];
+        if (selectedTask.nextElementSibling !== null) {
+            const nextItem = selectedTask.nextElementSibling;
+            const nextItemTask = nextItem.innerHTML;
+            nextItem.innerHTML = selectedTask.innerHTML;
+            selectedTask.innerHTML = nextItemTask;
+            selectedTask.classList.remove('selected');
+            nextItem.classList.add('selected')
+        }
+    }
+}
+
+
+
 
 buttonAdd.addEventListener('click', createTask);
 list.addEventListener('click', taskSelected);
@@ -89,6 +123,8 @@ eraseButton.addEventListener('click', clearTasks);
 removeCompletedButton.addEventListener('click', removeTasksCompleted);
 selectedButton.addEventListener('click', removeSelected)
 saveTasksButton.addEventListener('click', storageTasks);
+moveUpBtn.addEventListener('click', moveUp)
+moveDownBtn.addEventListener('click', moveDown);
 
 
 
