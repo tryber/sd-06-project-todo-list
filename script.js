@@ -36,3 +36,18 @@ window.onload = function () {
         }
         listOl.classList.add('bgColor');
     }
+
+    function deleteList() {
+        const list = document.getElementById('lista-tarefas');
+        while (list.firstChild) {
+            list.removeChild(list.firstChild);
+        }
+    }
+
+    function removeComplet() {
+        const removeText = document.querySelectorAll('.completed');
+        for (let i = 0; i < removeText.length; i += 1) {
+            removeText[i].remove();
+        }
+    }
+};
