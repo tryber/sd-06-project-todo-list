@@ -3,11 +3,15 @@ window.onload = function() {
   let myList = document.getElementById("lista-tarefas");
   
   let btnAdd = document.getElementById("criar-tarefa");
+
+  let allItens;
   
+  // Requisito 05 - adicionar o item
   btnAdd.addEventListener("click", function () {
     let myText = document.getElementById("texto-tarefa");
-    addItem(myText.value)
+    addItem(myText.value);
     myText.value = "";
+   
   });
 
   function addItem(myText) {
@@ -15,9 +19,19 @@ window.onload = function() {
     myItem.appendChild(document.createTextNode(myText));
     myList.appendChild(myItem);
     
-    myItem.addEventListener("click", function(){
-      myItem.style.backgroundColor = "rgb(128 , 128 , 128)";
+    myItem.addEventListener("click", function() {
+      chageSelected(myItem); 
     });
+  }
+
+  function chageSelected(newSelected){
+    let oldSelected = document.querySelector(".selected");
+    if (oldSelected) {
+      oldSelected.classList.remove("selected");
+      newSelected.style.backgroundColor = "";
+    }
+    newSelected.classList.add("selected");
+    newSelected.style.backgroundColor = "rgb(128 , 128 , 128)";
   }
 
   // function clearColorSelect() {
