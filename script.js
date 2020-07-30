@@ -4,6 +4,9 @@ window.onload = function () {
     let texto = document.querySelector("#texto-tarefa");
     let bAdicionar = document.querySelector("#criar-tarefa");
     let listaTarefas = document.querySelector("#lista-tarefas");
+    let bLimpar = document.querySelector("#apaga-tudo");
+    let tagsLista = document.querySelectorAll("li");
+    
 
     bAdicionar.addEventListener("click", function (event) {
         let tarefa = document.createElement("li");
@@ -23,7 +26,7 @@ window.onload = function () {
             ultimoSelecionado.style.backgroundColor = "";
             event.target.style.backgroundColor = "rgb(128,128,128)";
             ultimoSelecionado = event.target;
-        }  
+        }        
     });
 
     listaTarefas.addEventListener("dblclick", function (event) {
@@ -31,8 +34,14 @@ window.onload = function () {
             event.target.className = "";
         } else {
             event.target.className = "completed";
-        }
-        
+        }       
+    });
+
+    bLimpar.addEventListener("click", function (event) {
+        const tamanhoLista = listaTarefas.children.length
+        for (let n = 0; n < tamanhoLista; n += 1) {
+            listaTarefas.removeChild(listaTarefas.firstElementChild);
+        }    
     });
 
 }
