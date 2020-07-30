@@ -1,16 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="script.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <title>Lista de Tarefas</title>
-</head>
-<body>
-    <header><h1>Minha Lista de Tarefas</h1></header>
-    <p id=funcionamento>Clique duas vezes em um item para marcá-lo como completo</p>
-    <input id=texto-tarefa>
-    
-</body>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width" />
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <title>Todo List Project</title>  
+    </head>
+    <body>
+        <header><h2>Minha Lista de Tarefas</h2></header>
+        <nav>
+            <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+        </nav>
+        <section>  
+            <button id="criar-tarefa">Adicione uma tarefa!</button>
+            <input type="text" id="texto-tarefa"/>
+            <ol id="lista-tarefas"></ol>
+                <button id="apaga-tudo">Apagar Tudo</button>
+                <button id="remover-finalizados">Apagar Finalizados</button>
+                <button id="salvar-tarefas">Salvar Tarefas</button>
+                <button id="mover-cima">Mover para cima</button>
+                <button id="mover-baixo">Mover para baixo</button>
+                <button id="remover-selecionado">Remover Selecionado</button>
+        </section>
+    </body>
+    <script type="text/javascript" src="script.js"></script>
 </html>
