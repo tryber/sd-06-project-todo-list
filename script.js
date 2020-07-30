@@ -11,23 +11,24 @@ function createTask() {
   listOl.appendChild(newItem);
   newItem.innerHTML = input.value;
   newItem.className = 'tarefa';
-  newItem.addEventListener('click', changeColor, unselect);
+  newItem.addEventListener('click', selectTask);
   newItem.addEventListener('dblclick', scratchItem);
   input.value = '';
 }
 
 // Altera o background para cinza quando clicado e branco quando outro item é clicado
-function changeColor() {
-  const oldItem = event.target
-  oldItem.style.backgroundColor = 'rgb(128, 128, 128)'
-  oldItem.classList.add('clicado');
-}
+function selectTask() {
+  const selectedItem = document.querySelectorAll('.selected')
+  const newItem = document.querySelectorAll('.tarefa')
+  if (selectedItem !== null) {
+    selectedItem.classList.remove('selected');
+    selectedItem.style.backgroundColor = 'transparent'
+  } 
+  newItem.classList.add('selected');
+  newItem.style.backgroundColor = 'grey'
 
-document.querySelectorAll('.tarefa').forEach(unselect)
-  function unselect() {
-    document.querySelectorAll('.clicado').style.backgroundColor = 'white'
-    oldItem.classList.remove('clicado');
-  }
+  newItem = event.target
+}
 
 
 // Torna riscado itens com double click
@@ -50,6 +51,6 @@ function eraseFinished() {
 }
 
 //Salvar itens
-let tarefas = document.querySelectorAll('.tarefa')= JSON.stringify(tarefas)
-console.log(tarefas)
+// let tarefas = document.querySelectorAll('.tarefa')= JSON.stringify(tarefas)
+// console.log(tarefas)
 
