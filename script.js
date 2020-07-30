@@ -1,12 +1,13 @@
 const todoList = JSON.parse(localStorage.getItem('todo-list')) || [];
 const executingTodos = JSON.parse(localStorage.getItem('executing-list')) || [];
 const doneTodos = JSON.parse(localStorage.getItem('finished-list')) || [];
-let selectedTodo = Number((localStorage.getItem('selectedTodo')) || 'none')
+let selectedTodo = Number(localStorage.getItem('selectedTodo') || 'none')
 
 function saveTodos() {
   localStorage.setItem('todo-list', JSON.stringify(todoList));
   localStorage.setItem('executing-list', JSON.stringify(executingTodos));
   localStorage.setItem('finished-list', JSON.stringify(doneTodos));
+  localStorage.setItem('selectedTodo', selectedTodo);
 }
 
 function enableMovingButtons() {
@@ -19,6 +20,7 @@ function enableMovingButtons() {
     const currentlySelected = document.querySelector(".selected");
     if (currentlySelected) {
       const currentText = currentlySelected.innerText;
+      selectedTodo = 'none';
       currentlySelected.remove();
 
       const todoIndex = todoList.indexOf(currentText);
@@ -48,6 +50,7 @@ function enableMovingButtons() {
       let elementDown = todoList[currentIndex - 1];
       todoList[currentIndex - 1] = selectedText;
       todoList[currentIndex] = elementDown;
+      selectedTodo = currentIndex - 1;
       renderTodaysTodos();
       const everyTodo = document.querySelectorAll(".daily");
       everyTodo[currentIndex - 1].classList.add('selected');
@@ -63,6 +66,7 @@ function enableMovingButtons() {
       let elementUp = todoList[currentIndex + 1];
       todoList[currentIndex + 1] = selectedText;
       todoList[currentIndex] = elementUp;
+      selectedTodo = currentIndex + 1;
       renderTodaysTodos();
       const everyTodo = document.querySelectorAll(".daily");
       everyTodo[currentIndex + 1].classList.add('selected');
@@ -103,7 +107,6 @@ function clickTodo(event) {
   const previousSelected = document.querySelector('.selected');
   event.target.classList.toggle('selected');
   selectedTodo = todoList.indexOf(event.target.innerText);
-  localStorage.setItem('selectedTodo', selectedTodo);
 
   if (previousSelected) {
     previousSelected.classList.remove('selected')
