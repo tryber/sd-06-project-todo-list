@@ -26,9 +26,11 @@ function itemDone(event) {
   const item = event.currentTarget;
   console.log(item);
   if (item.className === `completed`) {
-    item.classList.remove('completed');
+    while(item.classList.contains('completed')){
+      item.classList.remove('completed');
+    }
   } else {
-    item.classList = `completed`;
+    item.classList = `${item.classList} completed`;
   }
 }
 
@@ -40,18 +42,16 @@ function moveUp (event) {
 
 
   for (let i = 0 ; i < items.length ; i += 1) {
-    if (items[i] === selected && i > 0) {
+    if (items[i] === selected ) {
       anterior = items[i - 1];
       event.stopImmediatePropagation();
 
     }
   }
   if(anterior !== undefined) {
-    anterior.classList = selected.classList;
-    selected.classList.remove('selected');
-    let copytext = anterior.innerHTML;
-    anterior.innerHTML = selected.innerHTML;
-    selected.innerHTML = copytext;
+
+    selected.parentNode.insertBefore(selected,anterior);
+
   }
 }
 
@@ -62,19 +62,15 @@ function moveDown (event) {
   let proximo;
 
 
-  for (let i = items.length ; i > 0  ; i -= 1) {
-    if (items[i] === selected && i > 0) {
+  for (let i = items.length ; i >= 0  ; i -= 1) {
+    if (items[i] === selected ) {
       proximo = items[i + 1];
       event.stopImmediatePropagation();
 
     }
   }
   if(proximo !== undefined) {
-    proximo.classList = selected.classList;
-    selected.classList.remove('selected');
-    let copytext = proximo.innerHTML;
-    proximo.innerHTML = selected.innerHTML;
-    selected.innerHTML = copytext;
+    proximo.parentNode.insertBefore(proximo,selected);
   }
 }
 
