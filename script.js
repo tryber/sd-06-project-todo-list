@@ -18,16 +18,13 @@ function createTask() {
 
 // Altera o background para cinza quando clicado e branco quando outro item é clicado
 function selectTask() {
-  const selectedItem = document.querySelectorAll('.selected')
-  const newItem = document.querySelectorAll('.tarefa')
+  const selectedItem = document.querySelector('.selected')
   if (selectedItem !== null) {
     selectedItem.classList.remove('selected');
-    selectedItem.style.backgroundColor = 'transparent'
+    selectedItem.style.backgroundColor = ''
   } 
-  newItem.classList.add('selected');
-  newItem.style.backgroundColor = 'grey'
-
-  newItem = event.target
+  event.target.classList.add('selected');
+  event.target.style.backgroundColor = 'grey'
 }
 
 
