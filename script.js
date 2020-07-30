@@ -1,3 +1,7 @@
+if (localStorage.getItem('my-tasks') !== null) {
+  document.getElementById('lista-tarefas').innerHTML = localStorage.getItem('my-tasks');
+}
+
 const btAdd = document.getElementById('criar-tarefa');
 btAdd.addEventListener('click', function () {
   const newTask = document.getElementById('texto-tarefa').value;
@@ -12,7 +16,7 @@ btAdd.addEventListener('click', function () {
 });
 
 function unsetBgTasks() {
-  document.querySelectorAll('.tasks').forEach(itemBg => {
+  document.querySelectorAll('.tasks').forEach((itemBg) => {
     itemBg.style.backgroundColor = '';
   });
 }
@@ -38,7 +42,7 @@ function tasksListenerDbClick(tagLi) {
 const btRemoveAll = document.querySelector('#apaga-tudo');
 btRemoveAll.addEventListener('click', function () {
   document.querySelector('#lista-tarefas').innerHTML = '';
-})
+});
 
 const btRemoveAllFinished = document.querySelector('#remover-finalizados');
 btRemoveAllFinished.addEventListener('click', function () {
@@ -50,7 +54,10 @@ btRemoveAllFinished.addEventListener('click', function () {
   }
 });
 
-
+const btSave = document.getElementById('salvar-tarefas');
+btSave.addEventListener('click', function () {
+  localStorage.setItem('my-tasks', document.getElementById('lista-tarefas').innerHTML)
+});
 
 // function deleteAllCompletedClasses() {
 //   document.querySelectorAll('li').forEach((item) => {

@@ -1,3 +1,15 @@
+body {
+  font-family: sans-serif;
+}
+
 .completed {
   text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+button {
+  background-color: teal;
+  border: 1px solid rgb(0, 56, 56);
+  border-radius: 20px;
+  color: white;
+  padding: 5px 15px;
 }
