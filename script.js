@@ -5,43 +5,71 @@ window.onload = function () {
     let bAdicionar = document.querySelector("#criar-tarefa");
     let listaTarefas = document.querySelector("#lista-tarefas");
     let bLimpar = document.querySelector("#apaga-tudo");
-    let tagsLista = document.querySelectorAll("li");
+    let bLImparCompletos = document.querySelector("#remover-finalizados");
     
 
     bAdicionar.addEventListener("click", function (event) {
-        let tarefa = document.createElement("li");
-        tarefa.innerText = texto.value;
-        listaTarefas.appendChild(tarefa);
-        texto.value = "";
+        if (texto.value === "") {
+            alert("Caixa vazia");
+        } else {
+            let tarefa = document.createElement("li");
+            tarefa.innerText = texto.value;
+            listaTarefas.appendChild(tarefa);
+            texto.value = "";
+        }
+        
     });
-    
-    let click1 = 0;
-    let ultimoSelecionado;
-    listaTarefas.addEventListener("click", function (event) {
-        if (click1 === 0){            
-            ultimoSelecionado = event.target;
-            event.target.style.backgroundColor = "rgb(128,128,128)";
-            click1 = 1;
-        } else {            
+
+    let ultimoSelecionado = listaTarefas;
+    listaTarefas.addEventListener("click", function (event) {        
+        let selecionado1 = event.target;
+        if (selecionado1.id !== "lista-tarefas") {        
+            if (selecionado1.children.length === 0){
+                selecionado1 = selecionado1.parentElement.parentElement;
+            }
+                       
             ultimoSelecionado.style.backgroundColor = "";
-            event.target.style.backgroundColor = "rgb(128,128,128)";
-            ultimoSelecionado = event.target;
-        }        
+            selecionado1.style.backgroundColor = "rgb(128,128,128)";
+            ultimoSelecionado = selecionado1;           
+        }
+
     });
 
     listaTarefas.addEventListener("dblclick", function (event) {
-        if (event.target.className === "completed"){
-            event.target.className = "";
-        } else {
-            event.target.className = "completed";
-        }       
+        let selecionado2 = event.target;
+        if (selecionado2.id !== "lista-tarefas") { 
+            if (selecionado2.children.length === 0){
+                selecionado2 = selecionado2.parentElement.parentElement;
+            }
+            
+            if (selecionado2.className === "completed"){
+                selecionado2.className = "";
+            } else {
+                selecionado2.className = "completed";
+            }
+            /* console.log(selecionado2.style.textDecoration); */
+        }
+
     });
 
-    bLimpar.addEventListener("click", function (event) {
-        const tamanhoLista = listaTarefas.children.length
+    bLimpar.addEventListener("click", function () {
+        let tamanhoLista = listaTarefas.children.length
         for (let n = 0; n < tamanhoLista; n += 1) {
             listaTarefas.removeChild(listaTarefas.firstElementChild);
-        }    
+        }
+
+    });
+
+    bLImparCompletos.addEventListener("click", function (event) {
+        let tamanhoLista = listaTarefas.children.length
+        for (let n = 0; n < tamanhoLista; n += 1) {
+            if (listaTarefas.children[n].className === "completed") {
+                listaTarefas.removeChild(listaTarefas.children[n]);
+                n -= 1;
+            }
+            
+        }
+
     });
 
 }
