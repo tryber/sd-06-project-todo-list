@@ -28,10 +28,17 @@ function itemCompleted(event) {
     completedItem.classList.add('completed');
   }
 }
-
+//Limpa toda a lista de tarefas
 function clearList() {
   let list = document.querySelector('#lista-tarefas');
   while(list.firstChild) {
     list.removeChild(list.firstChild);
+  }
+}
+//Exclui todas as tarefas completadas
+function clearTasksCompleted() {
+  let itemsCompleteds = document.getElementsByClassName('completed');
+  while (itemsCompleteds.length > 0) {
+    itemsCompleteds[0].remove();
   }
 }
