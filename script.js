@@ -1,8 +1,6 @@
 let addTaskButton = document.querySelector("#criar-tarefa");
 let taskInput = document.querySelector("#texto-tarefa");
 let taskList = document.querySelector("#lista-tarefas");
-let previousSelectedTask = "";
-let currentSelectedTask = "";
 let deleteTasksButton = document.querySelector("#apaga-tudo");
 let removeDoneTasksButton = document.querySelector("#remover-finalizados");
 let removeSelectedTaskButton = document.querySelector("#remover-selecionado");
@@ -10,8 +8,8 @@ let moveUpButton = document.querySelector("#mover-cima")
 let moveDownButton = document.querySelector("#mover-baixo")
 
 addTaskButton.addEventListener("click", addTask);
-taskList.addEventListener("click", highlightTask);
 taskList.addEventListener("dblclick", tickTask);
+taskList.addEventListener("click", highlightTask);
 deleteTasksButton.addEventListener("click", deleteTasks);
 removeDoneTasksButton.addEventListener("click", removeDoneTasks);
 removeSelectedTaskButton.addEventListener("click", removeSelectedTask);
@@ -26,17 +24,31 @@ function addTask(event){
     taskInput.value = "";
 }
 
+let previousSelectedTask;
+let currentSelectedTask;
 function highlightTask(event){
-    if(event.target.tagName.toLowerCase() == "li" && previousSelectedTask == ""){
-        currentSelectedTask = event.target;
-        currentSelectedTask.classList.add("selected");
-        previousSelectedTask = currentSelectedTask;
-    } else if (event.target.tagName.toLowerCase() == "li"){
-        previousSelectedTask = document.querySelector(".selected");
-        currentSelectedTask = event.target;
-        currentSelectedTask.classList.add("selected");
+    previousSelectedTask = currentSelectedTask;
+    currentSelectedTask = event.target;
+    currentSelectedTask.classList.add("selected");
+    if(previousSelectedTask === null){
+    
+    } else if(previousSelectedTask === undefined){
+    
+    } else{
         previousSelectedTask.classList.remove("selected");
-    }
+    };
+
+
+    // if(event.target.tagName.toLowerCase() == "li" && previousSelectedTask == ""){
+    //     currentSelectedTask = event.target;
+    //     currentSelectedTask.classList.add("selected");
+    //     previousSelectedTask = currentSelectedTask;
+    // } else if (event.target.tagName.toLowerCase() == "li"){
+    //     currentSelectedTask = event.target;
+    //     currentSelectedTask.classList.add("selected");
+    //     previousSelectedTask.classList.remove("selected");
+    //     previousSelectedTask = document.querySelector(".selected");
+    // }
 }
 
 function tickTask(event){
