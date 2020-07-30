@@ -16,3 +16,22 @@ function pushListItem() {
 }
 
 btnNewTask.addEventListener('click', pushListItem);
+
+function selectListItem(event) {
+  const selectedItem = event.target;
+  selectedItem.style.backgroundColor = 'rgb(128, 128, 128)';
+}
+
+function riskListItem(event) {
+  const selectedItem = event.target;
+  selectedItem.style.removeProperty('background-color');
+  selectedItem.style.textDecoration = 'line-through';
+}
+
+document
+  .querySelector('#lista-tarefas')
+  .addEventListener('click', selectListItem);
+
+document
+  .querySelector('#lista-tarefas')
+  .addEventListener('dblclick', riskListItem);
