@@ -3,9 +3,13 @@ const input = document.getElementById('texto-tarefa');
 const listaMae = document.querySelector('#lista-tarefas')
 const apagaButton = document.getElementById('apaga-tudo')
 const rmvFinalizados = document.getElementById('remover-finalizados')
+const salvaLista = document.getElementById('salvar-tarefas')
 
 window.onload = function (){
   setupClickButton();
+  if (localStorage.ListaTarefas !== undefined) {
+    document.getElementById('lista-tarefas').innerHTML = localStorage.ListaTarefas;
+  }
 }
 
 function setupClickButton(){
@@ -30,6 +34,9 @@ function setupClickButton(){
     });
 
     
+  })
+  salvaLista.addEventListener('click', function () {
+    localStorage.setItem('ListaTarefas', listaMae.innerHTML)
   })
 }
 
