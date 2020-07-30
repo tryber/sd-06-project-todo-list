@@ -6,8 +6,8 @@ const span = document.getElementsByTagName('span');
 
 // Funções e Eventos //
 createButton.addEventListener('click', function () {
-  let listItem = textCreate.value;
-  let item = document.createElement('li');
+  const listItem = textCreate.value;
+  const item = document.createElement('li');
   item.innerText = listItem;
   item.className = 'work';
   if (listItem === '') {
@@ -16,15 +16,15 @@ createButton.addEventListener('click', function () {
     listCreate.appendChild(item);
     textCreate.value = '';
   }
-})
+});
 
 listCreate.addEventListener('click', function (e) {
   const selected = document.querySelector('.selected');
   selected.classList.remove('selected');
   e.target.className += ' selected';
-})
+});
 
-listCreate.addEventListener('dblclick', function(e){
+listCreate.addEventListener('dblclick', function (e){
   if (e.target.classList.contains('completed')) {
     e.target.classList.remove('completed');
   } else {
