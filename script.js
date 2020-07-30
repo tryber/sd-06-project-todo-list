@@ -7,22 +7,19 @@ window.onload = function () {
   const ereseAll = document.querySelector('#apaga-tudo');
   const ereseSel = document.querySelector('#remover-selecionado');
   const ereseFin = document.querySelector('#remover-finalizados')
+  const upBT = document.querySelector('#mover-cima')
+  const dnBT = document.querySelector('#mover-baixo')
 
-
-  let todos = [];
+  const todos = [];
 
   function showTodos() {
     listElement.innerHTML = '';
-    let aux = 0;
     for (let todo of todos) {
-      let showElement = document.createElement('li');
-      let showText = document.createTextNode(todo);
-      aux += 1;
+      const showElement = document.createElement('li');
+      const showText = document.createTextNode(todo);
       showElement.appendChild(showText);
       showElement.classList.add('liClass')
       listElement.appendChild(showElement);
-      
-
     }
   }
 
@@ -31,12 +28,12 @@ window.onload = function () {
     todos.push(inputString);
     inputElement.value = '';
     showTodos();
-  })
+  });
 
   ereseAll.addEventListener('click', function () {
     todos.splice(0, todos.length)
     showTodos();
-  })
+  });
 
   listElement.addEventListener('click', function () {
     for (const j of document.getElementsByTagName('li')) {
@@ -46,16 +43,13 @@ window.onload = function () {
       }
     }
     event.target.classList.add('selected');
-  })
-
-
-
+  });
 
   ereseSel.addEventListener('click', function () {
     let pos = todos.indexOf(document.querySelector('.selected').innerHTML)
     todos.splice(pos, 1);
     showTodos();
-  })
+  });
 
   listElement.addEventListener('dblclick', function (event) {
     for (let index = 0; index < document.getElementsByTagName.length; index++) {
@@ -67,30 +61,11 @@ window.onload = function () {
         event.target.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
       }
     }
-      
-    
-    
-    
-    
-    
-    
-    // for (const i of document.getElementsByTagName('li')) {
-    //   if (event.target.classList.contains('completed')) {
-    //     event.target.classList.remove('completed');
-    //     event.target.style.textDecoration = '';
-    //   } else {
-    //     event.target.classList.add('completed')
-    //     event.target.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
-    //   }
-    // }
-
-  })
+  });
 
   ereseFin.addEventListener('click', function () {
-
-    let colecao = document.getElementsByClassName('completed')
+    let colecao = document.getElementsByClassName('completed');
     for (let i = 0; i < colecao.length; i += 1) {
-      console.log(colecao.item(i).innerHTML)
       for (const key in todos) {
         if (colecao.item(i).innerHTML === todos[key]) {
           todos.splice(key, 1)
@@ -98,5 +73,24 @@ window.onload = function () {
       }
     }
     showTodos();
-  })
+  });
+
+  upBT.addEventListener('click', function () {
+    const lis = listElement.childNodes;
+    for (let index = 1; index < lis.length; index += 1) {
+      if (lis[index].classList.contains('selected')) {
+        listElement.insertBefore(lis[index], lis[index - 1]);
+      }
+    }
+  });
+
+  dnBT.addEventListener('click', function () {
+    const lis = listElement.childNodes;
+    for (let index = lis.length - 2; index >= 0; index -= 1) {
+      if (lis[index].classList.contains('selected')) {
+        listElement.insertBefore(lis[index + 1], lis[index]);
+      }
+    }
+  });
+
 }
