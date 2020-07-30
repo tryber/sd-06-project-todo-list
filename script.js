@@ -16,15 +16,20 @@ button.addEventListener("click", function() {
     activity.value = "";
     
    elementLi.addEventListener("click", function(){
-    let item = document.getElementsByTagName("li");
-    for(let index = 0; index < item.length; index ++) {
+    let item = document.querySelectorAll("#li");
+    for(let index = 0; index < item.length; index += 1) {
       item[index].classList.remove("backGroundColor");
     }
      elementLi.classList.add("backGroundColor");
-   });
+   
+  });
    
    let clearAllButton = document.querySelector("#apaga-tudo");
    clearAllButton.addEventListener("click", function() {
-      document.getElementById("lista-tarefas").removeChild(elementLi);
-      });     
+     for (let index = 0; index < elementLi.length; index += 1) {
+       console.log(elementLi.length);
+      document.getElementById("lista-tarefas").removeChild(elementOl.childNodes[index]);
+     }
+      });
+          
 });
