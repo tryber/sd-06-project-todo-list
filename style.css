@@ -1,0 +1,46 @@
+body {
+  background-color: rgb(49 , 88 , 122);
+}
+
+header {
+  background-color: rgb(29 , 53 , 87);
+  color: rgb(241 , 250 , 238);
+  font-size: 50px;
+  text-align: center;
+  text-decoration: solid;
+}
+
+.classe {
+  text-align: center;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.criar-tarefa {
+  background-color: greenyellow;
+}
+
+.funcionamento {
+  color: rgb(241 , 250 , 238);
+  margin-right: 20px;
+}
+
+.lista-tarefas {
+  color: white;
+  margin-left: 350px;
+}
+
+.botoes {
+  padding-right: 350px;
+  text-align: center;
+}
+
+.apaga-tudo {
+  background-color: red;
+}
+
+.selected {
+  background-color: gray;
+}
