@@ -61,3 +61,15 @@ header {
   border-radius: 1em;
   color: white;
 }
+
+.salvar-tarefas {
+  background-color: green;
+  border-radius: 1em;
+  color: white;
+}
+
+.limpa-lista-gravada {
+  background-color: grey;
+  border-radius: 1em;
+  color: white;
+}
