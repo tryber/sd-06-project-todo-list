@@ -10,7 +10,6 @@
 
   const todos = [];
 
-
   function showTodos() {
     listElement.innerHTML = ' ';
     for (let todo of todos) {
@@ -31,14 +30,14 @@
   }
 
   submitElement.addEventListener('click', function () {
-    let inputString = inputElement.value;
+    const inputString = inputElement.value;
     todos.push(inputString);
     inputElement.value = '';
     showTodos();
   });
 
   ereseAll.addEventListener('click', function () {
-    todos.splice(0, todos.length)
+    todos.splice(0, todos.length);
     showTodos();
   });
 
@@ -53,18 +52,18 @@
   });
 
   ereseSel.addEventListener('click', function () {
-    let pos = todos.indexOf(document.querySelector('.selected').innerHTML)
+    const pos = todos.indexOf(document.querySelector('.selected').innerHTML);
     todos.splice(pos, 1);
     showTodos();
   });
 
   listElement.addEventListener('dblclick', function (event) {
-    for (let index = 0; index < document.getElementsByTagName.length; index++) {
+    for (let index = 0; index < document.getElementsByTagName.length; index += 1) {
       if (event.target.classList.contains('completed')) {
         event.target.classList.remove('completed');
         event.target.style.textDecoration = '';
       } else {
-        event.target.classList.add('completed')
+        event.target.classList.add('completed');
         event.target.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
       }
     }
@@ -81,7 +80,7 @@
     }
     showTodos();
   });
-  
+
   downBtn.addEventListener('click', function () {
     const lis = document.querySelector('#lista-tarefas').childNodes;
     for (let i = lis.length - 2; i >= 0; i -= 1) {
@@ -90,7 +89,7 @@
       }
     }
   });
- 
+
   upBtn.addEventListener('click', function () {
     const lis = document.querySelector('#lista-tarefas').childNodes;
     for (let index = 1; index < lis.length; index += 1) {
@@ -99,8 +98,6 @@
       }
     }
   });
-
-
 
   saveBT.addEventListener('click', function () {
     const liSalvo = document.querySelector('#lista-tarefas').innerHTML;

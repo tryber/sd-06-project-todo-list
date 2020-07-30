@@ -1,10 +1,10 @@
 body {
-  background-color: #31587A;
+  background-color: rgb(49 , 88 , 122);
 }
 
 header {
-  background-color: #1d3557;
-  color: #f1faee;
+  background-color: rgb(29 , 53 , 87);
+  color: rgb(241 , 250 , 238);
   font-size: 50px;
   text-align: center;
   text-decoration: solid;
@@ -23,7 +23,7 @@ header {
 }
 
 .funcionamento {
-  color: #F1FAEE;
+  color: rgb(241 , 250 , 238);
   margin-right: 20px;
 }
 
