@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>To Do Liszt</title>
+</head>
+<body>
+  <header>
+    <h1>Minha Lista de Tarefas</h1>
+    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+  </header>
+  <section>
+    <label for="texto-tarefa">Nova Tarefa: </label>
+    <input id="texto-tarefa">
+    <button id="criar-tarefa">Adicionar Tarefa</button>
+    <section>
+      <ol id="lista-tarefas"></ol>
+    </section>
+    <section id="console">
+      <button id="apaga-tudo">Apagar tudo</button>
+      <button id="remover-finalizados">Remover finalizados</button>
+    </section>
+  </section>
+  <script src="script.js"></script>
+</body>
+</html>
