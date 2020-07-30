@@ -19,7 +19,9 @@ window.onload = function () {
       let showText = document.createTextNode(todo);
       aux += 1;
       showElement.appendChild(showText);
+      showElement.classList.add('liClass')
       listElement.appendChild(showElement);
+      
 
     }
   }
@@ -35,8 +37,8 @@ window.onload = function () {
     todos.splice(0, todos.length)
     showTodos();
   })
+
   listElement.addEventListener('click', function () {
-    console.log(document.getElementsByTagName('li').length);
     for (const j of document.getElementsByTagName('li')) {
       if (j.classList.contains('selected')) {
         j.classList.remove('selected');
@@ -56,7 +58,7 @@ window.onload = function () {
   })
 
   listElement.addEventListener('dblclick', function (event) {
-    for (const i of document.getElementsByTagName('li')) {
+    for (let index = 0; index < document.getElementsByTagName.length; index++) {
       if (event.target.classList.contains('completed')) {
         event.target.classList.remove('completed');
         event.target.style.textDecoration = '';
@@ -65,6 +67,22 @@ window.onload = function () {
         event.target.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
       }
     }
+      
+    
+    
+    
+    
+    
+    
+    // for (const i of document.getElementsByTagName('li')) {
+    //   if (event.target.classList.contains('completed')) {
+    //     event.target.classList.remove('completed');
+    //     event.target.style.textDecoration = '';
+    //   } else {
+    //     event.target.classList.add('completed')
+    //     event.target.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
+    //   }
+    // }
 
   })
 
