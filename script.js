@@ -1,4 +1,7 @@
 window.onload = function(){
+
+
+
     var inptTarefa = document.querySelector("#texto-tarefa");
     var btnTarefa = document.querySelector("#criar-tarefa");
     var lista = document.querySelector("#lista-tarefas");
@@ -10,6 +13,19 @@ window.onload = function(){
     var moverBaixo = document.querySelector("#mover-baixo");
 
 
+    if(localStorage.getItem("item1")){
+        for(let i = 1; i < localStorage.length + 1 ; i++){
+            var obj = document.createElement("li")
+            obj.innerText = localStorage.getItem("item" + i)
+            console.log(obj)
+            lista.appendChild(obj)
+        }
+    }
+  
+    
+
+
+        
     btnTarefa.addEventListener("click", function(){
        var insideList = document.createElement("li");
        lista.appendChild(insideList)
@@ -39,6 +55,8 @@ window.onload = function(){
     apagaTudo.addEventListener("click", function(){
         lista.innerHTML = "";
     })
+
+
     finalizados.addEventListener("click", function(){
         var finals = lista.querySelectorAll(".completed")
         for(let i = 0; i < finals.length; i += 1){
@@ -99,6 +117,15 @@ moverBaixo.addEventListener("click",function(){
         }
     })
 
+
+
+
+    save.addEventListener("click", function(){
+        let elements = lista.childNodes;
+        for(let i = 1; i < elements.length; i += 1){
+            localStorage.setItem("item" + i, elements[i].innerText)
+        }
+    })
     
 
     
