@@ -1,0 +1,300 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: cornflowerblue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  color: white;
+}
+
+.header-text {
+  position: relative;
+}
+
+.header-text::before {
+  content: '\f245';
+  font-family: "Font Awesome 5 Free";
+  font-size: 80%;
+  font-weight: 900;
+  margin-right: 4px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* add todo part */
+.add-todos {
+  display: flex;
+  margin: 12px 0;
+  align-items: center;
+}
+
+.input-todo {
+  position: relative;
+  width: 200px;
+  height: 48px;
+  overflow: hidden;
+}
+
+.input-tarefa {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding-top: 12px;
+  letter-spacing: 0.5px;
+}
+
+/* aqui tem que ser .label-todo .input-text
+pq o '+' é para o elemento IMEDIATAMENTE
+depois que atende à query que colocamos*/
+.input-tarefa:focus + .label-todo .input-text ,
+.input-tarefa:not(:placeholder-shown) + .label-todo .input-text {
+  transform: translateY(-150%);
+  font-size: 12px;
+  left: 0;
+}
+/* input:valid não ia funcionar pq checa a validade
+fo input pelo HTML - ex: se é um input de email
+e o usuario digita qualquer coisa, não funciona */
+
+.label-todo {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  border-bottom: 2px solid grey;
+  width: 100%;
+  height: 100%;
+}
+
+.label-todo::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  border-bottom: 2px solid cornflowerblue;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease-in;
+  transform: translateX(-100%);
+}
+
+.input-tarefa:focus + .label-todo::after ,
+.input-tarefa:not(:placeholder-shown) + .label-todo::after {
+  transform: translateX(0%);
+}
+
+.input-text {
+  position: absolute;
+  bottom: 3px;
+  left: 3px;
+  color: cornflowerblue;
+  font-size: 15px;
+  font-weight: 700;
+  pointer-events: none;
+  transition: all 0.4s ease;
+}
+
+
+/* button add todo */
+.add-todos button {
+  margin-left: 16px;
+  align-self: flex-end;
+  padding: 4px 6px;
+  background-color: cornflowerblue;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  font-weight: 700;
+  box-shadow: 0 3px grey;
+  outline: none;
+}
+
+.add-todos button:active {
+  outline: none;
+  transform: translateY(3px);
+  box-shadow: none;
+}
+
+/* main content */
+.todos-container {
+  background: #f0f0f5;
+  margin: 24px 0 12px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 18px;
+  border-radius: 8px;
+}
+
+h2 {
+  font-size: 36px;
+}
+
+/* grid and card */
+.todos-container-grid {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr ;
+  width: 100%;
+  gap: 7%;
+}
+
+.card {
+  background-color: rgb(151 , 168 , 231);
+  padding: 6px 15px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  border-radius: 8px;
+  position: relative;
+  min-height: 200px;
+  overflow: hidden;
+}
+
+/* control buttons */
+.up-down-control {
+  position: absolute;
+  bottom: 5px;
+  padding: 3%;
+  width: 70%;
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 8px;
+}
+
+.btn {
+  height: 20px;
+  width: 20px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+.btn:active {
+  transform: translateY(2px);
+}
+
+.up::after {
+  content: '\f0d8';
+  font-family: 'Font Awesome 5 Free';
+  font-size: 100%;
+  font-weight: 900;
+  color: green;
+}
+
+.down::after {
+  content: '\f0dd';
+  font-family: 'Font Awesome 5 Free';
+  font-size: 100%;
+  font-weight: 900;
+  color: red;
+}
+
+.right::after {
+  content: '\f061';
+  font-family: 'Font Awesome 5 Free';
+  font-size: 80%;
+  font-weight: 900;
+  color: indigo;
+}
+
+.remove::after {
+  content: '\f2ed';
+  font-family: 'Font Awesome 5 Free';
+  font-size: 80%;
+  font-weight: 900;
+  color: black;
+}
+
+/* todo list */
+.list-container {
+  width: 100%;
+  text-align: center;
+  max-height: 90%;
+}
+
+h4 {
+  font-size: 22px;
+}
+
+.todo-list {
+  width: 95%;
+  list-style: none;
+  margin-top: 10px;
+  max-height: 40vh;
+  overflow: auto;
+}
+
+.todo-item {
+  margin: 6px 0;
+  background-color: rgb(104 , 125 , 175);
+  border-radius: 5px;
+  padding: 4px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.selected {
+  background-color: grey;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+  position: relative;
+}
+
+.completed::after {
+  content: '\f061';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  font-size: 80%;
+  color: red;
+  text-decoration: none;
+  position: absolute;
+  vertical-align: middle;
+  right: 4px;
+  top: 7px;
+}
+
+.doing {
+  position: relative;
+}
+
+.doing::after {
+  content: '\f069';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  font-size: 80%;
+  color: darkturquoise;
+  text-decoration: none;
+  position: absolute;
+  vertical-align: middle;
+  right: 4px;
+  top: 7px;
+}
+
+.hide {
+  display: none;
+}
+
+/* control buttons */
+.control {
+  background-color: #f0f0f5;
+  width: 90%;
+  height: 8vh;
+  border-radius: 8px;
+  padding: 8px;
+}
