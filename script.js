@@ -16,34 +16,15 @@ function selectItem(event) {
   for (let i = 0; i < listaItems.length; i += 1) {
     listaItems[i].classList.remove('selected');
   }
-  selectItemList.className = 'selected';
+  selectItemList.classList.add('selected');
   selectItemList.addEventListener('dblclick', itemCompleted);
 }
 //Seta item como completado
 function itemCompleted(event) {
   let completedItem = event.target;
-  if ( completedItem.classList != 'completed'){
-    completedItem.classList.add('completed');
-    // console.log(completedItem);
-  }else {
+  if ( completedItem.classList.contains('completed')) {
     completedItem.classList.remove('completed');
-    // console.log(completedItem);
+  }else {
+    completedItem.classList.add('completed');
   }
 }
-
-// function selectItem(event) {
-//   let selectItemList = event.target;
-//   let listaItems = document.getElementsByTagName('li');
-//   let contador = 0;
-//   for (let i in listaItems) {
-//     if (listaItems[i].className === 'selected') {
-//       contador += 1;
-//     }else if (contador > 0) {
-//       for (i in listaItems) {
-//         listaItems[i].className.remove('selected');
-//       }  
-//     }
-//   }
-//   selectItemList.className = 'selected';
-//   selectItemList.addEventListener('dblclick', itemCompleted);
-// }
