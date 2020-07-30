@@ -30,14 +30,25 @@ window.onload = function () {
       //Change the background color of a selected iten when clicked
      taskList.addEventListener('click', function () {
          if (selection) {
-             selection.classList.remove('.selected');
+             selection.classList.removechild('.selected');
          }
          let selectedElement = event.target;
-         selectedElement.classList.add('selected');
+         selectedElement.classList.add('.selected');
     });
 
     taskList.addEventListener('dblclick', function () {
         let selection = event.target;
         selection.classList.toggle('completed');
       })
+
+      let finishedBtn = document.querySelector('#remover-finalizados')
+      finishedBtn.addEventListener('click', function () {
+          let finishedElement = document.querySelectorAll('.completed');
+              for (let i = 0; i < finishedElement.length; i += 1) {
+                  finishedElement[i].remove();
+              }
+      });
+
+
 }
+
