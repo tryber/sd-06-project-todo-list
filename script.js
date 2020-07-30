@@ -42,7 +42,16 @@ function createElementList(textvalue) {
   completeTask();
 }
 
-window.onload = function () {
+function listToSave() {
+  const saveItem = {};
+  for (let i = 0; i < document.querySelectorAll('li').length; i += 1) {
+    saveItem.name = document.querySelectorAll('li')[i].innerHTML;
+    saveItem.class = document.querySelectorAll('li')[i].className;
+    localStorage.setItem(i, JSON.stringify(saveItem));
+  }
+}
+
+function returnSavedList() {
   if (localStorage.length > 0) {
     for (let i = 0; i < localStorage.length; i += 1) {
       const saveList = JSON.parse(localStorage.getItem(i));
@@ -55,6 +64,10 @@ window.onload = function () {
     selectElement();
     completeTask();
   }
+}
+
+window.onload = function () {
+  returnSavedList();
 };
 
 btnCreate.addEventListener('click', function () {
@@ -70,16 +83,14 @@ btnEraseTask.addEventListener('click', function () {
   for (let i = 0; i < completedItems.length; i += 1) {
     list.removeChild(completedItems[i]);
   }
+  listToSave();
+  list.innerHTML = '';
+  returnSavedList();
   localStorage.clear();
 });
 
 btnSaveList.addEventListener('click', function () {
-  const saveItem = {};
-  for (let i = 0; i < document.querySelectorAll('li').length; i += 1) {
-    saveItem.name = document.querySelectorAll('li')[i].innerHTML;
-    saveItem.class = document.querySelectorAll('li')[i].className;
-    localStorage.setItem(i, JSON.stringify(saveItem));
-  }
+  listToSave();
 });
 
 document.getElementById('mover-cima').addEventListener('click', function () {
@@ -131,4 +142,16 @@ document.getElementById('mover-baixo').addEventListener('click', function () {
       break;
     }
   }
+});
+
+document.getElementById('remover-selecionado').addEventListener('click', function () {
+  for (let i = 0; i < document.querySelectorAll('li').length; i += 1) {
+    if (document.querySelectorAll('li')[i].style.backgroundColor === 'rgb(128, 128, 128)') {
+      document.getElementById('lista-tarefas').removeChild(document.querySelectorAll('li')[i]);
+    }    
+  }
+  listToSave();
+  list.innerHTML = '';
+  returnSavedList();
+  localStorage.clear();
 });
