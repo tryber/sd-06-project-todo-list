@@ -8,14 +8,15 @@ body {
     "header"
     "list"
     "buttons";
-  width: 90%;
+  width: ;
   border-radius: 15px;
   background-color: white;
   padding: 15px;
 }
 
-#titulo #funcionamento #texto-tarefa {
+#titulo, #funcionamento {
   grid-area: "header";
+  padding-left: 25px;
 }
 
 #titulo {
@@ -23,8 +24,9 @@ body {
   font-size: 40px;
 }
 
-#criar-tarefa {
+#criar-tarefa, #texto-tarefa {
   width: fit-content;
+  margin-left: 25px;
 }
 
 #lista-tarefas {
@@ -32,7 +34,8 @@ body {
 }
 
 li {
-  border-radius: 5px;
+  border-radius: 4px;
+  width: 50%;
 }
 li:hover {
   background-color: rgb(0, 186, 192);
@@ -56,6 +59,20 @@ li:hover {
   grid-area: "buttons";
   display: grid;
   grid-template-columns: repeat(6, auto);
-  justify-content: space-around;
-  width: 60%;
+  justify-content: space-evenly;
+  width: 50%;
+  margin-left: -26px;
+}
+
+button {
+  border-radius: 6px;
+  background-color: teal;
+  color: white;
+}
+button:hover {
+  box-shadow: 0 0 100px 100px rgba(255, 255, 255, 0.1) inset;
+}
+
+#remover-selecionado {
+  background-color: red;
 }
