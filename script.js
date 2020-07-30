@@ -6,6 +6,7 @@ const rmvFinalizados = document.getElementById('remover-finalizados');
 const salvaLista = document.getElementById('salvar-tarefas');
 const up = document.getElementById('mover-cima');
 const down = document.getElementById('mover-baixo');
+const rmvSelecionado = document.getElementById('remover-selecionado')
 
 window.onload = function (){
   setupClickButton();
@@ -34,8 +35,6 @@ function setupClickButton(){
     completados.forEach(function(listaMae) {
       listaMae.parentNode.removeChild(listaMae);
     });
-
-    
   })
   salvaLista.addEventListener('click', function () {
     localStorage.setItem('ListaTarefas', listaMae.innerHTML)
@@ -53,6 +52,13 @@ function setupClickButton(){
     for (let i = 1; i < lista.length; i += 1) {
       if (lista[i].style.backgroundColor === 'rgb(128, 128, 128)') {
         listaMae.insertBefore(lista[i], lista[i - 1]);
+      }
+    }
+  })
+  rmvSelecionado.addEventListener('click', function () {
+    for (let i = 0; i < listaMae.childNodes.length; i++) {
+      if (listaMae.childNodes[i].style.backgroundColor === 'rgb(128, 128, 128)') {
+        listaMae.removeChild(listaMae.childNodes[i]);
       }
     }
   })
