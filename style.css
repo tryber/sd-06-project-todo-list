@@ -67,7 +67,7 @@ h1 {
   padding-bottom: 8px;
 }
 
-.list-header h2 {
+h2 {
   font-size: 18px;
   font-weight: 700;
   margin-right: 4px;
@@ -81,6 +81,10 @@ h1 {
 
 .left-margin {
   padding-left: 24px;
+}
+
+.completed {
+  text-decoration: line-through;
 }
 
 .toDo-list {
