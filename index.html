@@ -8,20 +8,21 @@
         <title>Todo List Project</title>  
     </head>
     <body>
-        <header><h2>Minha Lista de Tarefas</h2></header>
+        <header><h1>Minha Lista de Tarefas</h1></header>
         <nav>
-            <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+            <h2><strong></strong>Crie uma lista de tarefas</strong></h2>
+            <p id="funcionamento"><li><strong>Clique duas vezes em um item para marcá-lo como completo</strong></li></p>
         </nav>
         <section>  
-            <button id="criar-tarefa">Adicione uma tarefa!</button>
             <input type="text" id="texto-tarefa"/>
+            <button id="criar-tarefa">Adicione uma tarefa!</button>
             <ol id="lista-tarefas"></ol>
-                <button id="apaga-tudo">Apagar Tudo</button>
-                <button id="remover-finalizados">Apagar Finalizados</button>
-                <button id="salvar-tarefas">Salvar Tarefas</button>
-                <button id="mover-cima">Mover para cima</button>
-                <button id="mover-baixo">Mover para baixo</button>
-                <button id="remover-selecionado">Remover Selecionado</button>
+                <button class="button" id="apaga-tudo">Apagar toda a lista</button>
+                <button class="button" id="remover-finalizados">Apagar Finalizados</button><br>
+                <button class="button" id="salvar-tarefas">Salvar Tarefas</button>
+                <button class="button" id="mover-cima">Mover para cima</button><br>
+                <button class="button" id="mover-baixo">Mover para baixo</button>
+                <button class="button" id="remover-selecionado">Remover Selecionado</button>
         </section>
     </body>
     <script type="text/javascript" src="script.js"></script>
