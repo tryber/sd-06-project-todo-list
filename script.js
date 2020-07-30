@@ -35,14 +35,14 @@ listElements.addEventListener('dblclick', function (event) {
 
 function deleteTasks() {
   const listBuilder = document.getElementById('lista-tarefas');
-  for (let index = listBuilder.children.length-1; index >= 0; index -= 1) {
+  for (let index = listBuilder.children.length - 1; index >= 0; index -= 1) {
     listBuilder.removeChild(listBuilder.children[index]);
   }
 }
 
 function deleteCompleted() {
   const elements = document.querySelectorAll('.completed');
-  for (let index = elements.length-1; index >= 0; index -= 1) {
+  for (let index = elements.length - 1; index >= 0; index -= 1) {
     elements[index].remove();
   }
 }
