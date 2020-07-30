@@ -4,8 +4,8 @@
   const ereseAll = document.querySelector('#apaga-tudo');
   const ereseSel = document.querySelector('#remover-selecionado');
   const ereseFin = document.querySelector('#remover-finalizados');
-  const upBT = document.querySelector('#mover-cima');
-  const dnBT = document.querySelector('#mover-baixo');
+  const upBtn = document.querySelector('#mover-cima');
+  const downBtn = document.querySelector('#mover-baixo');
   const saveBT = document.querySelector('#salvar-tarefas');
 
   const todos = [];
@@ -25,12 +25,12 @@
   function carregarPag() {
     if (localStorage.ListaDeTarefas !== undefined) {
       listElement.innerHTML = localStorage.ListaDeTarefas;
-    }else{
+    } else {
       showTodos();
     }
   }
-  
-   submitElement.addEventListener('click', function () {
+
+  submitElement.addEventListener('click', function () {
     let inputString = inputElement.value;
     todos.push(inputString);
     inputElement.value = '';
@@ -81,30 +81,28 @@
     }
     showTodos();
   });
-
-  upBT.addEventListener('click', function () {
-    const lis = listElement.childNodes;
+  
+  downBtn.addEventListener('click', function () {
+    const lis = document.querySelector('#lista-tarefas').childNodes;
+    for (let i = lis.length - 2; i >= 0; i -= 1) {
+      if (lis[i].className === 'liClass selected') {
+        document.querySelector('#lista-tarefas').insertBefore(lis[i + 1], lis[i]);
+      }
+    }
+  });
+ 
+  upBtn.addEventListener('click', function () {
+    const lis = document.querySelector('#lista-tarefas').childNodes;
     for (let index = 1; index < lis.length; index += 1) {
       if (lis[index].classList.contains('selected')) {
-        listElement.insertBefore(lis[index], lis[index - 1]);
-      }
-    }
-  });
-
-  dnBT.addEventListener('click', function () {
-    const lis = listElement.childNodes;
-    for (let index = lis.length - 2; index >= 0; index -= 1) {
-      if (lis[index].classList.contains('selected')) {
-        listElement.insertBefore(lis[index + 1], lis[index]);
+        document.querySelector('#lista-tarefas').insertBefore(lis[index], lis[index - 1]);
       }
     }
   });
 
 
 
-saveBT.addEventListener('click', function () {
-  const liSalvo = document.querySelector('#lista-tarefas').innerHTML;
-  localStorage.setItem('ListaDeTarefas', liSalvo);
-});
-
-
+  saveBT.addEventListener('click', function () {
+    const liSalvo = document.querySelector('#lista-tarefas').innerHTML;
+    localStorage.setItem('ListaDeTarefas', liSalvo);
+  });
