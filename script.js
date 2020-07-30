@@ -31,7 +31,7 @@ addButtonClick.addEventListener("click", function(){
 let list = document.getElementById("lista-tarefas");
 
 list.addEventListener('click', function (event) {
-    const li = event.target;
+    let li = event.target;
     for (let i = 0; i < list.childNodes.length; i += 1) {
       if (list.childNodes[i] !== li) {
         list.childNodes[i].style.backgroundColor = 'white';
@@ -82,3 +82,75 @@ apagaFinalizados.addEventListener('click', function () {
       }
     }
   });
+
+
+
+//botao salvar-tarefas
+
+
+function saveTasks(listaDeTarefas){
+  localStorage.setItem("tarefas-salvas", listaDeTarefas);
+}
+
+let listaDeTarefas = document.getElementById("lista-tarefas");
+let buttonSaveTasks = document.getElementById("salvar-tarefas");
+
+buttonSaveTasks.addEventListener('click', function () {
+  localStorage.clear();
+  let listaDeTarefas = document.getElementsByTagName('li');
+  for (let item = 0; item < listaDeTarefas.length; item += 1) {
+    localStorage.setItem(item, listaDeTarefas[item].innerHTML);
+    localStorage.setItem(listaDeTarefas[item].innerText, listaDeTarefas[item].className);
+  }
+});
+
+
+
+window.onload=function(){
+
+  for (let i = 0; i < (localStorage.length / 2); i += 1) {
+
+    let localStorageList = document.createElement('li');
+
+    localStorageList.innerText = localStorage.getItem(i);
+
+    localStorageList.className = localStorage.getItem(localStorageList.innerText);
+
+    list.appendChild(localStorageList);
+
+  }
+}
+
+//upButton
+
+let upButton = document.getElementById("mover-cima");
+
+upButton.addEventListener('click', function () {
+  
+  let tasks = listaDeTarefas.childNodes;
+  let selecionado = document.getElementsByTagName("li");
+
+    for (let i = 1; i < tasks.length; i += 1) {
+
+      if (selecionado = 'rgb(128, 128, 128)') {
+        listaDeTarefas.insertBefore(tasks[i], tasks[i - 1]);
+      }
+    }
+})
+
+//downButton
+
+let downButton = document.getElementById("mover-baixo");
+
+downButton.addEventListener('click', function () {
+  
+  let tasks = listaDeTarefas.childNodes;
+  let selecionado = document.getElementsByTagName("li");
+
+    for (let i = 1; i < tasks.length; i += 1) {
+
+      if (selecionado = 'rgb(128, 128, 128)') {
+        listaDeTarefas.insertBefore(tasks[i + 1], tasks[i]);
+      }
+    }
+})
