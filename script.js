@@ -23,7 +23,16 @@ window.onload = function () {
 
     function resetTexto() {
         document.querySelector('#texto-tarefa').value = '';
+    }
+    const text = document.querySelector('#criar-tarefa');
+    text.addEventListener('click', resetTexto);
+
+    function backColor() {
+        let listOl = document.querySelectorAll('li');
+        listOl = event.target;
+        const bgColor = document.querySelector('.bgColor');
+        if (bgColor) {
+            bgColor.classList.remove('bgColor');
         }
-        const text = document.querySelector('#criar-tarefa');
-        text.addEventListener('click', resetTexto);
-        
+        listOl.classList.add('bgColor');
+    }
