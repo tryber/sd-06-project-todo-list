@@ -2,7 +2,8 @@ body {
   background-image: url("https://www.transparenttextures.com/patterns/fake-brick.png");
 }
 main {
-  background-color: rgb(207, 92, 54);
+  //background-color: rgb(207, 92, 54);
+  background-color: rgb(233, 206, 44);
   border: 1px solid black;
   box-shadow: 0 0 10px 5px;
   font-family: "Josefin Sans", sans-serif;
@@ -22,4 +23,11 @@ p {
 ol {
   margin-top: 20px;
   text-align: justify;
+}
+li {
+  cursor: pointer;
+  -webkit-user-select: none;
+}
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
 }
