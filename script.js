@@ -2,7 +2,7 @@
 
 const btnNewTask = document.getElementById('criar-tarefa');
 const btnDeleteSelected = document.getElementById('remover-selecionado');
-const btnDeleteDone = document.getElementById('remover-finalizados');
+const btnDeleteCompleted = document.getElementById('remover-finalizados');
 const btnDeleteAll = document.getElementById('apaga-tudo');
 
 // create list item, get input value and push list value
@@ -14,7 +14,6 @@ function pushListItem() {
     const newListItem = document.createElement('li');
     newListItem.innerHTML = userInput;
     parentList.appendChild(newListItem);
-    newListItem.className = 'item';
     document.querySelector('#texto-tarefa').value = '';
   } else {
     alert('Not valid!');
@@ -36,16 +35,16 @@ function handleSelectedItem(event) {
 
 // add class to risk item
 
-function riskListItem(event) {
-  const selectedItem = event.target;
-  if (selectedItem.style.textDecoration === 'line-through') {
-    selectedItem.classList.remove('selected');
-    selectedItem.style.removeProperty('text-decoration');
-  } else {
-    selectedItem.classList.remove('selected');
-    selectedItem.style.textDecoration = 'line-through';
-  }
-}
+// function riskListItem(event) {
+//   const selectedItem = event.target;
+//   if (selectedItem.style.textDecoration === 'line-through') {
+//     selectedItem.classList.remove('selected');
+//     selectedItem.style.removeProperty('text-decoration');
+//   } else {
+//     selectedItem.classList.remove('selected');
+//     selectedItem.style.textDecoration = 'line-through';
+//   }
+// }
 
 btnNewTask.addEventListener('click', pushListItem);
 
@@ -54,18 +53,11 @@ btnDeleteSelected.addEventListener('click', function () {
   getSelected.remove();
 });
 
-btnDeleteDone.addEventListener('click', function () {
-  const doneItem = document.querySelectorAll('.line-through');
-  for (let i = 0; i < doneItem.length; i += 1) {
-    doneItem[i].remove();
-  }
-});
-
-btnDeleteDone.addEventListener('click', function () {
-  const doneItem = document.querySelectorAll('.item');
-  for (let i = 0; i < doneItem.length; i += 1) {
-    if (doneItem[i].style.textDecoration === 'line-through') {
-      doneItem[i].remove();
+btnDeleteCompleted.addEventListener('click', function () {
+  const completedItem = document.getElementsByTagName('li');
+  for (let i = 0; i < completedItem.length; i += 1) {
+    if (completedItem[i].classList.contains('completed')) {
+      completedItem[i].remove();
     }
   }
 });
@@ -83,4 +75,11 @@ document
 
 document
   .querySelector('#lista-tarefas')
-  .addEventListener('dblclick', riskListItem);
+  .addEventListener('dblclick', function (event) {
+    const selectedItem = event.target;
+    if (selectedItem.classList.contains('completed')) {
+      selectedItem.classList.remove('completed');
+    } else {
+      selectedItem.classList.add('completed');
+    }
+  });
