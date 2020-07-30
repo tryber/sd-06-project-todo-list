@@ -1,11 +1,12 @@
 const btnIncluir = document.getElementById('criar-tarefa');
 const btnApagaTudo = document.getElementById('apaga-tudo');
 const lista = document.getElementById('lista-tarefas');
-window.onload = function () {
 
+window.onload = function () {
 btnIncluir.addEventListener('click', incluirTarefa);
 btnApagaTudo.addEventListener('click', apagaTudo);
 lista.addEventListener('click', marcarItemDaLista);
+lista.addEventListener('dblclick', marcarTarefaConcluida)
 }
 
 /* *********************************************** */
@@ -45,5 +46,18 @@ function marcarItemDaLista(event) {
   const marcarItem = event.target;
   if (itemMarcado !== null) {
     marcarItem .classList.add('marcado');
+  }
+}
+/* *********************************************** */
+/* informando que a tarefa esta completa           */
+/* *********************************************** */
+function marcarTarefaConcluida(event) {
+  const itemSelecionado = event.target;
+  if (itemSelecionado.style.textDecoration === 'line-through') {
+    itemSelecionado.classList.remove('selecionado');
+    itemSelecionado.style.removeProperty('text-decoration');
+  } else {
+    itemSelecionado.classList.add('selecionado');
+    itemSelecionado.style.textDecoration = 'line-through';
   }
 }
