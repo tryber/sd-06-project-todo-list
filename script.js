@@ -2,40 +2,29 @@
 window.onload = function () {
   /* parte da criação do botão */
   const bottonList = document.getElementById('criar-tarefa');
-  
-  /* parte do botão funcionar*/
+    /* parte do botão funcionar*/
   bottonList.addEventListener('click', function () {
     const texto = document.getElementById('texto-tarefa').value;
     const list = document.getElementById('lista-tarefas');
     const listOl = document.createElement('li');
     listOl.innerHTML = texto;
     list.appendChild(listOl);
-    
     /* o que for relacionado a lista ol tem que sair daqui, pois é aqui que é criada */
     /* parte da alteração de cor */
     listOl.addEventListener('click', backColor);
-    
     /* duplo click */
     listOl.addEventListener('dblclick', function () {
       listOl.classList.toggle('completed');
     });
-    
     /* botão apagar tudo */
     const bottonListDelete = document.getElementById('apaga-tudo');
     bottonListDelete.addEventListener('click', deleteList);
-    
     /* botão remover finalizados */
     const bottonRemove = document.getElementById('remover-finalizados');
     bottonRemove.addEventListener('click', removeComplet);
-
     /* botão remover selecionados */
     const bottonRemoveSelect = document.getElementById('remover-selecionado');
     bottonRemoveSelect.addEventListener('click', removeSelect);
-
-    /* botão mover para cima */
-    const bottonMoveUp = document.getElementById('mover-cima');
-    bottonMoveUp.addEventListener('click', moveUp);
-
   });
   
   /* parte do reset imput*/
@@ -44,7 +33,6 @@ window.onload = function () {
   }
   const text = document.querySelector('#criar-tarefa');
   text.addEventListener('click', resetTexto);
-  
   /* função para mudança de cor de fundo */
   function backColor() {
     let listOl = document.querySelectorAll('li');
@@ -55,7 +43,6 @@ window.onload = function () {
     }
     listOl.classList.add('bgColor');
   }
-  
   /* função do botão apaga tudo */
   function deleteList() {
     const list = document.getElementById('lista-tarefas');
@@ -63,7 +50,6 @@ window.onload = function () {
       list.removeChild(list.firstChild);
     }
   }
-  
   /* função do botão apaga finalizados */
   function removeComplet() {
     const removeText = document.querySelectorAll('.completed');
@@ -71,28 +57,11 @@ window.onload = function () {
       removeText[i].remove();
     }      
   }
-
   /* função do botão apaga selecionados */
   function removeSelect() {
     const removebg = document.querySelectorAll('.bgColor');
     for(let i = 0; i < removebg.length; i += 1){
       removebg[i].remove();
     }      
-  }
-
-  /* função do botão de mover para cima 
-  function moveUp () {
-    let textList = [];
-    textList = document.querySelectorAll('li');
-    const color = document.querySelectorAll('.bgColor');
-    if (color){
-    for (let i = 0; i <= color.length; i += 1){
-      for (let j = 1; j <= textList.length; j += 1){
-        let receptor = color[i].innerHTML;
-        color[i].innerHTML = textList[j].innerHTML;
-        textList[j].innerHTML = receptor;
-      };
-    }}
-  } */
-  
+  } 
 };
