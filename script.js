@@ -106,12 +106,12 @@ function SaveTasks () {
     localStorage.setItem(`class ${i}`, tasks[i].classList);
 
   }
-  localStorage.setItem(`length`, tasks.length);
+  localStorage.setItem(`listLength`, tasks.length);
 }
 
 function loadTasks () {
-  if (localStorage.getItem(`length`) > 0) {
-    let length = localStorage.getItem(`length`);
+  if (localStorage.getItem(`listLength`) > 0) {
+    let length = localStorage.getItem(`listLength`);
     for(let i = 0; i < length; i += 1){
       const tasks = localStorage.getItem(`content ${i}`);
       let itemCreated = document.createElement("LI");
