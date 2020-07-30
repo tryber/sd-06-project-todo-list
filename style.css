@@ -1,3 +1,25 @@
-html {
-    
+body {
+  background-image: url("https://www.transparenttextures.com/patterns/fake-brick.png");
+}
+main {
+  background-color: rgb(207, 92, 54);
+  border: 1px solid black;
+  box-shadow: 0px 0px 10px 5px;
+  height: 420px;
+  font-family: "Josefin Sans", sans-serif;
+  margin: auto;
+  margin-top: 30px;
+  padding: 10px;
+  text-align: center;
+  width: 350px;
+}
+header {
+  padding-top: 1px;
+}
+p {
+  font-size: 17px;
+}
+ol {
+  margin-top: 20px;
+  text-align: justify;
 }
