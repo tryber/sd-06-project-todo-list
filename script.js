@@ -26,6 +26,10 @@ window.onload = function () {
     // Button remove all list completed
     const buttonRemoveCompleted = document.querySelector('#remover-finalizados');
     buttonRemoveCompleted.addEventListener('click', removeAllCompleted);
+
+    // Button remove selected
+    const buttonSelected = document.querySelector('#remover-selecionado');
+    buttonSelected.addEventListener('click', removeSelected);
   }
 
   // Button click add iten list
@@ -52,9 +56,17 @@ window.onload = function () {
 
   // Function button remove all list completed
   function removeAllCompleted() {
-    let lineCompleted = document.querySelectorAll('.completed');
+    const lineCompleted = document.querySelectorAll('.completed');
     for (let index = 0; index < lineCompleted.length; index += 1) {
-     lineCompleted[index].remove();
+      lineCompleted[index].remove();
+    }
+  }
+
+  // Function button remove selected
+  function removeSelected() {
+    const cleanSelected = document.querySelectorAll('.line-selected');
+    for (let index = 0; index < cleanSelected.length; index += 1) {
+      cleanSelected[index].remove();
     }
   }
 };
