@@ -14,22 +14,16 @@ window.onload = function () {
    
    /*o que for relacionado a lista ol tem que sair daqui, pois é aqui que é criada*/
    /* parte da alteração de cor */
-    listOl.addEventListener('click',function(){
-     let textList = document.getElementsByTagName("li");
-    for(let i = 0; i < textList.length; i += 1) {
-            textList[i].classList.remove("bgColor")
-        }
-        listOl.classList.add("bgColor")
-        }
-    );
-   
-  
-   //duplo click//
+    listOl.addEventListener('click',backColor);
+ 
+   /* duplo click */
    listOl.addEventListener('dblclick', function() {
     listOl.classList.toggle('completed');
     })
    
-  
+    /* botão apagar tudo*/
+    const bottonListDelete = document.getElementById('apaga-tudo');
+    bottonListDelete.addEventListener('click', deleteList);
   });
  
  
@@ -39,7 +33,26 @@ window.onload = function () {
   }
  const text = document.querySelector('#criar-tarefa');
  text.addEventListener('click', resetTexto);
- 
+
+
+ /* mudando a cor de fundo*/
+ function backColor () {
+  let listOl = document.querySelectorAll('li');
+  listOl = event.target;
+  let bgColor = document.querySelector('.bgColor');
+  if (bgColor) {
+    bgColor.classList.remove('bgColor');
+  }
+    listOl.classList.add('bgColor');
+}
+ /* botão apaga tudo*/
+ function deleteList(){
+ let list =  document.getElementById('lista-tarefas');
+ while (list.firstChild) {
+ list.removeChild(list.firstChild);
+ }
+ }
+
 }
   
   
