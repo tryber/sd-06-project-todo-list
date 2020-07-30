@@ -13,6 +13,8 @@ header {
   background-color: white;
   border: 0;
   border-radius: 10px;
+  margin-left: 400px;
+  margin-top: 200px;
   padding: 10px;
   text-align: center;
   width: 550px;
@@ -39,7 +41,7 @@ p {
   background-color: darkred;
 }
 
-.cima, .baixo {
+.cima , .baixo {
   background-color: darkgreen;
 }
 
@@ -55,11 +57,15 @@ p {
   background-color: blue;
 }
 
+.lista {
+  text-align: left;
+}
+
 .foot {
   background-color: orangered;
   color: white;
   height: 50px;
-  margin-top: 430px;
+  margin-top: 240px;
   padding-top: 2px;
   text-align: center;
 }
