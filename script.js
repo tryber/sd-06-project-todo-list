@@ -17,9 +17,8 @@ window.onload = function () {
     if (itemSelecionadoAntiguio) {
       itemSelecionadoAntiguio.classList.remove('grey');
       itemSelecionado.classList.add('grey');
-    } else {
-      itemSelecionado.classList.add('grey');
-    }
+    } 
+    itemSelecionado.classList.add('grey');
   });
   //  Ao fazer doble click va se riscar elemento, vai se desfazer fazendo novamente dobleclick
   listaColor.addEventListener('dblclick', function (event) {
@@ -56,5 +55,36 @@ window.onload = function () {
     const grey = document.querySelector('.grey');
     const listaTarefas = document.querySelector('#lista-tarefas');
     listaTarefas.removeChild(grey);
-  })
+  });
+
+  //   Botao salvar
+  const botaoSalvar = document.querySelector('#salvar-tarefas');
+  //buttonSaveTaskList.addEventListener('click', function () {
+  //  localStorage.clear();
+  //  const list = document.getElementsByTagName('li');
+  //  for (let item = 0; item < list.length; item += 1) {
+  //    localStorage.setItem(item, list[item].innerHTML);
+  //    localStorage.setItem(list[item].innerText, list[item].className);
+  //  }
+  //});
+
+  //function loadList() {
+  //  for (let i = 0; i < (localStorage.length / 2); i += 1) {
+  //    const localLine = document.createElement('li');
+  //    localLine.innerText = localStorage.getItem(i);
+  //    localLine.className = localStorage.getItem(localLine.innerText);
+  //    taskList.appendChild(localLine);
+  //  }
+  //}
+
+  //function saveTasks() {
+  //  const allTasksList = document.querySelector('#lista-tarefas').//innerHTML;
+  //  localStorage.setItem('List of all Tasks', allTasksList);
+  //}
+  //saveTaskListButton.addEventListener('click', saveTasks);
+  //
+  //function recoverSavedTasks() {
+  //  document.querySelector('#lista-tarefas').innerHTML = localStorage.//getItem('List of all Tasks');
+  //}
+  //window.onload = recoverSavedTasks;
 };
