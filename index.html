@@ -3,39 +3,45 @@
 <head>
     <meta charset="utf-8">
     <title>To do list</title>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bungee+Outline&family=Lato:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css"> 
 
 </head>
 
 <body>
 
-    <header>
+    <div id="container">
+        <header>
 
-        <h1>Minha Lista de Tarefas</h1>
+            <br>
 
-    </header>
+            <h1>Minha Lista de Tarefas</h1>
 
-    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+        </header>
 
-    <input id="texto-tarefa" placeholder="Digite aqui">
+        <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
 
-    <button id="criar-tarefa">Adicionar</button>
+        <input id="texto-tarefa" placeholder="Digite aqui">
 
-    <ol id="lista-tarefas"></ol>
+        <button id="criar-tarefa">Adicionar</button>
 
-    <button id="apaga-tudo">Limpar quadro</button>
+        <ol id="lista-tarefas"></ol>
 
-    <button id="remover-finalizados">Remover tarefa finalizada</button>
+        <button id="apaga-tudo">Clear</button>
 
-    <button id="salvar-tarefas">Salvar tarefas</button>
+        <button id="remover-finalizados">Finished</button>
 
-    <button id="mover-cima"> Up </button>
-    
-    <button id="mover-baixo"> Down </button>
+        <button id="remover-selecionado"> Delete </button>
 
+        <button id="salvar-tarefas">Save</button>
 
-</body>
+        <button id="mover-cima"> ▲ </button>
+        
+        <button id="mover-baixo"> ▼ </button>
+
+    </div>
+
+ </body>
 
 <script src="script.js"></script>
 

@@ -34,7 +34,7 @@ list.addEventListener('click', function (event) {
     let li = event.target;
     for (let i = 0; i < list.childNodes.length; i += 1) {
       if (list.childNodes[i] !== li) {
-        list.childNodes[i].style.backgroundColor = 'white';
+        list.childNodes[i].style.backgroundColor = 'transparent';
       }
     }
 
@@ -128,11 +128,10 @@ let upButton = document.getElementById("mover-cima");
 upButton.addEventListener('click', function () {
   
   let tasks = listaDeTarefas.childNodes;
-  let selecionado = document.getElementsByTagName("li");
 
     for (let i = 1; i < tasks.length; i += 1) {
 
-      if (selecionado = 'rgb(128, 128, 128)') {
+      if (tasks[i].style.backgroundColor === 'rgb(128, 128, 128)') {
         listaDeTarefas.insertBefore(tasks[i], tasks[i - 1]);
       }
     }
@@ -145,12 +144,26 @@ let downButton = document.getElementById("mover-baixo");
 downButton.addEventListener('click', function () {
   
   let tasks = listaDeTarefas.childNodes;
-  let selecionado = document.getElementsByTagName("li");
+  
+    for (let i = tasks.length - 2; i >= 0; i -= 1) {
 
-    for (let i = 1; i < tasks.length; i += 1) {
-
-      if (selecionado = 'rgb(128, 128, 128)') {
+      if (tasks[i].style.backgroundColor === 'rgb(128, 128, 128)') {
         listaDeTarefas.insertBefore(tasks[i + 1], tasks[i]);
       }
     }
 })
+
+//botao remove selecionado
+
+let removeSelecionado = document.getElementById("remover-selecionado");
+
+removeSelecionado.addEventListener('click', function () {
+
+  let tasks = listaDeTarefas.childNodes;
+
+  for (let i = 0; i < tasks.length; i += 1) {
+    if (tasks[i].style.backgroundColor === 'rgb(128, 128, 128)') {
+      list.removeChild(tasks[i]);
+    }
+  }
+});
