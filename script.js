@@ -50,7 +50,7 @@ window.onload = function () {
   function removeComplet() {
     const removeText = document.querySelectorAll('.completed');
     for(let i = 0; i <= removeText.length; i += 1){
-      removeText[i].remove()
+      removeText[i].remove(removeText[i]);
     }      
   }
 };
