@@ -15,7 +15,7 @@ header {
   text-align: center;
 }
 
-#inline {
+#inline { 
   display: inline-block;
 }
 
@@ -44,9 +44,9 @@ header {
 }
 
 .completed {
-  text-decoration: line-through solid rgb(0, 0, 0);
+  
 }
 
 .selected {
-  background-color: rgb(128, 128, 128); 
+  background-color: rgb(128, 128, 128);
 }
