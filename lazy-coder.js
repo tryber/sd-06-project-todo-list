@@ -17,9 +17,11 @@ const TAGS = {
   9: '#mover-cima',
   10: '#mover-baixo',
   11: '.selected',
-  12: 'li',  
+  12: 'li',
 };
 
-export function lazyCoder(keyMethod, keyDiv) {
+function lazyCoder(keyMethod, keyDiv) {
   return document[`${METHODS[keyMethod]}`](TAGS[keyDiv]);
 }
+
+export { lazyCoder as default };

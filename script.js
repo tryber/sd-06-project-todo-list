@@ -2,11 +2,11 @@ import { lazyCoder } from './lazy-coder.js';
 
 const btnAdc = lazyCoder(0, 1);
 const todoList = lazyCoder(0, 2);
-const updateLiList = function () { liList = lazyCoder(1, 12); }
 let liList = {};
+const updateLiList = function () { liList = lazyCoder(1, 12); };
 
 function changeBackground() {
-  for (const value of Object.values(liList)) {
+  for (const value of liList) {
     if (value.classList.contains('selected')) {
       value.classList.remove('selected');
       value.style.backgroundColor = 'white';
@@ -16,7 +16,7 @@ function changeBackground() {
 
 btnAdc.onclick = () => {
   if (lazyCoder(0, 0).value === '') {
-    alert('Digite algo no input!')
+    alert('Digite algo no input!');
   } else {
     const listConten = lazyCoder(2, 12);
     listConten.className = 'tarefas';
