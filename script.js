@@ -103,3 +103,29 @@ function removeSelectedTask() {
 
 const removeSelectedTaskButton = document.getElementById('remover-selecionado');
 removeSelectedTaskButton.onclick = removeSelectedTask;
+
+// Move-up & Move-down
+
+function moveUpTask() {
+  const tasks = document.querySelectorAll('li');
+  for (let i = 0; i < tasks.length; i += 1) {
+    if (tasks[i].classList.contains('selected') && (i !== 0)) {
+      tasks[i].parentNode.insertBefore(tasks[i], tasks[i - 1]);
+    }
+  };
+}
+
+const moveUpButton = document.getElementById('mover-cima');
+moveUpButton.onclick = moveUpTask;
+
+function moveDownTask() {
+  const tasks = document.querySelectorAll('li');
+  for (let i = 0; i < tasks.length; i += 1) {
+    if (tasks[i].classList.contains('selected') && (i !== tasks.length - 1)) {
+      tasks[i].parentNode.insertBefore(tasks[i + 1], tasks[i]);
+    }
+  };
+}
+
+const moveDownButton = document.getElementById('mover-baixo');
+moveDownButton.onclick = moveDownTask;
