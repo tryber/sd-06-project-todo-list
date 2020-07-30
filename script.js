@@ -1,9 +1,11 @@
 const addButton = document.getElementById('criar-tarefa');
 const input = document.getElementById('texto-tarefa');
-const listaMae = document.querySelector('#lista-tarefas')
-const apagaButton = document.getElementById('apaga-tudo')
-const rmvFinalizados = document.getElementById('remover-finalizados')
-const salvaLista = document.getElementById('salvar-tarefas')
+const listaMae = document.querySelector('#lista-tarefas');
+const apagaButton = document.getElementById('apaga-tudo');
+const rmvFinalizados = document.getElementById('remover-finalizados');
+const salvaLista = document.getElementById('salvar-tarefas');
+const up = document.getElementById('mover-cima');
+const down = document.getElementById('mover-baixo');
 
 window.onload = function (){
   setupClickButton();
@@ -37,6 +39,22 @@ function setupClickButton(){
   })
   salvaLista.addEventListener('click', function () {
     localStorage.setItem('ListaTarefas', listaMae.innerHTML)
+  })
+    down.addEventListener('click', function () {
+    const lista = listaMae.childNodes;
+    for (let i = lista.length - 2; i>= 0; i-= 1) {
+      if(lista[i].style.background === 'rgb(128, 128, 128)') {
+        listaMae.insertBefore(lista[i + 1], lista[i]);
+      }
+    }
+  })
+  up.addEventListener('click', function () {
+    const lista = listaMae.childNodes;
+    for (let i = 1; i < lista.length; i += 1) {
+      if (lista[i].style.backgroundColor === 'rgb(128, 128, 128)') {
+        listaMae.insertBefore(lista[i], lista[i - 1]);
+      }
+    }
   })
 }
 
