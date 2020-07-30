@@ -32,3 +32,10 @@ listElements.addEventListener('dblclick', function (event) {
     currentSelectedElement.classList.add('completed');
   }
 });
+
+function deleteTasks() {
+  let listBuilder = document.getElementById('lista-tarefas');
+  for (let index = listBuilder.children.length-1; index >= 0; index -=1) {
+    listBuilder.removeChild(listBuilder.children[index]);
+  }
+};

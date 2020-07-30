@@ -5,3 +5,11 @@
 .completed {
   text-decoration: line-through solid rgb(0, 0, 0);
 }
+
+#boxList {
+  display: inline-block;
+  height: 300px;
+  position: relative;
+  overflow: inherit;
+  width: 50%;
+}
