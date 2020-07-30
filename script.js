@@ -1,5 +1,5 @@
 function taskHighlighter(task, list) {
-  task.addEventListener ('click', function() {
+  task.addEventListener('click', function () {
     // Removes grey background style from all other tasks
     for (let i = 0; i < list.children.length; i += 1) {
       list.children[i].classList.remove('grey-background');
@@ -72,7 +72,7 @@ function clearSavedList() {
 }
 
 const elementBtnAddTask = document.getElementById('criar-tarefa');
-elementBtnAddTask.addEventListener ('click', function() {
+elementBtnAddTask.addEventListener('click', function () {
   const taskName = getTaskNameFromInput();
   const list = getOlElement();
   insertTaskOnList(taskName, list);
