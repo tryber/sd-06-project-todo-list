@@ -43,8 +43,11 @@ function enableMovingButtons() {
 
   upBtn.onclick = () => {
     const currentlySelected = document.querySelector(".selected");
-    const selectedText = currentlySelected.innerText;
-    const currentIndex = todoList.indexOf(selectedText);
+
+    if (currentlySelected) {
+      const selectedText = currentlySelected.innerText;
+      const currentIndex = todoList.indexOf(selectedText);
+    }
 
     if (currentIndex !== 0) {
       let elementDown = todoList[currentIndex - 1];
@@ -59,8 +62,11 @@ function enableMovingButtons() {
 
   downBtn.onclick = () => {
     const currentlySelected = document.querySelector(".selected");
-    const selectedText = currentlySelected.innerText;
-    const currentIndex = todoList.indexOf(selectedText);
+
+    if (currentlySelected) {
+      const selectedText = currentlySelected.innerText;
+      const currentIndex = todoList.indexOf(selectedText);
+    }
 
     if (currentIndex !== todoList.length - 1) {
       let elementUp = todoList[currentIndex + 1];
