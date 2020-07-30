@@ -2,14 +2,19 @@
 <html>
     <head>
         <meta charset="UTF8">
-        <link rel="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="script.js"></script>
         <title>To do list</title>
-        <body>
+        <body> 
+
             <header>
                 <h1>MINHA LISTA DE TAREFAS</h1>
-                <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
             </header>
-            <section class="inputItem">
+
+            <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+
+            <section class="section-task-list">
                 <input id="texto-tarefa" type="text">
                 
                 <button id="criar-tarefa" type="submit" style="background-color: blue; color: white;">Adicionar</button>
@@ -17,18 +22,24 @@
             
             <section class="list">
                 <fieldset>
-                    <legend>Componentes:</legend>
+                    <legend>ITENS</legend>
                     <ol id="lista-tarefas"> 
                     </ol>
                 </fieldset>
             </section>
+
+            <section class="eraseAll">
+                <button id="apaga-tudo">Apagar Tudo</button>
+            </section>
+            <section>
+                <button id="remover-finalizados">Remover finalizados</button>
+            </section>
+
+
+
+
+
             
-
-
-
-
-
-            <script src="script.js"></script>
         </body>
     </head>
 </html>
