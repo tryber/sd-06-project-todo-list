@@ -35,6 +35,23 @@ function tasksListenerDbClick(tagLi) {
   });
 }
 
+const btRemoveAll = document.querySelector('#apaga-tudo');
+btRemoveAll.addEventListener('click', function () {
+  document.querySelector('#lista-tarefas').innerHTML = '';
+})
+
+const btRemoveAllFinished = document.querySelector('#remover-finalizados');
+btRemoveAllFinished.addEventListener('click', function () {
+  const listLis = document.querySelectorAll('li');
+  for (let i = 0; i < listLis.length; i += 1) {
+    if (listLis[i].classList[1] === 'completed') {
+      document.querySelector('#lista-tarefas').removeChild(listLis[i]);
+    }
+  }
+});
+
+
+
 // function deleteAllCompletedClasses() {
 //   document.querySelectorAll('li').forEach((item) => {
 //     for (let i = 0; i < item.classList.length; i += 1) {
