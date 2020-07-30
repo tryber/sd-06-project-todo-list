@@ -1,0 +1,350 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  align-items: center;
+  background-color: cornflowerblue;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+}
+
+.header-text {
+  position: relative;
+}
+
+.header-text:before {
+  content: '\f245';
+  font-family: 'Font Awesome 5 Free', sans-serif, sans-serif;
+  font-size: 80%;
+  font-weight: 900;
+  margin-right: 4px;
+}
+
+main {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 1300px;
+}
+
+/* add todo part */
+.add-todos {
+  align-items: center;
+  display: flex;
+  margin: 12px 0;
+}
+
+/* .input-todo {
+  position: relative;
+  width: 200px;
+  height: 48px;
+  overflow: hidden;
+}
+
+.input-tarefa {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding-top: 12px;
+  letter-spacing: 0.5px;
+} */
+
+/* aqui tem que ser .label-todo .input-text
+pq o '+' é para o elemento IMEDIATAMENTE
+depois que atende à query que colocamos */
+
+/* .input-tarefa:focus + .label-todo .input-text ,
+.input-tarefa:not(:placeholder-shown) + .label-todo .input-text {
+  transform: translateY(-150%);
+  font-size: 12px;
+  left: 0;
+*/
+
+/* input:valid não ia funcionar pq checa a validade
+fo input pelo HTML - ex: se é um input de email
+e o usuario digita qualquer coisa, não funciona */
+
+/* .label-todo {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  border-bottom: 2px solid grey;
+  width: 100%;
+  height: 100%;
+}
+
+.label-todo:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  border-bottom: 2px solid cornflowerblue;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease-in;
+  transform: translateX(-100%);
+}
+
+.input-tarefa:focus + .label-todo:after ,
+.input-tarefa:not(:placeholder-shown) + .label-todo:after {
+  transform: translateX(0%);
+}
+
+.input-text {
+  position: absolute;
+  bottom: 3px;
+  left: 3px;
+  color: cornflowerblue;
+  font-size: 15px;
+  font-weight: 700;
+  pointer-events: none;
+  transition: all 0.4s ease;
+} */
+
+/* button add todo */
+.add-todos button {
+  align-self: flex-end;
+  background-color: cornflowerblue;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 3px grey;
+  color: white;
+  font-weight: 700;
+  margin-left: 16px;
+  outline: none;
+  padding: 4px 6px;
+}
+
+.add-todos button:active {
+  box-shadow: none;
+  transform: translateY(3px);
+}
+
+.add-todos button:focus {
+  border: none;
+  outline: none;
+}
+
+/* main content */
+.todos-container {
+  align-items: center;
+  background: rgb(240 , 240 , 245);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  margin: 24px 0 12px;
+  padding: 18px;
+  width: 90%;
+}
+
+h2 {
+  font-size: 36px;
+}
+
+/* grid and card */
+.todos-container-grid {
+  display: grid;
+  gap: 7%;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 24px;
+  width: 100%;
+}
+
+.card {
+  align-items: center;
+  background-color: rgb(151 , 168 , 231);
+  border-radius: 8px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+  overflow: hidden;
+  padding: 6px 15px 50px;
+  position: relative;
+}
+
+/* control buttons */
+.up-down-control {
+  border-radius: 8px;
+  bottom: 5px;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 3%;
+  position: absolute;
+  width: 70%;
+}
+
+.btn {
+  border-radius: 8px;
+  border: none;
+  height: 20px;
+  width: 20px;
+}
+
+.btn:focus {
+  border-radius: 8px;
+  outline: none;
+}
+
+.btn:active {
+  transform: translateY(2px);
+}
+
+.up:after {
+  color: green;
+  content: '\f0d8';
+  font-family: 'Font Awesome 5 Free', sans-serif;
+  font-size: 100%;
+  font-weight: 900;
+}
+
+.down:after {
+  color: red;
+  content: '\f0dd';
+  font-family: 'Font Awesome 5 Free', sans-serif;
+  font-size: 100%;
+  font-weight: 900;
+}
+
+.right:after {
+  color: indigo;
+  content: '\f061';
+  font-family: 'Font Awesome 5 Free', sans-serif;
+  font-size: 80%;
+  font-weight: 900;
+}
+
+.remove:after {
+  color: black;
+  content: '\f2ed';
+  font-family: 'Font Awesome 5 Free', sans-serif;
+  font-size: 80%;
+  font-weight: 900;
+}
+
+/* todo list */
+.list-container {
+  max-height: 90%;
+  text-align: center;
+  width: 100%;
+}
+
+h4 {
+  font-size: 22px;
+}
+
+.todo-list {
+  list-style: none;
+  margin-top: 10px;
+  max-height: 40vh;
+  overflow: auto;
+  width: 95%;
+}
+
+.todo-item {
+  background-color: rgb(104 , 125 , 175);
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 6px 0;
+  padding: 4px;
+  text-align: center;
+}
+
+.selected {
+  background-color: grey;
+}
+
+.completed {
+  position: relative;
+  text-decoration: line-through solid black;
+}
+
+.completed:after {
+  color: red;
+  content: '\f061';
+  font-family: 'Font Awesome 5 Free', sans-serif;
+  font-size: 80%;
+  font-weight: 900;
+  position: absolute;
+  right: 4px;
+  text-decoration: none;
+  top: 7px;
+  vertical-align: middle;
+}
+
+.doing {
+  position: relative;
+}
+
+.doing:after {
+  color: darkturquoise;
+  content: '\f069';
+  font-family: 'Font Awesome 5 Free', sans-serif;
+  font-size: 80%;
+  font-weight: 900;
+  position: absolute;
+  right: 4px;
+  text-decoration: none;
+  top: 7px;
+  vertical-align: middle;
+}
+
+.hide {
+  display: none;
+}
+
+/* control buttons */
+.control {
+  align-items: center;
+  background-color: rgb(240 , 240 , 245);
+  border-radius: 8px;
+  display: flex;
+  height: 8vh;
+  justify-content: space-between;
+  margin-top: 12px;
+  padding: 8px;
+  width: 90%;
+}
+
+h3 {
+  font-size: 30px;
+  margin-right: 12px;
+}
+
+h3:before {
+  content: '\f0ae';
+  font-family: 'Font Awesome 5 Free', sans-serif;
+  font-size: 80%;
+  font-weight: 900;
+  margin-right: 10px;
+}
+
+.control-btn-container {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+}
+
+.control-btn {
+  background-color: rgb(104 , 125 , 175);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 6px;
+  width: 25%;
+}
+
+.control-btn:active {
+  transform: translateY(2px);
+}
+
+.control-btn:focus {
+  color: white;
+  outline: none;
+}

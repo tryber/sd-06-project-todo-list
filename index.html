@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do Organizer</title>
+
+  <script src="https://kit.fontawesome.com/2c91ae5b1f.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Minha Lista de Tarefas</h1>
+    <p id="funcionamento" class="header-text">Clique duas vezes em um item para marcá-lo como completo</p>
+  </header>
+
+  <main>
+
+    <section class="todos-container">
+      <h2 class="todo-title">Tarefas do Dia</h2>
+      <div class="todos-container-grid">
+        <div class="daily-todos-container card">
+          <div class="daily-todos list-container">
+            <h4 class="daily-saying">Tarefas</h4>
+            <ol id="lista-tarefas" class="todo-list"></ol>
+          </div>
+          <div class="up-down-control">
+            <button id="mover-cima" class="btn up"></button>
+            <button id="mover-baixo" class="btn down"></button>
+            <button id="mover-direita" class="btn right"></button>
+            <button id="remover-selecionado" class="btn remove"></button>
+          </div>
+        </div>
+
+        <div class="current-doing-todos card">
+          <div class="list-container">
+            <h4 class="current-doing-text">Em execução</h4>
+            <ol class="todo-list"></ol>
+          </div>
+        </div>
+
+        <div class="completed-todos card">
+          <div class="list-container">
+            <h4 class="completed-todos-text">Finalizadas</h4>
+            <ol class="todo-list"></ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- <section class="add-todos">
+      <div class="input-todo">
+        <input type="text" name="texto-tarefa" id="texto-tarefa" class="input-tarefa" placeholder=" " maxlength="30">
+        <label for="texto-tarefa" class="label-todo">
+          <span class="input-text">O que você precisa fazer hoje?</span>
+        </label>
+      </div>
+      <button id="criar-tarefa">Adicionar!</button>
+    </section> -->
+
+    <section class="add-todos">
+      <div class="input-todo">
+        <label for="texto-tarefa" class="label-todo">
+          <span class="input-text">O que você precisa fazer hoje?</span>
+        </label>
+        <input type="text" name="texto-tarefa" id="texto-tarefa" class="input-tarefa" placeholder=" " maxlength="40">
+      </div>
+      <button id="criar-tarefa">Adicionar!</button>
+    </section>
+
+    <section class="control">
+      <h3>Gerencie suas Tarefas</h3>
+      <div class="control-btn-container">
+        <button id="remover-finalizados" class="control-btn">Remover Finalizados</button>
+        <button id="apaga-tudo" class="control-btn">Apagar Tarefas</button>
+        <button id="salvar-tarefas" class="control-btn">Salvar Tarefas</button>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
