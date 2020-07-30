@@ -63,3 +63,24 @@ saveButton.addEventListener('click', function () {
 if (localStorage.lista !== undefined) {
   listaTarefas.innerHTML = localStorage.lista;
 }
+
+// Botão Up/Down
+const upButton = document.getElementById('mover-cima');
+const downButton = document.getElementById('mover-baixo');
+upButton.addEventListener('click', function () {
+  const childList = listaTarefas.childNodes;
+  for (let i = 1; i < childList.length; i += 1) {
+    if (childList[i].classList.contains('selected')) {
+      listaTarefas.insertBefore(childList[i], childList[i - 1]);
+    }
+  }
+});
+
+downButton.addEventListener('click', function () {
+  const childList = listaTarefas.childNodes;
+  for (let i = childList.length - 2; i >= 0; i -= 1) {
+    if (childList[i].classList.contains('selected')) {
+      listaTarefas.insertBefore(childList[i + 1], childList[i]);
+    }
+  }
+});
