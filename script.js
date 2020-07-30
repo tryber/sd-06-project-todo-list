@@ -12,7 +12,8 @@ function adicionaTarefa() {
     itemList.innerText = insert.value;
     insert.value = '';
     itemList.addEventListener('click', clickItem);
-    itemList.addEventListener('dblclick', doubleClick);
+    itemList.addEventListener('dblclick', doubleClick1);
+    itemList.addEventListener('dblclick', doubleClick2);
 }
 function botao() {
     btn.addEventListener('click', adicionaTarefa);
@@ -21,9 +22,12 @@ function clickItem(event) {
     let itemSelected = event.target;
     itemSelected.style.background = 'rgb(128, 128, 128)';
 };
-function doubleClick(event) {
+function doubleClick1(event) {
     let itemSelected = event.target;
-    itemSelected.classList.add('completed');
+    itemSelected.classList.toggle('completed');
+}
+function doubleClick2(event) {
+    let itemSelected = event.target;
     itemSelected.style.textDecoration = 'line-through';
 }
 function apagaTudo() {
