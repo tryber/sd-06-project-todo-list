@@ -1,4 +1,4 @@
-import { lazyCoder } from './lazy-coder.js';
+import lazyCoder from './lazy-coder.js';
 
 const btnAdc = lazyCoder(0, 1);
 const todoList = lazyCoder(0, 2);
@@ -83,10 +83,3 @@ lazyCoder(0, 10).onclick = () => {
     }
   }
 };
-
-lazyCoder(0, 12).addEventListener('submit', (event) => {
-  event.preventDefault();
-
-  if (liList.value.length < 1) return;
-
-});

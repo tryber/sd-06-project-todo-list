@@ -25,4 +25,4 @@ function lazyCoder(keyMethod, keyDiv) {
   return document[`${METHODS[keyMethod]}`](TAGS[keyDiv]);
 }
 
-export { lazyCoder as lazyCoder };
+export default lazyCoder;
