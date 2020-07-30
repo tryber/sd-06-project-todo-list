@@ -4,6 +4,11 @@ const lista = document.querySelector('#lista-tarefas');
 const listItens = document.getElementsByTagName('li');
 const removeBtn = document.querySelector('#apaga-tudo');
 const removeComplete = document.querySelector('#remover-finalizados');
+const save = document.querySelector('#salvar-tarefas');
+
+window.onload = function () {
+  lista.innerHTML = localStorage.getItem('list');
+}
 
 tarefaBtn.addEventListener('click', function () {
   const element = document.createElement('li');
@@ -43,4 +48,11 @@ removeComplete.addEventListener('click', function () {
       }
     }
   }
+});
+
+save.addEventListener('click', function () {
+  if (localStorage.getItem('list') !== null) {
+    window.localStorage.clear();
+  }
+  window.localStorage.setItem('list', lista.innerHTML);
 });
