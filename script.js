@@ -13,7 +13,6 @@ function adicionaTarefa() {
     insert.value = '';
     itemList.addEventListener('click', clickItem);
     itemList.addEventListener('dblclick', doubleClick1);
-    itemList.addEventListener('dblclick', doubleClick2);
 }
 function botao() {
     btn.addEventListener('click', adicionaTarefa);
@@ -31,20 +30,7 @@ function doubleClick1(event) {
         itemSelected.classList.remove('completed');
     }
 }
-function doubleClick2(event) {
-    let itemSelected = event.target;
-    let listando = document.getElementsByTagName('li');
-    let iter = 0;
-    for (let i  in listando) {
-        if (listando[i].style.textDecoration === 'selected') {
-            iter += 1;
-        } else if (iter > 0) {
-            for (i in listando) {
-                listando[i].classList.remove('selected');
-            }
-        }
-    }
-}
+
 function apagaTudo() {
     ordList.innerHTML = '';
 }
