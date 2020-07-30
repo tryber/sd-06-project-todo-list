@@ -32,16 +32,16 @@ taskList.addEventListener('dblclick', function (event) {
 
 // Apaga todas as tarefas registradas;
 btnClearAll.addEventListener('click', function () {
-  const allTask = document.querySelectorAll('.task')
-  for (let index in allTask) {
+  const allTask = document.querySelectorAll('.task');
+  for (let index = 0; index < allTask.length; index += 1) {
     allTask[index].remove();
   }
 });
 
 // Remove apenas os itens completados;
 btnRemoveDone.addEventListener('click', function () {
-  const tasksDone = document.querySelectorAll('.completed')
-  for (let index in tasksDone) {
+  const tasksDone = document.querySelectorAll('.completed');
+  for (let index = 0; index < tasksDone.length; index += 1) {
     tasksDone[index].remove();
   }
 });
