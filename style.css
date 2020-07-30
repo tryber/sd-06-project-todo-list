@@ -25,7 +25,7 @@ ol li {
     position: relative;
     padding: 12px 8px 12px 40px;
     list-style-type: none;
-    background: #eee;
+    background: white;
     font-size: 16px;
     transition: 0.2s;
     /* make the list items unselectable */
@@ -47,9 +47,15 @@ ol li:nth-child(odd) {
 /* When clicked on, add a background color and strike out text */
 
 ol li.completed {
-    background: rgb(128, 128, 128);
-    color: #fff;
+    /*background: rgb(128, 128, 128);*/
+    color: rgb(0, 0, 0);
     text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+ol li.selected {
+    background: rgb(128, 128, 128);
+    color: white;
+    /* text-decoration: line-through solid rgb(0, 0, 0);*/
 }
 
 
@@ -58,7 +64,7 @@ ol li.completed {
 ol li.checked::before {
     content: '';
     position: absolute;
-    border-color: #fff;
+    border-color: white;
     border-style: solid;
     border-width: 0 2px 2px 0;
     top: 10px;
@@ -66,6 +72,7 @@ ol li.checked::before {
     transform: rotate(45deg);
     height: 15px;
     width: 7px;
+    padding: 1%;
 }
 
 

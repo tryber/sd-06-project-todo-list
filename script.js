@@ -22,6 +22,11 @@ window.onload = function() {
 
         }
     }, false);
+    list.addEventListener('click', function(ev) {
+        if (ev.target.tagName === 'LI') {
+            ev.target.classList.toggle('selected');
+        }
+    }, false);
 
     //criar novo item
     const addTask = document.getElementById("criar-tarefa")
