@@ -1,5 +1,5 @@
 body {
-  background-color: teal;
+  background-color: rgb(2, 68, 68);
 }
 
 #container {
@@ -9,7 +9,7 @@ body {
     "list"
     "buttons";
   border-radius: 15px;
-  background-color: white;
+  background-color: whitesmoke;
   padding: 15px;
 }
 
@@ -58,20 +58,23 @@ li:hover {
   grid-area: "buttons";
   display: grid;
   grid-template-columns: repeat(6, auto);
-  justify-content: space-evenly;
+  justify-content: start;
   width: 50%;
-  margin-left: ;
+  margin-left: 15px;
 }
 
 button {
+  font-family: monospace;
   border-radius: 6px;
+  border: 0px;
   background-color: teal;
-  color: white;
+  color: whitesmoke;
+  margin-left: 10px;
 }
 button:hover {
   box-shadow: 0 0 100px 100px rgba(255, 255, 255, 0.1) inset;
 }
 
 #remover-selecionado {
-  background-color: red;
+  background-color: rgb(168, 0, 0);
 }

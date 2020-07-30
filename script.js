@@ -2,11 +2,12 @@
 let textInput = document.getElementById("texto-tarefa");
 let addBtn = document.getElementById("criar-tarefa");
 let listaTarefas = document.getElementById("lista-tarefas");
-let remover = document.getElementById("remover-selecionado");
-let apagarCompletos = document.getElementById("apagar-completos");
 let itens = listaTarefas.getElementsByTagName("li");
+let remover = document.getElementById("remover-selecionado");
+let apagarCompletos = document.getElementById("remover-finalizados");
 let subir = document.getElementById("subir-selecionado");
 let descer = document.getElementById("descer-selecionado");
+let apagarTudo = document.getElementById("apaga-tudo");
 
 
 // Funções e eventos para adicionar novo item à lista de tarefas
@@ -73,7 +74,16 @@ function apagaCompletos() {
   }
 }
 
-// // Botões de subir e descer item na lista
+// Botão para apagar todos os itens
+apagarTudo.addEventListener("click", apagaTudo);
+
+function apagaTudo() {
+  for(let i = itens.length-1; i >= 0; i-= 1) {
+    itens[i].remove();
+  }
+}
+
+// Botões de subir e descer item na lista
 // subir.addEventListener("click", sobeItem);
 // descer.addEventListener("click", desceItem);
 
