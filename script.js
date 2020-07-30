@@ -40,7 +40,7 @@ function resetSelection() {
 function selectTask(task) {
   resetSelection();
   task.classList.add('selected');
-  return task.style.backgroundColor = 'rgb(128, 128, 128)';
+  task.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
 function markAsCompleted(task) {
@@ -57,13 +57,13 @@ function childChanges() {
   const taskList = document.querySelectorAll('li');
 
   for (let i = 0; i < taskList.length; i += 1) {
-    let task = ol.children[i];
+    const task = ol.children[i];
     task.onclick = function () {
       selectTask(this);
-    }
+    };
     task.ondblclick = function () {
       markAsCompleted(this);
-    }
+    };
   }
 }
 

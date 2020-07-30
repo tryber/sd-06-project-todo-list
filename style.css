@@ -63,8 +63,8 @@ h1 {
 .list-header {
   border-bottom: 1px solid rgba(185 , 185 , 185 , 0.5);
   display: flex;
-  padding-bottom: 8px;
   justify-content: space-between;
+  padding-bottom: 8px;
 }
 
 .list-header > div {
@@ -92,8 +92,8 @@ h2 {
   margin-right: 8px;
 }
 
-.list-header > div:last-child .fas.fa-ellipsis-v {
-  color: rgb(156,156,156);
+.list-header > div:last-child .fa-ellipsis-v {
+  color: rgb(156 , 156 , 156);
   font-size: 24px;
 }
 
