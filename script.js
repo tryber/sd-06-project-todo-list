@@ -33,6 +33,15 @@ orderedList.addEventListener('click', function() {
   event.target.classList.add('selected-task');
 })
 
+//Risk the completed itens
+orderedList.addEventListener('dblclick', function() {
+  if (event.target.className === 'iten selected-task') {
+    event.target.classList.add('completed');
+  } else {
+    event.target.classList.remove('completed')
+  }
+})
+
   //Clear the list content
   clearButton.addEventListener('click', function() {
     let displayList = document.querySelectorAll('li');
