@@ -19,6 +19,9 @@ window.onload = function () {
     /* botão apagar tudo */
     const bottonListDelete = document.getElementById('apaga-tudo');
     bottonListDelete.addEventListener('click', deleteList);
+    /* botão remover finalizados */
+    const bottonRemove = document.getElementById('remover-finalizados');
+    bottonRemove.addEventListener('click', removeComplet);
   });
   /* fazendo a parte do reset da imput*/
   function resetTexto() {
@@ -42,5 +45,12 @@ window.onload = function () {
     while (list.firstChild) {
       list.removeChild(list.firstChild);
     }
+  }
+  /* botão apaga selecionados */
+  function removeComplet(){
+    const removeText = document.querySelector('.completed');
+       if (removeText){
+        removeText.remove();
+      }
   }
 };
