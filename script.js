@@ -65,8 +65,6 @@ btRemoveAllFinished.addEventListener('click', function () {
   }
 });
 
-
-
 const moveUp = document.querySelector('#mover-cima');
 moveUp.addEventListener('click', function () {
   const listLis = document.querySelectorAll('li');
@@ -89,6 +87,16 @@ moveDown.addEventListener('click', function () {
       if (i < listLis.length) {
         listOfTasks.insertBefore(listLis[i], listLis[i + 2]);
       }
+    }
+  }
+});
+
+const btRemoveSelected = document.querySelector('#remover-selecionado');
+btRemoveSelected.addEventListener('click', function () {
+  const listLis = document.querySelectorAll('li');
+  for (let i = 0; i < listLis.length; i += 1) {
+    if (listLis[i].style.backgroundColor === 'rgb(128, 128, 128)') {
+      document.querySelector('#lista-tarefas').removeChild(listLis[i]);
     }
   }
 });
