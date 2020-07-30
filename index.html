@@ -10,14 +10,17 @@
 
 <body>
 
-    <div class="container">
-        <header>
+    <header>
 
-            <h1>Minha Lista de Tarefas</h1>
-
-        </header>
-
+        <h1>Minha Lista de Tarefas</h1>
         <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo </p>
+
+    </header>
+
+
+    <div class="container">
+
+
 
         <div id="">
             <input id="texto-tarefa" class="inputNewTodo" value="" type="text" name="newTodo">
@@ -31,7 +34,7 @@
         </div>
 
         <div class="actions">
-            <button class="buttonWarning">X</button>
+            <button class="buttonWarning" id="apaga-tudo">X</button>
             <button id="upLiButton" class="buttonAlert">^</button>
             <button id="upLiButton" class="buttonAlert">v</button>
             <button class="cleanDonesButton button-primary">Limpar Completos</button>
@@ -41,6 +44,9 @@
         </section>
 
     </div>
+
+    <script src="script.js">
+    </script>
 </body>
 
 </html>
