@@ -21,11 +21,22 @@ function criarTarefa () {
 
   listaDeTarefas = document.getElementsByTagName('li');
   
-  tarefa.addEventListener('click', selecionarTarefa ())
+  tarefa.addEventListener('click', selecionarTarefa)
 }
 
 function selecionarTarefa (event) {
-  console.log(event.target)
+  let task = event.target;
+  let lista = document.getElementsByClassName('selecionada')[0];
+
+  if (lista) {
+    lista.classList.remove('selecionada');
+    task.classList.add('selecionada');
+    
+  } else {
+    task.classList.add('selecionada');
+
+  }
+  
 }
 
 function apagarTudo () {
