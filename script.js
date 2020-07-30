@@ -13,8 +13,12 @@ listElements.addEventListener('click', function (event) {
   let oldSelectedElement = document.querySelector('.selected');
   let currentSelectedElement = event.target;
   if(oldSelectedElement) {
-    currentSelectedElement.classList.add('selected');
-    oldSelectedElement.classList.remove('selected')
+    if (currentSelectedElement == oldSelectedElement) {
+      currentSelectedElement.classList.add('selected');
+    } else {
+      currentSelectedElement.classList.add('selected');
+      oldSelectedElement.classList.remove('selected');
+    }
   } else {
     currentSelectedElement.classList.add('selected');
   }
@@ -26,5 +30,5 @@ listElements.addEventListener('dblclick', function (event) {
     currentSelectedElement.classList.remove('completed');
   } else {
     currentSelectedElement.classList.add('completed');
-  };
+  }
 });
