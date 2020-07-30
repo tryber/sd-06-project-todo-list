@@ -16,20 +16,26 @@ function createTask() {
   input.value = '';
 }
 
-// Torna cinza itens clicados e de-seleciona itens anteriores
+// Torna cinza itens clicados
 function changeColor() {
-  const createdItem = document.getElementsByTagName('li');
-  for(let i = 0 ; i < createdItem.length ; i += 1) {
-    createdItem[i].addEventListener('click', function() {
-      createdItem[i].style.backgroundColor = 'rgb(128, 128, 128)';
-      for(let x = 0 ; x < createdItem.length ; x += 1) {
-        if (x !== i) {
-          createdItem[x].style.backgroundColor = 'transparent';
-        }
-        }
-    });
-  }
+  const item = event.target
+  item.style.backgroundColor = 'rgb(128, 128, 128)'
 }
+
+// De-selecionar itens quando um item é selecionado  
+// function changeColor() {
+//   const createdItem = document.getElementsByTagName('li');
+//   for(let i = 0 ; i < createdItem.length ; i += 1) {
+//     createdItem[i].addEventListener('click', function() {
+//       createdItem[i].style.backgroundColor = 'rgb(128, 128, 128)';
+//       for(let x = 0 ; x < createdItem.length ; x += 1) {
+//         if (x !== i) {
+//           createdItem[x].style.backgroundColor = 'transparent';
+//         }
+//         }
+//     });
+//   }
+// }
 
 // Torna riscado itens com double click
 function scratchItem() {
