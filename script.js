@@ -12,13 +12,17 @@ window.onload = function(){
     var moverCima = document.querySelector("#mover-cima");
     var moverBaixo = document.querySelector("#mover-baixo");
 
-
-    if(localStorage.getItem("item1")){
-        for(let i = 1; i < localStorage.length + 1 ; i++){
+    var tudo = JSON.parse(localStorage.getItem('item'));
+    if(localStorage.getItem("item")){
+        
+        for(let i = 0; i < tudo.length; i++){
             var obj = document.createElement("li")
-            obj.innerText = localStorage.getItem("item" + i)
-            console.log(obj)
+            obj.innerText = tudo[i].item
             lista.appendChild(obj)
+            if(tudo[i].compl){
+                obj.className = "completed";
+                obj.style.textDecoration = "line-through solid rgb(0, 0, 0)";
+            }
         }
     }
   
@@ -122,8 +126,24 @@ moverBaixo.addEventListener("click",function(){
 
     save.addEventListener("click", function(){
         let elements = lista.childNodes;
+        var itens = [];
         for(let i = 1; i < elements.length; i += 1){
-            localStorage.setItem("item" + i, elements[i].innerText)
+            if(elements[i].className == "completed"){
+                itens.push(
+                    {
+                        item : elements[i].innerText,
+                        compl : "completed"
+                    }
+                )
+            }else{
+                itens.push(
+                                {
+                                    item : elements[i].innerText
+                                }
+                            )
+            }
+           
+            localStorage.setItem("item", JSON.stringify(itens))
         }
     })
     
