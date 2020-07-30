@@ -17,23 +17,15 @@ function insertTask() {
 list.addEventListener('click', function(event) {
     let oldDiv = document.querySelector('.selected');  
     console.log(oldDiv);
-    
+    if (oldDiv !== null){
+      oldDiv.classList.remove('selected');
+    }
 
     item = event.target; //quem recebe o click
     item.classList.add('selected') 
     console.log(item);
-    oldDiv.classList.remove('selected');
-    
-
-  // let oldDiv = document.querySelector('.selected');
-  // let currentDiv = event.target;
-  // let backgroundColor = currentDiv.style.backgroundColor;
-  // console.log(backgroundColor);
+ 
 
 
-  // currentDiv.classList.add('selected');
-  
-  // selectedColor = backgroundColor;     
-    
 
 });
