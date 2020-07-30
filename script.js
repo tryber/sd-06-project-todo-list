@@ -39,3 +39,11 @@ function deleteTasks() {
     listBuilder.removeChild(listBuilder.children[index]);
   }
 };
+
+
+function deleteCompleted() {
+  let elements = document.querySelectorAll('.completed');
+  for (let index = elements.length-1; index >= 0; index -=1) {
+    elements[index].remove();
+  }
+};
