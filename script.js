@@ -89,13 +89,11 @@ const moverCima = document.querySelector('#mover-cima');
 
 moverCima.addEventListener('click', function () {
   const lista = document.querySelector('#lista-tarefas');
-  const nodesDaLista = lista.childNodes;
+  const nodesDaLista = lista.children;
 
   for (let x = 1; x < nodesDaLista.length; x += 1) {
-    if (nodesDaLista[x].nodeName !== '#text' && nodesDaLista[x - 1].nodeName !== '#text') {
-      if (nodesDaLista[x].classList.contains('selecionado')) {
-        lista.insertBefore(nodesDaLista[x], nodesDaLista[x - 1]);
-      }
+    if (nodesDaLista[x].classList.contains('selecionado')) {
+      lista.insertBefore(nodesDaLista[x], nodesDaLista[x - 1]);
     }
   }
 });
@@ -104,13 +102,11 @@ const moverBaixo = document.querySelector('#mover-baixo');
 
 moverBaixo.addEventListener('click', function () {
   const lista = document.querySelector('#lista-tarefas');
-  const nodesDaLista = lista.childNodes;
+  const nodesDaLista = lista.children;
 
   for (let x = nodesDaLista.length - 2; x >= 0; x -= 1) {
-    if (nodesDaLista[x].nodeName !== '#text' && nodesDaLista[x + 1].nodeName !== '#text') {
-      if (nodesDaLista[x].classList.contains('selecionado')) {
-        lista.insertBefore(nodesDaLista[x + 1], nodesDaLista[x]);
-      }
+    if (nodesDaLista[x].classList.contains('selecionado')) {
+      lista.insertBefore(nodesDaLista[x + 1], nodesDaLista[x]);
     }
   }
 });
@@ -119,13 +115,11 @@ const removerSelecionado = document.querySelector('#remover-selecionado');
 
 removerSelecionado.addEventListener('click', function () {
   const lista = document.querySelector('#lista-tarefas');
-  const nodesDaLista = lista.childNodes;
+  const nodesDaLista = lista.children;
 
   for (let x = 0; x < nodesDaLista.length; x += 1) {
-    if (nodesDaLista[x].nodeName !== '#text') {
-      if (nodesDaLista[x].classList.contains('selecionado')) {
-        nodesDaLista[x].remove();
-      }
+    if (nodesDaLista[x].classList.contains('selecionado')) {
+      nodesDaLista[x].remove();
     }
   }
 });
