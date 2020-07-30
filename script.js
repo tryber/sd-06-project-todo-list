@@ -1,6 +1,30 @@
-let items = [];
+let items = ["comer banana", "tomar chocolate quente"];
 let textValue;
 const inputText = document.getElementById("texto-tarefa");
+const lista = document.getElementById("lista-tarefas");
+let selected;
+
+// reconstrói a lista toda vez que adiciona ou retira algo
+function rebuildList() {
+  lista.innerHTML = "";
+
+  for (let i = 0; i < items.length; i += 1) {
+    const newItem = document.createElement("li");
+    lista.appendChild(newItem);
+    newItem.innerText = items[i];
+
+    let thisItem = lista.children[i];
+    // fica cinza quando clica
+    thisItem.addEventListener("click", function () {
+      if (selected) {
+        selected.style.backgroundColor = "";
+      }
+      selected = thisItem;
+      selected.style.backgroundColor = "rgb(128,128,128)";
+      console.log(selected);
+    });
+  }
+}
 
 function addItem() {
   items.push(textValue);
@@ -35,18 +59,6 @@ function setButton() {
       window.alert("Insira um item à lista!");
     }
   });
-}
-
-// reconstrói a lista toda vez que adiciona ou retira algo
-function rebuildList() {
-  const lista = document.getElementById("lista-tarefas");
-  lista.innerHTML = "";
-
-  for (let i = 0; i < items.length; i += 1) {
-    const newItem = document.createElement("li");
-    lista.appendChild(newItem);
-    newItem.innerText = items[i];
-  }
 }
 
 window.onload = function () {
