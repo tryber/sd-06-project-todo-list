@@ -13,19 +13,26 @@ function insertTask() {
     let cleanInput = document.getElementById("texto-tarefa").value = "";
 }
 
-
 list.addEventListener('click', function(event) {
     let oldDiv = document.querySelector('.selected');  
-    console.log(oldDiv);
     if (oldDiv !== null){
       oldDiv.classList.remove('selected');
     }
 
-    item = event.target; //quem recebe o click
+    let item = event.target; //quem recebe o click
     item.classList.add('selected') 
     console.log(item);
- 
-
-
-
 });
+
+list.addEventListener('dblclick', function(event){
+  let completed = event.target;
+  
+  if(completed.classList.contains('completed')) {
+    completed.classList.remove('completed');
+    console.log(completed);
+  } else {
+    completed.classList.add('completed');
+    console.log(completed);
+  }
+})
+
