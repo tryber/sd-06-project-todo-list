@@ -33,7 +33,7 @@ window.onload = () => {
 
 
 
-    let buttonAddTodo = document.querySelector('#newTodoButton');
+    let buttonAddTodo = document.querySelector('#criar-tarefa');
     let i = 0;
 
     buttonAddTodo.addEventListener('click', () => {

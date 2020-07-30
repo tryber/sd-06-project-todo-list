@@ -10,35 +10,37 @@
 
 <body>
 
+    <div class="container">
+        <header>
 
-    <header class="container">
+            <h1>Minha Lista de Tarefas</h1>
 
-        <h1>Minha Lista de Tarefas</h1>
+        </header>
 
-    </header>
+        <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo </p>
 
-    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo </p>
+        <div id="">
+            <input id="texto-tarefa" class="inputNewTodo" value="" type="text" name="newTodo">
+            <button class="button-primary" id="criar-tarefa">Adicionar nova Tarefa</button>
+        </div>
 
-    <div id="">
-        <input id="texto-tarefa" class="inputNewTodo" value="" type="text" name="newTodo">
-        <button class="button-primary" id="newTodoButton">Adicionar nova Tarefa</button>
+        <div id="">
+            <ol id="lista-tarefas">
+
+            </ol>
+        </div>
+
+        <div class="actions">
+            <button class="buttonWarning">X</button>
+            <button id="upLiButton" class="buttonAlert">^</button>
+            <button id="upLiButton" class="buttonAlert">v</button>
+            <button class="cleanDonesButton button-primary">Limpar Completos</button>
+            <button class="buttonWarning cleanListButton">Limpar Lista</button>
+            <button class="saveListButton buttonSuccess">Salvar Lista</button>
+        </div>
+        </section>
+
     </div>
-
-    <div id="">
-        <ol id="lista-tarefas">
-
-        </ol>
-    </div>
-
-    <div class="actions">
-        <button class="buttonWarning">X</button>
-        <button id="upLiButton" class="buttonAlert">^</button>
-        <button id="upLiButton" class="buttonAlert">v</button>
-        <button class="cleanDonesButton button-primary">Limpar Completos</button>
-        <button class="buttonWarning cleanListButton">Limpar Lista</button>
-        <button class="saveListButton buttonSuccess">Salvar Lista</button>
-    </div>
-    </section>
 </body>
 
 </html>
