@@ -1,13 +1,10 @@
 const addButton = document.getElementById('criar-tarefa');
 const input = document.getElementById('texto-tarefa');
 const listaMae = document.querySelector('#lista-tarefas')
+const apagaButton = document.getElementById('apaga-tudo')
 
 window.onload = function (){
   setupClickButton();
-
-  // setup click do item da Lista
-
-  // setup do double click do item da lista
 }
 
 function setupClickButton(){
@@ -19,6 +16,12 @@ function setupClickButton(){
     input.value = ''
     listItem.addEventListener('click', clickCorSelected);
     listItem.addEventListener('dblclick', doubleClickAdd)
+  })
+  apagaButton.addEventListener('click', function () {
+    let tarefas = document.getElementsByClassName('tarefas')
+    while (listaMae.firstChild) {
+      listaMae.removeChild(listaMae.lastChild)
+    }
   })
 }
 
@@ -41,6 +44,7 @@ function doubleClickAdd(event){
     })
   }
 }
+
 
 
 
