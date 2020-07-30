@@ -25,18 +25,27 @@ window.onload = function () {
     bottonListDelete.addEventListener('click', deleteList);
     
     /* botão remover finalizados */
-    const bottonRemove = document.querySelector('#remover-finalizados');
+    const bottonRemove = document.getElementById('remover-finalizados');
     bottonRemove.addEventListener('click', removeComplet);
+
+    /* botão remover selecionados */
+    const bottonRemoveSelect = document.getElementById('remover-selecionado');
+    bottonRemoveSelect.addEventListener('click', removeSelect);
+
+    /* botão mover para cima */
+    const bottonMoveUp = document.getElementById('mover-cima');
+    bottonMoveUp.addEventListener('click', moveUp);
+
   });
   
-  /* fazendo a parte do reset da imput*/
+  /* parte do reset imput*/
   function resetTexto() {
     document.querySelector('#texto-tarefa').value = '';
   }
   const text = document.querySelector('#criar-tarefa');
   text.addEventListener('click', resetTexto);
   
-  /* mudando a cor de fundo */
+  /* função para mudança de cor de fundo */
   function backColor() {
     let listOl = document.querySelectorAll('li');
     listOl = event.target;
@@ -47,7 +56,7 @@ window.onload = function () {
     listOl.classList.add('bgColor');
   }
   
-  /* botão apaga tudo */
+  /* função do botão apaga tudo */
   function deleteList() {
     const list = document.getElementById('lista-tarefas');
     while (list.firstChild) {
@@ -55,11 +64,35 @@ window.onload = function () {
     }
   }
   
-  /* botão apaga finalizados */
+  /* função do botão apaga finalizados */
   function removeComplet() {
     const removeText = document.querySelectorAll('.completed');
     for(let i = 0; i < removeText.length; i += 1){
       removeText[i].remove();
     }      
   }
+
+  /* função do botão apaga selecionados */
+  function removeSelect() {
+    const removebg = document.querySelectorAll('.bgColor');
+    for(let i = 0; i < removebg.length; i += 1){
+      removebg[i].remove();
+    }      
+  }
+
+  /* função do botão de mover para cima 
+  function moveUp () {
+    let textList = [];
+    textList = document.querySelectorAll('li');
+    const color = document.querySelectorAll('.bgColor');
+    if (color){
+    for (let i = 0; i <= color.length; i += 1){
+      for (let j = 1; j <= textList.length; j += 1){
+        let receptor = color[i].innerHTML;
+        color[i].innerHTML = textList[j].innerHTML;
+        textList[j].innerHTML = receptor;
+      };
+    }}
+  } */
+  
 };
