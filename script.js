@@ -1,3 +1,4 @@
+window.onload = function() {
 // Criar a lista
 function criaLista() {
   const listaItem = document.createElement('ol');
@@ -62,10 +63,22 @@ btnApagaTudo.addEventListener('click', apagaTudo);
 // Remover os ítens finalizados
 function removerFinalizados() {
   const itens = document.querySelectorAll('.completed');
-  for (let index = 0; index < itens.length; index += 1) {
-    lista.removeChild(itens[index]);
-  }
+  if (itens) {
+    for (let index = 0; index < itens.length; index += 1) {
+      lista.removeChild(itens[index]);
+    }
+  }  
 }
+
+// function apagarFinalizados() {
+//   const listaApagar = document.querySelector('#lista-tarefas');
+//   let primeiro = listaApagar.firstChild;
+//   for (let i = primeiro; i; i = primeiro.nextSibling) {
+//     if (i.classList.contains('completed')) {
+//       i.remove();
+//     }
+//   }
+// }
 const btnApagaFinalizados = document.querySelector('#remover-finalizados');
 btnApagaFinalizados.addEventListener('click', removerFinalizados);
 
@@ -77,10 +90,10 @@ function salvarDados() {
   let org = [];
   const itens = document.querySelectorAll('li');
 
-  for (let index = 0; index < itens.length; index += 1) {
-    dados[index] = { item: itens[index], itemTexto: itens[index].innerHTML };
-    console.log(dados[index]);
-  }
+  // for (let index = 0; index < itens.length; index += 1) {
+  //   dados[index] = { item: itens[index], itemTexto: itens[index].innerHTML };
+  //   console.log(dados[index]);
+  // }
 
   // for (let j = 0; j < dados.length; j += 1) {
   //   localStorage.setItem('position', JSON.stringify(dados[j]));
@@ -98,14 +111,13 @@ btnSalvar.addEventListener('click', salvarDados);
 // Mover elementos na lista
 function moverAcima() {
   let selecao = document.querySelector('.selected');
-  let temp = selecao.previousSibling;
+  let temp = selecao.previousSibling.innerHTML;
 
-  console.log(selecao.previousSibling);
-  selecao.previousSibling = selecao;
-  console.log(selecao.previousSibling);
+  selecao.previousSibling.innerHTML = selecao.innerHTML;
 
-  selecao = temp;
-  console.log(selecao.previousSibling);
+  selecao.innerHTML = temp;
+ 
 }
 const btnMoveCima = document.querySelector('#mover-cima');
 btnMoveCima.addEventListener('click', moverAcima);
+}
