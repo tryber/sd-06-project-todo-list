@@ -1,10 +1,9 @@
 const LISTSHOWN = document.querySelector('#lista-tarefas');
 let toDoList = [];
 
-/* let clickCount = 0;
-let timeout = 350;
- */
-
+let clickCount = 0;
+let timeout = 250;
+ 
 function appendTask() {
   let item = document.createElement('li');
   item.innerText = toDoList[toDoList.length - 1];
@@ -26,7 +25,7 @@ function switchDoneUndone(task) {
   }
 }
 
-/* function handleClicks(chosenTask) {
+function handleClicks(chosenTask) {
   clickCount += 1;
   if (clickCount == 1) {
     setTimeout(function () {
@@ -37,19 +36,19 @@ function switchDoneUndone(task) {
         switchDoneUndone(chosenTask);
       }
       clickCount = 0;
-    }, timeout || 300);
+    }, timeout || 80);
   }
-} */
+}
 
 LISTSHOWN.addEventListener('click', (event) => {
-  //handleClicks(event.target);
-  resetSelectedTask();
-  event.target.classList.add('selected-task');
+  handleClicks(event.target);
+  /* resetSelectedTask();
+  event.target.classList.add('selected-task'); */
 });
 
-LISTSHOWN.addEventListener('dblclick', (event) => {
+/* LISTSHOWN.addEventListener('dblclick', (event) => {
   switchDoneUndone(event.target);
-});
+}); */
 
 document.querySelector('#criar-tarefa').addEventListener('click', () => {
   let task = document.querySelector('.to-do-task');
