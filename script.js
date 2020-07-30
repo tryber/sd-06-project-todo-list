@@ -83,3 +83,13 @@ function removeAllTasks() {
 
 const removeAllButton = document.getElementById('apaga-tudo');
 removeAllButton.onclick = removeAllTasks;
+
+// Remove completed
+
+function removeCompletedTasks() {
+  const completedTasks = document.querySelectorAll('.completed');
+  completedTasks.forEach(completedTask => completedTask.remove());
+}
+
+const removeCompletedTasksButton = document.getElementById('remover-finalizados');
+removeCompletedTasksButton.onclick = removeCompletedTasks;
