@@ -14,6 +14,7 @@ window.onload = function () {
   oneLineSelection();
   addItembackgroundColor();
   scratch();
+  erase();
 };
 
 function addItembackgroundColor () {
@@ -44,3 +45,14 @@ function scratch () {
   });
 }
 
+function erase () {
+  const eventSelect = document.querySelector('#lista-tarefas');
+  eventSelect.addEventListener('dblclick', function (event) {
+    let elementSelected = document.querySelector('.completed')
+    let eraseItem = event.target;
+    if (eraseItem.className == 'completed' && elementSelected.className == 'completed') {
+      eraseItem.classList.remove('completed');
+    }
+      
+  });
+}
