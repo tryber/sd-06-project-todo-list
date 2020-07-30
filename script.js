@@ -47,17 +47,18 @@ function enableMovingButtons() {
     if (currentlySelected) {
       const selectedText = currentlySelected.innerText;
       const currentIndex = todoList.indexOf(selectedText);
+
+      if (currentIndex !== 0) {
+        let elementDown = todoList[currentIndex - 1];
+        todoList[currentIndex - 1] = selectedText;
+        todoList[currentIndex] = elementDown;
+        selectedTodo = currentIndex - 1;
+        renderTodaysTodos();
+        const everyTodo = document.querySelectorAll(".daily");
+        everyTodo[currentIndex - 1].classList.add('selected');
+      }
     }
 
-    if (currentIndex !== 0) {
-      let elementDown = todoList[currentIndex - 1];
-      todoList[currentIndex - 1] = selectedText;
-      todoList[currentIndex] = elementDown;
-      selectedTodo = currentIndex - 1;
-      renderTodaysTodos();
-      const everyTodo = document.querySelectorAll(".daily");
-      everyTodo[currentIndex - 1].classList.add('selected');
-    }
   }
 
   downBtn.onclick = () => {
@@ -66,17 +67,18 @@ function enableMovingButtons() {
     if (currentlySelected) {
       const selectedText = currentlySelected.innerText;
       const currentIndex = todoList.indexOf(selectedText);
+
+      if (currentIndex !== todoList.length - 1) {
+        let elementUp = todoList[currentIndex + 1];
+        todoList[currentIndex + 1] = selectedText;
+        todoList[currentIndex] = elementUp;
+        selectedTodo = currentIndex + 1;
+        renderTodaysTodos();
+        const everyTodo = document.querySelectorAll(".daily");
+        everyTodo[currentIndex + 1].classList.add('selected');
+      }
     }
 
-    if (currentIndex !== todoList.length - 1) {
-      let elementUp = todoList[currentIndex + 1];
-      todoList[currentIndex + 1] = selectedText;
-      todoList[currentIndex] = elementUp;
-      selectedTodo = currentIndex + 1;
-      renderTodaysTodos();
-      const everyTodo = document.querySelectorAll(".daily");
-      everyTodo[currentIndex + 1].classList.add('selected');
-    }
   }
 
   rightBtn.onclick = () => {
