@@ -56,6 +56,7 @@ function enableMovingButtons() {
         renderTodaysTodos();
         const everyTodo = document.querySelectorAll(".daily");
         everyTodo[currentIndex - 1].classList.add('selected');
+        saveTodos();
       }
     }
 
@@ -76,6 +77,7 @@ function enableMovingButtons() {
         renderTodaysTodos();
         const everyTodo = document.querySelectorAll(".daily");
         everyTodo[currentIndex + 1].classList.add('selected');
+        saveTodos();
       }
     }
 
