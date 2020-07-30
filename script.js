@@ -42,5 +42,25 @@ clearFinalized.addEventListener("click", function(){
         selected.removeChild(finished[i]);
     }
 })
-
-
+let moveUp = document.querySelector("#mover-cima");
+moveUp.addEventListener("click", function(){
+    if (document.querySelector(".selected") !== null){
+        let selected = document.querySelector(".selected");
+        let pai = selected.parentNode;
+        if (selected !== pai.firstChild){
+            let elementoCima = selected.previousElementSibling;
+            pai.insertBefore(selected, elementoCima);
+        }
+    }
+})
+let moveDown = document.querySelector("#mover-baixo");
+moveDown.addEventListener("click", function(){
+    if (document.querySelector(".selected") !== null){
+        let selected = document.querySelector(".selected");
+        let pai = selected.parentNode;
+        if (selected !== pai.lastChild && selected !== null){
+            let elementoBaixo = selected.nextElementSibling;
+            pai.insertBefore(selected, elementoBaixo.nextElementSibling);
+        }
+    }
+})
