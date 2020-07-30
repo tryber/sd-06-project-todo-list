@@ -21,22 +21,34 @@ function criarTarefa () {
 
   listaDeTarefas = document.getElementsByTagName('li');
   
-  tarefa.addEventListener('click', selecionarTarefa)
+  tarefa.addEventListener('click', selecionarTarefa);
+  tarefa.addEventListener('dblclick', tarefaConcluida);
 }
 
 function selecionarTarefa (event) {
-  let task = event.target;
+  let tarefa = event.target;
   let lista = document.getElementsByClassName('selecionada')[0];
 
   if (lista) {
     lista.classList.remove('selecionada');
-    task.classList.add('selecionada');
+    tarefa.classList.add('selecionada');
     
   } else {
-    task.classList.add('selecionada');
+    tarefa.classList.add('selecionada');
 
   }
   
+}
+
+function tarefaConcluida (event) {
+  let tarefa = event.target;
+  
+  if (tarefa.classList.contains('concluida')) {
+    tarefa.classList.remove('concluida');
+  } else {
+    tarefa.classList.add('concluida');
+  }
+
 }
 
 function apagarTudo () {
