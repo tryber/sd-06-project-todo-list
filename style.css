@@ -34,3 +34,7 @@ button {
 p {
   font-size: 25px;
 }
+
+input {
+  padding: 5px 15px;
+}
