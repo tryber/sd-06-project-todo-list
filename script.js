@@ -1,15 +1,3 @@
-window.onload = function () {
-  handleNewTaskButtonClick();
-
-  handleTaskSelection();
-
-  handleTaskCompletion();
-
-  handleEraseAllButton();
-
-  handleEraseCompletedButton();
-};
-
 const userInput = document.querySelector('#texto-tarefa');
 const newTaskButton = document.querySelector('#criar-tarefa');
 const tasksList = document.querySelector('#lista-tarefas');
@@ -85,3 +73,15 @@ function eraseCompleted() {
 function handleEraseCompletedButton() {
   eraseCompletedButton.addEventListener('click', eraseCompleted);
 }
+
+window.onload = function () {
+  handleNewTaskButtonClick();
+
+  handleTaskSelection();
+
+  handleTaskCompletion();
+
+  handleEraseAllButton();
+
+  handleEraseCompletedButton();
+};
