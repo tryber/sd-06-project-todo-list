@@ -10,7 +10,7 @@ function createTask() {
   const newItem = document.createElement('li');
   listOl.appendChild(newItem);
   newItem.innerHTML = input.value;
-  newItem.className = "tarefa";
+  newItem.className = 'tarefa';
   newItem.addEventListener('click', changeColor);
   newItem.addEventListener('dblclick', scratchItem);
   input.value = '';
@@ -19,13 +19,13 @@ function createTask() {
 // Torna cinza itens clicados e de-seleciona itens anteriores
 function changeColor() {
   const createdItem = document.getElementsByTagName('li');
-  for (let i = 0 ; i < createdItem.length ; i += 1){
-    createdItem[i].addEventListener('click',function(){
+  for(let i = 0 ; i < createdItem.length ; i += 1) {
+    createdItem[i].addEventListener('click', function() {
       createdItem[i].style.backgroundColor = 'rgb(128, 128, 128)';
-        for (let x = 0 ; x < createdItem.length ; x += 1) {
-          if (x != i) {
-            createdItem[x].style.backgroundColor = 'transparent';
-          }
+      for(let x = 0 ; x < createdItem.length ; x += 1) {
+        if (x !== i) {
+          createdItem[x].style.backgroundColor = 'transparent';
+        }
         }
     });
   }
