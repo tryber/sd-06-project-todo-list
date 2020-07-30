@@ -1,8 +1,7 @@
- 
 .completed {
-    text-decoration: line-through solid rgb(128,128,1288);
+    text-decoration: line-through solid black;
   }
   
-.bgColor {
-    background-color: rgb(128,128,1288);
+  .bgColor {
+    background-color: gray;
   }
