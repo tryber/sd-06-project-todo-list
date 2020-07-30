@@ -14,6 +14,7 @@ window.onload = function() {
    
   });
 
+  // Função para adicionar um item na lista
   function addItem(myText) {
     let myItem = document.createElement('li');
     myItem.appendChild(document.createTextNode(myText));
@@ -22,8 +23,13 @@ window.onload = function() {
     myItem.addEventListener("click", function() {
       chageSelected(myItem); 
     });
+
+    myItem.addEventListener("dblclick", function() {
+      chageCompleted(myItem); 
+    });
   }
 
+  // Função para alterar a cor de fundo do item
   function chageSelected(newSelected){
     let oldSelected = document.querySelector(".selected");
     if (oldSelected) {
@@ -33,6 +39,16 @@ window.onload = function() {
     newSelected.classList.add("selected");
     newSelected.style.backgroundColor = "rgb(128 , 128 , 128)";
   }
+
+  // Função para alterar a classe "Completed"
+  function chageCompleted(newSelected){
+    if (newSelected.classList.contains("completed")) {
+      newSelected.classList.remove("completed");  
+    } else {
+      newSelected.classList.add("completed");
+    }
+  }
+
 
   // function clearColorSelect() {
   //   for(var i = 0; i < myList.length; i += 1) {

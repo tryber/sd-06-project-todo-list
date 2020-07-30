@@ -56,6 +56,10 @@ header h1 {
   box-shadow: 5px 5px 5px rgb(0 , 0 , 0);
 }
 
+.completed {
+  text-decoration: line-through;
+}
+
 /* #color-palette {
   height: 80px;
   width: 400px;
