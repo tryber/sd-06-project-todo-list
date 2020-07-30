@@ -148,7 +148,7 @@ document.getElementById('remover-selecionado').addEventListener('click', functio
   for (let i = 0; i < document.querySelectorAll('li').length; i += 1) {
     if (document.querySelectorAll('li')[i].style.backgroundColor === 'rgb(128, 128, 128)') {
       document.getElementById('lista-tarefas').removeChild(document.querySelectorAll('li')[i]);
-    }    
+    }
   }
   listToSave();
   list.innerHTML = '';
