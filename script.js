@@ -20,14 +20,18 @@ btnAdd.addEventListener('click', addTarefa);
 
 
 // Mudar cor de somente 1 elemento selecionado
-function changingCollor(event) {
+function selectingTask(event) {
   const oldSelected = document.querySelector('.selected');
   const selected = event.target;
-  oldSelected.classList.remove('selected');
-  selected.classList.add('selected');
+  if (oldSelected) {
+    oldSelected.classList.remove('selected');
+    selected.classList.add('selected');
+  } else {
+    selected.classList.add('selected');
+  }  
 }
 const lista = document.querySelector('#lista-tarefas');
-lista.addEventListener('click', changingCollor);
+lista.addEventListener('click', selectingTask);
 
 
 // Riscar as tarefas completas
