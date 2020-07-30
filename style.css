@@ -5,8 +5,8 @@
   margin: 0;
 }
 
-.concluida {
-  text-decoration: line-through;
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
 }
 
 li {

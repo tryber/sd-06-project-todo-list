@@ -39,10 +39,10 @@ function selecionarTarefa (event) {
 function tarefaConcluida (event) {
   let tarefa = event.target;
   
-  if (tarefa.classList.contains('concluida')) {
-    tarefa.classList.remove('concluida');
+  if (tarefa.classList.contains('completed')) {
+    tarefa.classList.remove('completed');
   } else {
-    tarefa.classList.add('concluida');
+    tarefa.classList.add('completed');
   }
 }
 
@@ -57,7 +57,7 @@ function apagarTudo () {
 
 function removeFinalizados () {
   let lista = document.getElementById('lista-tarefas');
-  let itensParaRemover = document.getElementsByClassName('concluida');
+  let itensParaRemover = document.getElementsByClassName('completed');
 
   while (itensParaRemover.length > 0) {
     lista.removeChild(itensParaRemover[0]);
