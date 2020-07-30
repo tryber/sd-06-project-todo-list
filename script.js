@@ -21,5 +21,10 @@ listElements.addEventListener('click', function (event) {
 });
 
 listElements.addEventListener('dblclick', function (event) {
-  
+  let currentSelectedElement = event.target;
+  if (currentSelectedElement.className.includes('completed')) {
+    currentSelectedElement.classList.remove('completed');
+  } else {
+    currentSelectedElement.classList.add('completed');
+  };
 });
