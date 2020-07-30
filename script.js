@@ -11,7 +11,6 @@ button.addEventListener('click', function () {
     let text = input.value;
     let tarefa = document.createElement('li');
     tarefa.innerText = text;
-    tarefa.classList.add = 'work';
     if (text === '') {
         alert("Por favor, Digite algo no input");
     } else {
@@ -20,7 +19,14 @@ button.addEventListener('click', function () {
     };
 });
 
-let itemSelected = document.getElementsByTagName('li');
-list.addEventListener ('click', function(e) {
-    e.target.style.backgroundColor = 'rgb(128, 128, 128)';
+function changeSelected(select){
+    let selected = document.querySelector('.selected');
+    selected.classList.remove('selected');
+    select.className +=' selected';
+}
+let itemSelected = document.querySelectorAll('li');
+
+list.addEventListener('click',function(e){
+    changeSelected(e.target);
 })
+
