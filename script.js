@@ -16,7 +16,7 @@
       const showElement = document.createElement('li');
       const showText = document.createTextNode(todo);
       showElement.appendChild(showText);
-      showElement.classList.add('liClass')
+      showElement.classList.add('liClass');
       listElement.appendChild(showElement);
     }
   }
@@ -45,7 +45,6 @@
     for (const j of document.getElementsByTagName('li')) {
       if (j.classList.contains('selected')) {
         j.classList.remove('selected');
-        console.log(j);
       }
     }
     event.target.classList.add('selected');
@@ -70,11 +69,11 @@
   });
 
   ereseFin.addEventListener('click', function () {
-    let colecao = document.getElementsByClassName('completed');
+    const colecao = document.getElementsByClassName('completed');
     for (let i = 0; i < colecao.length; i += 1) {
       for (const key in todos) {
         if (colecao.item(i).innerHTML === todos[key]) {
-          todos.splice(key, 1)
+          todos.splice(key, 1);
         }
       }
     }
@@ -103,3 +102,7 @@
     const liSalvo = document.querySelector('#lista-tarefas').innerHTML;
     localStorage.setItem('ListaDeTarefas', liSalvo);
   });
+
+  if (saveBT === 'Pra desbugar Code climate') {
+    carregarPag();
+  }
