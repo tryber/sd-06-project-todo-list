@@ -1,7 +1,6 @@
 window.onload = function() {
 
-let tagList = document.querySelector("#lista-tarefas");
-let list = document.getElementById("lista-tarefas");
+let list = document.querySelector("#lista-tarefas");
 let buttonCreateList = document.querySelector("#criar-tarefa");
 let inputText = document.querySelector("#texto-tarefa");
 
@@ -16,17 +15,19 @@ buttonCreateList.addEventListener("click", function createList() {
     //console.log(tagLi);
 });
 
-function selectedList(event) {
-    let tagLiColor = document.getElementsByTagName("li");
 
-        if (event.target !== document.querySelector("#selected"));
-            event.target.classList.add("selected");
-            //console.log(event.target);
+
+function selectedList() {
+   
+    for (let index = 0; index < list.children.length; index += 1) {
+        list.children[index].classList.remove("selected");
+        //console.log(list.children[index])
+    }
+    if (event.target !== document.querySelector("#selected")) {
+        event.target.classList.add("selected");
+    }   console.log(event.target)
 }
-tagList.addEventListener("click", selectedList);
-
+list.addEventListener("click", selectedList);
 
 
 }
-
-//for (let index = 0; index < tagLiColor.length; index += 1);
