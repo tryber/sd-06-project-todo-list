@@ -4,21 +4,21 @@
 
 const getTextInput = document.getElementById("texto-tarefa");
 const getOlContainer = document.querySelector(".task-list-container");
-const value = "";
 
 addTask();
 cleanTasks();
-cleanDoneTasks();
+cleanCompletedTasks();
+cleanSelectedTasks();
 
 //Cria o item da lista  // Esta função é chamada quando o evento de click no botão de adicionar ocorre
 function createLi(){
   let createLi = document.createElement("li");
-  let getOl = document.querySelector(".lista-tarefas");
+  let getOl = document.querySelector("#lista-tarefas");
 
   createLi.classList.add("list-item");
   createLi.innerHTML = getTextInput.value;
 
-  //Por aqui eu pego o clique e dbclique do botão no li e adiciono a class 'selected' e 'done', caso o elemento já a tenha eu removo xd
+  //Por aqui eu pego o clique e dbclique do botão no li e adiciono a class 'selected' e 'completed', caso o elemento já a tenha eu removo xd
   createLi.addEventListener("click", function(){ 
     if(createLi.classList.contains("selected")){
 
@@ -32,15 +32,15 @@ function createLi(){
   });
 
   createLi.addEventListener("dblclick", function(){ 
-    if(createLi.classList.contains("selected","done")){
+    if(createLi.classList.contains("selected","completed")){
 
       createLi.classList.contains("selected");
       createLi.classList.remove("selected");
-      createLi.classList.remove("done");
+      createLi.classList.remove("completed");
 
     }else{
 
-      createLi.classList.add("done");
+      createLi.classList.add("completed");
 
     }
 
@@ -66,19 +66,35 @@ function getAllElementsAndEraseIt(){
   getOlContainer.parentElement.removeChild(getOlContainer);
 }
 
-//Remove finalizados
-function cleanDoneTasks(){
-  let getCleanDoneTasksBtn = document.querySelector("#remover-selecionado");
-  
+//Remove SELECIONADOS
+function cleanSelectedTasks(){
+  let getCleanSelectedTasksBtn = document.querySelector("#remover-selecionado");
+  getCleanSelectedTasksBtn.addEventListener("click", function(){
+    let getAllSelectedTasks = document.querySelectorAll(".selected");
 
-    getCleanDoneTasksBtn.addEventListener("click", function(){
-      let getAllDoneTasks = document.querySelectorAll(".done");
+    for(i in getAllSelectedTasks){
 
-      for(i in getAllDoneTasks){
-
-        if(getAllDoneTasks[i] != undefined){
-          getAllDoneTasks[i].parentElement.removeChild(getAllDoneTasks[i]); 
-        }
+      if(getAllSelectedTasks[i] != undefined) {
+        getAllSelectedTasks[i].parentElement.removeChild(getAllSelectedTasks[i]); 
       }
-    });
-  }
+
+    }
+  });
+}
+
+//Remove FINALIZADOS
+function cleanCompletedTasks(){
+  let getCleanCompletedTasksBtn = document.querySelector("#remover-finalizados");
+
+  getCleanCompletedTasksBtn.addEventListener("click", function(){
+    let getAllCompletedTasks = document.querySelectorAll(".completed");
+
+    for(i in getAllCompletedTasks){
+
+      if(getAllCompletedTasks[i] != undefined) {
+        getAllCompletedTasks[i].parentElement.removeChild(getAllCompletedTasks[i]); 
+      }
+
+    }
+  });
+}
