@@ -47,13 +47,13 @@ ol li:nth-child(odd) {
 /* When clicked on, add a background color and strike out text */
 
 ol li.completed {
-    /*background: rgb(128, 128, 128);*/
+    background-color: white;
     color: rgb(0, 0, 0);
     text-decoration: line-through solid rgb(0, 0, 0);
 }
 
 ol li.selected {
-    background: rgb(128, 128, 128);
+    background-color: rgb(128, 128, 128);
     color: white;
     /* text-decoration: line-through solid rgb(0, 0, 0);*/
 }
