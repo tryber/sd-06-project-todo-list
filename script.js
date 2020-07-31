@@ -1,6 +1,7 @@
 const addTaskButton = document.querySelector('button:nth-of-type(1)');
 const taskList = document.querySelector('ol');
 const taskText = document.querySelector('input');
+const clearAllButton = document.querySelector('#apaga-tudo');
 let currentLi;
 const tasks = [];
 
@@ -48,4 +49,8 @@ addTaskButton.addEventListener('click', function () {
 
   addClickListener();
   addDoubleClickListener();
+})
+
+clearAllButton.addEventListener('click', function () {
+  taskList.innerHTML = [];
 })
