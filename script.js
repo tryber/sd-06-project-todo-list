@@ -3,6 +3,7 @@ const BTNSAVE = document.querySelector('#salvar-tarefas');
 const BTNUP = document.querySelector('#mover-cima');
 const BTNDOWN = document.querySelector('#mover-baixo');
 const BTNDELSELECTED = document.querySelector('#remover-selecionado');
+let selectedClass = document.querySelector('.selected-task');
 
 /* let clickCount = 0;
 let timeout = 350;
@@ -15,9 +16,8 @@ function appendTask(toDoTask) {
 }
 
 function resetSelectedTask() {
-  const SELECTED = document.querySelector('.selected-task');
-  if (SELECTED) {
-    SELECTED.classList.remove('selected-task');
+  if (selectedClass) {
+    selectedClass.classList.remove('selected-task');
   }
 }
 
@@ -47,7 +47,8 @@ function switchDoneUndone(task) {
 LISTSHOWN.addEventListener('click', (event) => {
   // handleClicks(event.target);
   resetSelectedTask();
-  event.target.classList.add('selected-task');
+  selectedClass = event.target;
+  selectedClass.classList.add('selected-task');
 });
 
 LISTSHOWN.addEventListener('dblclick', (event) => {
@@ -87,28 +88,25 @@ if (localStorage.getItem.tasks !== null) {
 }
 
 BTNUP.addEventListener('click', () => {
-  const TASK = document.getElementsByClassName('selected-task')[0];
-  if (TASK) {
-    const PREVIOUSSIB = TASK.previousSibling;
+  if (selectedClass) {
+    const PREVIOUSSIB = selectedClass.previousSibling;
     if (PREVIOUSSIB) {
-      TASK.parentNode.insertBefore(TASK, PREVIOUSSIB);
+      selectedClass.parentNode.insertBefore(selectedClass, PREVIOUSSIB);
     }
   }
 });
 
 BTNDOWN.addEventListener('click', () => {
-  const TASK = document.getElementsByClassName('selected-task')[0];
-  if (TASK) {
-    const NEXTSIB = TASK.nextElementSibling;
+  if (selectedClass) {
+    const NEXTSIB = selectedClass.nextElementSibling;
     if (NEXTSIB) {
-      TASK.parentNode.insertBefore(NEXTSIB, TASK);
+      selectedClass.parentNode.insertBefore(NEXTSIB, selectedClass);
     }
   }
 });
 
 BTNDELSELECTED.addEventListener('click', () => {
-  let taskToRemove = document.querySelector('.selected-task');
-  if (taskToRemove) {
-    taskToRemove.remove();
+  if (selectedClass) {
+    selectedClass.remove();
   }
 });
