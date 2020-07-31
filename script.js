@@ -115,11 +115,29 @@ function clearList() {
 }
 
 function moveUp() {
-  
+  const selectedElement = document.getElementsByClassName('selected')[0];
+  const ol = document.getElementById('lista-tarefas');
+  if (selectedElement.previousElementSibling) {
+    const li = document.createElement('li');
+    li.classList.add(selectedElement.previousElementSibling.classList[0], selectedElement.previousElementSibling.classList[1]);
+    li.innerHTML = selectedElement.previousElementSibling.innerText
+    document.getElementsByClassName('selected')[0].previousElementSibling.insertAdjacentElement('afterend', li)
+    document.getElementById('lista-tarefas').replaceChild(selectedElement, selectedElement.previousElementSibling.previousElementSibling);
+  }
+  alternativeSaveList();
 }
 
 function moveDown() {
-  
+  const selectedElement = document.getElementsByClassName('selected')[0];
+  const ol = document.getElementById('lista-tarefas');
+  if (selectedElement.nextElementSibling) {
+    const li = document.createElement('li');
+    li.classList.add(selectedElement.nextElementSibling.classList[0], selectedElement.nextElementSibling.classList[1]);
+    li.innerHTML = selectedElement.nextElementSibling.innerText
+    document.getElementsByClassName('selected')[0].nextElementSibling.insertAdjacentElement('afterend', li)
+    document.getElementById('lista-tarefas').replaceChild(selectedElement, selectedElement.nextElementSibling.nextElementSibling);
+  }
+  alternativeSaveList();
 }
 
 window.onload = function () {
@@ -130,5 +148,7 @@ window.onload = function () {
   document.getElementById('remover-finalizados').addEventListener('click', alternativeClearCompleted);
   document.getElementById('remover-selecionado').addEventListener('click', alternativeClearSelected);
   document.getElementById('salvar-tarefas').addEventListener('click', alternativeSaveList);
+  document.getElementById('move-up').addEventListener('click', moveUp);
+  document.getElementById('move-down').addEventListener('click', moveDown);
   alternativeMountList();
 };
