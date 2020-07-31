@@ -6,27 +6,26 @@ const listItem = document.getElementById('lista-tarefas');
 const buttonClearChecked = document.querySelector('#remover-finalizados');
 
 function newTask() {
-  const novoItem = document.createElement("li");
+  const novoItem = document.createElement('li');
   novoItem.innerHTML = boxText.value;
-  let x = boxText.value;
   localStorage.setItem(boxText.value, boxText.value);// Tentativa item bônus
   listItem.appendChild(novoItem);
-  document.getElementById('texto-tarefa').value = "";
+  document.getElementById('texto-tarefa').value = '';
 }
-buttonNewTask.addEventListener("click", newTask);
+buttonNewTask.addEventListener('click', newTask);
 
-function completedItem(event){
+function completedItem(event) {
   const selectedItem = event.target;
   if (selectedItem.classList.contains('selected')) {
     selectedItem.classList.remove('selected');
   }
   if (selectedItem.classList.contains('completed')) {
-      selectedItem.classList.remove('completed');
-    } else {
-      selectedItem.classList.add('completed');
-    }
+    selectedItem.classList.remove('completed');
+  } else {
+    selectedItem.classList.add('completed');
+  }
 }
-listItem.addEventListener("dblclick", completedItem);
+listItem.addEventListener('dblclick', completedItem);
 
 function selecionaItem(event) {
   const selectedItem = event.target;
@@ -38,13 +37,13 @@ function selecionaItem(event) {
   }
   selectedItem.classList.add('selected');
 }
-listItem.addEventListener('click', selecionaItem)
+listItem.addEventListener('click', selecionaItem);
 
 function clearAll() {
   document.getElementById('lista-tarefas').innerHTML = '';
   localStorage.clear();// Tentativa item bônus
 }
-buttonClearAll.addEventListener("click", clearAll);
+buttonClearAll.addEventListener('click', clearAll);
 
 function clearCheckedItems() {
   const taskList = document.querySelectorAll('#lista-tarefas li');
@@ -54,5 +53,5 @@ function clearCheckedItems() {
     }
   }
 }
-buttonClearChecked.addEventListener("click", clearCheckedItems);
+buttonClearChecked.addEventListener('click', clearCheckedItems);
 
