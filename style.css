@@ -1,0 +1,71 @@
+body {
+  background-color: purple;
+}
+
+button {
+  border: 0;
+  border-radius: 20px;
+  color: white;
+  font-weight: 500;
+}
+
+header {
+  background-color: white;
+  border: 0;
+  border-radius: 10px;
+  margin-left: 400px;
+  margin-top: 200px;
+  padding: 10px;
+  text-align: center;
+  width: 550px;
+}
+
+p {
+  color: dimgray;
+  font-size: small;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
+
+.tarefa {
+  border-radius: 20px;
+}
+
+.criar {
+  background-color: darkblue;
+}
+
+.apagar-tudo {
+  background-color: darkred;
+}
+
+.cima , .baixo {
+  background-color: darkgreen;
+}
+
+.remove-um {
+  background-color: orange;
+}
+
+.remove-uns {
+  background-color: crimson;
+}
+
+.salvar {
+  background-color: blue;
+}
+
+.lista {
+  text-align: left;
+}
+
+.foot {
+  background-color: orangered;
+  color: white;
+  height: 50px;
+  margin-top: 240px;
+  padding-top: 2px;
+  text-align: center;
+}
