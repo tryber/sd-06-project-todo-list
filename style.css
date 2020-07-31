@@ -28,14 +28,14 @@ body {
   font-size: 18px;
 }
 
-#tarefas {
+.tarefas {
   background-color: white;
   color: blue;
   width: 60%;
 }
 
 button {
-  background-color: rgb(196, 214, 248);
+  background-color: rgb(196 , 214 , 248);
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -46,12 +46,12 @@ button {
 }
 
 button:hover {
-  background-color: rgb(88, 131, 209);
+  background-color: rgb(88 , 131 , 209);
   color: white;
 }
 
 button:active {
-  background-color: rgb(88, 131, 209);
+  background-color: rgb(88 , 131 , 209);
   color: white;
   position: relative;
   top: 5px;

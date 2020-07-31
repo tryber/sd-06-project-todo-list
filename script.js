@@ -7,16 +7,18 @@ const btnSelecao = document.querySelector('#remover-selecionado');
 const btnUp = document.querySelector('#mover-cima');
 const btnDown = document.querySelector('#mover-baixo');
 
+
 // Criar a lista
 function criaLista() {
+  const tarefas = document.querySelector('.tarefas');
   const listaItem = document.createElement('ol');
   listaItem.id = 'lista-tarefas';
-  document.getElementById('tarefas').appendChild(listaItem);
+  tarefas.appendChild(listaItem);
 }
 criaLista();
 
 
-// Adicionar tarefa na lista  
+// Adicionar tarefa na lista
 btnAdd.addEventListener('click', function () {
   const lista = document.querySelector('#lista-tarefas');
   const textItem = document.querySelector('#texto-tarefa');
@@ -49,7 +51,7 @@ lista.addEventListener('dblclick', function () {
 
 
 // Apagar todos os ítens da lista
-btnApagaTudo.addEventListener('click', function() {
+btnApagaTudo.addEventListener('click', function () {
   while (lista.firstChild) {
     lista.removeChild(lista.firstChild);
   }
@@ -57,7 +59,7 @@ btnApagaTudo.addEventListener('click', function() {
 
 
 // Remover os ítens finalizados
-btnApagaFinalizados.addEventListener('click', function() {
+btnApagaFinalizados.addEventListener('click', function () {
   const itens = document.querySelectorAll('.completed');
   if (itens) {
     for (let index = 0; index < itens.length; index += 1) {
@@ -68,7 +70,7 @@ btnApagaFinalizados.addEventListener('click', function() {
 
 
 // Salvar os dados no local storage
-btnSalvar.addEventListener('click', function() {
+btnSalvar.addEventListener('click', function () {
   window.localStorage.setItem('minhaLista', lista.innerHTML);
 });
 // Recuperar dados do local Stage
@@ -80,7 +82,7 @@ listaFoiSalva();
 
 
 // Remover item selecionado
-btnSelecao.addEventListener('click', function() {
+btnSelecao.addEventListener('click', function () {
   const itemSelecionado = document.querySelector('.selected');
   if (itemSelecionado) {
     itemSelecionado.remove();
@@ -89,14 +91,13 @@ btnSelecao.addEventListener('click', function() {
 
 
 // Mover elementos na lista
-btnUp.addEventListener('click', function() {
+btnUp.addEventListener('click', function () {
   const selecao = document.querySelector('.selected');
   if ((selecao) && (selecao.previousSibling)) {
     lista.insertBefore(selecao, selecao.previousSibling);
   }
 });
-btnDown.addEventListener('click', function() {
-  const lista = document.querySelector('#lista-tarefas');
+btnDown.addEventListener('click', function () {
   const selecao = document.querySelector('.selected');
   if ((selecao) && (selecao.nextSibling)) {
     lista.insertBefore(selecao, selecao.nextSibling.nextSibling);
