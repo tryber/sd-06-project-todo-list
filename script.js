@@ -56,7 +56,7 @@ window.onload = function () {
     const itens = document.querySelectorAll('.completed');
     if (itens) {
       for (let index = 0; index < itens.length; index += 1) {
-        lista.removeChild(itens[index]);
+        itens[index].remove();
       }
     }
   }
@@ -95,7 +95,7 @@ window.onload = function () {
   function moverAcima() {
     const lista = document.querySelector('#lista-tarefas');
     const selecao = document.querySelector('.selected');
-      if (selecao.previousSibling) {
+      if ((selecao) && (selecao.previousSibling)) {
         lista.insertBefore(selecao, selecao.previousSibling);
       }
   }
@@ -103,7 +103,7 @@ window.onload = function () {
   function moverAbaixo() {
     const lista = document.querySelector('#lista-tarefas');
     const selecao = document.querySelector('.selected');
-      if (selecao.nextSibling) {
+      if ((selecao) && (selecao.nextSibling)) {
         lista.insertBefore(selecao, selecao.nextSibling.nextSibling);
       }
   }
