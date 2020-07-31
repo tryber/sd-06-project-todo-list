@@ -1,5 +1,7 @@
 const LISTSHOWN = document.querySelector('#lista-tarefas');
 const BTNSAVE = document.querySelector('#salvar-tarefas');
+const BTNUP = document.querySelector('#mover-cima');
+const BTNDOWN = document.querySelector('#mover-baixo');
 
 /* let clickCount = 0;
 let timeout = 350;
@@ -82,3 +84,19 @@ BTNSAVE.addEventListener('click', () => {
 if (localStorage.getItem.tasks !== null) {
   document.getElementById('lista-tarefas').innerHTML = localStorage.getItem('tasks');
 }
+
+BTNUP.addEventListener('click', () => {
+  let task = document.getElementsByClassName('selected-task')[0];
+  const PREVIOUSSIB = task.previousSibling;
+  if (PREVIOUSSIB){
+    task.parentNode.insertBefore(task, PREVIOUSSIB);
+  }  
+  });
+
+BTNDOWN.addEventListener('click', () => {
+  let task = document.getElementsByClassName('selected-task')[0];
+  const NEXTSIB = task.nextElementSibling;
+  if (NEXTSIB) {
+    task.parentNode.insertBefore(NEXTSIB, task);
+  }
+  });
