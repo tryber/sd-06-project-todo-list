@@ -119,12 +119,28 @@ function botaoMoverCima() {
     }
   });
 }
+
+function saveTaskList() {
+  const saveButton = document.querySelector('#salvar-tarefas')
+  saveButton.onclick = () => {
+    const tasks = document.querySelector('#lista-tarefas').innerHTML;
+    localStorage.setItem('task_list', JSON.stringify(tasks))
+  }
+}
+
+function reloadTasks() {
+  let textoContainer = document.querySelector('#lista-tarefas');
+  console.log(textoContainer)
+  textoContainer.innerHTML = JSON.parse(localStorage.getItem('task_list'));
+}
 //call
 window.onload = () => {
+  reloadTasks();
   criarTarefa();
   botaoApagarTudo();
   botaoExcluirTarefa();
   botaoExcluirRiscados();
   botaoMoverCima();
   botaoMoverBaixo();
+  saveTaskList();
 };
