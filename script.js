@@ -34,20 +34,11 @@ window.onload = function () {
   const lista = document.querySelector('#lista-tarefas');
   lista.addEventListener('click', selectingTask);
 
-
   // Riscar as tarefas completas
-  let click = false;
-  function completedTasks(event) {
-    const completedTask = event.target;
-    if (click === false) {
-      completedTask.classList.add('completed');
-      click = true;
-    } else if (click === true) {
-      completedTask.classList.remove('completed');
-      click = false;
-    }
-  }
-  lista.addEventListener('dblclick', completedTasks);
+  lista.addEventListener('dblclick', function () {
+    const item = event.target;
+    item.classList.toggle('completed');
+  })
 
 
   // Apagar todos os ítens da lista
@@ -86,7 +77,6 @@ window.onload = function () {
     const listaSalva = window.localStorage.getItem('minhaLista');
     lista.innerHTML = listaSalva;
   }
-
   listaFoiSalva();
 
 
@@ -94,38 +84,33 @@ window.onload = function () {
   function removerSelecionado() {
     const itemSelecionado = document.querySelector('.selected');
     if (itemSelecionado) {
-      itemSelecionado.parentNode.removeChild(itemSelecionado);
+      itemSelecionado.remove();
     }
   }
   const btnSelecao = document.querySelector('#remover-selecionado');
   btnSelecao.addEventListener('click', removerSelecionado);
 
-  // for (let index = 0; index < itens.length; index += 1) {
-  //   dados[index] = { item: itens[index], itemTexto: itens[index].innerHTML };
-  //   console.log(dados[index]);
-  // }
 
-  // for (let j = 0; j < dados.length; j += 1) {
-  //   localStorage.setItem('position', JSON.stringify(dados[j]));
-  // }
+  // Mover elementos na lista  
+  function moverAcima() {
+    const lista = document.querySelector('#lista-tarefas');
+    const selecao = document.querySelector('.selected');
+      if (selecao.previousSibling) {
+        lista.insertBefore(selecao, selecao.previousSibling);
+      }
+  }
 
-  // for (let ij = 0; ij < dados.length; ij += 1) {
-  //   console.log(JSON.parse(localStorage.getItem('position' + ij)));
-  // }
-
+  function moverAbaixo() {
+    const lista = document.querySelector('#lista-tarefas');
+    const selecao = document.querySelector('.selected');
+      if (selecao.nextSibling) {
+        lista.insertBefore(selecao, selecao.nextSibling.nextSibling);
+      }
+  }
+  const btnAbaixo = document.querySelector('#mover-baixo');
+  btnAbaixo.addEventListener('click', moverAbaixo);
+  
+  const btnMoveCima = document.querySelector('#mover-cima');
+  btnMoveCima.addEventListener('click', moverAcima);
 }
 
-
-
-// // Mover elementos na lista
-// function moverAcima() {
-//   let selecao = document.querySelector('.selected');
-//   let temp = selecao.previousSibling.innerHTML;
-
-//   selecao.previousSibling.innerHTML = selecao.innerHTML;
-
-//   selecao.innerHTML = temp;
-
-// }
-// const btnMoveCima = document.querySelector('#mover-cima');
-// btnMoveCima.addEventListener('click', moverAcima);
