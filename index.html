@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Lista de Tarefas</title>
+</head>
+<body>
+  <header>
+    <h1>Minha Lista de Tarefas</h1>
+    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+    <section class="cubo">
+      <img id="minha_foto" src="1.png" alt="Minha foto" width="100">
+      <img src="1.png" width="100">
+      <img src="1.png" width="100">
+      <img src="1.png" width="100">
+    </section>
+  </header>
+    <section class="input">
+      <input type="text" id="texto-tarefa" size="40"  maxlength="50">
+      <button class="butao" id="criar-tarefa">Adicionar</button>
+    </section>
+    <section class="lista-de-tarefas">
+      <ol id="lista-tarefas"></ol>
+    </section>
+    <section class="btn">
+      <button class="butao" id="remover-selecionado">Remover selecionado</button>
+      <button class="butao" id="mover-cima">Up</button>
+      <button class="butao" id="mover-baixo">Down</button>
+      <button class="butao" id="apaga-tudo">Limpar Lista</button>
+      <button class="butao" id="remover-finalizados">Remover Finalizados</button>
+      <button class="butao" id="salvar-tarefas">Salvar Lista</button>
+    </section>
+  <script src="script.js"></script>
+</body>
+</html>
