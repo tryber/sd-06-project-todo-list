@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/style.css">
+  <script type="text/javascript" src="/script.js"></script>
+  <title>To-Do List</title>
+  <link rel="shortcut icon" href="#">
+</head>
+<body class="body">
+  <header>
+    <br>
+    <h2>Minha Lista de Tarefas</h2>
+  </header>
+  
+  <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+
+  <div class='content'>
+    <section id="creat-task-section">
+      <input id="texto-tarefa" type="text" maxlength="60">
+      <button id="criar-tarefa">add Tarefa</button>
+    </section>
+    <section id="task-list-section">
+      <ol id="lista-tarefas"></ol>
+        
+    </section>
+    <section class="arrow-buttons">
+      <button id="mover-cima" class='arrow-btn'>↑ Up</button>
+      <button id="mover-baixo" class='arrow-btn'>↓ Dw</button>
+    </section>
+    <section id="button-section">
+      <button id="remover-selecionado">Remover selecionado</button>
+      <button id="remover-finalizados">Limpa finalizados</button>
+      <button id="apaga-tudo">Limpar lista</button>
+      <button id="salvar-tarefas">Salvar tarefas</button>
+    </section>
+  </div>
+  <section>
+    <audio id='error-audio' src="/audio/zeinel__glass-broken.mp3"></audio>
+    <audio id='ok-audio' src="/audio/inspectorj__hand-bells-g-single.wav"></audio>
+    <!--Free audio from https://freesound.org/-->
+  </section>
+
+  <video id="bgVideo" src="/video/waveSample.mp4" autoplay muted loop></video>
+  <footer></footer>
+</body>
+</html>
