@@ -1,22 +1,20 @@
 const LISTSHOWN = document.querySelector('#lista-tarefas');
 const BTNSAVE = document.querySelector('#save-on-local-storage');
-let toDoList = ['first', ];
 
 /* let clickCount = 0;
 let timeout = 350;
  */
 
-function appendTask() {
-  let item = document.createElement('li');
-  item.innerText = toDoList[toDoList.length - 1];
-  LISTSHOWN.appendChild(item);
-  toDoList.push
+function appendTask(toDoTask) {
+  const ITEM = document.createElement('li');
+  ITEM.innerText = toDoTask.value;
+  LISTSHOWN.appendChild(ITEM);
 }
 
 function resetSelectedTask() {
-  let selected = document.querySelector('.selected-task');
-  if (selected) {
-    selected.classList.remove('selected-task');
+  const SELECTED = document.querySelector('.selected-task');
+  if (SELECTED) {
+    SELECTED.classList.remove('selected-task');
   }
 }
 
@@ -47,7 +45,6 @@ LISTSHOWN.addEventListener('click', (event) => {
   //handleClicks(event.target);
   resetSelectedTask();
   event.target.classList.add('selected-task');
-  console.log(LISTSHOWN.indexOf(event.target));
 });
 
 LISTSHOWN.addEventListener('dblclick', (event) => {
@@ -55,26 +52,25 @@ LISTSHOWN.addEventListener('dblclick', (event) => {
 });
 
 document.querySelector('#criar-tarefa').addEventListener('click', () => {
-  let task = document.querySelector('.to-do-task');
-  if (task.value) {
-    toDoList.push(task.value);
-    appendTask();
-    task.value = '';
+  const TASK = document.querySelector('.to-do-task');
+  if (TASK.value) {
+    appendTask(TASK);
+    TASK.value = '';
   } else {
-    alert('You should type a task to add it.')
+    alert('You should type a task to add it.');
   }
 });
 
 document.querySelector('#apaga-tudo').addEventListener('click', () => {
-  let listedItems = document.querySelectorAll('li');
-  listedItems.forEach(element => {
+  const LISTEDITEMS = document.querySelectorAll('li');
+  LISTEDITEMS.forEach(element => {
     element.remove();
   });
 });
 
 document.querySelector('#remover-finalizados').addEventListener('click', () => {
-  let classCompleted = document.querySelectorAll('.completed');
-  classCompleted.forEach(element => {
+  const CLASSCOMPLETED = document.querySelectorAll('.completed');
+  CLASSCOMPLETED.forEach((element) => {
     element.remove();
   });
 });
@@ -83,7 +79,6 @@ BTNSAVE.addEventListener('click', () => {
   localStorage.setItem('tasks', document.getElementById('lista-tarefas').innerHTML);
 });
 
-if (localStorage.getItem['tasks'] !== null) {
-  console.log(document.getElementById('lista-tarefas').innerHTML);
+if (localStorage.getItem.tasks !== null) {
   document.getElementById('lista-tarefas').innerHTML = localStorage.getItem('tasks');
 }
