@@ -33,16 +33,15 @@ elementLi.addEventListener("click", function(){
     
 });
 
-elementLi.addEventListener("dblclick", function(event) {
+
+elementLi.addEventListener("dblclick", function(target){
   event.target.classList.add("completed");
-})
-
-// if (elementLi.classList = "completed") {
-// elementLi.addEventListener("dblclick", function(event) {
-//   event.target.classList.add("undocompleted");
-// });  
-// };
-
+  if(elementLi.classList.contains("completed")){
+    elementLi.addEventListener('dblclick', function(){
+      elementLi.classList.remove('completed');
+    })
+  }
+});
 
    
 let clearAllButton = document.querySelector("#apaga-tudo");
@@ -52,5 +51,4 @@ let clearAllButton = document.querySelector("#apaga-tudo");
     document.getElementById("lista-tarefas").removeChild(elementOl.childNodes[index]);
     }
     });
-          
-});
+});        
