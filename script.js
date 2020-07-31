@@ -3,6 +3,7 @@ const listOl = document.getElementById('lista-tarefas');
 const button = document.getElementById('criar-tarefa');
 const buttonEraseAll = document.getElementById('apaga-tudo');
 const buttonEraseFinished = document.getElementById('remover-finalizados');
+const selectedItem = document.querySelector('.selected')
 
 // Criar novos itens e zerar o input
 button.addEventListener('click', createTask);
@@ -28,11 +29,11 @@ function selectTask() {
 
 // Torna riscado itens com double click
 function scratchItem() {
-  const selectedItem = document.querySelector('.completed')
-  if (selectedItem !== null) {
+  const selectedItem = event.target;
+  if (selectedItem.classList.contains('completed')) {
     selectedItem.classList.remove('completed');
   } else {
-    event.target.classList.add('completed')
+    selectedItem.classList.add('completed');
   }
 }
 
