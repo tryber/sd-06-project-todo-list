@@ -1,0 +1,58 @@
+.selected {
+  background-color: gray;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
+
+h1 {
+  color: aquamarine;
+  text-align: center;
+}
+
+footer {
+  bottom: 20px;
+  display: inline-block;
+  left: 500px;
+  position: fixed;
+  text-align: center;
+  text-shadow: blue 3px 3px 3px;
+}
+
+body {
+  background-image: url('images/fundo.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  font-size: 18px;
+}
+
+.tarefas {
+  background-color: white;
+  color: blue;
+  width: 60%;
+}
+
+button {
+  background-color: rgb(196 , 214 , 248);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 5px;
+  padding: 10px;
+}
+
+button:hover {
+  background-color: rgb(88 , 131 , 209);
+  color: white;
+}
+
+button:active {
+  background-color: rgb(88 , 131 , 209);
+  color: white;
+  position: relative;
+  top: 5px;
+}
