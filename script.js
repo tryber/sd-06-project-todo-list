@@ -1,5 +1,5 @@
 const LISTSHOWN = document.querySelector('#lista-tarefas');
-const BTNSAVE = document.querySelector('#save-on-local-storage');
+const BTNSAVE = document.querySelector('#salvar-tarefas');
 
 /* let clickCount = 0;
 let timeout = 350;
@@ -42,7 +42,7 @@ function switchDoneUndone(task) {
 } */
 
 LISTSHOWN.addEventListener('click', (event) => {
-  //handleClicks(event.target);
+  // handleClicks(event.target);
   resetSelectedTask();
   event.target.classList.add('selected-task');
 });
@@ -63,7 +63,7 @@ document.querySelector('#criar-tarefa').addEventListener('click', () => {
 
 document.querySelector('#apaga-tudo').addEventListener('click', () => {
   const LISTEDITEMS = document.querySelectorAll('li');
-  LISTEDITEMS.forEach(element => {
+  LISTEDITEMS.forEach((element) => {
     element.remove();
   });
 });
