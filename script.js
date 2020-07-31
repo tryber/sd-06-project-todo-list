@@ -105,21 +105,22 @@ function alternativeClearCompleted() {
 
 function clearList() {
   while (document.getElementById('lista-tarefas').children.length !== 0) {
-    document.getElementById('lista-tarefas').removeChild(document.getElementById('lista-tarefas').children[0])
+    document.getElementById('lista-tarefas').removeChild(document.getElementById('lista-tarefas').children[0]);
   }
   localStorage.clear();
 }
 
 function moveUp() {
   if (document.getElementsByClassName('selected')[0] !== undefined) {
-    selectedElement = document.getElementsByClassName('selected')[0];
-    const ol = document.getElementById('lista-tarefas');
+    const selectedElement = document.getElementsByClassName('selected')[0];
     if (selectedElement.previousElementSibling) {
       const li = document.createElement('li');
-      li.classList.add(selectedElement.previousElementSibling.classList[0], selectedElement.previousElementSibling.classList[1]);
-      li.innerHTML = selectedElement.previousElementSibling.innerText
-      document.getElementsByClassName('selected')[0].previousElementSibling.insertAdjacentElement('afterend', li)
-      document.getElementById('lista-tarefas').replaceChild(selectedElement, selectedElement.previousElementSibling.previousElementSibling);
+      li.classList.add(selectedElement.previousElementSibling.classList[0], 
+        selectedElement.previousElementSibling.classList[1]);
+      li.innerHTML = selectedElement.previousElementSibling.innerText;
+      selectedElement.previousElementSibling.insertAdjacentElement('afterend', li);
+      document.getElementById('lista-tarefas').replaceChild(selectedElement, 
+        selectedElement.previousElementSibling.previousElementSibling);
       alternativeSaveList();
     }
   }
@@ -128,14 +129,15 @@ function moveUp() {
 
 function moveDown() {
   if (document.getElementsByClassName('selected')[0] !== undefined) {
-  const selectedElement = document.getElementsByClassName('selected')[0];
-  const ol = document.getElementById('lista-tarefas');
-    if (selectedElement.nextElementSibling && ol.children.length !== 0) {
+    const selectedElement = document.getElementsByClassName('selected')[0];
+    if (selectedElement.nextElementSibling) {
       const li = document.createElement('li');
-      li.classList.add(selectedElement.nextElementSibling.classList[0], selectedElement.nextElementSibling.classList[1]);
-      li.innerHTML = selectedElement.nextElementSibling.innerText
-      document.getElementsByClassName('selected')[0].nextElementSibling.insertAdjacentElement('afterend', li)
-      document.getElementById('lista-tarefas').replaceChild(selectedElement, selectedElement.nextElementSibling.nextElementSibling);
+      li.classList.add(selectedElement.nextElementSibling.classList[0],
+         selectedElement.nextElementSibling.classList[1]);
+      li.innerHTML = selectedElement.nextElementSibling.innerText;
+      selectedElement.nextElementSibling.insertAdjacentElement('afterend', li);
+      document.getElementById('lista-tarefas').replaceChild(selectedElement, 
+        selectedElement.nextElementSibling.nextElementSibling);
       alternativeSaveList();
     }
   }
@@ -153,4 +155,3 @@ window.onload = function () {
   document.getElementById('mover-cima').addEventListener('click', moveUp);
   document.getElementById('mover-baixo').addEventListener('click', moveDown);
 };
-
