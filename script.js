@@ -2,6 +2,7 @@ const LISTSHOWN = document.querySelector('#lista-tarefas');
 const BTNSAVE = document.querySelector('#salvar-tarefas');
 const BTNUP = document.querySelector('#mover-cima');
 const BTNDOWN = document.querySelector('#mover-baixo');
+const BTNDELSELECTED = document.querySelector('#remover-selecionado');
 
 /* let clickCount = 0;
 let timeout = 350;
@@ -86,20 +87,28 @@ if (localStorage.getItem.tasks !== null) {
 }
 
 BTNUP.addEventListener('click', () => {
-  let task = document.getElementsByClassName('selected-task')[0];
-  if (task) {
-    const PREVIOUSSIB = task.previousSibling;
+  const TASK = document.getElementsByClassName('selected-task')[0];
+  if (TASK) {
+    const PREVIOUSSIB = TASK.previousSibling;
     if (PREVIOUSSIB) {
-      task.parentNode.insertBefore(task, PREVIOUSSIB);
-    }}
+      TASK.parentNode.insertBefore(TASK, PREVIOUSSIB);
+    }
+  }
 });
 
 BTNDOWN.addEventListener('click', () => {
-  let task = document.getElementsByClassName('selected-task')[0];
-  if (task) {
-    const NEXTSIB = task.nextElementSibling;
+  const TASK = document.getElementsByClassName('selected-task')[0];
+  if (TASK) {
+    const NEXTSIB = TASK.nextElementSibling;
     if (NEXTSIB) {
-      task.parentNode.insertBefore(NEXTSIB, task);
+      TASK.parentNode.insertBefore(NEXTSIB, TASK);
     }
+  }
+});
+
+BTNDELSELECTED.addEventListener('click', () => {
+  let taskToRemove = document.querySelector('.selected-task');
+  if (taskToRemove) {
+    taskToRemove.remove();
   }
 });
