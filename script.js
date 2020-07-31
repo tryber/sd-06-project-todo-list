@@ -87,16 +87,19 @@ if (localStorage.getItem.tasks !== null) {
 
 BTNUP.addEventListener('click', () => {
   let task = document.getElementsByClassName('selected-task')[0];
-  const PREVIOUSSIB = task.previousSibling;
-  if (PREVIOUSSIB){
-    task.parentNode.insertBefore(task, PREVIOUSSIB);
-  }  
-  });
+  if (task) {
+    const PREVIOUSSIB = task.previousSibling;
+    if (PREVIOUSSIB) {
+      task.parentNode.insertBefore(task, PREVIOUSSIB);
+    }}
+});
 
 BTNDOWN.addEventListener('click', () => {
   let task = document.getElementsByClassName('selected-task')[0];
-  const NEXTSIB = task.nextElementSibling;
-  if (NEXTSIB) {
-    task.parentNode.insertBefore(NEXTSIB, task);
+  if (task) {
+    const NEXTSIB = task.nextElementSibling;
+    if (NEXTSIB) {
+      task.parentNode.insertBefore(NEXTSIB, task);
+    }
   }
-  });
+});
