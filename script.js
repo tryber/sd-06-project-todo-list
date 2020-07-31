@@ -8,6 +8,7 @@ window.onload = function() {
     let myText = document.getElementById("texto-tarefa");
     addItem(myText.value);
     myText.value = "";
+    myText.focus();
   });
 
   // Tratamento do botão para limpar a lista
@@ -19,22 +20,32 @@ window.onload = function() {
     }  
   });
 
+  // Tratamento do botão para Remover itens completados
+  let btnClearCompleted = document.getElementById("remover-finalizados");
+  btnClearCompleted.addEventListener("click", function () {
+    const myListCompleted = document.querySelectorAll(".completed");
+    myListCompleted.forEach(function(item) {
+      item.parentNode.removeChild(item);
+    });
+  });
+
   // Função para adicionar um item na lista
   function addItem(myText) {
     let myItem = document.createElement('li');
     myItem.appendChild(document.createTextNode(myText));
     myList.appendChild(myItem);
-    
+
+    // Altera o item selecionado com o click
     myItem.addEventListener("click", function() {
       chageSelected(myItem); 
     });
-
+    // Marca tarefa como como completada
     myItem.addEventListener("dblclick", function() {
       chageCompleted(myItem); 
     });
   }
 
-  // Função para alterar a cor de fundo do item
+  // Alterar a cor de fundo do item
   function chageSelected(newSelected){
     let oldSelected = document.querySelector(".selected");
     if (oldSelected) {
