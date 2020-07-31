@@ -1,5 +1,6 @@
 let submitTarefa = document.getElementById("criar-tarefa");
 let listaTarefas = document.getElementById("lista-tarefas");
+let marcaCompleted;
 // texto-tarefa
 function criarTextoTarefa(){
   let textoTarefa = document.getElementById("texto-tarefa").value;
@@ -10,3 +11,9 @@ function criarTextoTarefa(){
   document.getElementById("texto-tarefa").value = "";
 }
 submitTarefa.addEventListener("click", criarTextoTarefa);
+
+// risca li - completed
+listaTarefas.addEventListener("dblclick", function (event){
+  marcaCompleted = event.target;
+  marcaCompleted.classList.add("completed");
+});
