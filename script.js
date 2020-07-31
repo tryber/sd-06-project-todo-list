@@ -17,3 +17,13 @@ listaTarefas.addEventListener("dblclick", function (event){
   marcaCompleted = event.target;
   marcaCompleted.classList.add("completed");
 });
+
+// mudar background - fundo cinza
+listaTarefas.addEventListener("click", function (event) {
+  let removeClass = document.querySelector(".selected");
+  if (removeClass !== null) {
+    removeClass.classList.remove("selected");
+  }
+  let selectClass = event.target;
+  selectClass.className += " selected";
+});
