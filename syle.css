@@ -1,0 +1,14 @@
+body{
+  width: 1368px;
+  height: 768px;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+.selected{
+  background-color: rgb(128, 128, 128);
+}
+.completed{
+  text-decoration: line-through;
+}

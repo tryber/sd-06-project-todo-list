@@ -4,88 +4,41 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible content="ie=edge">
-
-  <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
-
+  <link rel="stylesheet" type="text/css" href="style.css">
   <title>Projeto Lista de Tarefa</title>
-
-  <style> /* CSS */
-    body{
-      width: 1368px;
-      height: 768px;
-      margin-top: 0;
-      margin-bottom: 0;
-      margin-left: auto;
-      margin-right: auto;
-    }
-  </style>
-
-
 </head>
 
 <body>
   <header class="cabecalho" id="cabecalho">
     <h1>Minha Lista de Tarefas</h1>
+    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
   </header>
 
   <nav class="nav" id="nav">
-    
-
+    <div>
+      <input id="texto-tarefa" type="text">
+      <button id="criar-tarefa" type="submit">Criar tarefa</button><br>
+      <button id="mover-cima">Mover para cima</button>
+      <button id="mover-baixo">Mover para baixo</button>
+      <button id="salvar-tarefas">Salvar tarefas</button>
+      <button id="remover-finalizados">Remover finalizado</button>
+      <button id="remover-selecionado">Remover item selecionado</button>
+      <button id="apaga-tudo">Apagar tudo</button><br>
+    </div>
   </nav>
   
   <article class="art" id="art">
     <section>
       <div>
-        <h2>article</h2>
-        <p>Já me livrei da maldição!</p> 
-        <input id="texto-tarefa" type="text">
-        <button id="mover-cima">Mover para cima</button>
-        <button id="mover-baixo">Mover para baixo</button>
-        <button id="salvar-tarefas">Salvar tarefas</button>
-        <button id="remover-finalizados">Remover finalizado</button>
-        <button id="apaga-tudo">Apagar tudo</button>
-        <button id="criar-tarefa">Criar tarefa</button>
-        <button id="remover-selecionado">Remover item selecionado</button>
-        
+        <h3>Minha Lista de Tarefas</h3>
+          <ol id="lista-tarefas">
+          <!-- recebe li-->
+        </ol>
       </div>
     </section>
   </article>
-
-  <aside class="asi" id="asi">
-    <section>
-      <div>
-        <p>aside</p>
-        <h3>Minha Lista de Tarefas</h3>
-        <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-        <!-- Ao clicar em um item da lista, altere a cor de fundo do item para cinza rgb(128,128,128)
-        Os itens da lista de tarefas devem ser ordenados por ordem de criação -->
-          <ol id="lista-tarefas">
-            <li>listatarefa_item01</li>
-            <li>listatarefa_item02</li>
-            <li>listatarefa_item03</li>
-            <li>listatarefa_item04</li>
-          </ol>
-
-
-      </div>
-    </section>
-  </aside>
-
-
-
-
-
-  <script>
-    console.log("teste");
-    alert(teste);
-    //<script src="myscripts.js"></script>
-  </script>
-
-<footer class="rodape" id="rodape">
-  <h3>rodape</h3>
-
-</footer>
-
+  
+  <script src="myscripts.js"></script>
   
 </body>
 </html>
