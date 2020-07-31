@@ -148,7 +148,7 @@ window.onload = function () {
   document.getElementById('remover-finalizados').addEventListener('click', alternativeClearCompleted);
   document.getElementById('remover-selecionado').addEventListener('click', alternativeClearSelected);
   document.getElementById('salvar-tarefas').addEventListener('click', alternativeSaveList);
-  document.getElementById('move-up').addEventListener('click', moveUp);
-  document.getElementById('move-down').addEventListener('click', moveDown);
+  document.getElementById('move-cima').addEventListener('click', moveUp);
+  document.getElementById('move-baixo').addEventListener('click', moveDown);
   alternativeMountList();
 };
