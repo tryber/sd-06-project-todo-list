@@ -74,8 +74,8 @@ function apagaSelecionado() {
 /* remover finalizados                             */
 /* *********************************************** */
 function removerFinalizados() {
-  const finalizados = document.querySelectorAll('completed');
-  for (let i = 0; i < finalizados.length; i += 1){
+  const finalizados = document.querySelectorAll('.completed');
+  for (let i = 0; i < finalizados.length; i += 1) {
     lista.removeChild(finalizados[i]);
   }
 }
@@ -89,4 +89,5 @@ window.onload = function () {
   lista.addEventListener('click', marcarItemDaLista);
   lista.addEventListener('dblclick', marcarTarefaConcluida);
   btnApagaSelecionado.addEventListener('click', apagaSelecionado);
+  btnApagarFinalizados.addEventListener('click', removerFinalizados);
 };
