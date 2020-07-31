@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="syle.css">
+  <title>Projeto Lista de Tarefa</title>
+</head>
+
+<body>
+  <header class="cabecalho" id="cabecalho">
+    <h1>Minha Lista de Tarefas</h1>
+    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+  </header>
+
+  <nav class="nav" id="nav">
+    <div>
+      <input id="texto-tarefa" type="text">
+      <button id="criar-tarefa" type="submit">Criar tarefa</button><br>
+      <button id="mover-cima">Mover para cima</button>
+      <button id="mover-baixo">Mover para baixo</button>
+      <button id="salvar-tarefas">Salvar tarefas</button>
+      <button id="remover-finalizados">Remover finalizados</button>
+      <button id="remover-selecionado">Remover item selecionado</button>
+      <button id="apaga-tudo">Apagar tudo</button><br>
+    </div>
+  </nav>
+  
+  <article class="art" id="art">
+    <section>
+      <div>
+        <h3>Minha Lista de Tarefas</h3>
+          <ol id="lista-tarefas">
+          <!-- recebe li-->
+        </ol>
+      </div>
+    </section>
+  </article>
+  
+  <script src="script.js"></script>
+  
+  
+</body>
+</html>
