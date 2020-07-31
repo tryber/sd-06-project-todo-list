@@ -21,18 +21,19 @@ function selectTask() {
   const selectedItem = document.querySelector('.selected')
   if (selectedItem !== null) {
     selectedItem.classList.remove('selected');
-    selectedItem.style.backgroundColor = ''
   } 
   event.target.classList.add('selected');
-  event.target.style.backgroundColor = 'grey'
 }
 
 
 // Torna riscado itens com double click
 function scratchItem() {
-  const selectedItem = event.target;
-  selectedItem.classList.add('completed');
-  selectedItem.style.textDecoration = 'line-through';
+  const selectedItem = document.querySelector('.completed')
+  if (selectedItem !== null) {
+    selectedItem.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed')
+  }
 }
 
 // Botão apaga tudo
