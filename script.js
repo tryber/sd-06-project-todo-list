@@ -1,7 +1,7 @@
 function alternativeSaveList() {
   const arrayLi = [];
-  for (const item of document.getElementsByTagName('li')) {
-    arrayLi.push(item.innerText, item.classList[0], item.classList[1]);
+  for (let item = 0; item < document.getElementsByTagName('li').length; item += 1) {
+    arrayLi.push(document.getElementsByTagName('li')[item].innerText, document.getElementsByTagName('li')[item].classList[0], document.getElementsByTagName('li')[item].classList[1]);
   }
   if (arrayLi.length !== 0) {
     localStorage.setItem('ol', arrayLi);
@@ -9,7 +9,7 @@ function alternativeSaveList() {
 }
 
 function alternativeMountList() {
-  if (localStorage.ol !== undefined) {
+  if (localStorage.ol !== undefined && localStorage.ol !== '') {
     for (let itens = 0; itens < localStorage.ol.split(',').length; itens += 3) {
       const listItem = document.createElement('li');
       listItem.innerText = localStorage.ol.split(',')[itens];
@@ -25,7 +25,7 @@ function alternativeMountList() {
 }
 
 function alternativeSelectListItem(event) {
-  let session = localStorage.ol.split(',');
+  const session = localStorage.ol.split(',');
   for (let item = 0; item < session.length; item += 3) {
     if (session[item] === event.target.innerText) {
       session[item + 1] = 'selected';
@@ -33,9 +33,9 @@ function alternativeSelectListItem(event) {
       session[item + 1] = 'not-selected';
     }
   }
-  for (const item of document.getElementsByTagName('li')) {
-    if (item.classList.contains('selected')) {
-      item.classList.remove('selected');
+  for (let item = 0; item < document.getElementsByTagName('li').length; item += 1) {
+    if (document.getElementsByTagName('li')[item].classList.contains('selected')) {
+      document.getElementsByTagName('li')[item].classList.remove('selected');
     }
   }
   event.target.classList.remove('not-selected');
@@ -53,7 +53,7 @@ function alternativeCreateListItem() {
 }
 
 function alternativeDoubleSelectListItem(event) {
-  let session = localStorage.ol.split(',');
+  const session = localStorage.ol.split(',');
   for (let item = 0; item < session.length; item += 3) {
     if (session[item] === event.target.innerText) {
       if (session[item + 2] === 'completed') {
@@ -73,7 +73,7 @@ function alternativeDoubleSelectListItem(event) {
 
 function alternativeClearSelected() {
   if (localStorage.ol !== undefined && localStorage.ol.split(',').includes(document.querySelector('.selected').innerText)) {
-    let arrayP = localStorage.ol.split(',');
+    const arrayP = localStorage.ol.split(',');
     const index = localStorage.ol.split(',').indexOf(document.querySelector('.selected').innerText);
     arrayP.splice(index, 3);
     localStorage.ol = arrayP;
@@ -84,63 +84,65 @@ function alternativeClearSelected() {
 }
 
 function alternativeClearCompleted() {
-  let clone = [];
-  for (const item of document.querySelectorAll('.completed')) {
-    clone.push(item);
+  const clone = [];
+  for (let item = 0; item < document.querySelectorAll('.completed').length; item += 1) {
+    clone.push(document.querySelectorAll('.completed')[item]);
   }
   if (localStorage.ol !== undefined) {
-    for (const item of clone) {
-      if (localStorage.ol.split(',').includes(item.innerText)) {
-        let arrayP = localStorage.ol.split(',');
-        const index = localStorage.ol.split(',').indexOf(item.innerText);
+    for (let item = 0; item < clone.length; item += 1) {
+      if (localStorage.ol.split(',').includes(clone[item].innerText)) {
+        const arrayP = localStorage.ol.split(',');
+        const index = localStorage.ol.split(',').indexOf(clone[item].innerText);
         arrayP.splice(index, 3);
         localStorage.ol = arrayP;
       }
     }
   }
-  for (const item of clone) {
-    document.getElementById('lista-tarefas').removeChild(item);
+  for (let item = 0; item < clone.length; item += 1) {
+    document.getElementById('lista-tarefas').removeChild(clone[item]);
   }
 }
 
 function clearList() {
-  let clone = [];
-  for (const item of document.getElementsByTagName('li')) {
-    clone.push(item);
-  }
-  for (const item of clone) {
-    document.getElementById('lista-tarefas').removeChild(item);
+  while (document.getElementById('lista-tarefas').children.length !== 0) {
+    document.getElementById('lista-tarefas').removeChild(document.getElementById('lista-tarefas').children[0])
   }
   localStorage.clear();
 }
 
 function moveUp() {
-  const selectedElement = document.getElementsByClassName('selected')[0];
-  const ol = document.getElementById('lista-tarefas');
-  if (selectedElement.previousElementSibling) {
-    const li = document.createElement('li');
-    li.classList.add(selectedElement.previousElementSibling.classList[0], selectedElement.previousElementSibling.classList[1]);
-    li.innerHTML = selectedElement.previousElementSibling.innerText
-    document.getElementsByClassName('selected')[0].previousElementSibling.insertAdjacentElement('afterend', li)
-    document.getElementById('lista-tarefas').replaceChild(selectedElement, selectedElement.previousElementSibling.previousElementSibling);
+  if (document.getElementsByClassName('selected')[0] !== undefined) {
+    selectedElement = document.getElementsByClassName('selected')[0];
+    const ol = document.getElementById('lista-tarefas');
+    if (selectedElement.previousElementSibling) {
+      const li = document.createElement('li');
+      li.classList.add(selectedElement.previousElementSibling.classList[0], selectedElement.previousElementSibling.classList[1]);
+      li.innerHTML = selectedElement.previousElementSibling.innerText
+      document.getElementsByClassName('selected')[0].previousElementSibling.insertAdjacentElement('afterend', li)
+      document.getElementById('lista-tarefas').replaceChild(selectedElement, selectedElement.previousElementSibling.previousElementSibling);
+      alternativeSaveList();
+    }
   }
-  alternativeSaveList();
+
 }
 
 function moveDown() {
+  if (document.getElementsByClassName('selected')[0] !== undefined) {
   const selectedElement = document.getElementsByClassName('selected')[0];
   const ol = document.getElementById('lista-tarefas');
-  if (selectedElement.nextElementSibling) {
-    const li = document.createElement('li');
-    li.classList.add(selectedElement.nextElementSibling.classList[0], selectedElement.nextElementSibling.classList[1]);
-    li.innerHTML = selectedElement.nextElementSibling.innerText
-    document.getElementsByClassName('selected')[0].nextElementSibling.insertAdjacentElement('afterend', li)
-    document.getElementById('lista-tarefas').replaceChild(selectedElement, selectedElement.nextElementSibling.nextElementSibling);
+    if (selectedElement.nextElementSibling && ol.children.length !== 0) {
+      const li = document.createElement('li');
+      li.classList.add(selectedElement.nextElementSibling.classList[0], selectedElement.nextElementSibling.classList[1]);
+      li.innerHTML = selectedElement.nextElementSibling.innerText
+      document.getElementsByClassName('selected')[0].nextElementSibling.insertAdjacentElement('afterend', li)
+      document.getElementById('lista-tarefas').replaceChild(selectedElement, selectedElement.nextElementSibling.nextElementSibling);
+      alternativeSaveList();
+    }
   }
-  alternativeSaveList();
 }
 
 window.onload = function () {
+  alternativeMountList();
   document.getElementById('criar-tarefa').addEventListener('click', alternativeCreateListItem);
   document.getElementById('lista-tarefas').addEventListener('click', alternativeSelectListItem);
   document.getElementById('lista-tarefas').addEventListener('dblclick', alternativeDoubleSelectListItem);
@@ -150,5 +152,5 @@ window.onload = function () {
   document.getElementById('salvar-tarefas').addEventListener('click', alternativeSaveList);
   document.getElementById('mover-cima').addEventListener('click', moveUp);
   document.getElementById('mover-baixo').addEventListener('click', moveDown);
-  alternativeMountList();
 };
+
