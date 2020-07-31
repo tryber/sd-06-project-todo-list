@@ -2,6 +2,7 @@ const btnIncluir = document.getElementById('criar-tarefa');
 const btnApagaTudo = document.getElementById('apaga-tudo');
 const lista = document.getElementById('lista-tarefas');
 const btnApagaSelecionado = document.getElementById('remover-selecionado');
+const btnApagarFinalizados = document.getElementById('remover-finalizados')
 
 /* *********************************************** */
 /* trabalhando com o botão incluir                 */
@@ -60,8 +61,7 @@ function marcarTarefaConcluida(event) {
 }
 
 /* *********************************************** */
-/* quando a pagina for carregada                   */
-/* *********************************************** */
+/* remover marcados                                */
 /* *********************************************** */
 function apagaSelecionado() {
   const selecionado = document.getElementsByClassName('marcado');
@@ -70,6 +70,17 @@ function apagaSelecionado() {
   }
 }
 
+/* *********************************************** */
+/* remover finalizados                             */
+/* *********************************************** */
+function removerFinalizados() {
+  const finalizados = document.querySelectorAll('completed');
+  for (let i = 0; i < finalizados.length; i += 1){
+    lista.removeChild(finalizados[i]);
+  }
+}
+
+/* *********************************************** */
 /* quando a pagina for carregada                   */
 /* *********************************************** */
 window.onload = function () {
@@ -77,5 +88,5 @@ window.onload = function () {
   btnApagaTudo.addEventListener('click', apagaTudo);
   lista.addEventListener('click', marcarItemDaLista);
   lista.addEventListener('dblclick', marcarTarefaConcluida);
-  btnApagaSelecionado.addEventListener('click', apagaSelecionado)
+  btnApagaSelecionado.addEventListener('click', apagaSelecionado);
 };
