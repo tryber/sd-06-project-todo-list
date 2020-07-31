@@ -1,13 +1,16 @@
 const LISTSHOWN = document.querySelector('#lista-tarefas');
-let toDoList = [];
+const BTNSAVE = document.querySelector('#save-on-local-storage');
+let toDoList = ['first', ];
 
-let clickCount = 0;
-let timeout = 250;
- 
+/* let clickCount = 0;
+let timeout = 350;
+ */
+
 function appendTask() {
   let item = document.createElement('li');
   item.innerText = toDoList[toDoList.length - 1];
   LISTSHOWN.appendChild(item);
+  toDoList.push
 }
 
 function resetSelectedTask() {
@@ -25,7 +28,7 @@ function switchDoneUndone(task) {
   }
 }
 
-function handleClicks(chosenTask) {
+/* function handleClicks(chosenTask) {
   clickCount += 1;
   if (clickCount == 1) {
     setTimeout(function () {
@@ -36,19 +39,20 @@ function handleClicks(chosenTask) {
         switchDoneUndone(chosenTask);
       }
       clickCount = 0;
-    }, timeout || 80);
+    }, timeout || 300);
   }
-}
+} */
 
 LISTSHOWN.addEventListener('click', (event) => {
-  handleClicks(event.target);
-  /* resetSelectedTask();
-  event.target.classList.add('selected-task'); */
+  //handleClicks(event.target);
+  resetSelectedTask();
+  event.target.classList.add('selected-task');
+  console.log(LISTSHOWN.indexOf(event.target));
 });
 
-/* LISTSHOWN.addEventListener('dblclick', (event) => {
+LISTSHOWN.addEventListener('dblclick', (event) => {
   switchDoneUndone(event.target);
-}); */
+});
 
 document.querySelector('#criar-tarefa').addEventListener('click', () => {
   let task = document.querySelector('.to-do-task');
@@ -74,3 +78,12 @@ document.querySelector('#remover-finalizados').addEventListener('click', () => {
     element.remove();
   });
 });
+
+BTNSAVE.addEventListener('click', () => {
+  localStorage.setItem('tasks', document.getElementById('lista-tarefas').innerHTML);
+});
+
+if (localStorage.getItem['tasks'] !== null) {
+  console.log(document.getElementById('lista-tarefas').innerHTML);
+  document.getElementById('lista-tarefas').innerHTML = localStorage.getItem('tasks');
+}
