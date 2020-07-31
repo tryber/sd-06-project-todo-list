@@ -1,6 +1,8 @@
 let submitTarefa = document.getElementById("criar-tarefa");
 let listaTarefas = document.getElementById("lista-tarefas");
 let marcaCompleted;
+let removeClass;
+let selectClass;
 // texto-tarefa
 function criarTextoTarefa(){
   let textoTarefa = document.getElementById("texto-tarefa").value;
@@ -19,11 +21,19 @@ listaTarefas.addEventListener("dblclick", function (event){
 });
 
 // mudar background - fundo cinza
-listaTarefas.addEventListener("click", function (event) {
-  let removeClass = document.querySelector(".selected");
+listaTarefas.addEventListener("click", function (event){
+  removeClass = document.querySelector(".selected");
   if (removeClass !== null) {
     removeClass.classList.remove("selected");
   }
-  let selectClass = event.target;
+  selectClass = event.target;
   selectClass.className += " selected";
+});
+
+// botao apaga-tudo
+let bApagaTudo = document.getElementById("apaga-tudo");
+bApagaTudo.addEventListener("click", function (){
+  while (listaTarefas.firstChild){
+    listaTarefas.removeChild(listaTarefas.firstChild);
+  }
 });
