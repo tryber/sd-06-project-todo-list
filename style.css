@@ -14,7 +14,6 @@ body {
 }
 
 #titulo, #funcionamento {
-  grid-area: "header";
   padding-left: 25px;
 }
 
@@ -26,10 +25,6 @@ body {
 #criar-tarefa, #texto-tarefa {
   width: fit-content;
   margin-left: 25px;
-}
-
-#lista-tarefas {
-  grid-area: "list";
 }
 
 li {
@@ -55,7 +50,6 @@ li:hover {
 }
 
 #buttons {
-  grid-area: "buttons";
   display: grid;
   grid-template-columns: repeat(6, auto);
   justify-content: flex-start;
