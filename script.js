@@ -20,6 +20,17 @@ btn.addEventListener('click', function() {
             select.classList.add('selected');
            }
         });
+        li.addEventListener('dblclick',function(event) {
+         console.log('click duplo!!');
+            let double = event.target;
+         if(double.classList.contains('completed')) {
+            double.classList.remove('completed');
+         } else {
+             double.classList.add('completed');
+         }
+
+        });
+
     }
 });
 /*function change(event) {
