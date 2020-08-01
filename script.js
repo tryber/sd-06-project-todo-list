@@ -1,9 +1,22 @@
 window.onload = function() {
-    // apagar tudo
+    //salvar tudo
+
 
     if (localStorage.ListaTarefas !== undefined) {
         document.getElementById('lista-tarefas').innerHTML = localStorage.ListaTarefas;
     }
+
+    let btnSave = document.getElementById("salvar-tarefas")
+
+    function saveList() {
+        const listSaved = document.getElementById("lista-tarefas").innerHTML
+        localStorage.setItem('ListaTarefas', listSaved)
+    }
+    btnSave.addEventListener("click", saveList)
+
+
+    // apagar tudo
+
     let eraseAll = document.getElementById("apaga-tudo")
 
     function eraseAllTasks() {
@@ -22,6 +35,7 @@ window.onload = function() {
 
         }
     }, false);
+
     //add classe selected
     var listSelected = document.querySelector('ol');
     listSelected.addEventListener('click', function(ev) {
@@ -30,6 +44,7 @@ window.onload = function() {
         }
     }, false);
 
+    //remover selecionada
     var rmvSelected = document.getElementById("remover-selecionado")
 
     function rmvSelection() {
@@ -42,7 +57,8 @@ window.onload = function() {
     }
     rmvSelected.addEventListener('click', rmvSelection)
 
-    var rmvSelected = document.getElementById("remover-finalizados")
+    //remover completo
+    var rmvCompleted = document.getElementById("remover-finalizados")
 
     function rmvFinished() {
         var list = document.getElementById("lista-tarefas");
@@ -52,7 +68,7 @@ window.onload = function() {
             }
         }
     }
-    rmvSelected.addEventListener('click', rmvFinished)
+    rmvCompleted.addEventListener('click', rmvFinished)
 
     //criar novo item
     const addTask = document.getElementById("criar-tarefa")

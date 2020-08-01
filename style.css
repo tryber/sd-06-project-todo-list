@@ -1,158 +1,126 @@
 body {
-    margin: 0;
-    min-width: 250px;
+    width: 90%;
+    height: 10%;
+    margin: auto;
 }
 
-
-/* Include the padding and border in an element's total width and height */
-
-* {
-    box-sizing: border-box;
+header {
+    background-color: black;
+    height: 60px;
 }
 
+header h2 {
+    color: white;
+    align-items: center;
+    padding-top: 1.5%;
+    font-size: 20px;
+    padding-left: 1.5%;
+}
 
-/* Remove margins and padding from the list */
+section {
+    display: block;
+}
+
+.addBtn {
+    border: none;
+    background-color: black;
+    color: coral;
+    font-size: 18px;
+    height: 60px;
+    width: 380px;
+}
+
+.apaga-tudo {
+    border: none;
+    background-color: black;
+    color: coral;
+    font-size: 15px;
+    height: 60px;
+    width: 190px;
+}
+
+.remover-selecionado {
+    border: none;
+    background-color: black;
+    color: coral;
+    font-size: 15px;
+    height: 60px;
+    width: 190px;
+}
+
+.remover-finalizados {
+    border: none;
+    background-color: black;
+    color: coral;
+    font-size: 15px;
+    height: 60px;
+    width: 190px;
+}
+
+.salvar-tarefas {
+    border: none;
+    background-color: black;
+    color: coral;
+    font-size: 15px;
+    height: 60px;
+    width: 190px;
+}
+
+.mover-cima {
+    border: none;
+    background-color: black;
+    color: coral;
+    font-size: 15px;
+    height: 60px;
+    width: 190px;
+}
+
+.mover-baixo {
+    border: none;
+    background-color: black;
+    color: coral;
+    font-size: 15px;
+    height: 60px;
+    width: 190px;
+}
+
+button:hover {
+    background-color: rgb(60, 60, 60);
+    color: red;
+}
+
+input {
+    width: 800px;
+    height: 50px;
+    font-size: 30px;
+}
 
 ol {
-    margin: 0;
-    padding: 0;
+    display: table-column;
+    float: right;
+    padding-bottom: 50%;
+    list-style-type: none;
 }
 
-
-/* Style the list items */
-
 ol li {
+    cursor: pointer;
     position: relative;
     padding: 12px 8px 12px 40px;
     list-style-type: none;
-    background: white;
-    font-size: 16px;
+    font-size: 18px;
     transition: 0.2s;
     /* make the list items unselectable */
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    width: 50%;
 }
-
-
-/* Set all odd list items to a different color (zebra-stripes) */
-
-ol li:nth-child(odd) {
-    background: white
-}
-
-
-/* When clicked on, add a background color and strike out text */
 
 ol li.completed {
+    text-decoration: line-through;
     background-color: white;
-    color: rgb(0, 0, 0);
-    text-decoration: line-through solid rgb(0, 0, 0);
 }
 
 ol li.selected {
     background-color: rgb(128, 128, 128);
-    color: white;
-    /* text-decoration: line-through solid rgb(0, 0, 0);*/
-}
-
-
-/* Add a "checked" mark when clicked on */
-
-ol li.checked::before {
-    content: '';
-    position: absolute;
-    border-color: white;
-    border-style: solid;
-    border-width: 0 2px 2px 0;
-    top: 10px;
-    left: 16px;
-    transform: rotate(45deg);
-    height: 15px;
-    width: 7px;
-    padding: 1%;
-}
-
-
-/* Style the close button */
-
-.close {
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding: 12px 16px 12px 16px;
-    border: none;
-}
-
-.close:hover {
-    background-color: #f44336;
-    color: white;
-}
-
-
-/* Style the header */
-
-.header {
-    padding: 30px 40px;
-    color: black;
-    font-weight: bold;
-}
-
-
-/* Clear floats after the header */
-
-.header:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-
-/* Style the input */
-
-input {
-    margin: 0;
-    border: 2px, solid;
-    border-radius: 15px;
-    width: 35%;
-    height: 60%;
-    padding: 10px;
-    float: left;
-    font-size: 16px;
-}
-
-
-/* Style the "Add" button */
-
-.addBtn {
-    width: 25%;
-    background: seagreen;
-    color: white;
-    font-weight: bolder;
-    font-size: 15px;
-    transition: 0.3s;
-    border-radius: 15px;
-}
-
-.addBtn:hover {
-    background-color: snow;
-    color: seagreen;
-}
-
-.apaga-tudo {
-    width: 25%;
-    background: seagreen;
-    color: white;
-    font-weight: bolder;
-    font-size: 15px;
-    transition: 0.3s;
-    border-radius: 15px;
-    border-color: seagreen;
-}
-
-.apaga-tudo:hover {
-    background-color: snow;
-    color: seagreen;
 }
