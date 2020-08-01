@@ -16,13 +16,13 @@ function createToDo(event){
 
     // apagar texto quando ele passa pra li
     document.getElementById('texto-tarefa').value='';    
-    console.log(line);
+    
     if(line){
     line.addEventListener('click', changeBackgroundColor);
     }
    }
    
-   //req 7 - mudar cor de fundo - não funciona
+   //req 7 - mudar cor de fundo 
   function changeBackgroundColor(event){
 
     event.target.classList.add('background-gray');
@@ -35,16 +35,17 @@ function createToDo(event){
  // elemento double click assume a classe completed
   event.target.classList.add('completed');
   }
-
+// elemento double click retira a classe completed
   function uncompletedItem(event){
   event.target.classList.remove('completed');
   }
+  // chama a função para adicionar ou retirar classe completed
   function item(event){
-      let list = document.getElementById('lista-tarefas');
-      if(document.getElementsByClassName('completed')){
-        list.addEventListener('dblclick', uncompletedItem);
+      
+      if(document.getElementsByClassName('completed').length !==0){
+        uncompletedItem(event);
       }else{
-        list.addEventListener('dblclick', completedItem);  
+        completedItem(event); 
       }
   }
 
@@ -69,7 +70,7 @@ function createToDo(event){
    //se elemento tem a classe completed -> apagar 
    let doneItem = document.getElementsByClassName('completed');
     if(doneItem){
-    doneItem.remove();
+    doneItem.remove('completed');
     }
   }
    document.getElementById('remover-finalizados').addEventListener('click', clearDone);
