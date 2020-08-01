@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Todo List</title>
+  </head>
+
+  <body>
+    <header>
+      <h1>Minha Lista de Tarefas</h1>
+      <link rel="stylesheet" href="style.css">
+      <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    </header>
+
+    <div class="main-content">
+      <div>
+        <p id="funcionamento">
+          Clique duas vezes em um item para marcá-lo como completo
+        </p>
+        <input type="text" class="input-text" id="texto-tarefa">
+        <button id="criar-tarefa" class="add-btn">Adicionar</button>
+      </div>
+
+      <div class="todo">
+        <ol id="lista-tarefas" class="itens-lista"></ol>
+      </div>
+
+      <div class="buttons">
+        <button id="apaga-tudo" class="btn">Remover Tudo</button>
+        <button id="remover-selecionado" class="btn">Remover Selecionados</button>
+        <button id="remover-finalizados" class="btn">Remover Finalizadas</button>
+      </div>
+
+      <div class="mover">
+        <button id="mover-cima" class="btn">Mover para cima</button>
+        <button id="mover-baixo" class="btn">Mover para baixo</button>
+        <button id="salvar-tarefas" class="btn">Salvar</button>
+      </div>
+
+    </div>
+
+    <script type="module" src="script.js"></script>
+    <script type="module" src="lazy-coder.js"></script>
+  </body>
+
+</html>
