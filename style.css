@@ -1,0 +1,7 @@
+
+ol li.checked {
+    background-color: gray;
+}
+.completed {
+    text-decoration: line-through;
+}
