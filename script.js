@@ -68,10 +68,9 @@ function createToDo(event){
   //req apagar finalizados
   function clearDone(event){
    //se elemento tem a classe completed -> apagar 
-   let doneItem = document.getElementsByClassName('completed');
-    if(doneItem){
-    doneItem.remove('completed');
-    }
+  
+    event.target.classList.remove('completed');
+    
   }
    document.getElementById('remover-finalizados').addEventListener('click', clearDone);
     document.getElementById('apaga-tudo').addEventListener('click', clearAll);
