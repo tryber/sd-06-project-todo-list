@@ -6,3 +6,7 @@ body {
     background-color: rgb(128, 128, 128);
     width: 100%;
 }
+
+.completed {
+    text-decoration: line-through;
+}

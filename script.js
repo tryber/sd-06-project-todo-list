@@ -25,9 +25,21 @@ function selectedList() {
     }
     if (event.target !== document.querySelector("#selected")) {
         event.target.classList.add("selected");
-    }   console.log(event.target)
+    }   //console.log(event.target)
 }
 list.addEventListener("click", selectedList);
+
+function selectedListline(event) {
+   
+    if (event.target.classList[0] === 'completed') {
+        event.target.classList.remove("completed");
+    }
+    else {
+        event.target.classList.add("completed");
+    }  
+    //console.log(event.target.classList[0])
+}
+list.addEventListener("dblclick", selectedListline);
 
 
 }
