@@ -30,12 +30,15 @@
 }
 
 body {
-  background-color: rgba(3 , 3 , 77 , 0.959);
+  background-color: rgba(4 , 41 , 1 , 0.959);
+  height: 768px;
   text-align: center;
+  width: 1366px;
 }
 
 header {
-  color: rgb(8 , 243 , 165);
+  color: lime;
+  font-size: 30px;
 }
 
 input {
