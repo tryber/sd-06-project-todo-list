@@ -31,17 +31,13 @@ function createLi(){
     }
   });
 
-  createLi.addEventListener("dblclick", function(){ 
-    if(createLi.classList.contains("selected","completed")){
+  createLi.addEventListener("dblclick", function(event){ 
+    let getLiEventTarget = event.target;
 
-      createLi.classList.contains("selected");
-      createLi.classList.remove("selected");
-      createLi.classList.remove("completed");
-
+    if(!getLiEventTarget.classList.contains("completed")){
+      getLiEventTarget.classList.add("completed");
     }else{
-
-      createLi.classList.add("completed");
-
+      getLiEventTarget.classList.remove("completed");
     }
 
   });
@@ -70,14 +66,14 @@ function getAllElementsAndEraseIt(){
 function cleanSelectedTasks(){
   let getCleanSelectedTasksBtn = document.querySelector("#remover-selecionado");
   getCleanSelectedTasksBtn.addEventListener("click", function(){
-    let getAllSelectedTasks = document.querySelectorAll(".selected");
 
+    let getAllSelectedTasks = document.querySelectorAll("li");
+    
     for(i in getAllSelectedTasks){
 
-      if(getAllSelectedTasks[i] != undefined) {
-        getAllSelectedTasks[i].parentElement.removeChild(getAllSelectedTasks[i]); 
+      if(getAllSelectedTasks[i].classList.contains("selected")) {
+          getAllSelectedTasks[i].remove();
       }
-
     }
   });
 }
