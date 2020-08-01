@@ -2,7 +2,8 @@ import lazyCoder from './lazy-coder.js';
 
 const btnAdc = lazyCoder(0, 1);
 const todoList = lazyCoder(0, 2);
-let liList = {}, selected = {};
+let liList = {};
+let selected = {};
 const updateLiList = function () { liList = lazyCoder(1, 6); };
 
 
