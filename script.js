@@ -25,22 +25,36 @@ function createToDo(event){
    //req 7 - mudar cor de fundo - não funciona
   function changeBackgroundColor(event){
 
-      event.target.style.changeBackgroundColor ="rgb(128, 128, 128)";
-
+    event.target.classList.add('background-gray');
 
   }
 
   //req 9
+  
   function completedItem(event){
  // elemento double click assume a classe completed
   event.target.classList.add('completed');
   }
-  document.getElementById('lista-tarefas').addEventListener('dblclick', completedItem);
+
+  function uncompletedItem(event){
+  event.target.classList.remove('completed');
+  }
+  function item(event){
+      let list = document.getElementById('lista-tarefas');
+      if(document.getElementsByClassName('completed')){
+        list.addEventListener('dblclick', uncompletedItem);
+      }else{
+        list.addEventListener('dblclick', completedItem);  
+      }
+  }
+
+  document.getElementById('lista-tarefas').addEventListener('dblclick', item);
+  
 
   //req 10 botao apaga td 
   function clearAll(event){ 
    
-    let children = document.getElementById('lista-tarefas').children
+    let children = document.getElementById('lista-tarefas').children;
 
         while(children.length !== 0){
             
