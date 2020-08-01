@@ -3,10 +3,10 @@ const BTNSAVE = document.querySelector('#salvar-tarefas');
 const BTNUP = document.querySelector('#mover-cima');
 const BTNDOWN = document.querySelector('#mover-baixo');
 const BTNDELSELECTED = document.querySelector('#remover-selecionado');
-let selectedClass = document.querySelector('.selected-task');
+const TIMEOUT = 500;
 
+let selectedClass = document.querySelector('.selected-task');
 let clickCount = 0;
-let timeout = 500;
 
 function updateSelected() {
   selectedClass = document.querySelector('.selected-task');
@@ -35,7 +35,7 @@ function handleClicks(chosenTask) {
   clickCount += 1;
   setTimeout(function () {
     if (clickCount === 2) {
-      clearTimeout()
+      clearTimeout();
       switchDoneUndone(chosenTask);
     } else if (clickCount === 1) {
       resetSelectedTask();
@@ -43,7 +43,7 @@ function handleClicks(chosenTask) {
       updateSelected();
     }
     clickCount = 0;
-  }, timeout);
+  }, TIMEOUT);
 }
 
 LISTSHOWN.addEventListener('click', (event) => {
@@ -83,6 +83,7 @@ if (localStorage.getItem.tasks !== null) {
 }
 
 BTNUP.addEventListener('click', () => {
+  updateSelected();
   if (selectedClass) {
     const PREVIOUSSIB = selectedClass.previousSibling;
     if (PREVIOUSSIB) {
@@ -92,6 +93,7 @@ BTNUP.addEventListener('click', () => {
 });
 
 BTNDOWN.addEventListener('click', () => {
+  updateSelected();
   if (selectedClass) {
     const NEXTSIB = selectedClass.nextElementSibling;
     if (NEXTSIB) {
@@ -101,6 +103,7 @@ BTNDOWN.addEventListener('click', () => {
 });
 
 BTNDELSELECTED.addEventListener('click', () => {
+  updateSelected();
   if (selectedClass) {
     selectedClass.remove();
   }
