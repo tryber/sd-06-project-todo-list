@@ -1,0 +1,12 @@
+
+@charset"utf-8";
+
+.completed {
+    text-decoration: line-through solid rgb(0, 0, 0);
+}
+.incompleted{
+    text-decoration: none;
+}
+.grey {
+    background-color: rgb(128, 128, 128);
+}
