@@ -18,7 +18,10 @@ header h2 {
 }
 
 section {
-    display: block;
+    width: 70%;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr;
 }
 
 .addBtn {
@@ -97,19 +100,32 @@ input {
 
 ol {
     list-style-type: none;
+    font-size: 25px;
+    padding-left: ;
+    text-align: center;
 }
 
-ol li {
+ol {
+    list-style-type: none;
+    font-size: 25px;
+    padding-left: ;
+    text-align: center;
+}
+
+ol li:hover {
     /* make the list items unselectable */
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    background-color: black;
+    color: white;
 }
 
 ol li.completed {
     text-decoration: line-through;
     background-color: white;
+    color: black;
 }
 
 ol li.selected {
