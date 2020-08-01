@@ -64,3 +64,11 @@ moveDown.addEventListener('click', function () {
         }
     }
 });
+
+listaTarefa.addEventListener('dblclick', function (event) {
+    if (event.target.className !== 'completed') {
+        event.target.className = 'completed';
+        } else {
+        event.target.className = 'incompleted';
+    }
+});
