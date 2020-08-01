@@ -1,0 +1,88 @@
+body {
+  background-color: rgb(64 , 119 , 100);
+  margin: 0;
+  padding: 0;
+  font-family: Roboto;
+}
+
+header {  
+  background-color: rgb(255 , 255 , 255);
+  color: rgb(36 , 66 , 56);
+  text-align: center;
+  height: 40px;
+}
+
+header h1, #trybe-logo {
+  display: inline-block;
+}
+
+header #trybe-logo {
+  position: absolute;
+  margin-top: 13px ;
+  width: 70px;
+  left: 15px;
+}
+
+header h1 {
+  font-size: 22px;
+  margin: 0;
+  line-height: 40px;
+  text-align: center;
+}
+
+#div-input {
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-top: 20px;
+}
+
+#funcionamento {
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+  color: rgb(255 , 255 , 255);
+  font-weight: lighter;
+}
+
+#div-list {
+  min-height: 300px;
+  font-size: 15px;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid rgb(0 , 0 , 0);
+  color: rgb(255 , 255 , 255);
+  box-shadow: 5px 5px 5px rgb(0 , 0 , 0);
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0 , 0 , 0);
+}
+
+#bottom-bar {
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-top: 10px;
+}
+
+#bottom-bar button {
+  margin: 3px 2px 3px 2px;
+}
+
+footer {
+  text-align: center;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+footer h2 {
+  width: 400px;
+  font-size: 12px;
+  font-weight: lighter;
+  color: rgb(255 , 255 , 255);
+}
