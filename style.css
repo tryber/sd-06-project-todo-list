@@ -11,80 +11,18 @@ header {
 
 header h2 {
     color: white;
-    align-items: center;
+    text-align: center;
     padding-top: 1.5%;
-    font-size: 20px;
+    font-size: 35px;
     padding-left: 1.5%;
 }
 
 section {
     width: 70%;
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
-}
-
-.addBtn {
-    border: none;
-    background-color: black;
-    color: coral;
-    font-size: 18px;
-    height: 60px;
-    width: 380px;
-}
-
-.apaga-tudo {
-    border: none;
-    background-color: black;
-    color: coral;
-    font-size: 15px;
-    height: 60px;
-    width: 190px;
-}
-
-.remover-selecionado {
-    border: none;
-    background-color: black;
-    color: coral;
-    font-size: 15px;
-    height: 60px;
-    width: 190px;
-}
-
-.remover-finalizados {
-    border: none;
-    background-color: black;
-    color: coral;
-    font-size: 15px;
-    height: 60px;
-    width: 190px;
-}
-
-.salvar-tarefas {
-    border: none;
-    background-color: black;
-    color: coral;
-    font-size: 15px;
-    height: 60px;
-    width: 190px;
-}
-
-.mover-cima {
-    border: none;
-    background-color: black;
-    color: coral;
-    font-size: 15px;
-    height: 60px;
-    width: 190px;
-}
-
-.mover-baixo {
-    border: none;
-    background-color: black;
-    color: coral;
-    font-size: 15px;
-    height: 60px;
-    width: 190px;
+    margin-left: 15%;
 }
 
 button:hover {
@@ -93,22 +31,18 @@ button:hover {
 }
 
 input {
-    width: 800px;
+    width: 70%;
     height: 50px;
     font-size: 15px;
+    border: 2px solid black;
+    border-radius: 15px;
+    margin-bottom: 1%;
+    margin-left: 15%;
 }
 
 ol {
     list-style-type: none;
     font-size: 25px;
-    padding-left: ;
-    text-align: center;
-}
-
-ol {
-    list-style-type: none;
-    font-size: 25px;
-    padding-left: ;
     text-align: center;
 }
 
@@ -130,6 +64,74 @@ ol li.completed {
 
 ol li.selected {
     background-color: rgb(128, 128, 128);
+}
+
+.addBtn {
+    border: none;
+    background-color: black;
+    color: coral;
+    font-size: 120%;
+    height: 100px;
+    width: 100%;
+}
+
+.apaga-tudo {
+    border: none;
+    background-color: black;
+    color: coral;
+    font-size: 100%;
+    height: 100px;
+    width: 50%;
+}
+
+.explaining {
+    text-align: center;
+    font-size: 25px;
+}
+
+.mover-cima {
+    border: none;
+    background-color: black;
+    color: coral;
+    font-size: 100%;
+    height: 100px;
+    width: 50%;
+}
+
+.mover-baixo {
+    border: none;
+    background-color: black;
+    color: coral;
+    font-size: 100%;
+    height: 100px;
+    width: 50%;
+}
+
+.remover-selecionado {
+    border: none;
+    background-color: black;
+    color: coral;
+    font-size: 100%;
+    height: 100px;
+    width: 50%;
+}
+
+.remover-finalizados {
+    border: none;
+    background-color: black;
+    color: coral;
+    font-size: 100%;
+    height: 100px;
+    width: 50%;
+}
+
+.salvar-tarefas {
+    border: none;
+    background-color: black;
+    color: coral;
+    font-size: 100%;
+    height: 100px;
+    width: 50%;
 }
 
 .selected {
