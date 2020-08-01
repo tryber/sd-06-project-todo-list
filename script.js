@@ -5,10 +5,12 @@ const BTNDOWN = document.querySelector('#mover-baixo');
 const BTNDELSELECTED = document.querySelector('#remover-selecionado');
 let selectedClass = document.querySelector('.selected-task');
 
-/* let clickCount = 0;
-let timeout = 350;
- */
+let clickCount = 0;
+let timeout = 500;
 
+function updateSelected() {
+  selectedClass = document.querySelector('.selected-task');
+}
 function appendTask(toDoTask) {
   const ITEM = document.createElement('li');
   ITEM.innerText = toDoTask.value;
@@ -29,30 +31,23 @@ function switchDoneUndone(task) {
   }
 }
 
-/* function handleClicks(chosenTask) {
+function handleClicks(chosenTask) {
   clickCount += 1;
-  if (clickCount == 1) {
-    setTimeout(function () {
-      if (clickCount == 1) {
-        resetSelectedTask(chosenTask);
-        chosenTask.classList.add('selected-task');
-      } else {
-        switchDoneUndone(chosenTask);
-      }
-      clickCount = 0;
-    }, timeout || 300);
-  }
-} */
+  setTimeout(function () {
+    if (clickCount === 2) {
+      clearTimeout()
+      switchDoneUndone(chosenTask);
+    } else if (clickCount === 1) {
+      resetSelectedTask();
+      chosenTask.classList.add('selected-task');
+      updateSelected();
+    }
+    clickCount = 0;
+  }, timeout);
+}
 
 LISTSHOWN.addEventListener('click', (event) => {
-  // handleClicks(event.target);
-  resetSelectedTask();
-  selectedClass = event.target;
-  selectedClass.classList.add('selected-task');
-});
-
-LISTSHOWN.addEventListener('dblclick', (event) => {
-  switchDoneUndone(event.target);
+  handleClicks(event.target);
 });
 
 document.querySelector('#criar-tarefa').addEventListener('click', () => {
