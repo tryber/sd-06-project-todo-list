@@ -5,8 +5,8 @@ let listaTarefas = document.getElementById("lista-tarefas");
 let itens = listaTarefas.getElementsByTagName("li");
 let remover = document.getElementById("remover-selecionado");
 let apagarCompletos = document.getElementById("remover-finalizados");
-let subir = document.getElementById("subir-selecionado");
-let descer = document.getElementById("descer-selecionado");
+let subir = document.getElementById("mover-cima");
+let descer = document.getElementById("mover-baixo");
 let apagarTudo = document.getElementById("apaga-tudo");
 
 
@@ -90,7 +90,12 @@ descer.addEventListener("click", desceItem);
 function sobeItem() {
   let selecionado = document.querySelector(".selecionado");
   let previous = selecionado.previousSibling;
-  selecionado.parentNode.insertBefore(selecionado, previous);
+
+  if(selecionado == selecionado.parentNode.firstChild) {
+    selecionado.parentNode.insertBefore(selecionado, selecionado.nextSibling);
+  } else {
+    selecionado.parentNode.insertBefore(selecionado, previous);
+  }
 }
 
 function desceItem() {
