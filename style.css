@@ -92,23 +92,14 @@ button:hover {
 input {
     width: 800px;
     height: 50px;
-    font-size: 30px;
+    font-size: 15px;
 }
 
 ol {
-    display: table-column;
-    float: right;
-    padding-bottom: 50%;
     list-style-type: none;
 }
 
 ol li {
-    cursor: pointer;
-    position: relative;
-    padding: 12px 8px 12px 40px;
-    list-style-type: none;
-    font-size: 18px;
-    transition: 0.2s;
     /* make the list items unselectable */
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -122,5 +113,9 @@ ol li.completed {
 }
 
 ol li.selected {
+    background-color: rgb(128, 128, 128);
+}
+
+.selected {
     background-color: rgb(128, 128, 128);
 }

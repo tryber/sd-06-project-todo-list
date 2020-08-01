@@ -1,6 +1,6 @@
 window.onload = function() {
-    //salvar tudo
 
+    //salvar tudo
 
     if (localStorage.ListaTarefas !== undefined) {
         document.getElementById('lista-tarefas').innerHTML = localStorage.ListaTarefas;
@@ -10,14 +10,13 @@ window.onload = function() {
 
     function saveList() {
         const listSaved = document.getElementById("lista-tarefas").innerHTML
-        localStorage.setItem('ListaTarefas', listSaved)
+        localStorage.setItem('ListaTarefas', listSaved);
     }
     btnSave.addEventListener("click", saveList)
 
-
     // apagar tudo
 
-    let eraseAll = document.getElementById("apaga-tudo")
+    let eraseAll = document.getElementById("apaga-tudo");
 
     function eraseAllTasks() {
         var taskList = document.getElementById("lista-tarefas");
