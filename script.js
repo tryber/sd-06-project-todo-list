@@ -1,4 +1,4 @@
-window.onload = function () {
+
 //  Criando as variaveis do html
   const criarTarefa = document.getElementById('criar-tarefa');
   const textoTarefa = document.getElementById('texto-tarefa');
@@ -25,4 +25,4 @@ window.onload = function () {
       ultimoSelecionado = selecionado1;
     }
   });
-};
+
