@@ -73,35 +73,4 @@ listaTarefa.addEventListener('dblclick', function (event) {
     }
 });
 
-rmFinished.addEventListener('click', function () {
-    const aux = document.querySelectorAll('.completed');
-    for (let i = 0; i < aux.length; i += 1) {
-    document.getElementById('lista-tarefas').removeChild(aux[i]);
-    }
-});
 
-rmSelected.addEventListener('click', function () {
-    const aux = document.getElementsByTagName('li');
-    for (let i = 0; i < aux.length; i += 1) {
-        if (aux[i].style.backgroundColor === 'rgb(128, 128, 128)') {
-            document.getElementById('lista-tarefas').removeChild(aux[i]);
-        }
-    }
-});
-
-rmAll.addEventListener('click', function () {
-    const aux = document.getElementById('lista-tarefas');
-    while (aux.firstChild) {
-        aux.firstChild.remove();
-    }
-});
-
-saveTasks.addEventListener('click', function () {
-    const lStorage = [];
-    const aux = document.querySelectorAll('li');
-    for (let i = 0; i < aux.length; i += 1) {
-        const a = aux[i].innerHTML;
-        lStorage.push(a);
-    }
-    localStorage.setItem('saveList', lStorage);
-}); 
