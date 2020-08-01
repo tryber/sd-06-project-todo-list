@@ -1,0 +1,83 @@
+body {
+  background-color: rgb(2, 68, 68);
+}
+
+#container {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "list"
+    "buttons";
+  border-radius: 15px;
+  background-color: whitesmoke;
+  padding: 15px;
+}
+
+#titulo, #funcionamento {
+  padding-left: 25px;
+}
+
+#titulo {
+  font-weight: 600;
+  font-size: 40px;
+}
+
+#criar-tarefa, #texto-tarefa {
+  width: fit-content;
+  margin-left: 25px;
+}
+
+li {
+  border-radius: 4px;
+  width: 50%;
+}
+li:hover {
+  background-color: rgb(0, 186, 192);
+}
+
+.selecionado {
+  background-color: rgb(128, 128, 128);
+  font-weight: 600;
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
+  font-style: italic;
+}
+
+#texto-tarefa {
+  width: 50%;
+}
+
+#buttons {
+  display: grid;
+  grid-template-columns: repeat(6, auto);
+  justify-content: flex-start;
+  width: 50%;
+  margin-left: 15px;
+}
+
+button {
+  font-family: monospace;
+  border-radius: 6px;
+  border: 0;
+  box-shadow: 0 0 1px 1px black;
+  background-color: teal;
+  color: whitesmoke;
+  margin-left: 10px;
+  margin-top: 3px;
+}
+button:hover {
+  box-shadow: 0 0 100px 100px rgba(255, 255, 255, .1) inset, 0 0 1px 1px black;
+}
+button:active {
+  box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, .5) inset;
+  transition: all 0.1s;
+}
+button:focus {
+  outline: none;
+}
+
+#remover-selecionado {
+  background-color: rgb(168, 0, 0);
+}
