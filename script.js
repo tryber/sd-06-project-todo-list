@@ -5,8 +5,15 @@ window.onload = function() {
   if (sessionStorage.getItem("myListSaved") == "true") {
     console.log("entrou");
     myList.innerHTML = sessionStorage.getItem("myList");
-    sessionStorage.setItem("myListSaved", false);
+    sessionStorage.setItem("myListSaved", "false");
   }
+
+  // Tratamento do botão para Salvar Lista
+  let btnSave = document.getElementById("salvar-tarefas");
+  btnSave.addEventListener("click", function () {
+    sessionStorage.setItem("myList", myList.innerHTML);
+    sessionStorage.setItem("myListSaved", "true");
+  });
 
   // Tratamento do botão para incluir o item
   let btnAdd = document.getElementById("criar-tarefa");
@@ -35,13 +42,6 @@ window.onload = function() {
     });
   });
 
-  // Tratamento do botão para Salvar Lista
-  let btnSave = document.getElementById("salvar-tarefas");
-  btnSave.addEventListener("click", function () {
-    sessionStorage.setItem("myList", myList.innerHTML);
-    sessionStorage.setItem("myListSaved", "true");
-  });
-
   // Função para adicionar um item na lista
   function addItem(myText) {
     let myItem = document.createElement('li');
@@ -58,7 +58,7 @@ window.onload = function() {
     });
   }
 
-  // Alterar a cor de fundo do item
+  // Alterar a cor de fundo do item do Item Selecionado
   function chageSelected(newSelected){
     let oldSelected = document.querySelector(".selected");
     if (oldSelected) {
@@ -77,5 +77,57 @@ window.onload = function() {
       newSelected.classList.add("completed");
     }
   }
+
+  // Tratamento do botão para Mover para CIMA
+  let btnMoveUp = document.getElementById("mover-cima");
+  btnMoveUp.addEventListener("click", function() {
+    moveItem("up");
+  });
+
+  // Tratamento do botão para Mover para BAIXO
+  let btnMoveDown = document.getElementById("mover-baixo");
+  btnMoveDown.addEventListener("click", function() {
+    moveItem("down");
+  });
+
+  // Função para mover o item para baixo ou para cima
+  function moveItem(direct) {
+    const myListLi = document.getElementsByTagName("li");
+    let index = -1;
+    for (let i = 0; i < myListLi.length; i += 1) {
+      if (myListLi[i].classList.contains("selected")) {
+        index = i;
+      }
+    };
+    if (direct == "up") {
+      if (index > 0) {
+        console.log("entrou up");
+        changePlaceItem (myListLi, index-1 , index);
+      }
+    } else if (direct == "down") {
+      if ((index >= 0) && (index < myListLi.length-1)) {
+        console.log("entrou down");
+        changePlaceItem (myListLi, index+1 , index);
+      }
+    }
+  }
+  // função para trocar ordem entre dois itens
+  function changePlaceItem(myListLi, oldItem, newItem) {
+    let auxLi = myListLi[oldItem].innerHTML;
+    myListLi[oldItem].innerHTML = myListLi[newItem].innerHTML;
+    myListLi[newItem].innerHTML = auxLi;
+    chageSelected(myListLi[oldItem]);
+    
+    let newCompleted = myListLi[newItem].classList.contains("completed");
+    let oldCompleted = myListLi[oldItem].classList.contains("completed");
+    if ((newCompleted) && (!oldCompleted)) {
+      myListLi[oldItem].classList.add("completed");
+      myListLi[newItem].classList.remove("completed");
+    } else if ((!newCompleted) && (oldCompleted)) {
+      myListLi[oldItem].classList.remove("completed");
+      myListLi[newItem].classList.add("completed");
+    }
+  }
+
 
 }
