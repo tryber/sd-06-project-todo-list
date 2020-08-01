@@ -42,6 +42,13 @@ window.onload = function() {
     });
   });
 
+  // Tratamento do botão para Remover item selecionado
+  let btnClearSelected = document.getElementById("remover-selecionado");
+  btnClearSelected.addEventListener("click", function () {
+    const myItemSelected = document.querySelector(".selected");
+    myItemSelected.parentNode.removeChild(myItemSelected);
+  });
+
   // Função para adicionar um item na lista
   function addItem(myText) {
     let myItem = document.createElement('li');
