@@ -84,9 +84,17 @@ function apagaTudo() {
 }
 
 // Botões de subir e descer item na lista
-// subir.addEventListener("click", sobeItem);
-// descer.addEventListener("click", desceItem);
+subir.addEventListener("click", sobeItem);
+descer.addEventListener("click", desceItem);
 
-// function sobeItem(event) {
+function sobeItem() {
+  let selecionado = document.querySelector(".selecionado");
+  let previous = selecionado.previousSibling;
+  selecionado.parentNode.insertBefore(selecionado, previous);
+}
 
-// }
+function desceItem() {
+  let selecionado = document.querySelector(".selecionado");
+  let next = selecionado.nextSibling.nextSibling;
+  selecionado.parentNode.insertBefore(selecionado, next);
+}
