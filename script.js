@@ -1,8 +1,8 @@
 const newTarefa=document.getElementById('criar-tarefa');
 const inicioList=localStorage.getItem('saveList');
 const listaTarefa=document.getElementById('lista-tarefas');
-const moveUp=document.getElementById("mover-cima");
-const moveDown=document.getElementById("mover-baixo");
+const movepCima=document.getElementById("mover-cima");
+const movepBaixo=document.getElementById("mover-baixo");
 const deleteTudo=document.getElementById("apaga-tudo");
 const removeFinal=document.getElementById("remover-finalizados");
 const removeSelect=document.getElementById("remover-selecionado");
@@ -36,7 +36,8 @@ listaTarefa.addEventListener('click', function(event){
     }
     event.target.style.backgroundColor='rgb(128,128,128)';
 });
-moveUp.addEventListener('click', function () {
+
+movepCima.addEventListener('click', function () {
     const aux = document.getElementsByTagName('li');
     for (let i = 0; i < aux.length; i ++) {
         let aux2;
@@ -50,7 +51,7 @@ moveUp.addEventListener('click', function () {
     }
 });
 
-moveDown.addEventListener('click', function () {
+movepBaixo.addEventListener('click', function () {
     const aux = document.getElementsByTagName('li');
     for (let i = 0; i < aux.length; i ++) {
         let aux2 = document.getElementsByTagName('li');
@@ -70,6 +71,22 @@ listaTarefa.addEventListener('dblclick', function (event) {
         event.target.className = 'completed';
         } else {
         event.target.className = 'incompleted';
+    }
+});
+
+removeFinal.addEventListener('click', function () {
+    const aux = document.querySelectorAll('.completed');
+    for (let i = 0; i < aux.length; i += 1) {
+    document.getElementById('lista-tarefas').removeChild(aux[i]);
+    }
+});
+
+removeSelect.addEventListener('click', function () {
+    const aux = document.getElementsByTagName('li');
+    for (let i = 0; i < aux.length; i += 1) {
+        if (aux[i].style.backgroundColor === 'rgb(128, 128, 128)') {
+            document.getElementById('lista-tarefas').removeChild(aux[i]);
+        }
     }
 });
 
