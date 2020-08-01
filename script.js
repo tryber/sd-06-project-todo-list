@@ -93,10 +93,10 @@ function sobeItem() {
   let selecionado = document.querySelector(".selecionado");
   let previous = selecionado.previousSibling;
 
-  if(selecionado !== selecionado.parentElement.firstChild) {
-    selecionado.parentElement.insertBefore(selecionado, previous);
-  } else {
+  if(previous.innerText == selecionado.parentElement.firstChild.innerText) {
     console.log(selecionado.parentElement);
+  } else {
+    selecionado.parentElement.insertBefore(selecionado, previous);
   }
 }
 
