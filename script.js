@@ -45,9 +45,11 @@ function alternativeSelectListItem(event) {
 
 function alternativeCreateListItem() {
   const item = document.createElement('li');
+  // const secondaryItem = document.createElement('hr');
   item.innerText = document.getElementById('texto-tarefa').value;
   item.classList.add('not-selected', 'not-completed');
   document.getElementById('lista-tarefas').appendChild(item);
+  // document.getElementById('lista-tarefas').appendChild(secondaryItem);
   document.getElementById('texto-tarefa').value = '';
   alternativeSaveList();
 }
@@ -81,6 +83,9 @@ function alternativeClearSelected() {
   if (document.getElementsByTagName('li').length !== 0) {
     document.getElementById('lista-tarefas').removeChild(document.querySelector('.selected'));
   }
+  if (!localStorage.ol) {
+    localStorage.clear();
+  }
 }
 
 function alternativeClearCompleted() {
@@ -100,6 +105,9 @@ function alternativeClearCompleted() {
   }
   for (let item = 0; item < clone.length; item += 1) {
     document.getElementById('lista-tarefas').removeChild(clone[item]);
+  }
+  if (!localStorage.ol) {
+    localStorage.clear();
   }
 }
 

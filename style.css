@@ -1,6 +1,6 @@
 html {
   align-items: center;
-  background-color: forestgreen;
+  background-color: gold;
   display: flex;
   height: 100vh;
   justify-content: center;
@@ -8,16 +8,33 @@ html {
 }
 
 body {
-  background-color: white;
+  background-color: black;
   border-radius: 5%;
   box-shadow: 17px 18px 36px -1px black;
+  color: white;
   min-height: 50vh;
-  min-width: 80vw;
+  max-width: 80vw;
+  min-width: 50vw;
   padding: 20px;
+}
+
+li {
+  margin-left: 15%;
+  font-size: 25px;
+  padding: 5px;
+}
+
+hr {
+  margin-left: 10%;
 }
 
 button {
   min-width: 30px;
+  margin: 5px;
+}
+
+.main-header {
+  text-align: center;
 }
 
 .menu {
@@ -26,9 +43,20 @@ button {
 
 .completed {
   text-decoration: line-through;
+  font-style: italic;
 }
 
 .selected {
   background-color: gray;
+}
+
+.input-area {
+  display: flex;
+  justify-content: center;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
 }
 
