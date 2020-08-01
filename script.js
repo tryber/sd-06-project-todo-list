@@ -8,6 +8,8 @@ let apagarCompletos = document.getElementById("remover-finalizados");
 let subir = document.getElementById("mover-cima");
 let descer = document.getElementById("mover-baixo");
 let apagarTudo = document.getElementById("apaga-tudo");
+let salvarLista = document.getElementById("salvar-lista");
+
 
 
 // Funções e eventos para adicionar novo item à lista de tarefas
@@ -91,15 +93,30 @@ function sobeItem() {
   let selecionado = document.querySelector(".selecionado");
   let previous = selecionado.previousSibling;
 
-  if(selecionado == selecionado.parentNode.firstChild) {
-    selecionado.parentNode.insertBefore(selecionado, selecionado.nextSibling);
+  if(selecionado !== selecionado.parentElement.firstChild) {
+    selecionado.parentElement.insertBefore(selecionado, previous);
   } else {
-    selecionado.parentNode.insertBefore(selecionado, previous);
+    console.log(selecionado.parentElement);
   }
 }
 
 function desceItem() {
   let selecionado = document.querySelector(".selecionado");
   let next = selecionado.nextSibling.nextSibling;
-  selecionado.parentNode.insertBefore(selecionado, next);
+  selecionado.parentElement.insertBefore(selecionado, next);
 }
+
+// Botão para salvar a lista
+salvarLista.addEventListener("click", salvaLista);
+
+function salvaLista() {
+  let lista = listaTarefas.innerHTML;
+  localStorage.setItem("conteudoDaLista", lista);
+}
+
+function carregaLista() {
+  let carregado = localStorage.getItem("conteudoDaLista");
+  listaTarefas.innerHTML = carregado;
+}
+
+carregaLista();
