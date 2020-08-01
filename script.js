@@ -58,7 +58,7 @@ moveDown.addEventListener('click', function () {
             aux2 = aux[ i+1 ].innerText;
             aux[ i+1 ].innerText = aux[i].innerText;
             aux[i].innerText = aux2;
-            aux[ i+1 ].style.backgroundColor = 'rgb(128, 128, 128)';
+            aux[ i+1 ].style.backgroundColor = 
             aux[i].style.backgroundColor = 'transparent';
             break;
         }
