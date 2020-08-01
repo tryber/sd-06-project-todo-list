@@ -17,7 +17,7 @@ window.onload = function () {
 
 //  Ao clicar no item da lista, altere a cor para cinza e quando clicar em outro substituir
   let ultimoSelecionado = itemlistaTarefas;
-  itemlistaTarefas.addEventListener('click', function (event) { 
+  itemlistaTarefas.addEventListener('click', function (event) {
     const selecionado1 = event.target;
     if (selecionado1.id !== 'lista-tarefas') {
       ultimoSelecionado.style.backgroundColor = '';
