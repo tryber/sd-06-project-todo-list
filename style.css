@@ -57,3 +57,7 @@ ol {
   font-size: 20px;
   text-align: center;
 }
+
+.selected {
+  background-color: gray;
+}
