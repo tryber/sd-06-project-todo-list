@@ -8,6 +8,6 @@
     text-decoration: none;
 }
 
-.grey {
-    background-color: rgb(128, 128, 128);
+.selected {
+    background-color: gray;
   }
