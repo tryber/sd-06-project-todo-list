@@ -8,7 +8,11 @@
 li {
     clear: both;
 }
-.direcionais {
+#mover-cima{
+    border-radius: 20px;
+    background-color: orange;
+}
+#mover-baixo{
     border-radius: 20px;
     background-color: orange;
 }
@@ -16,15 +20,15 @@ li {
     border-radius: 20px;
     background-color:skyblue;
 }
-#remover-finalizados {
+#remover-selecionado {
     border-radius: 20px;
     background-color:red;
 }
-#limpar-lista{
+#remover-finalizados{
     border-radius: 20px;
     background-color:red;
 }
-#salvar-lista{
+#salvar-tarefas{
     border-radius: 20px;
     background-color:greenyellow;
 }
