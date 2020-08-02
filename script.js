@@ -12,9 +12,6 @@ function generateItemList() {
   taskList.appendChild(itemList);
   itemList.addEventListener('click', handleListItemClick);
   itemList.addEventListener('dblclick', handleListItemDoubleClick)
-  itemList.addEventListener('dblclick', tiraORisco)
- // const LISTA = document.querySelector('li');
- // LISTA.classList = 'selected';
   document.querySelector('#texto-tarefa').value = '';
 }
 
@@ -25,11 +22,40 @@ const labelButton = document.createTextNode('Adicionar');
 buttonAdd.appendChild(labelButton);
 document.querySelector('.entrada-dados').appendChild(buttonAdd);
 buttonAdd.addEventListener('click', generateItemList);
+//buttonAdd.addEventListener('click' , clearItemListSelecions)
+
 
 function handleListItemClick(event){
-  clearItemListSelecions();
+  //clearItemListSelecions();
+  let atualSelectedListItem = event.target;
+  let oldSelectedListItem = document.querySelector('.selected')
+ // let oldSelectedListItem.classList.add('selected')
+ // atualSelectedListItem.classList.remove('selected')
+  atualSelectedListItem.classList.add('selected')
+  oldSelectedListItem.classList.remove('selected')
+  atualSelectedListItem.style.backgroundColor = 'rgb(128, 128, 128)'
+  oldSelectedListItem.style.backgroundColor = ''
+  
+  /*
+  if (atualSelectedListItem.classList.contains('selected')) {
+    atualSelectedListItem.style.backgroundColor = 'rgb(128,128,128)'
+  } else {
+    atualSelectedListItem.style.backgroundColor = ''
+  }
+  */
+  
+ // selectedListItem.style.backgroundColor = 'rgb(128,128,128)'
+
+  /*
   let selectedListItem = event.target;
-  selectedListItem.style.backgroundColor = 'rgb(128 , 128 , 128)';
+  if (selectedListItem.style.backgroundColor == '') {
+    selectedListItem.style.backgroundColor = 'rgb(128 , 128 , 128)';
+  } else {
+    selectedListItem.style.backgroundColor = ''
+  }
+ // selectedListItem.style.backgroundColor = 'rgb(128 , 128 , 128)';
+  console.log('locomeui')
+  */
 }
 
 function handleListItemDoubleClick(event) {
@@ -43,22 +69,7 @@ function handleListItemDoubleClick(event) {
   }
 }
 
-function tiraORisco(event) {
-  let selectedListItem = event.target;
-  selectedListItem.textDecoration ='none'
-}
 
 
-function clearItemListSelecions() {
- /* let itemList = document.querySelectorAll('li')
-    for (index = 0; index <= itemList.length; index ++) {
-      let list = itemList[index]
-      list.style.backgroundColor = 'green'
-    }
-  
-  for (let index in itemList) {
-    let list = itemList[index];
-    list.style.backgroundColor = 'green'
-    console.log(list)
-  }*/
-}
+
+
