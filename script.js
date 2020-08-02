@@ -1,7 +1,9 @@
 // Variáveis
 
-const buttonCriarTarefa = document.getElementById("criar-tarefa");
+const buttonNewTask = document.getElementById("criar-tarefa");
+const taskList = document.getElementById("lista-tarefas");
 
-buttonCriarTarefa.addEventListener('click', function(){
-  console.log('você clicou!')
+buttonNewTask.addEventListener('click', function(){
+  let itemLista = document.createElement('li')
+  taskList.appendChild(itemLista);
 })
