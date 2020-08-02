@@ -55,16 +55,19 @@ function removeTasksDone() {
   }
 }
 
+// Limpa e salva a lista desejada;
 function saveTasks() {
   localStorage.clear();
   localStorage.setItem('tasklist-save', taskList.innerHTML);
 }
 
+// Recupera as tarefas salvas;
 function rescueTasks() {
   const lastTasks = localStorage.getItem('tasklist-save');
   taskList.innerHTML = lastTasks;
 }
 
+// Sobe a posição da tarefa;
 function moveUp() {
   const allTasks = document.querySelectorAll('.task');
   for (let index = 0; index < allTasks.length; index += 1) {
@@ -74,10 +77,11 @@ function moveUp() {
   }
 }
 
+// Desce a posição da tarefa;
 function moveDown() {
   const allTasks = document.querySelectorAll('.task');
   for (let index = 0; index < allTasks.length; index += 1) {
-    if (allTasks[index].classList.contains('selected') && index < allTasks.length) {
+    if (allTasks[index].classList.contains('selected') && index < allTasks.length - 1) {
       taskList.insertBefore(allTasks[index], allTasks[index].nextSibling.nextSibling);
     }
   }
