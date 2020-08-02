@@ -40,7 +40,7 @@ moveUp.addEventListener('click', function () {
     const aux = document.getElementsByTagName('li');
     for (let i = 0; i < aux.length; i += 1) {
         if (aux[i].style.backgroundColor === 'rgb(128, 128, 128)' && i > 0) {
-           taskList.insertBefore(aux[i], aux[i-1])
+            taskList.insertBefore(aux[i], aux[i - 1])
         }
     }
 });
@@ -58,7 +58,7 @@ moveDown.addEventListener('click', function () {
 taskList.addEventListener('dblclick', function (event) {
     if (event.target.className !== 'completed') {
         event.target.className = 'completed';
-        } else {
+    } else {
         event.target.className = 'incompleted';
     }
 });
@@ -66,7 +66,7 @@ taskList.addEventListener('dblclick', function (event) {
 rmFinished.addEventListener('click', function () {
     const aux = document.querySelectorAll('.completed');
     for (let i = 0; i < aux.length; i += 1) {
-    document.getElementById('lista-tarefas').removeChild(aux[i]);
+        document.getElementById('lista-tarefas').removeChild(aux[i]);
     }
 });
 
