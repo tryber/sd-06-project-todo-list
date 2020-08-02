@@ -6,15 +6,15 @@ const rmAll = document.getElementById('apaga-tudo');
 const saveTasks = document.getElementById('salvar-tarefas');
 const moveUp = document.getElementById('mover-cima');
 const moveDown = document.getElementById('mover-baixo');
-const iniList = localStorage.getItem('saveList');
+const iniList = localStorage.getItem('save-list');
+
+saveTasks.addEventListener('click', function () {
+    localStorage.setItem('save-list', document.getElementById('lista-tarefas').innerHTML);
+    alert('Lista salva!')
+});
 
 if (iniList) {
-    const list = document.getElementById('lista-tarefas');
-    for (let i = 0; i < iniList.length; i += 1) {
-        let li = document.createElement('li');
-        li.innerHTML = iniList[i];
-        list.appendChild(li);
-    }
+    document.getElementById('lista-tarefas').innerHTML = localStorage.getItem('save-list')
 }
 
 newTask.addEventListener('click', function () {
@@ -96,12 +96,3 @@ rmAll.addEventListener('click', function () {
     }
 });
 
-saveTasks.addEventListener('click', function () {
-    const lStorage = [];
-    const aux = document.querySelectorAll('li');
-    for (let i = 0; i < aux.length; i += 1) {
-        const a = aux[i].innerHTML;
-        lStorage.push(a);
-    }
-    localStorage.setItem('saveList', lStorage);
-});
