@@ -1,6 +1,7 @@
 window.onload = () => {
 
-    // removeSelectedItem();
+    removeSelectedItem();
+    cleanList()
 
 }
 
@@ -33,11 +34,11 @@ const addNewTodo = (i) => {
     });
 
     node.addEventListener('dblclick', () => {
-        if (node.classList.contains('done')) {
-            node.classList.remove('done');
+        if (node.classList.contains('completed')) {
+            node.classList.remove('completed');
         } else {
 
-            node.classList.add('done');
+            node.classList.add('completed');
         }
     })
 
@@ -72,16 +73,29 @@ let clearFieldInput = () => {
 
 
 
-// let removeSelectedItem = () => {
+let removeSelectedItem = () => {
 
-//     let removeSelected = document.getElementById("#remover-selecionado");
+    let removeButton = document.getElementById("remover-selecionado");
 
-//     removeSelected.addEventListener("click", () => {
+    removeButton.addEventListener("click", () => {
+        let selected = document.querySelector('.selected');
+        if (selected) {
+            selected.remove();
+        }
+    })
 
-//         let selected = document.
+}
+let cleanList = () => {
 
+    let cleanButton = document.getElementById("apaga-tudo");
 
-//     })
+    cleanButton.addEventListener("click", () => {
+        let allTodos = document.querySelectorAll('.todoLi');
+        if (allTodos) {
+            for (let index = 0; index < allTodos.length; index++) {
+                allTodos[index].remove();
+            }
+        }
+    })
 
-
-// }
+}

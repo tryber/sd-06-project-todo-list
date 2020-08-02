@@ -39,9 +39,8 @@ body {
     border-radius: 14px;
 }
 
-.container .done {
-    text-decoration: line-through;
-    color: grey;
+.container .completed {
+    text-decoration: line-through solid rgb(0, 0, 0);
 }
 
 .container .selected {
