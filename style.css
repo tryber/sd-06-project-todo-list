@@ -2,9 +2,7 @@
     border-radius: 20px;
     background-color:skyblue;
 }
-.foiclicado{
-    background-color: rgb(128, 128, 128);
-}
+
 li {
     clear: both;
 }
@@ -31,4 +29,13 @@ li {
 #salvar-tarefas{
     border-radius: 20px;
     background-color:greenyellow;
+}
+.foiclicado{
+    background-color: rgb(128, 128, 128);
+}
+.duploClique{
+    text-decoration: line-through;
+}
+.hidden {
+    display: none;
 }

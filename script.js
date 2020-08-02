@@ -8,15 +8,29 @@ function addNovoElementoNaLista(){
         textoDigitado.value = "";//Apagando texto digitado na caixa de input, após criar atividade na lista baseada no texto
         textoDigitado.focus();//Retornando o cursor para dentro da caixa input
         mudaCorDeFundo();
+        duploCliqueRisca ()
     });
 }
 function mudaCorDeFundo () {
     let elementosDaLista = document.getElementsByTagName('li');
     for(let index = 0; index < elementosDaLista.length; index += 1) {
         elementosDaLista[index].addEventListener('click', function() {
-            elementosDaLista[index].className = 'foiclicado'
+            if (elementosDaLista.item(index).className === 'foiclicado') {
+                elementosDaLista[index].classList.remove('foiclicado');
+            }
+            else {elementosDaLista[index].className = 'foiclicado';}
+        }) 
+    }
+}
+function duploCliqueRisca () {
+    let elementosDaLista = document.getElementsByTagName('li');
+    for(let index = 0; index < elementosDaLista.length; index += 1) {
+        elementosDaLista[index].addEventListener('dblclick', function() {
+            elementosDaLista[index].className = 'duploClique';
         })
     }
 }
 
-window.addEventListener("load",addNovoElementoNaLista());//carregando a página "liga" a função ==> addNovoElementoNaLista
+
+
+window.addEventListener("load",addNovoElementoNaLista());//carregando a página "liga" a função ==> addNovoElementoNaLista;
