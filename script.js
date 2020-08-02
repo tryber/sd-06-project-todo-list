@@ -66,13 +66,21 @@ function rescueTasks() {
 }
 
 function moveUp() {
-  const selectItem = document.querySelector('.selected');
-  return taskList.insertBefore(selectItem, selectItem.previousSibling);
+  const allTasks = document.querySelectorAll('.task');
+  for (let index = 0; index < allTasks.length; index += 1) {
+    if (allTasks[index].classList.contains('selected') && index > 0) {
+      taskList.insertBefore(allTasks[index], allTasks[index].previousSibling);
+    }
+  }
 }
 
 function moveDown() {
-  const selectItem = document.querySelector('.selected');
-  return taskList.insertBefore(selectItem, selectItem.nextSibling.nextSibling);
+  const allTasks = document.querySelectorAll('.task');
+  for (let index = 0; index < allTasks.length; index += 1) {
+    if (allTasks[index].classList.contains('selected') && index < allTasks.length) {
+      taskList.insertBefore(allTasks[index], allTasks[index].nextSibling.nextSibling);
+    }
+  }
 }
 
 window.onload = function () {
