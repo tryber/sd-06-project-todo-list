@@ -10,7 +10,7 @@ const iniList = localStorage.getItem('save-list');
 
 saveTasks.addEventListener('click', function () {
     localStorage.setItem('save-list', document.getElementById('lista-tarefas').innerHTML);
-    alert('Lista salva!')
+    alert('Lista Salva!')
 });
 
 if (iniList) {
@@ -39,13 +39,8 @@ taskList.addEventListener('click', function (event) {
 moveUp.addEventListener('click', function () {
     const aux = document.getElementsByTagName('li');
     for (let i = 0; i < aux.length; i += 1) {
-        let aux2;
         if (aux[i].style.backgroundColor === 'rgb(128, 128, 128)' && i > 0) {
-            aux2 = aux[ i-1 ].innerText;
-            aux[ i-1 ].innerText = aux[i].innerText;
-            aux[i].innerText = aux2;
-            aux[ i-1 ].style.backgroundColor = 'rgb(128, 128, 128)';
-            aux[i].style.backgroundColor = 'transparent';
+           taskList.insertBefore(aux[i], aux[i-1])
         }
     }
 });
@@ -53,13 +48,8 @@ moveUp.addEventListener('click', function () {
 moveDown.addEventListener('click', function () {
     const aux = document.getElementsByTagName('li');
     for (let i = 0; i < aux.length; i += 1) {
-        let aux2 = document.getElementsByTagName('li');
-        if (aux[i].style.backgroundColor === 'rgb(128, 128, 128)' && i <= aux.length) {
-            aux2 = aux[ i+1 ].innerText;
-            aux[ i+1 ].innerText = aux[i].innerText;
-            aux[i].innerText = aux2;
-            aux[ i+1 ].style.backgroundColor = 'rgb(128, 128, 128)';
-            aux[i].style.backgroundColor = 'transparent';
+        if (aux[i].style.backgroundColor === 'rgb(128, 128, 128)' && i < aux.length) {
+            taskList.insertBefore(aux[i], aux[i + 2]);
             break;
         }
     }
