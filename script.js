@@ -42,9 +42,9 @@ buttonAddTodo.addEventListener('click', () => {
     i += 1;
 });
 
-let upLiButton = document.querySelector('#upLiButton');
+let moverCima = document.querySelector('#mover-cima');
 
-upLiButton.addEventListener('click', () => {
+moverCima.addEventListener('click', () => {
     upTodo();
 })
 

@@ -45,7 +45,7 @@ body {
 }
 
 .container .selected {
-    background-color: #d8d8d8;
+    background-color: rgb(128, 128, 128);
 }
 
 .container .actions {
@@ -91,3 +91,5 @@ body {
     padding-right: 1rem;
     padding-left: 1rem;
 }
+
+header {}
