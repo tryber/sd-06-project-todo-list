@@ -3,6 +3,9 @@ const btnClearAll = document.querySelector('#apaga-tudo');
 const btnRemoveDone = document.querySelector('#remover-finalizados');
 const taskText = document.querySelector('#texto-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
+// const btnUpTask = document.querySelector('#mover-cima');
+// const btnDownTask = document.querySelector('#mover-baixo');
+const btnSaveTasks = document.querySelector('#salvar-tarefas');
 const btnRemoveSelect = document.querySelector('#remover-selecionado');
 
 // Cria a lista de tarefas ao clicar;
@@ -52,6 +55,23 @@ function removeTasksDone() {
   }
 }
 
+function saveTasks() {
+  localStorage.clear();
+  localStorage.setItem('tasklist-save', taskList.innerHTML);
+}
+
+function rescueTasks() {
+  const lastTasks = localStorage.getItem('tasklist-save');
+  taskList.innerHTML = lastTasks;
+}
+
+// function moveUp() {
+//   const selectItem = document.querySelector('.selected');
+//   console.log(selectItem.childNodes);
+// }
+
+// btnUpTask.addEventListener('click', moveUp);
+
 window.onload = function () {
   btnAddTasks.addEventListener('click', generateList);
   taskList.addEventListener('click', selectTask);
@@ -59,4 +79,6 @@ window.onload = function () {
   taskList.addEventListener('dblclick', completeTasks);
   btnClearAll.addEventListener('click', cleanAllTasks);
   btnRemoveDone.addEventListener('click', removeTasksDone);
+  btnSaveTasks.addEventListener('click', saveTasks);
+  rescueTasks();
 };
