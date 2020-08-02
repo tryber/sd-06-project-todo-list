@@ -8,10 +8,18 @@
 }
 
 header{
-    background-color: rgb(184, 248, 227);
+    background-color: rgb(241, 240, 154);
     border-radius: 10px;
     padding-top: 20px;
     font-family: cursive;
     padding-left: 10px;
 }
 
+#criar-tarefa, #apaga-tudo, #remover-finalizados {
+    background-color: rgb(189, 183, 243);
+    color: grey;
+}
+
+h1, p, li {
+  color: green;
+}

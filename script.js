@@ -67,12 +67,14 @@ function createToDo(event){
 
   //req apagar finalizados
   function clearDone(event){
-   //se elemento tem a classe completed -> apagar 
+   //se elemento tem a classe completed -> apagar
+   let done = document.getElementsByClassName('completed');
+   while(done.length !== 0){
   
-    event.target.classList.remove('completed');
-    
+    done.remove('li');
+   }
   }
-   document.getElementById('remover-finalizados').addEventListener('click', clearDone);
+   document.getElementById('lista-tarefas').addEventListener('click', clearDone);
     document.getElementById('apaga-tudo').addEventListener('click', clearAll);
     document.getElementById('criar-tarefa').addEventListener('click', createToDo);
 }
