@@ -1,3 +1,10 @@
+window.onload = () => {
+
+    // removeSelectedItem();
+
+}
+
+
 const initialState = [];
 
 const addNewTodo = (i) => {
@@ -15,11 +22,13 @@ const addNewTodo = (i) => {
     node.appendChild(textNode);
     ul.appendChild(node);
 
+
     node.addEventListener('click', () => {
-        if (node.classList.contains('selected')) {
-            node.classList.remove("selected");
-        } else {
-            node.classList.add("selected");
+        let oldSelectedItem = document.querySelector('.selected');
+        node.classList.add("selected");
+
+        if (oldSelectedItem) {
+            oldSelectedItem.classList.remove('selected');
         }
     });
 
@@ -27,6 +36,7 @@ const addNewTodo = (i) => {
         if (node.classList.contains('done')) {
             node.classList.remove('done');
         } else {
+
             node.classList.add('done');
         }
     })
@@ -59,3 +69,19 @@ moverCima.addEventListener('click', () => {
 let clearFieldInput = () => {
     document.getElementById('texto-tarefa').value = '';
 }
+
+
+
+// let removeSelectedItem = () => {
+
+//     let removeSelected = document.getElementById("#remover-selecionado");
+
+//     removeSelected.addEventListener("click", () => {
+
+//         let selected = document.
+
+
+//     })
+
+
+// }
