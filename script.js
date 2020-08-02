@@ -1,15 +1,3 @@
-
-window.onload = function(){
-  findLS();
-  document.getElementById('criar-tarefa').addEventListener('click', addTask);
-  document.getElementById('remover-selecionado').addEventListener('click', removeSelected);
-  document.getElementById('mover-cima').addEventListener('click', moveUp);
-  document.getElementById('mover-baixo').addEventListener('click', moveDown);
-  document.getElementById('remover-finalizados').addEventListener('click', clearTasksCompleted);
-  document.getElementById('apaga-tudo').addEventListener('click', clearList);
-  document.getElementById('salvar-tarefas').addEventListener('click', saveList);
-};
-
 // Busca no LocalStorage se tem lista salva
 function findLS() {
   if (typeof Storage !== 'undefined') {
@@ -30,7 +18,7 @@ function getTasksLocalStorage() {
     const itemList = document.createElement('li');
     itemList.innerHTML = objTasks[i];
     itemList.className = objClass[i];
-    itemList.id ='lista';
+    itemList.id = 'lista';
     listTask.appendChild(itemList);
     itemList.addEventListener('click', selectItem);
     itemList.addEventListener('dblclick', itemCompleted);
@@ -39,7 +27,7 @@ function getTasksLocalStorage() {
 
 // Adiciona tarefa a lista
 function addTask() {
-  let task = document.createElement('li');
+  const task = document.createElement('li');
   task.addEventListener('click', selectItem);
   const lista = document.getElementById('lista-tarefas');
   const input = document.getElementById('texto-tarefa');
@@ -136,3 +124,14 @@ function moveDown() {
     }
   }
 }
+
+window.onload = function () {
+  findLS();
+  document.getElementById('criar-tarefa').addEventListener('click', addTask);
+  document.getElementById('remover-selecionado').addEventListener('click', removeSelected);
+  document.getElementById('mover-cima').addEventListener('click', moveUp);
+  document.getElementById('mover-baixo').addEventListener('click', moveDown);
+  document.getElementById('remover-finalizados').addEventListener('click', clearTasksCompleted);
+  document.getElementById('apaga-tudo').addEventListener('click', clearList);
+  document.getElementById('salvar-tarefas').addEventListener('click', saveList);
+};
