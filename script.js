@@ -15,10 +15,7 @@ function mudaCorDeFundo () {
     let elementosDaLista = document.getElementsByTagName('li');
     for(let index = 0; index < elementosDaLista.length; index += 1) {
         elementosDaLista[index].addEventListener('click', function() {
-            if (elementosDaLista.item(index).className === 'foiclicado') {
-                elementosDaLista[index].classList.remove('foiclicado');
-            }
-            else {elementosDaLista[index].className = 'foiclicado';}
+            elementosDaLista[index].className = 'foiclicado'
         }) 
     }
 }
