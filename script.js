@@ -38,8 +38,8 @@ function addTask() {
 
 //Seleciona item e troca seleção de item
 function selectItem(event) {
-  let selectItemList = event.target;
-  let listaItems = document.getElementsByTagName('li');
+  const selectItemList = event.target;
+  const listaItems = document.getElementsByTagName('li');
   for (let i = 0; i < listaItems.length; i += 1) {
     listaItems[i].classList.remove('selected');
   }
@@ -57,7 +57,7 @@ function removeSelected() {
 
 //Seta item como completado
 function itemCompleted(event) {
-  let completedItem = event.target;
+  const completedItem = event.target;
   if ( completedItem.classList.contains('completed')) {
     completedItem.classList.remove('completed');
   }else {
@@ -67,15 +67,15 @@ function itemCompleted(event) {
 
 //Limpa toda a lista de tarefas
 function clearList() {
-  let list = document.querySelector('#lista-tarefas');
+  const list = document.querySelector('#lista-tarefas');
   while(list.firstChild) {
-    list.removeChild(list.firstChild);
+    list.removeChild(list.lastChild);
   }
 }
 
 //Exclui todas as tarefas completadas
 function clearTasksCompleted() {
-  let itemsCompleteds = document.getElementsByClassName('completed');
+  const itemsCompleteds = document.getElementsByClassName('completed');
   while (itemsCompleteds.length > 0) {
     itemsCompleteds[0].remove();
   }
@@ -96,5 +96,27 @@ function saveList() {
     localStorage.setItem('class', objClass.join());
   } else {
     document.write('Sem suporte para Web Storage.');
+  }
+}
+
+//Move item para cima
+function moveUp() {
+  const list = document.querySelector('#lista-tarefas');
+  const taskSelected = document.querySelector('.selected');
+  if (taskSelected.previousSibling) {
+    if ((taskSelected) && (taskSelected.previousSibling)) {
+      list.insertBefore(taskSelected, taskSelected.previousSibling);
+    }
+  }
+}
+
+// Move item para baixo
+function moverAbaixo() {
+  const list = document.querySelector('#lista-tarefas');
+  const taskSelected = document.querySelector('.selected');
+  if (taskSelected.nextSibling) {
+    if ((taskSelected) && (taskSelected.nextSibling)) {
+      list.insertBefore(taskSelected, taskSelected.nextSibling.nextSibling);
+    }
   }
 }
