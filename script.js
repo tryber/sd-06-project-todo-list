@@ -2,6 +2,7 @@ const addTaskButton = document.querySelector('button:nth-of-type(1)');
 const taskList = document.querySelector('ol');
 const taskText = document.querySelector('input');
 const clearAllButton = document.querySelector('#apaga-tudo');
+const clearCompletedButton = document.querySelector('#remover-finalizados');
 
 function addClickListener(newElement) {
   newElement.addEventListener('click', function (event) {
@@ -41,3 +42,14 @@ addTaskButton.addEventListener('click', function () {
 clearAllButton.addEventListener('click', function () {
   taskList.innerHTML = [];
 })
+
+clearCompletedButton.addEventListener('click', function () {
+  const selectedItems = document.querySelectorAll('.completed');
+
+  selectedItems.forEach(li => {
+    if (li.classList.contains('completed')) {
+      taskList.removeChild(li);
+    }
+  });
+})
+
