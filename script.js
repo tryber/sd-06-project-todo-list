@@ -1,12 +1,22 @@
-// Busca no LocalStorage se tem lista salva
-function findLS() {
-  if (typeof Storage !== 'undefined') {
-    if (localStorage.tasks !== undefined) {
-      getTasksLocalStorage();
-    }
+// Seta item como completado
+function itemCompleted(event) {
+  const completedItem = event.target;
+  if (completedItem.classList.contains('completed')) {
+    completedItem.classList.remove('completed');
   } else {
-    document.write('Sem suporte para Web Storage.');
+    completedItem.classList.add('completed');
   }
+}
+
+// Seleciona item e troca seleção de item
+function selectItem(event) {
+  const selectItemList = event.target;
+  const listaItems = document.getElementsByTagName('li');
+  for (let i = 0; i < listaItems.length; i += 1) {
+    listaItems[i].classList.remove('selected');
+  }
+  selectItemList.classList.add('selected');
+  selectItemList.addEventListener('dblclick', itemCompleted);
 }
 
 // Recupera as tarefas salvas
@@ -25,6 +35,17 @@ function getTasksLocalStorage() {
   }
 }
 
+// Busca no LocalStorage se tem lista salva
+function findLS() {
+  if (typeof Storage !== 'undefined') {
+    if (localStorage.tasks !== undefined) {
+      getTasksLocalStorage();
+    }
+  } else {
+    document.write('Sem suporte para Web Storage.');
+  }
+}
+
 // Adiciona tarefa a lista
 function addTask() {
   const task = document.createElement('li');
@@ -36,17 +57,6 @@ function addTask() {
   input.value = '';
 }
 
-// Seleciona item e troca seleção de item
-function selectItem(event) {
-  const selectItemList = event.target;
-  const listaItems = document.getElementsByTagName('li');
-  for (let i = 0; i < listaItems.length; i += 1) {
-    listaItems[i].classList.remove('selected');
-  }
-  selectItemList.classList.add('selected');
-  selectItemList.addEventListener('dblclick', itemCompleted);
-}
-
 // Remove item selcionado
 function removeSelected() {
   const itemSelected = document.getElementsByClassName('selected');
@@ -55,20 +65,10 @@ function removeSelected() {
   }
 }
 
-// Seta item como completado
-function itemCompleted(event) {
-  const completedItem = event.target;
-  if ( completedItem.classList.contains('completed')) {
-    completedItem.classList.remove('completed');
-  } else {
-    completedItem.classList.add('completed');
-  }
-}
-
 // Limpa toda a lista de tarefas
 function clearList() {
   const list = document.querySelector('#lista-tarefas');
-  while( list.firstChild ) {
+  while (list.firstChild) {
     list.removeChild(list.lastChild);
   }
 }
@@ -81,7 +81,7 @@ function clearTasksCompleted() {
   }
 }
 
-//S alva a lista de tarefas
+// Salva a lista de tarefas
 function saveList() {
   if (typeof Storage !== 'undefined') {
     localStorage.clear();
