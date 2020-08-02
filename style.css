@@ -1,0 +1,30 @@
+#criar-tarefa{
+    border-radius: 20px;
+    background-color:skyblue;
+}
+.foiclicado{
+    background-color: rgb(128, 128, 128);
+}
+li {
+    clear: both;
+}
+.direcionais {
+    border-radius: 20px;
+    background-color: orange;
+}
+#apaga-tudo {
+    border-radius: 20px;
+    background-color:skyblue;
+}
+#remover-finalizados {
+    border-radius: 20px;
+    background-color:red;
+}
+#limpar-lista{
+    border-radius: 20px;
+    background-color:red;
+}
+#salvar-lista{
+    border-radius: 20px;
+    background-color:greenyellow;
+}

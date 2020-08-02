@@ -3,38 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        button{
-            height:40px;
-            width: 100px;
-            border-radius: 20px;
-            background-color:skyblue;
-        }
-    </style>
+    <title>Minha Lista de Tarefas</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <header>
         <h1>Minha Lista de Tarefas</h1>
         <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-        <input type="text" id="texto-tarefa">
-        <button id="criar-tarefa">Adicionar</button>
     </header>
+    <section>
+        <input type="text" id="texto-tarefa" placeholder="digite aqui sua tarefa">
+        <button id="criar-tarefa">Adicionar</button>
+    </section>
         <ol id="lista-tarefas"></ol>
-    <script>
-        function inicia(){
-            document.getElementById("criar-tarefa").addEventListener("click",function(){
-                let listaDeatividadesOl = document.getElementById("lista-tarefas");
-                let textoDigitado = document.getElementById("texto-tarefa");
-                let novaAtividade = document.createElement("li");
-                novaAtividade.textContent = textoDigitado.value;
-                listaDeatividadesOl.appendChild(novaAtividade);
-                textoDigitado.value = "";
-                textoDigitado.focus();
-                
-            });
-        }
-        window.addEventListener("load",inicia());
-    </script>
+        <button id="remover-finalizados">X</button>
+        <button class="direcionais">up</button>
+        <button class="direcionais">down</button>
+        <button id="apaga-tudo">Limpar Completos</button>
+        <button id="limpar-lista">Limpar Lista</button>
+        <button id="salvar-lista">Salvar Lista</button>
+    <script src="script.js"></script>
 </body>
 </html>
