@@ -103,9 +103,11 @@ function saveList() {
 function moveUp() {
   const list = document.querySelector('#lista-tarefas');
   const taskSelected = document.querySelector('.selected');
-  if (taskSelected.previousSibling) {
-    if ((taskSelected) && (taskSelected.previousSibling)) {
-      list.insertBefore(taskSelected, taskSelected.previousSibling);
+  if (document.getElementsByClassName('selected')[0] !== undefined) {
+    if (taskSelected.previousSibling) {
+      if ((taskSelected) && (taskSelected.previousSibling)) {
+        list.insertBefore(taskSelected, taskSelected.previousSibling);
+      }
     }
   }
 }
@@ -114,9 +116,11 @@ function moveUp() {
 function moverAbaixo() {
   const list = document.querySelector('#lista-tarefas');
   const taskSelected = document.querySelector('.selected');
-  if (taskSelected.nextSibling) {
-    if ((taskSelected) && (taskSelected.nextSibling)) {
-      list.insertBefore(taskSelected, taskSelected.nextSibling.nextSibling);
+  if (document.getElementsByClassName('selected')[0] !== undefined) {
+    if (taskSelected.nextSibling) {
+      if ((taskSelected) && (taskSelected.nextSibling)) {
+        list.insertBefore(taskSelected, taskSelected.nextSibling.nextSibling);
+      }
     }
   }
 }
