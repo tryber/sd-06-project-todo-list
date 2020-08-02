@@ -16,11 +16,19 @@ const addNewTodo = (i) => {
     ul.appendChild(node);
 
     node.addEventListener('click', () => {
-        node.className = "todoLi selected";
+        if (node.classList.contains('selected')) {
+            node.classList.remove("selected");
+        } else {
+            node.classList.add("selected");
+        }
     });
 
     node.addEventListener('dblclick', () => {
-        node.className = "todoLi done";
+        if (node.classList.contains('done')) {
+            node.classList.remove('done');
+        } else {
+            node.classList.add('done');
+        }
     })
 
     clearFieldInput();
