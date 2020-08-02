@@ -3,6 +3,7 @@ const taskList = document.querySelector('ol');
 const taskText = document.querySelector('input');
 const clearAllButton = document.querySelector('#apaga-tudo');
 const clearCompletedButton = document.querySelector('#remover-finalizados');
+const removeSelectedButton = document.querySelector('#remover-selecionado');
 
 function addClickListener(newElement) {
   newElement.addEventListener('click', function (event) {
@@ -53,3 +54,10 @@ clearCompletedButton.addEventListener('click', function () {
   });
 })
 
+removeSelectedButton.addEventListener('click', function (event) {
+  const selectedItem = document.querySelector('.selected');
+
+  if (selectedItem.classList.contains('selected')) {
+    taskList.removeChild(selectedItem);
+  }
+})
