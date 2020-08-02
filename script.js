@@ -1,24 +1,25 @@
 window.onload = function () {
   insertButtonEvent();
+  clearAllButtonEvent();
 };
 
-// INSERT ITENS IN LIST
+// INSERT ITEMS IN TO-DO LIST
 function clearText() {
   document.querySelector('#texto-tarefa').value = '';
 }
 
 function insertButtonEvent() {
   const addBtn = document.querySelector('#criar-tarefa');
-  addBtn.addEventListener('click', addItensOfList);
+  addBtn.addEventListener('click', addItemsOfList);
 }
 
-function addItensOfList(event) {
+function addItemsOfList(event) {
   const list = document.querySelector('#lista-tarefas');
-  const itemElement = createItensOfList();
+  const itemElement = createItemsOfList();
   list.appendChild(itemElement);
 }
 
-function createItensOfList() {
+function createItemsOfList() {
   const itemElement = document.createElement('li');
   const textValue = document.querySelector('#texto-tarefa');
   itemElement.innerText = textValue.value;
@@ -28,10 +29,26 @@ function createItensOfList() {
   return itemElement;
 }
 
+// CLEAR ALL ITENS IN TO-DO LIST
+function clearAllButtonEvent() {
+  const clearBtn = document.querySelector('#apaga-tudo');
+  clearBtn.addEventListener('click', ClearAllItems);
+} 
+
+function ClearAllItems(){
+  const list = document.querySelector('#lista-tarefas');
+
+  while (list.hasChildNodes()) {  
+    list.removeChild(list.firstChild);
+  }
+}
+
 // function handleAddButtonEvent(event) {
     // const previousSelectedItem = document.querySelector('.selected');
     // const currentSelectedItem = event.target;
     // previousSelectedItem.classList.remove('selected');
     // currentSelectedItem.classList.add('selected');
     // selectedColor = nowSelectedDiv.style.backgroundColor;
-//}
+// }
+
+//<button onclick="ClearAllItens()" id='apaga-tudo'>Limpar Lista</button>
