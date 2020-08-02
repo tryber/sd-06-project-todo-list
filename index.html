@@ -7,25 +7,27 @@
     <title>Todo List</title>
   </head>
   <body>
-    <header>
+    <header class="title">
       <h1>Minha Lista de Tarefas</h1>
-      <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+      <p id="funcionamento"><em>Clique duas vezes em um item para marcá-lo como completo</em></p>
     </header>
-    <section>
-      <input id="texto-tarefa" placeholder="Digite uma tarefa" type="text">
-      <button id="criar-tarefa">Adicionar</button>
-    </section>
-    <section>
-      <ol id="lista-tarefas"></ol>
-    </section>
-    <section>
-      <button id="apaga-tudo">Apagar tudo</button>
-      <button id="remover-finalizados">Remover finalizados</button>
+    <div class="task-container">
+      <div class="insert-tasks">
+        <input id="texto-tarefa" placeholder="Digite uma tarefa" type="text" autofocus>
+        <button id="criar-tarefa">Adicionar</button>
+      </div>
+      <div>
+        <ol id="lista-tarefas" class="tasks-list"></ol>
+      </div>
+    </div>
+    <div class="main-buttons">
       <button id="salvar-tarefas">Salvar tarefas</button>
       <button id="mover-cima">Cima</button>
       <button id="mover-baixo">Baixo</button>
+      <button id="remover-finalizados">Remover finalizados</button>
       <button id="remover-selecionado">Remover selecionado</button>
-    </section>
+      <button id="apaga-tudo">Apagar tudo</button>
+    </div>
     <footer>&copy; Cleyton Oliveira</footer>
     <script src="script.js"></script>
   </body>

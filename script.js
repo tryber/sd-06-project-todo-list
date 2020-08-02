@@ -3,8 +3,8 @@ const btnClearAll = document.querySelector('#apaga-tudo');
 const btnRemoveDone = document.querySelector('#remover-finalizados');
 const taskText = document.querySelector('#texto-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
-// const btnUpTask = document.querySelector('#mover-cima');
-// const btnDownTask = document.querySelector('#mover-baixo');
+const btnUpTask = document.querySelector('#mover-cima');
+const btnDownTask = document.querySelector('#mover-baixo');
 const btnSaveTasks = document.querySelector('#salvar-tarefas');
 const btnRemoveSelect = document.querySelector('#remover-selecionado');
 
@@ -41,9 +41,9 @@ function completeTasks(event) {
 
 // Apaga todas as tarefas registradas;
 function cleanAllTasks() {
-  const allTask = document.querySelectorAll('.task');
-  for (let index = 0; index < allTask.length; index += 1) {
-    allTask[index].remove();
+  const allTasks = document.querySelectorAll('.task');
+  for (let index = 0; index < allTasks.length; index += 1) {
+    allTasks[index].remove();
   }
 }
 
@@ -65,12 +65,15 @@ function rescueTasks() {
   taskList.innerHTML = lastTasks;
 }
 
-// function moveUp() {
-//   const selectItem = document.querySelector('.selected');
-//   console.log(selectItem.childNodes);
-// }
+function moveUp() {
+  const selectItem = document.querySelector('.selected');
+  return taskList.insertBefore(selectItem, selectItem.previousSibling);
+}
 
-// btnUpTask.addEventListener('click', moveUp);
+function moveDown() {
+  const selectItem = document.querySelector('.selected');
+  return taskList.insertBefore(selectItem, selectItem.nextSibling.nextSibling);
+}
 
 window.onload = function () {
   btnAddTasks.addEventListener('click', generateList);
@@ -80,5 +83,7 @@ window.onload = function () {
   btnClearAll.addEventListener('click', cleanAllTasks);
   btnRemoveDone.addEventListener('click', removeTasksDone);
   btnSaveTasks.addEventListener('click', saveTasks);
+  btnUpTask.addEventListener('click', moveUp);
+  btnDownTask.addEventListener('click', moveDown);
   rescueTasks();
 };
