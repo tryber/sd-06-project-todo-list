@@ -8,10 +8,13 @@ function generateItemList() {
   const task = document.querySelector('#texto-tarefa').value;
   const itemList = document.createElement('li');
   itemList.classList = 'lista';
+ 
   itemList.appendChild(document.createTextNode(task));
   taskList.appendChild(itemList);
+ 
   itemList.addEventListener('click', handleListItemClick);
   itemList.addEventListener('dblclick', handleListItemDoubleClick)
+  itemList.addEventListener('click', selectedListItem)
   document.querySelector('#texto-tarefa').value = '';
 }
 
@@ -22,40 +25,20 @@ const labelButton = document.createTextNode('Adicionar');
 buttonAdd.appendChild(labelButton);
 document.querySelector('.entrada-dados').appendChild(buttonAdd);
 buttonAdd.addEventListener('click', generateItemList);
-//buttonAdd.addEventListener('click' , clearItemListSelecions)
 
 
-function handleListItemClick(event){
-  //clearItemListSelecions();
-  let atualSelectedListItem = event.target;
-  let oldSelectedListItem = document.querySelector('.selected')
- // let oldSelectedListItem.classList.add('selected')
- // atualSelectedListItem.classList.remove('selected')
-  atualSelectedListItem.classList.add('selected')
-  oldSelectedListItem.classList.remove('selected')
-  atualSelectedListItem.style.backgroundColor = 'rgb(128, 128, 128)'
-  oldSelectedListItem.style.backgroundColor = ''
-  
-  /*
-  if (atualSelectedListItem.classList.contains('selected')) {
-    atualSelectedListItem.style.backgroundColor = 'rgb(128,128,128)'
-  } else {
-    atualSelectedListItem.style.backgroundColor = ''
+
+
+
+function selectedListItem() {
+  for (let i = 0; i < document.querySelectorAll('li').length; i += 1) {
+    document.querySelectorAll('li')[i].addEventListener('click' , function() {
+      for (let j = 0; j < document.querySelectorAll('li').length; j+= 1 ) {
+        document.querySelectorAll('li')[j].style.backgroundColor = 'white';
+      }
+      event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+    });
   }
-  */
-  
- // selectedListItem.style.backgroundColor = 'rgb(128,128,128)'
-
-  /*
-  let selectedListItem = event.target;
-  if (selectedListItem.style.backgroundColor == '') {
-    selectedListItem.style.backgroundColor = 'rgb(128 , 128 , 128)';
-  } else {
-    selectedListItem.style.backgroundColor = ''
-  }
- // selectedListItem.style.backgroundColor = 'rgb(128 , 128 , 128)';
-  console.log('locomeui')
-  */
 }
 
 function handleListItemDoubleClick(event) {
