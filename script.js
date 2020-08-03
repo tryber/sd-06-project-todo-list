@@ -18,6 +18,18 @@ function changeCollorOnSelect(select) {
   select.className += ' selected';
 }
 
-taskList.addEventListener('click', function(e){
-  changeCollorOnSelect(e.target);
+taskList.addEventListener('click', function(event) {
+  changeCollorOnSelect(event.target);
 })
+
+function completTask(complete) {
+  if (complete.classList.contains('completed')) {
+    complete.classList.remove('completed');
+  } else {
+    complete.className += ' completed';
+  }
+}
+
+taskList.addEventListener('dblclick', function(event) {
+  completTask(event.target);
+});
