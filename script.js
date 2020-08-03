@@ -10,11 +10,11 @@ function newTask() {
     let lastItem = container[container.length - 1];
 
     //inserir classe no novo item
-    lastItem.classList.add('a-fazer');
+    lastItem.classList.add('not-completed');
 
-    //inserir evento no novo item
-    lastItem.setAttribute('ondblclick', 'finalizar()');
-
+    //inserir atributos no novo item
+    lastItem.setAttribute('ondblclick', 'complete()');
+    lastItem.setAttribute('onclick', 'select()');
     //Inserir na lista o novo item
     lastItem.innerText = caixaTarefa;
 
@@ -22,9 +22,31 @@ function newTask() {
     document.getElementById('texto-tarefa').value = '';
 }
 
-
-function finalizar() {
+function complete() {
     let itemClicado = event.target;
-    itemClicado.classList.remove('a-fazer');
-    itemClicado.classList.add('finalizado');
+    let tamanhoArray = itemClicado.classList.length;
+for (i = 0; i < tamanhoArray; i+= 1){}
+    if (itemClicado.classList[i] === 'completed') {
+        itemClicado.classList.remove('completed');
+        itemClicado.classList.add('not-completed');
+    } else {
+        itemClicado.classList.remove('not-completed');
+        itemClicado.classList.add('completed');
+    }
+}
+
+function select() {
+    let selecionado = event.target;
+    let classesSelecionado = selecionado.classList;
+    let counter = 0;
+    for (i = 0; i < classesSelecionado.length; i += 1) {
+        if (classesSelecionado[i] === 'selected') {
+            counter += 1;
+        }
+    }
+    if (counter === 0) {
+        selecionado.classList.add('śelected');
+    } else {
+        selecionado.classList.remove('selected');
+    }
 }
