@@ -1,4 +1,7 @@
-.backgroundLi{
+.selected-task {
     background-color: rgb(128, 128, 128);
 }
+.completed {
+    text-decoration: line-through;
+} 
 /*quando criar cada elemento add uma class="item" (event.target)*/
