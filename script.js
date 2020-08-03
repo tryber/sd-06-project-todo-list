@@ -37,7 +37,7 @@ function addItens() {
 addTaskButton.addEventListener('click', addItens);
 
 //Change the background color of a selected iten when clicked
-orderedList.addEventListener('click', function() {
+orderedList.addEventListener('dbclick', function() {
   if (document.querySelector('.selected-task') !== null) {
     document.querySelector('.selected-task').style.backgroundColor = 'white';
     document.querySelector('.selected-task').classList.remove('selected-task');
@@ -48,15 +48,6 @@ orderedList.addEventListener('click', function() {
   }
   event.target.style.backgroundColor = 'rgb(128,128,128)'
   event.target.classList.add('selected-task');
-})
-
-//Risk the completed itens
-orderedList.addEventListener('dblclick', function() {
-  if (event.target.className === 'iten selected-task') {
-    event.target.classList.add('completed');
-  } else {
-    event.target.classList.remove('completed')
-  }
 })
 
   //Clear the list content
