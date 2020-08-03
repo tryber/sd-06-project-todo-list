@@ -1,3 +1,5 @@
+window.onload = loadList();
+
 let oList = document.getElementById('lista-tarefas');
 document.getElementById("criar-tarefa").addEventListener('click', function(){
   inputText = document.getElementById("texto-tarefa").value;
@@ -108,3 +110,14 @@ document.getElementById('mover-baixo').addEventListener('click', function(){
     }
   }}  
 }) 
+
+document.getElementById("salvar-tarefas").addEventListener('click', function(){
+  let list = document.querySelector('#lista-tarefas');
+  localStorage.setItem('list', list.innerHTML);
+})
+
+function loadList(){
+  document.querySelector('#lista-tarefas').innerHTML = localStorage.getItem('list');
+  addClickChangeColor();
+  addRiskOnDblClick();
+}
