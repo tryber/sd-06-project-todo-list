@@ -1,9 +1,7 @@
 @charset "utf-8";
-
 * {
 	box-sizing: border-box;
 }
-
 body {
 	color: rgb(93, 96, 99);
 	font-family: "Helvetica", "Arial", sans-serif;
@@ -27,13 +25,13 @@ body {
 }
 
 .completed {
-	text-decoration: line-through;
+    text-decoration: line-through solid rgb(0, 0, 0);
 }
 
 .incompleted {
-	text-decoration: none;
+    text-decoration: none;
 }
 
-.selected {
-background-color: gray;
-}
+.grey {
+    background-color: rgb(128, 128, 128);
+  }
