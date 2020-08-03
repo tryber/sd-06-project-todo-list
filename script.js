@@ -18,6 +18,8 @@ function generateItemList() {
   document.querySelector('#texto-tarefa').value = '';
 }
 
+
+
 // Botão Adicionar
 const buttonAdd = document.createElement('button');
 buttonAdd.id = 'criar-tarefa';
@@ -26,6 +28,29 @@ buttonAdd.appendChild(labelButton);
 document.querySelector('.entrada-dados').appendChild(buttonAdd);
 buttonAdd.addEventListener('click', generateItemList);
 //buttonAdd.addEventListener('click' , clearItemListSelecions)
+
+const buttonRemove = document.createElement('button')
+buttonRemove.id = 'apaga-tudo'
+const labelButtonRemove = document.createTextNode('Limpar Lista');
+buttonRemove.appendChild(labelButtonRemove);
+document.querySelector('.entrada-dados').appendChild(buttonRemove);
+buttonRemove.addEventListener('click', removeAllList)
+
+
+function removeAllList () {
+  let lista = document.querySelector('ol');
+  let itens = lista.querySelectorAll('li');
+  for(i = 0; i < itens.length; i ++) {
+    lista.removeChild(itens[i])
+  }
+
+/*
+var lista = document.getElementsByTagName('ol')[0]
+var itens = lista.getElementsByTagName('li')
+lista.removeChild(itens[2])
+  */
+}
+
 
 
 function handleListItemClick(event){
@@ -64,6 +89,7 @@ function handleListItemDoubleClick(event) {
     selectedListItem.style.textDecoration = 'none'
   }
 }
+
 
 
 
