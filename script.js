@@ -31,7 +31,16 @@ itemlistaTarefas.addEventListener('click', function (event) {
   selectClass.className += ' selected';
 });
 
+//  Riscar item com dois clicks e com 1 click tirar risco
 itemlistaTarefas.addEventListener('dblclick', function (event) {
   const completedClass = event.target;
   completedClass.classList.toggle('completed');
+});
+
+//  Botão apagar tudo
+const clearAllButton = document.getElementById('apaga-tudo');
+clearAllButton.addEventListener('click', function () {
+  if (itemlistaTarefas.firstChild) {
+    itemlistaTarefas.removeChild(itemlistaTarefas.firstChild);
+  }
 });
