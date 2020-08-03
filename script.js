@@ -10,5 +10,14 @@ buttonNewTask.addEventListener('click', function(){
   itenList.innerText = textList;
 
   taskList.appendChild(itenList);
+})
 
+function changeCollorOnSelect(select) {
+  let selected = document.querySelector('.selected');
+  selected.classList.remove('selected');
+  select.className += ' selected';
+}
+
+taskList.addEventListener('click', function(e){
+  changeCollorOnSelect(e.target);
 })
