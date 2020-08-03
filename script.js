@@ -1,7 +1,9 @@
 window.onload = () => {
 
     removeSelectedItem();
-    cleanList()
+    cleanList();
+    saveTask();
+    loadTask();
 
 }
 
@@ -99,3 +101,34 @@ let cleanList = () => {
     })
 
 }
+
+
+
+let saveTask = () => {
+
+    let saveTaskButton = document.getElementById("salvar-tarefas");
+    saveTaskButton.addEventListener("click", () => {
+
+        let List = document.querySelector("#lista-tarefas");
+
+        localStorage.setItem("List", List.innerHTML);
+
+
+
+
+    })
+
+}
+
+let loadTask = () => {
+
+
+    let List = document.querySelector("#lista-tarefas");
+    List.innerHTML = localStorage.getItem("List");
+
+}
+
+// console.log(localStorage.length) // não possui nada salvo, então o retorno é o valor: 0
+// localStorage.setItem("firsname", "Adam") //salva uma entrada com a key = "firstname" e value = "Adam"
+// localStorage.setItem("lastname", "Smith") //salva uma entrada com a key = "lastname" e value = "Smith"
+// console.log(localStorage.getItem("lastname")) // retorna o valor "Smith"

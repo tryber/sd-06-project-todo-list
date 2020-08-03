@@ -6,10 +6,10 @@ body {
 
 .container {
     background-color: white;
-    width: 82%;
-    min-height: 150px;
     border-radius: 58px;
+    min-height: 150px;
     padding: 4rem;
+    width: 82%;
 }
 
 .container .text-muted {
@@ -22,9 +22,9 @@ body {
 }
 
 .container .inputNewTodo:focus {
+    box-shadow: 0px 0px 2px #4887e9;
     outline: 1px #4887e9;
     outline-style: solid;
-    box-shadow: 0px 0px 2px #4887e9;
 }
 
 .container .button-primary {
@@ -56,15 +56,12 @@ body {
 }
 
 .container .buttonWarning {
-    background-color: #90191b;
-    color: white;
-    border-radius: 14px;
-    outline: none;
     border: transparent;
-    padding-top: 0.3rem;
-    padding-bottom: 0.3rem;
-    padding-right: 1rem;
-    padding-left: 1rem;
+    background-color: #90191b;
+    border-radius: 14px;
+    color: white;
+    outline: none;
+    padding: 0.3rem, 1rem;
 }
 
 .container .buttonSuccess {
