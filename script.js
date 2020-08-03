@@ -80,5 +80,3 @@ function recoveryTasks() {
 
 // ao carregar a página os itens salvos no local storage são recuperados
 window.onload = recoveryTasks;
-
-
