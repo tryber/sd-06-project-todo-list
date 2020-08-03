@@ -1,1 +1,55 @@
-uouioioS
+
+.content{
+	max-width: 400px;
+	max-height: 600px;
+	margin: auto;
+	background: #f3f3f3;
+	height: 450px;
+	padding: 2%;
+	border:1px solid;
+}
+
+.content h1{
+	text-align: center;
+
+}
+
+input[type=text]{
+	width: 80%;
+	height: 30px;
+	margin-bottom: 10px;
+}
+
+input[type=button]{
+	border: none;
+	width: 17%;
+	float: right;
+	height: 35px;
+}
+
+button:hover, input[type=button]:hover{
+	background: #ccc;
+}
+
+button, input[type=button]{ cursor: pointer; }
+
+    button{
+		float: right;
+		width: 25px;
+		padding: 5px;
+}
+	ul{
+		list-style-type: none;
+		padding: 10px;
+		height: 250px;
+		background: #fff;
+		overflow-y: auto;
+}
+	li{
+		height: 40px;
+		margin: 15px 0 15px 0;
+		border-bottom: 1px solid;
+
+
+}
+
