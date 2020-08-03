@@ -46,3 +46,22 @@ function select() {
     let selecionado = event.target;
     selecionado.classList.add('selected');
 }
+
+function removeAll() {
+    let allItems = document.getElementsByTagName('li');
+    let itemsArray = allItems.length;
+    let parentList = document.getElementById('lista-tarefas');
+
+    for ( i = 0; i < itemsArray; i+= 1){
+        parentList.removeChild(allItems[0]);
+    }
+
+}
+function removeCompleted() {
+    let allCompleted = document.getElementsByClassName('completed');
+    let completedArray = allCompleted.length;
+    let allTasks = document.getElementById('lista-tarefas');
+    for (i = 0; i < completedArray; i += 1) {
+        allTasks.removeChild(allCompleted[0]);
+    }
+}
