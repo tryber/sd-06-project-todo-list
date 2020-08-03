@@ -1,0 +1,19 @@
+.selected{
+    background-color: rgb(128, 128, 128);
+
+}
+.completed{
+    text-decoration: line-through solid rgb(0, 0, 0);
+    color: rgb(63, 63, 63);
+}
+.not-completed{
+text-decoration: none;
+color: rgb(0, 0, 0);
+}
+
+
+Pontos importantes sobre este requisito:
+
+* Crie uma classe CSS com o nome "completed" e defina a propriedade "text-decoration" com o valor "line-through".
+
+* Utilize a classe CSS "completed" para adicionar o efeito de letra tachada (riscada) às tarefas finalizadas.
