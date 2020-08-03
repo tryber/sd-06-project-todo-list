@@ -7,8 +7,8 @@
 }
 
 button {
-  font: inherit;
   cursor: pointer;
+  font: inherit;
 }
 
 .botao {
@@ -26,8 +26,7 @@ button {
 }
 
 .botao:active {
-  box-shadow: 0 0 0 0 rgb(153 , 51 ,  0) ,
-    inset 4px 4px 4px rgb(153 , 51 , 0);
+  box-shadow: 0 0 0 0 rgb(153 , 51 ,  0) , inset 4px 4px 4px rgb(153 , 51 , 0);
   transform: translate(6px , 6px);
 }
 
