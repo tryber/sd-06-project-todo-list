@@ -40,7 +40,7 @@ moveUp.addEventListener('click', function () {
 	const aux = document.getElementsByTagName('li');
 	for (let i = 0; i < aux.length; i += 1) {
 		if (aux[i].style.backgroundColor === 'rgb(128, 128, 128)' && i > 0) {
-			taskList.insertBefore(aux[i], aux[i - 1]);
+			taskList.insertBefore(aux[i], aux[i - 1])
 		}
 	}
 });
