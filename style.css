@@ -11,7 +11,7 @@ F6D55A  amarelo mostarda
 5B6456  verde
 */
 
-.grey-background {
+.selected {
   background-color: grey;
 }
 
@@ -43,6 +43,13 @@ header {
 
 .completed {
   text-decoration: line-through;
+}
+
+.mover-cima, .mover-baixo {
+  background-color: rgb(211, 139, 7);
+  border-radius: 1em;
+  color: white;
+  border: none;
 }
 
 .apaga-tudo {

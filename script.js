@@ -2,10 +2,10 @@ function taskHighlighter(task, list) {
   task.addEventListener('click', function () {
     // Removes grey background style from all other tasks
     for (let i = 0; i < list.children.length; i += 1) {
-      list.children[i].classList.remove('grey-background');
+      list.children[i].classList.remove('selected');
     }
     // Add grey background style to selected task
-    task.classList.add('grey-background');
+    task.classList.add('selected');
   });
 }
 
@@ -70,6 +70,27 @@ function restoreTasks() {
 function clearSavedList() {
   localStorage.clear();
 }
+function findTask(taskName) {
+
+}
+
+function moveUp() {
+  const taskList = getOlElement();
+  const selected = document.querySelector('.selected');
+  if (selected && selected.previousElementSibling) {
+    const taskUp = selected.previousElementSibling;
+    taskList.insertBefore(selected, taskUp);
+  }
+}
+
+function moveDown() {
+  const taskList = getOlElement();
+  const selected = document.querySelector('.selected');
+  if (selected && selected.nextElementSibling) {
+    const taskDown = selected.nextElementSibling;
+    taskList.insertBefore(taskDown, selected);
+  }
+}
 
 const elementBtnAddTask = document.getElementById('criar-tarefa');
 elementBtnAddTask.addEventListener('click', function () {
@@ -93,5 +114,12 @@ elementSaveTasksButton.addEventListener('click', saveTasks);
 
 const elementclearSavedList = document.getElementById('limpa-lista-gravada');
 elementclearSavedList.addEventListener('click', clearSavedList);
+
+const elementArrowUpButton = document.getElementById('mover-cima');
+elementArrowUpButton.addEventListener('click', moveUp);
+
+const elementArrowDownButton = document.getElementById('mover-baixo');
+elementArrowDownButton.addEventListener('click', moveDown);
+
 
 window.onload = restoreTasks();
