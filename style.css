@@ -1,0 +1,74 @@
+html {
+  align-items: center;
+  background-color: gold;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+}
+
+body {
+  background-color: yellowgreen;
+  border-radius: 5%;
+  box-shadow: 17px 18px 36px -1px black;
+  color: darkgreen;
+  max-width: 80vw;
+  min-height: 50vh;
+  min-width: 50vw;
+  padding: 20px;
+}
+
+li {
+  font-size: 25px;
+  margin-left: 15%;
+  padding: 5px;
+}
+
+hr {
+  border: .5px solid black;
+  margin-left: 35%;
+  width: 25%;
+}
+
+button {
+  background-color: forestgreen;
+  color: white;
+  height: min-content;
+  margin: 5px;
+  min-width: 50px;
+}
+
+.main-header {
+  text-align: center;
+}
+
+.menu {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.completed {
+  color: black;
+  font-style: italic;
+  text-decoration: line-through;
+  text-decoration-color: firebrick; 
+}
+
+.selected {
+  background-color: darkseagreen;
+  color: black;
+}
+
+.input-area {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+}
