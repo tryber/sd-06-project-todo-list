@@ -18,8 +18,6 @@ function generateItemList() {
   document.querySelector('#texto-tarefa').value = '';
 }
 
-
-
 // Botão Adicionar
 const buttonAdd = document.createElement('button');
 buttonAdd.id = 'criar-tarefa';
@@ -27,8 +25,8 @@ const labelButton = document.createTextNode('Adicionar');
 buttonAdd.appendChild(labelButton);
 document.querySelector('.entrada-dados').appendChild(buttonAdd);
 buttonAdd.addEventListener('click', generateItemList);
-//buttonAdd.addEventListener('click' , clearItemListSelecions)
 
+// Botão Limpar Lista
 const buttonRemove = document.createElement('button')
 buttonRemove.id = 'apaga-tudo'
 const labelButtonRemove = document.createTextNode('Limpar Lista');
@@ -36,22 +34,29 @@ buttonRemove.appendChild(labelButtonRemove);
 document.querySelector('.entrada-dados').appendChild(buttonRemove);
 buttonRemove.addEventListener('click', removeAllList)
 
-
 function removeAllList () {
   let lista = document.querySelector('ol');
   let itens = lista.querySelectorAll('li');
   for(i = 0; i < itens.length; i ++) {
     lista.removeChild(itens[i])
   }
-
-/*
-var lista = document.getElementsByTagName('ol')[0]
-var itens = lista.getElementsByTagName('li')
-lista.removeChild(itens[2])
-  */
 }
 
+let buttonRemoveSelected = document.createElement('button');
+buttonRemoveSelected.appendChild(document.createTextNode('Remover Item Selecionado'));
+buttonRemoveSelected.id = 'remover-finalizados';
+document.querySelector('.entrada-dados').appendChild(buttonRemoveSelected);
+buttonRemoveSelected.addEventListener('click', removeItemSelected)
 
+function removeItemSelected () {
+  let itens = document.querySelectorAll('li');
+  let lista = document.querySelector('ol')
+  for(i = 0; i < itens.length; i ++) {
+    if(itens[i].style.textDecoration != '' ) {
+      lista.removeChild(itens[i]);
+    }
+  }
+}
 
 function handleListItemClick(event){
  /* //clearItemListSelecions();
