@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>To-do List</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Proza+Libre&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>Minha Lista de Tarefas</header>
+    <main>
+      <section id="main-container" class="main-container">
+        <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+        <div id="input">
+          <input id="texto-tarefa" class="texto-tarefa" type="text">
+          <button id="criar-tarefa" class="criar-tarefa">Adicionar</button>
+        </div>
+        <div id="task-list">
+          <ol id="lista-tarefas">
+          </ol>
+        </div>
+        <div id="task-options">
+          <button id="remover-selecionado" class="remover-selecionado">&#10006</button>
+          <button id="mover-cima" class="mover-cima"><i>&#x2191</i></button>
+          <button id="mover-baixo" class="mover-baixo"><i>&#x2193</i></button>
+          <button id="remover-finalizados" class="remover-finalizados">Limpar Completos</button>
+          <button id="apaga-tudo" class="apaga-tudo">Limpar Lista</button>
+          <button id="salvar-tarefas" class="salvar-tarefas">Salvar Lista</button>
+          <button id="limpa-lista-gravada" class="limpa-lista-gravada">Limpa lista gravada</button>
+        </div>
+      </section>
+    </main>
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>

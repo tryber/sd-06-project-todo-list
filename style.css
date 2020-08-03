@@ -1,0 +1,88 @@
+/*
+font-family: 'Open Sans', sans-serif;
+font-family: 'Proza Libre', sans-serif;
+*/
+
+/*
+F6F7F7  branco gelo
+99A798  verde marronzado
+F6D55A  amarelo mostarda
+86706F  marrom
+5B6456  verde
+*/
+
+.selected {
+  background-color: grey;
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  background-color: rgb(246 , 213 , 90);
+  font-family: Proza Libre, sans-serif;
+  font-size: 42px;
+  padding: 16px 33% 16px 5%;
+}
+
+.main-container {
+  background-color: rgb(246 , 247 , 247);
+  font-family: Proza Libre, sans-serif;
+  padding: 16px 33% 32px 5%;
+}
+
+.texto-tarefa {
+  border-radius: 2em;
+  margin-right: 1em;
+}
+
+.criar-tarefa {
+  background-color: rgb(246 , 213 , 90);
+  border-radius: 2em;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+button {
+  border: none;
+  margin-right: 1em;
+}
+
+.mover-cima , .mover-baixo {
+  background-color: rgb(211 , 139 , 7);
+  border-radius: 1em;
+  color: white;
+}
+
+.apaga-tudo {
+  background-color: crimson;
+  border-radius: 1em;
+  color: white;
+}
+
+.remover-finalizados {
+  background-color: blue;
+  border-radius: 1em;
+  color: white;
+}
+
+.salvar-tarefas {
+  background-color: green;
+  border-radius: 1em;
+  color: white;
+}
+
+.limpa-lista-gravada {
+  background-color: grey;
+  border-radius: 1em;
+  color: white;
+}
+
+.remover-selecionado {
+  background-color: orangered;
+  border-radius: 1em;
+  color: white;
+}
