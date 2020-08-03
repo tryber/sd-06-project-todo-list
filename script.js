@@ -4,6 +4,8 @@ const buttonNewTask = document.querySelector('#criar-tarefa');
 const buttonClearAll = document.querySelector('#apaga-tudo');
 const listItem = document.getElementById('lista-tarefas');
 const buttonClearChecked = document.querySelector('#remover-finalizados');
+const buttonClearSelectedItems = document.querySelector('#remover-selecionado');
+const buttonSaveList = document.getElementById('salvar-tarefas');
 
 function newTask() {
   const novoItem = document.createElement('li');
@@ -54,4 +56,29 @@ function clearCheckedItems() {
   }
 }
 buttonClearChecked.addEventListener('click', clearCheckedItems);
+
+function clearSelectedItems() {
+  const taskList = document.querySelectorAll('#lista-tarefas li');
+  for (let i = 0; i < taskList.length; i += 1) {
+    if (taskList[i].classList.contains('selected')) {
+      taskList[i].outerHTML = '';
+    }
+  }
+}
+buttonClearSelectedItems.addEventListener('click', clearSelectedItems);
+
+// função para salvar as tarefas no local storage
+function saveTasks() {
+  const todasTarefas = document.getElementById('lista-tarefas').innerHTML;
+  localStorage.setItem('todas as tarefas', todasTarefas);
+}
+buttonSaveList.addEventListener('click', saveTasks);
+
+function recoveryTasks() {
+  document.getElementById('lista-tarefas').innerHTML = localStorage.getItem('todas as tarefas');
+}
+
+// ao carregar a página os itens salvos no local storage são recuperados
+window.onload = recoveryTasks;
+
 
