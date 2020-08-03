@@ -1,10 +1,9 @@
-//criar filho de head com o output da lista
+//faltam 8 e 11
 
 let elementOl = document.createElement('ol');
   elementOl.id = "lista-tarefas";
   document.body.appendChild(elementOl);  
-  console.log(elementOl);
-
+  
 let button = document.getElementById("criar-tarefa");
 
 let activity = document.getElementById("texto-tarefa");
@@ -13,24 +12,29 @@ button.addEventListener("click", function() {
   let elementLi = document.createElement('li');    
     elementLi.innerHTML = activity.value;
     elementOl.appendChild(elementLi);
-    activity.value = "";
-    
-//   elementLi.addEventListener("click", function(){
-//    let item = document.querySelectorAll("#li");
-//    for(let index = 0; index < item.length; index += 1) {
-//      item[index].classList.remove("backGroundColor");
-//    }
-//     elementLi.classList.add("backGroundColor"); 
-     
-// });
+    activity.value = "";    
 
-elementLi.addEventListener("click", function(){
-  let item = document.querySelectorAll("#li");
-  for(let index = 0; index < item.length; index += 1) {
-    item[index].classList.remove("backGroundColor");
-  }
-   elementLi.classList.add("backGroundColor"); 
+    // function changeSelected(select) {
+    //   let selected = document.querySelector('.selected');
+    //   selected.classList.remove('selected');
+    //   select.className += 'selected';
+    // }
+
     
+    // let itemSelected = document.querySelectorAll('li');
+    // createList.addEventListener('click', function (e) {
+    //   changeSelected(e.target);
+    //   // e.target.className = 'selected';
+    // });
+
+    
+    
+
+elementLi.addEventListener("click", function(event){
+  for (let index = 0; index < elementOl.children.length; index += 1) {
+    elementOl.childNodes[index].classList.remove("backGroundColor");
+    event.target.classList.add("backGroundColor");
+    console.log(event.target)};    
 });
 
 

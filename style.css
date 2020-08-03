@@ -6,6 +6,6 @@
     text-decoration: line-through;
 }
 
-.undocompleted {
-    text-decoration: none;
-}
+/* .selected {
+    background-color: rgb(128, 128, 128);
+  } */
