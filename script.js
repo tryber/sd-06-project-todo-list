@@ -40,7 +40,7 @@ itemlistaTarefas.addEventListener('dblclick', function (event) {
 //  Botão apagar tudo
 const clearAllButton = document.getElementById('apaga-tudo');
 clearAllButton.addEventListener('click', function () {
-  if (itemlistaTarefas.firstChild) {
+  while (itemlistaTarefas.firstChild) {
     itemlistaTarefas.removeChild(itemlistaTarefas.firstChild);
   }
 });
