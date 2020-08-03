@@ -90,7 +90,7 @@ function moveDown() {
 }
 
 function removeTask() {
-  let selected = document.querySelector('.selected');
+  const selected = document.querySelector('.selected');
   selected.remove();
 }
 

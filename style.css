@@ -47,10 +47,11 @@ header {
 
 button {
   border: none;
+  margin-right: 1em;
 }
 
-.mover-cima, .mover-baixo {
-  background-color: rgb(211, 139, 7);
+.mover-cima , .mover-baixo {
+  background-color: rgb(211 , 139 , 7);
   border-radius: 1em;
   color: white;
 }
