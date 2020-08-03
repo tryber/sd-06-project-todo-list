@@ -24,9 +24,8 @@ function newTask() {
 
 function complete() {
     let itemClicado = event.target;
-    let tamanhoArray = itemClicado.classList.length;
-    for (i = 0; i < tamanhoArray; i += 1) { }
-    if (itemClicado.classList[i] === 'completed') {
+    let itemClasses = itemClicado.classList;
+    if (itemClasses[0] === 'completed') {
         itemClicado.classList.remove('completed');
         itemClicado.classList.add('not-completed');
     } else {
@@ -34,6 +33,7 @@ function complete() {
         itemClicado.classList.add('completed');
     }
 }
+
 
 function select() {
     //Remover a classe de seleçao do item anterior
@@ -52,7 +52,7 @@ function removeAll() {
     let itemsArray = allItems.length;
     let parentList = document.getElementById('lista-tarefas');
 
-    for ( i = 0; i < itemsArray; i+= 1){
+    for (i = 0; i < itemsArray; i += 1) {
         parentList.removeChild(allItems[0]);
     }
 
