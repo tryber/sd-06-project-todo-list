@@ -30,7 +30,7 @@
 }
 
 body {
-  background-color: rgba(4 , 41 , 1 , 0.959);
+  background-color: rgba(245, 240, 240, 0.959);
   height: 768px;
   text-align: center;
   width: 1366px;
@@ -52,7 +52,7 @@ p {
 }
 
 ol {
-  color: beige;
+  color: rgb(31, 31, 28);
   font-family: sans-serif;
   font-size: 20px;
   text-align: center;
@@ -60,4 +60,8 @@ ol {
 
 .selected {
   background-color: gray;
+}
+
+.completed {
+ text-decoration: line-through solid black; 
 }
