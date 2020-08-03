@@ -28,7 +28,7 @@ itemlistaTarefas.addEventListener('click', function (event) {
     removeClass.classList.remove('selected');
   }
   const selectClass = event.target;
-  selectClass.className += 'selected';
+  selectClass.className += ' selected';
 });
 
 itemlistaTarefas.addEventListener('dblclick', function (event) {
