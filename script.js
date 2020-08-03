@@ -158,6 +158,7 @@ function moveUp() {
       document.getElementById('lista-tarefas').removeChild(selectedElement);
     }
   }
+  alternativeSaveList();
 }
 
 function moveDown() {
@@ -179,6 +180,7 @@ function moveDown() {
       document.getElementById('lista-tarefas').removeChild(li_after);
     } 
   }
+  alternativeSaveList();
 }
 
 window.onload = function () {
