@@ -25,7 +25,7 @@ function newTask() {
 function complete() {
     let itemClicado = event.target;
     let tamanhoArray = itemClicado.classList.length;
-for (i = 0; i < tamanhoArray; i+= 1){}
+    for (i = 0; i < tamanhoArray; i += 1) { }
     if (itemClicado.classList[i] === 'completed') {
         itemClicado.classList.remove('completed');
         itemClicado.classList.add('not-completed');
@@ -36,17 +36,13 @@ for (i = 0; i < tamanhoArray; i+= 1){}
 }
 
 function select() {
+    //Remover a classe de seleçao do item anterior
+    let limparAnterior = document.getElementsByClassName('selected');
+    if (limparAnterior.length === 1) {
+        let itemAnterior = limparAnterior[0];
+        itemAnterior.classList.remove('selected');
+    }
+    //Inserir a classe na nova
     let selecionado = event.target;
-    let classesSelecionado = selecionado.classList;
-    let counter = 0;
-    for (i = 0; i < classesSelecionado.length; i += 1) {
-        if (classesSelecionado[i] === 'selected') {
-            counter += 1;
-        }
-    }
-    if (counter === 0) {
-        selecionado.classList.add('śelected');
-    } else {
-        selecionado.classList.remove('selected');
-    }
+    selecionado.classList.add('selected');
 }
