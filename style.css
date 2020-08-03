@@ -45,11 +45,14 @@ header {
   text-decoration: line-through;
 }
 
+button {
+  border: none;
+}
+
 .mover-cima, .mover-baixo {
   background-color: rgb(211, 139, 7);
   border-radius: 1em;
   color: white;
-  border: none;
 }
 
 .apaga-tudo {
@@ -72,6 +75,12 @@ header {
 
 .limpa-lista-gravada {
   background-color: grey;
+  border-radius: 1em;
+  color: white;
+}
+
+.remover-selecionado {
+  background-color: orangered;
   border-radius: 1em;
   color: white;
 }

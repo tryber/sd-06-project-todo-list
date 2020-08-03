@@ -70,9 +70,6 @@ function restoreTasks() {
 function clearSavedList() {
   localStorage.clear();
 }
-function findTask(taskName) {
-
-}
 
 function moveUp() {
   const taskList = getOlElement();
@@ -90,6 +87,11 @@ function moveDown() {
     const taskDown = selected.nextElementSibling;
     taskList.insertBefore(taskDown, selected);
   }
+}
+
+function removeTask() {
+  let selected = document.querySelector('.selected');
+  selected.remove();
 }
 
 const elementBtnAddTask = document.getElementById('criar-tarefa');
@@ -120,6 +122,9 @@ elementArrowUpButton.addEventListener('click', moveUp);
 
 const elementArrowDownButton = document.getElementById('mover-baixo');
 elementArrowDownButton.addEventListener('click', moveDown);
+
+const elementRemoveTaskButton = document.getElementById('remover-selecionado');
+elementRemoveTaskButton.addEventListener('click', removeTask);
 
 
 window.onload = restoreTasks();
