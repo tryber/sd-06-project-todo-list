@@ -8,10 +8,10 @@ function generateItemList() {
   const task = document.querySelector('#texto-tarefa').value;
   const itemList = document.createElement('li');
   itemList.classList = 'lista';
- 
+ // document.querySelector('li').classList.add('selected')
   itemList.appendChild(document.createTextNode(task));
   taskList.appendChild(itemList);
- 
+ // document.querySelector('li').classList.add('selected')
   itemList.addEventListener('click', handleListItemClick);
   itemList.addEventListener('dblclick', handleListItemDoubleClick)
   itemList.addEventListener('click', selectedListItem)
@@ -25,10 +25,23 @@ const labelButton = document.createTextNode('Adicionar');
 buttonAdd.appendChild(labelButton);
 document.querySelector('.entrada-dados').appendChild(buttonAdd);
 buttonAdd.addEventListener('click', generateItemList);
+//buttonAdd.addEventListener('click' , clearItemListSelecions)
 
 
-
-
+function handleListItemClick(event){
+ /* //clearItemListSelecions();
+  let atualSelectedListItem = event.target;
+  let oldSelectedListItem = document.querySelector('.selected')
+ // let oldSelectedListItem.classList.add('selected')
+ // atualSelectedListItem.classList.remove('selected')
+  atualSelectedListItem.classList.add('selected')
+  oldSelectedListItem.classList.remove('selected')
+  atualSelectedListItem.style.backgroundColor = 'rgb(128, 128, 128)'
+  oldSelectedListItem.style.backgroundColor = ''*/
+  
+  //let atualSelectedListItem = event.target;
+  //event.target.style.backgroundColor = 'rgb (128,128,128)'
+}
 
 function selectedListItem() {
   for (let i = 0; i < document.querySelectorAll('li').length; i += 1) {
@@ -36,8 +49,8 @@ function selectedListItem() {
       for (let j = 0; j < document.querySelectorAll('li').length; j+= 1 ) {
         document.querySelectorAll('li')[j].style.backgroundColor = 'white';
       }
-      event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-    });
+      event.target.style.backgroundColor = 'rgb(128, 128, 128)'
+    })
   }
 }
 
