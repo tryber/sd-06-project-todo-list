@@ -1,0 +1,38 @@
+#criar-tarefa{
+    border-radius: 20px;
+    background-color:skyblue;
+}
+
+li {
+    clear: both;
+}
+#mover-cima{
+    border-radius: 20px;
+    background-color: orange;
+}
+#mover-baixo{
+    border-radius: 20px;
+    background-color: orange;
+}
+#apaga-tudo {
+    border-radius: 20px;
+    background-color:skyblue;
+}
+#remover-selecionado {
+    border-radius: 20px;
+    background-color:red;
+}
+#remover-finalizados{
+    border-radius: 20px;
+    background-color:red;
+}
+#salvar-tarefas{
+    border-radius: 20px;
+    background-color:greenyellow;
+}
+.foiclicado{
+    background-color: rgb(128, 128, 128);
+}
+.duploClique{
+    text-decoration: line-through;
+}
