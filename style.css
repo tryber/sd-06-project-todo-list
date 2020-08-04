@@ -1,0 +1,51 @@
+body {
+    background-color: rgb(198, 226, 147);
+    font-family: sans-serif;
+  }
+  
+  main {
+    background-color: white;
+    border-radius: 20px;
+    margin: auto;
+    padding: 20px;
+    width: 500px;
+  }
+  
+  button {
+    background-color: rgb(0, 156, 0);
+    border: 1px solid rgb(0 , 56 , 56);
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+    padding: 5px 15px;
+  }
+  
+  .completed {
+    text-decoration: line-through solid black;
+  }
+  
+  .bt_style {
+    background-color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 15px;
+  }
+  
+  .buttons {
+    float: left;
+    width: min-content;
+  }
+  
+  article {
+    float: left;
+    width: 90%;
+  }
+  
+  footer {
+    clear: both;
+  }
+  
+  aside {
+    padding-top: 10px;
+    text-align: center;
+  }
