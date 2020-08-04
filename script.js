@@ -18,7 +18,7 @@ btn.addEventListener('click', function() {
             select.classList.add('selected');
            } else {
             select.classList.add('selected');
-           }
+           }// adicionar para alterar quest]oes do complete para apagar..
         });
         li.addEventListener('dblclick',function(event) {
          console.log('click duplo!!');
@@ -33,12 +33,30 @@ btn.addEventListener('click', function() {
 
     }
 });
-/*function change(event) {
-    let old = document.getElementsByClassName('selected');
-    let secondclick = event.target;
-    old.classList.remove('selected');
-    secondclick.classList.add('selected');
-};
-*/
+//Adicionando botões de controle.
+let btnClearAll = document.createElement('button');
+btnClearAll.id = 'apaga-tudo';//btn apagar lista de tarefas.
+btnClearAll.textContent = 'Limpar Lista.';
+let divControle = document.getElementById('controller');
+divControle.appendChild(btnClearAll);
+let btnClearDone = document.createElement('button');
+btnClearDone.textContent = 'Limpar Concluídas';
+btnClearDone.id = 'remover-finalizados';
+divControle.appendChild(btnClearDone);
+//funcionalidade btnClearAll - apaga lista de tarefas.
+let clickClearAll = document.getElementById('apaga-tudo');
+clickClearAll.addEventListener('click',function(){
+    document.querySelector('#lista-tarefas').innerHTML = '';
+});
+//funcionalidade tarefas concluidas.
 
-
+btnClearDone.addEventListener('click',function(){
+    const listLis = document.querySelectorAll('li');
+  for (let i = 0; i < listLis.length; i += 1) {
+    if (listLis[i].classList[1] === 'completed') {
+      document.querySelector('#lista-tarefas').removeChild(listLis[i]);
+    }else if(listLis[i].classList[2] === 'completed') {
+      document.querySelector('#lista-tarefas').removeChild(listLis[i]);
+    }
+  }
+});
