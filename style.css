@@ -1,8 +1,9 @@
  button{
     font-size: medium;
     color: white;
-    background-color: black;
+    background-color: #000000;
     border-radius: 1em;
+    margin: auto;
 }
 
 .selected{
