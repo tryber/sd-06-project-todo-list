@@ -12,3 +12,13 @@ function addItemList(){
         console.log("vazio")
     }
 }
+
+function handleSelectedItem(event) {
+    if (document.querySelector('.selected') !== null) {
+      document.querySelector('.selected').classList.remove('selected');
+      event.target.classList.add('selected');
+    } else {
+      event.target.classList.add('selected');
+    }
+  }
+  

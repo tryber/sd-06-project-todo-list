@@ -1,0 +1,10 @@
+ button{
+    font-size: medium;
+    color: white;
+    background-color: black;
+    border-radius: 1em;
+}
+
+.selected{
+    background-color: gray;
+}
