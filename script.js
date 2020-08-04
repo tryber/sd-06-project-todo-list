@@ -1,5 +1,6 @@
 window.onload = function () {
   window.onload = cargarTarefas();
+  
   //  Boton Adicionar que cria elemnetos na lista ordenada, e os mostra.
   //  Apaga o conteudo da caixa de texto ao adicionar.
   const botaoAdicionar = document.querySelector('#criar-tarefa');
@@ -10,9 +11,10 @@ window.onload = function () {
     listaElemento.innerText = textoInput;
     document.querySelector('#lista-tarefas').appendChild(listaElemento);
   });
+  
   //  Ao fazer click num elemento da lista ele coloca fundo cinzas, da para selecionar so um
-  const listaColor = document.querySelector('#lista-tarefas');
-  listaColor.addEventListener('click', function (event) {
+  const listaTarefas = document.querySelector('#lista-tarefas');
+  listaTarefas.addEventListener('click', function (event) {
     const itemSelecionadoAntiguio = document.querySelector('.grey');
     const itemSelecionado = event.target;
     if (itemSelecionadoAntiguio) {
@@ -21,8 +23,9 @@ window.onload = function () {
     } 
     itemSelecionado.classList.add('grey');
   });
+  
   //  Ao fazer doble click va se riscar elemento, vai se desfazer fazendo novamente dobleclick
-  listaColor.addEventListener('dblclick', function (event) {
+  listaTarefas.addEventListener('dblclick', function (event) {
     const itemCompleto = event.target;
     if (itemCompleto.classList[0] === 'completed') {
       itemCompleto.classList.remove('completed');
@@ -30,6 +33,7 @@ window.onload = function () {
       itemCompleto.classList.add('completed');
     }
   });
+  
   //  Botao para apagar tudo o conteudo da lista
   const botaoApagar = document.querySelector('#apaga-tudo');
   botaoApagar.addEventListener('click', function () {
@@ -39,6 +43,7 @@ window.onload = function () {
       lista.removeChild(lista.children[0]);
     }
   });
+  
   //  Botao para apagar os conteudos riscados
   const botaoApagarCompletos = document.querySelector('#remover-finalizados');
   botaoApagarCompletos.addEventListener('click', function () {
@@ -50,6 +55,7 @@ window.onload = function () {
       }
     }
   });
+  
   //  Botao remover item selecionado.
   const botaoApagarSelecionado = document.querySelector('#remover-selecionado');
   botaoApagarSelecionado.addEventListener('click', function () {
@@ -65,8 +71,47 @@ window.onload = function () {
     const listaTarefas = document.querySelector('#lista-tarefas').innerHTML;
     localStorage.setItem('Lista de todas as tarefas', listaTarefas);
   });
+  
   //  Funcion cargar lista salvada
   function cargarTarefas () {
     const listaTarefas = document.querySelector('#lista-tarefas').innerHTML = localStorage.getItem('Lista de todas as tarefas');
   };
+
+  //  Funcoe botaos mover cima e baixo
+  const botaoCima = document.querySelector('#mover-cima');
+  const botaoAbaixo = document.querySelector('#mover-baixo');
+
+  botaoCima.addEventListener('click', function (event) {
+    trocaLugarConteudo(event.target);
+  });
+
+  botaoAbaixo.addEventListener('click', function (event) {
+    trocaLugarConteudo(event.target);
+  });
+
+
+  function trocaLugarConteudo (botao) {
+    let variable = 0;
+    if (botao.innerHTML === ('Cima')) {
+      variable = 1;
+    }
+    else if (botao.innerHTML === ('Baixo')){
+      variable = -1
+    }
+    const itemSelecionado = document.querySelector('.grey').classList;
+    const listaTarefas = document.querySelector('#lista-tarefas').children;
+    for (let i = 0; i < listaTarefas.length; i += 1) {
+      if (listaTarefas[i].classList === itemSelecionado) {
+        verificarLugar(listaTarefas[i], variable);
+        let guardarSelecionada = listaTarefas[i].innerHTML;
+        let guardarAnteriorSelecionada =  listaTarefas[i - variable].innerHTML;
+        listaTarefas[i].innerHTML = guardarAnteriorSelecionada;
+        listaTarefas[i].classList.remove('grey');
+        listaTarefas[i - variable].innerHTML =  guardarSelecionada;
+        listaTarefas[i - variable].classList.add('grey');
+      }
+    }
+  }
 };
+
+
