@@ -23,6 +23,10 @@
     <ol id="lista-tarefas"></ol>
   </section>
 
+  <footer>
+    <button id="apaga-tudo">Apagar Lista</button>
+  </footer>
+
   <script type="text/javascript">
 
     let tarefas = [];
@@ -79,8 +83,17 @@
       });
     }
 
+    function apagarLista() {
+      let botaoApagar = document.getElementById('apaga-tudo');
+
+      botaoApagar.addEventListener('click', function () {
+        listaTarefas.innerHTML = '';
+      });
+    }
+
     window.onload = function () {
       addTarefa();
+      apagarLista();
     }
   </script>
 </body>

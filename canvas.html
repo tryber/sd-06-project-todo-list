@@ -28,11 +28,15 @@
 
     const c = canvas.getContext('2d');
     // c.fillRect (x, y, width, height)
-    c.fillRect(100, 100, 300, 300);
+    //c.fillRect(100, 100, 300, 300);
 
     c.beginPath(); //sem parâmetros
     // c.moveTo(x, y) é onde ele começa, ainda não apareceu
-    c.moveTo(50, 300); 
+    c.moveTo(50, 300);
+    c.lineTo(300, 100); // ainda não mostra, criou, mas precisa do stroke method
+    c.lineTo(400, 100); // indicações sempre antes do stroke
+    c.stroke();
+
   </script>
 </body>
 
