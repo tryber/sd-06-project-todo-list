@@ -1,0 +1,74 @@
+body{
+    background-color: rgb(229 , 229 , 229);
+    margin-left: 10px;
+    text-align: center;
+    width: 1366px;
+    background-image: url(https://previews.123rf.com/images/grgroup/grgroup1706/grgroup170602201/80346434-colorful-background-with-table-notepad-with-graphic-light-bulb-and-sheet-with-geometric-forms-and-sc.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.head  {
+    background-color: rgb(3, 3, 3);
+    text-decoration: underline;
+}
+
+.selected{
+    background-color: gray;
+    margin-left: 10px;
+    text-align: center;
+    width: 1366px;
+} 
+  
+.completed{
+    text-decoration: line-through solid rgb(0, 0, 0);
+    margin-left: 10px;
+    text-align: center;
+    width: 1366px;
+}
+
+h1 {
+    color: rgb(10, 10, 10);
+    text-align: center;
+    text-decoration: underline;
+}
+  
+footer {
+    bottom: 20px;
+    display: inline-block;
+    left: 500px;
+    position: fixed;
+    text-align: center;
+    text-shadow: rgb(1, 1, 7) 3px 3px 3px;
+    text-decoration: underline;
+}
+  
+#tarefas {
+    background-color: white;
+    color: blue;
+    width: 60%;
+}
+  
+button {
+    background-color: rgb(60, 103, 177);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 5px;
+    padding: 10px;
+}
+  
+button:hover {
+    background-color: rgb(245, 47, 40);
+    color: white;
+}
+  
+button:active {
+    background-color: rgb(7, 29, 70);
+    color: white;
+    position: relative;
+    top: 5px;
+} 
