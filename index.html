@@ -2,6 +2,12 @@
 
 <head>
   <title>Minha Lista de Tarefas</title>
+
+  <style>
+    .completed {
+      text-decoration: line-through;
+    }
+  </style>
 </head>
 
 <body>
@@ -38,15 +44,23 @@
     }
 
     function selectTarefa() {
+      // funciona pra capacidade de selecionar e de clicar duas vezes
       let listNodes = listaTarefas.children;
 
       for (let i = 0; i < listNodes.length; i += 1) {
+
+        // pra selecionar
         listNodes[i].addEventListener('click', function () {
           if (selected !== undefined) {
             listNodes[selected].style.removeProperty('background-color');
           }
           selected = i;
           listNodes[i].style.backgroundColor = 'rgb(128, 128, 128)';
+        });
+
+        // pra clicar duas vezes
+        listNodes[i].addEventListener('dblclick', function () {
+          this.classList.toggle('completed');
         });
       }
     }
@@ -64,8 +78,6 @@
         selectTarefa();
       });
     }
-
-
 
     window.onload = function () {
       addTarefa();
