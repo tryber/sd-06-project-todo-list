@@ -21,6 +21,32 @@
 
     let tarefas = [];
     let listaTarefas = document.getElementById('lista-tarefas');
+    let selected;
+
+
+    function rebuildList() {
+      for (let i = 0; i < tarefas.length; i += 1) {
+        let novaTarefa = document.createElement('li');
+
+        listaTarefas.appendChild(novaTarefa);
+        novaTarefa.innerText = tarefas[i];
+      }
+      if (selected !== undefined) {
+        console.log(selected);
+        listaTarefas.children[selected].style.backgroundColor = 'rgb(128, 128, 128)';
+      }
+    }
+
+    function selectTarefa() {
+      let listNodes = listaTarefas.children;
+
+      for (let i = 0; i < listNodes.length; i += 1) {
+        listNodes[i].addEventListener('click', function () {
+          selected = i;
+          listNodes[i].style.backgroundColor = 'rgb(128, 128, 128)';
+        });
+      }
+    }
 
     function addTarefa() {
       let inputTarefa = document.getElementById('texto-tarefa');
@@ -32,17 +58,10 @@
 
         listaTarefas.innerHTML = '';
         rebuildList();
+        selectTarefa();
       });
     }
 
-    function rebuildList() {
-      for (let i = 0; i < tarefas.length; i += 1) {
-        let novaTarefa = document.createElement('li');
-
-        listaTarefas.appendChild(novaTarefa);
-        novaTarefa.innerText = tarefas[i];
-      }
-    }
 
 
     window.onload = function () {
