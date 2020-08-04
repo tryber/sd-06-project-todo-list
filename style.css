@@ -1,0 +1,28 @@
+body{
+    background-color: rgb(229 , 229 , 229);
+    margin-left: 10px;
+    text-align: center;
+    width: 1366px;
+    background-image: url(https://previews.123rf.com/images/grgroup/grgroup1706/grgroup170602201/80346434-colorful-background-with-table-notepad-with-graphic-light-bulb-and-sheet-with-geometric-forms-and-sc.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.head  {
+    background-color: rgb(3, 3, 3);
+}
+
+.selected{
+    background-color: rgb(128, 128, 128);
+    margin-left: 10px;
+    text-align: center;
+    width: 1366px;
+} 
+  
+.completed{
+    text-decoration: line-through solid rgb(0, 0, 0);
+    margin-left: 10px;
+    text-align: center;
+    width: 1366px;
+}
