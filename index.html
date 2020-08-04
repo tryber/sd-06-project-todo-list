@@ -42,6 +42,9 @@
 
       for (let i = 0; i < listNodes.length; i += 1) {
         listNodes[i].addEventListener('click', function () {
+          if (selected !== undefined) {
+            listNodes[selected].style.removeProperty('background-color');
+          }
           selected = i;
           listNodes[i].style.backgroundColor = 'rgb(128, 128, 128)';
         });
