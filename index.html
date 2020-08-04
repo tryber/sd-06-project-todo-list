@@ -12,10 +12,42 @@
   <section>
     <!-- A lista de tarefas -->
     <input type="text" id="texto-tarefa" />
+    <button id="criar-tarefa">Criar Tarefa</button>
+
     <ol id="lista-tarefas"></ol>
   </section>
+
   <script type="text/javascript">
 
+    let tarefas = [];
+    let listaTarefas = document.getElementById('lista-tarefas');
+
+    function addTarefa() {
+      let inputTarefa = document.getElementById('texto-tarefa');
+      let botaoTarefa = document.getElementById('criar-tarefa');
+
+      botaoTarefa.addEventListener('click', function () {
+        tarefas.push(inputTarefa.value);
+        inputTarefa.value = '';
+
+        listaTarefas.innerHTML = '';
+        rebuildList();
+      });
+    }
+
+    function rebuildList() {
+      for (let i = 0; i < tarefas.length; i += 1) {
+        let novaTarefa = document.createElement('li');
+
+        listaTarefas.appendChild(novaTarefa);
+        novaTarefa.innerText = tarefas[i];
+      }
+    }
+
+
+    window.onload = function () {
+      addTarefa();
+    }
   </script>
 </body>
 
