@@ -11,11 +11,11 @@ function insertTask() {
 
 button.addEventListener ('click', insertTask);
 list.addEventListener ('click', function(event) {
-  const oldDiv = document.querySelector('.selected');  
-  if (oldDiv !== null) {
-    oldDiv.classList.remove('selected');
+  const oldSelected = document.querySelector('.selected');  
+  if (oldSelected !== null) {
+    oldSelected.classList.remove('selected');
   }
-  const item = event.target; // quem recebe o click
+  const item = event.target;
   item.classList.add('selected');
   console.log(item);
 });
@@ -46,3 +46,55 @@ clean.addEventListener('click', function(){
     }
   }
 })
+
+function removerFinalizados() {
+  const itens = document.querySelectorAll('.completed');
+  if (itens) {
+    for (let index = 0; index < itens.length; index += 1) {
+      lista.removeChild(itens[index]);
+    }
+  }
+}
+const btnApagaFinalizados = document.querySelector('#remover-finalizados');
+btnApagaFinalizados.addEventListener('click', removerFinalizados);
+
+function salvarDados() {
+  window.localStorage.setItem('minhaLista', lista.innerHTML);
+}
+const btnSalvar = document.querySelector('#salvar-tarefas');
+btnSalvar.addEventListener('click', salvarDados);
+
+function listaFoiSalva() {
+  const listaSalva = window.localStorage.getItem('minhaLista');
+  lista.innerHTML = listaSalva;
+}
+
+function removerSelecionado() {
+  const itemSelecionado = document.querySelector('.selected');
+  if (itemSelecionado) {
+  }
+}
+
+const btnSelecao = document.querySelector('#remover-selecionado');
+btnSelecao.addEventListener('click', removerSelecionado);
+
+function moverAcima() {
+  const lista = document.querySelector('#lista-tarefas');
+  const selecao = document.querySelector('.selected');
+    if (selecao.previousSibling) {
+      lista.insertBefore(selecao, selecao.previousSibling);
+    }
+}
+
+function moverAbaixo() {
+  const lista = document.querySelector('#lista-tarefas');
+  const selecao = document.querySelector('.selected');
+    if (selecao.nextSibling) {
+      lista.insertBefore(selecao, selecao.nextSibling.nextSibling);
+    }
+}
+const btnAbaixo = document.querySelector('#mover-baixo');
+btnAbaixo.addEventListener('click', moverAbaixo);
+
+const btnMoveCima = document.querySelector('#mover-cima');
+btnMoveCima.addEventListener('click', moverAcima);

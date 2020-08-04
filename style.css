@@ -11,10 +11,11 @@ body{
 
 .head  {
     background-color: rgb(3, 3, 3);
+    text-decoration: underline;
 }
 
 .selected{
-    background-color: rgb(128, 128, 128);
+    background-color: gray;
     margin-left: 10px;
     text-align: center;
     width: 1366px;
@@ -26,3 +27,48 @@ body{
     text-align: center;
     width: 1366px;
 }
+
+h1 {
+    color: rgb(10, 10, 10);
+    text-align: center;
+    text-decoration: underline;
+}
+  
+footer {
+    bottom: 20px;
+    display: inline-block;
+    left: 500px;
+    position: fixed;
+    text-align: center;
+    text-shadow: rgb(1, 1, 7) 3px 3px 3px;
+    text-decoration: underline;
+}
+  
+#tarefas {
+    background-color: white;
+    color: blue;
+    width: 60%;
+}
+  
+button {
+    background-color: rgb(60, 103, 177);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 5px;
+    padding: 10px;
+}
+  
+button:hover {
+    background-color: rgb(245, 47, 40);
+    color: white;
+}
+  
+button:active {
+    background-color: rgb(7, 29, 70);
+    color: white;
+    position: relative;
+    top: 5px;
+} 
