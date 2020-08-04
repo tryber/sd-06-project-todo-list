@@ -82,15 +82,15 @@ window.onload = function () {
   const botaoAbaixo = document.querySelector('#mover-baixo');
 
   botaoCima.addEventListener('click', function (event) {
-    trocaLugarConteudo(event.target);
+    verificarLugar(event.target);
   });
 
   botaoAbaixo.addEventListener('click', function (event) {
-    trocaLugarConteudo(event.target);
+    verificarLugar(event.target);
   });
 
 
-  function trocaLugarConteudo (botao) {
+  function verificarLugar (botao) {
     let variable = 0;
     if (botao.innerHTML === ('Cima')) {
       variable = 1;
@@ -102,7 +102,6 @@ window.onload = function () {
     const listaTarefas = document.querySelector('#lista-tarefas').children;
     for (let i = 0; i < listaTarefas.length; i += 1) {
       if (listaTarefas[i].classList === itemSelecionado) {
-        verificarLugar(listaTarefas[i], variable);
         let guardarSelecionada = listaTarefas[i].innerHTML;
         let guardarAnteriorSelecionada =  listaTarefas[i - variable].innerHTML;
         listaTarefas[i].innerHTML = guardarAnteriorSelecionada;
