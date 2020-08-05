@@ -25,6 +25,7 @@
 
   <footer>
     <button id="apaga-tudo">Apagar Lista</button>
+    <button id="remover-finalizados">Remover finalizados</button>
   </footer>
 
   <script type="text/javascript">
@@ -42,7 +43,6 @@
         novaTarefa.innerText = tarefas[i];
       }
       if (selected !== undefined) {
-        console.log(selected);
         listaTarefas.children[selected].style.backgroundColor = 'rgb(128, 128, 128)';
       }
     }
@@ -74,12 +74,15 @@
       let botaoTarefa = document.getElementById('criar-tarefa');
 
       botaoTarefa.addEventListener('click', function () {
-        tarefas.push(inputTarefa.value);
-        inputTarefa.value = '';
 
-        listaTarefas.innerHTML = '';
-        rebuildList();
-        selectTarefa();
+        if (inputTarefa.value !== '') {
+          tarefas.push(inputTarefa.value);
+          inputTarefa.value = '';
+
+          listaTarefas.innerHTML = '';
+          rebuildList();
+          selectTarefa();
+        }
       });
     }
 
@@ -91,9 +94,42 @@
       });
     }
 
+    function removerFinalizados() {
+
+      let botaoFinalizados = document.getElementById('remover-finalizados');
+      botaoFinalizados.addEventListener('click', function () {
+        let listNodes = listaTarefas.children;
+
+        for (let i = 0; i < listNodes.length; i += 1) {
+          if (listNodes[i].classList.contains('completed')) {
+            tarefas.splice(i, 1);
+
+            if (selected === i) {
+              selected = undefined;
+            } else if (selected === (listNodes.length - 1)) {
+              selected -= 1;
+            }
+          }
+        }
+
+        listaTarefas.innerHTML = '';
+        rebuildList();
+        selectTarefa();
+      });
+    }
+
+    // tira depois hein!!!!!
+    window.addEventListener('keydown', function (e) {
+      if (e.keyCode === 87) {
+        console.log(selected);
+      }
+    });
+
     window.onload = function () {
       addTarefa();
       apagarLista();
+      removerFinalizados();
+
     }
   </script>
 </body>
