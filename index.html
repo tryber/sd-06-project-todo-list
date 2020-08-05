@@ -34,6 +34,7 @@
     let listaTarefas = document.getElementById('lista-tarefas');
     let selected;
 
+    let comp = [];
 
     function rebuildList() {
       for (let i = 0; i < tarefas.length; i += 1) {
@@ -64,7 +65,7 @@
 
         // pra clicar duas vezes
         listNodes[i].addEventListener('dblclick', function () {
-          this.classList.toggle('completed');
+          listNodes[i].classList.toggle('completed');
         });
       }
     }
@@ -91,6 +92,7 @@
 
       botaoApagar.addEventListener('click', function () {
         listaTarefas.innerHTML = '';
+        tarefas = [];
       });
     }
 
@@ -102,7 +104,7 @@
 
         for (let i = 0; i < listNodes.length; i += 1) {
           if (listNodes[i].classList.contains('completed')) {
-            tarefas.splice(i, 1);
+            tarefas.splice(i, 0);
 
             if (selected === i) {
               selected = undefined;
