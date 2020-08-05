@@ -5,25 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheeet" href="style.css">
     <title>ToDo-List</title>
-</head>
-<body>
-   <header>
-       <h1>Minha Lista de Tarefas</h1>
-       <p id="funcionamento">Click duas vezes para marcar o item</p>
-   </header>
-   <section>
-        <input type="text" id="texto-tarefa">
-        <button type="button" id="criar-tarefa">Inserir  tarefa</button>
-        <button type="button" id="apaga-tudo">apagar tudo</button>
-        <button type="button" id="remover-finalizados">remover finalizados</button>
-        <div id="list">
-            <ol id="lista-tarefas"></ol>
-        </div>
-
-   </section>
-   <script src="script.js"></script>
-</body>
-</html>
+    <!DOCTYPE HTML>
+    <html lang="pt-br">
+        <head>
+            <title>Lista de Tarefas</title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link href="style.css" type="text/css" rel="stylesheet">
+        </head>
+        <body>
+            <header>
+                <h1>Minha Lista de Tarefas</h1>
+            </header>
+            <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+            <input id="texto-tarefa" type="text">
+            <button id="criar-tarefa">Inserir tarefa</button>
+            <br>
+            <div id="list">
+                <ol id="lista-tarefas"></ol>
+            </div>
+            <br>
+            <button id="apaga-tudo">Limpa tudo</button>
+            <button id="remover-finalizados">Remove Finalizados</button>
+            <script src="script.js"></script>
+        </body>
+    </html>
 
 
 

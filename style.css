@@ -1,18 +1,18 @@
 button {
   font-size: larger;
   color: white;
-  background-color: #000000;
+  background-color: rgb(233, 25, 25);
   border-radius: 1em;
   margin: auto;
 }
 
 .completed {
-  text-decoration: line-through solid rgb(3, 3, 3);
+  text-decoration: line-through solid rgb(95, 67, 67);
   font-family: Arial, Helvetica, sans-serif;
 }
 
 .selected {
-  background-color: rgb(128 , 128 , 128);
+  background-color: grey;
 }
 
 
