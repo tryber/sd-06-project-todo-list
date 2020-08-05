@@ -25,7 +25,7 @@ function changeBackLi() {
 
 function insertItemList() {
   if (itemInput.value === '') {
-    alert('campo não pode ficar em branco')
+    alert('campo não pode ficar em branco');
   } else {
     const elementLi = document.createElement('li');
     elementLi.innerText = itemInput.value;
