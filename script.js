@@ -2,7 +2,7 @@ const btn = document.getElementById('criar-tarefa');
 const listOl = document.getElementById('lista-tarefas');
 
 btn.addEventListener('click', function() {
- const lista = document.getElementById("texto-tarefa").value;
+  const lista = document.getElementById("texto-tarefa").value;
   const listaLi = document.createElement('li');
   listaLi.classList.add('conteudo');
   listaLi.id = 'task';
@@ -13,32 +13,32 @@ btn.addEventListener('click', function() {
         listaLi.addEventListener('click', function(event) {
           const old = document.getElementsByClassName('selected')[0];
           const select = event.target;
-          if(old) {
-              old.classList.remove('selected');
-              select.classList.add('selected');
+          if (old) {
+            old.classList.remove('selected');
+            select.classList.add('selected');
             } else {
               select.classList.add('selected');
           }
       });
       listaLi.addEventListener('dblclick', function(event) {
         console.log('click duplo!!');
-           const double = event.target;
+            const double = event.target;
         if(double.classList.contains('completed')) {
             double.classList.remove('completed');
           } else {
               double.classList.add('completed');
         }
-       });
-   }
+        });
+    }
 });
 
   let btnClearAll = document.createElement('button');
   btnClearAll.id = 'apaga-tudo';
-  btnClearAll.textContent = 'Limpar Lista.';
+  //btnClearAll.textContent = 'Limpar Lista.';
   let divControle = document.getElementById('controller');
   divControle.appendChild(btnClearAll);
   let btnClearDone = document.createElement('button');
-  btnClearDone.textContent = 'Adicionar';
+  //.textContent = 'limpar lista';
   btnClearDone.id = 'remover-finalizados';
   divControle.appendChild(btnClearDone);
   let clickClearAll = document.getElementById('apaga-tudo');
