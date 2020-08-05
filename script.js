@@ -77,40 +77,34 @@ window.onload = function () {
     const listaTarefas = document.querySelector('#lista-tarefas').innerHTML = localStorage.getItem('Lista de todas as tarefas');
   };
 
-  //  Funcoe botaos mover cima e baixo
+  //  Funcoe botaos mover cima e baixo.
+  //  Conseigui fazer ao ver num companheiro usar a funcoe 'insertBefore'
   const botaoCima = document.querySelector('#mover-cima');
   const botaoAbaixo = document.querySelector('#mover-baixo');
 
   botaoCima.addEventListener('click', function (event) {
-    verificarLugar(event.target);
+    const listaTarefas = document.querySelector('#lista-tarefas');
+    const itemSelecionado = document.querySelector('.grey');
+    if (document.querySelectorAll('.grey')[0] !== undefined) {
+      if (itemSelecionado.previousSibling) {
+        if ((itemSelecionado) && (itemSelecionado.previousSibling)) {
+          listaTarefas.insertBefore(itemSelecionado, itemSelecionado.previousSibling);
+        }
+      }
+    }
   });
 
   botaoAbaixo.addEventListener('click', function (event) {
-    verificarLugar(event.target);
-  });
-
-
-  function verificarLugar (botao) {
-    let variable = 0;
-    if (botao.innerHTML === ('Cima')) {
-      variable = 1;
-    }
-    else if (botao.innerHTML === ('Baixo')){
-      variable = -1
-    }
-    const itemSelecionado = document.querySelector('.grey').classList;
-    const listaTarefas = document.querySelector('#lista-tarefas').children;
-    for (let i = 0; i < listaTarefas.length; i += 1) {
-      if (listaTarefas[i].classList === itemSelecionado) {
-        let guardarSelecionada = listaTarefas[i].innerHTML;
-        let guardarAnteriorSelecionada =  listaTarefas[i - variable].innerHTML;
-        listaTarefas[i].innerHTML = guardarAnteriorSelecionada;
-        listaTarefas[i].classList.remove('grey');
-        listaTarefas[i - variable].innerHTML =  guardarSelecionada;
-        listaTarefas[i - variable].classList.add('grey');
+    const listaTarefas = document.querySelector('#lista-tarefas');
+    const itemSelecionado = document.querySelector('.grey');
+    if (document.querySelectorAll('.grey')[0] !== undefined) {
+      if (itemSelecionado.nextSibling) {
+        if ((itemSelecionado) && (itemSelecionado.nextSibling)) {
+          listaTarefas.insertBefore(itemSelecionado, itemSelecionado.nextSibling.nextSibling);
+        }
       }
     }
-  }
+  });
 };
 
 
