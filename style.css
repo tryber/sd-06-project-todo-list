@@ -1,0 +1,43 @@
+.subtitulo {
+    font-style: oblique;
+}
+
+.BotaoLimpar {
+    background-color: rgb(251, 255, 9);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+}
+
+.Botao {
+    background-color: rgb(212, 24, 24);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+}
+
+.BotaoSalvar {
+    background-color: rgb(19, 177, 26);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+}
+
+.CriarTarefa {
+    background-color: rgb(41, 38, 218);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+}
+
+.selected {
+    background-color: rgb(128, 128, 128);
+  }
+  
+.completed {
+    text-decoration: line-through;
+  }
