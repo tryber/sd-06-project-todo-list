@@ -1,16 +1,18 @@
 button {
   font-size: larger;
   color: white;
-  background-color: rgb(186, 240, 222);
+  background-color: #000000;
   border-radius: 1em;
   margin: auto;
 }
 
-.selected {
-  background-color: rgb(67, 155, 126);
+.completed {
+  text-decoration: line-through solid rgb(3, 3, 3);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.completed {
-  text-decoration: line-through solid black;
-  font-family: fantasy;
+.selected {
+  background-color: rgb(128 , 128 , 128);
 }
+
+

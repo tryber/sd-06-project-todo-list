@@ -1,57 +1,48 @@
-const btn = document.getElementById('criar-tarefa');
-const listOl = document.getElementById('lista-tarefas');
+const insert = document.querySelector('#criar-tarefa');
+const remove = document.querySelector('#remover-finalizados');
+const clear = document.querySelector('#apaga-tudo');
 
-btn.addEventListener('click', function() {
-  const lista = document.getElementById("texto-tarefa").value;
-  const listaLi = document.createElement('li');
-  listaLi.classList.add('conteudo');
-  listaLi.id = 'task';
-  listaLi.textContent = lista;
-  document.getElementById('lista-tarefas').appendChild(listaLi);
-  document.getElementById('texto-tarefa').value = '';
-  if(listaLi) {
-        listaLi.addEventListener('click', function(event) {
-          const old = document.getElementsByClassName('selected')[0];
-          const select = event.target;
-          if (old) {
-            old.classList.remove('selected');
-            select.classList.add('selected');
-            } else {
-              select.classList.add('selected');
-          }
-      });
-      listaLi.addEventListener('dblclick', function(event) {
-        console.log('click duplo!!');
-            const double = event.target;
-        if(double.classList.contains('completed')) {
-            double.classList.remove('completed');
-          } else {
-              double.classList.add('completed');
-        }
-        });
-    }
-});
 
-  let btnClearAll = document.createElement('button');
-  btnClearAll.id = 'apaga-tudo';
-  //btnClearAll.textContent = 'Limpar Lista.';
-  let divControle = document.getElementById('controller');
-  divControle.appendChild(btnClearAll);
-  let btnClearDone = document.createElement('button');
-  //.textContent = 'limpar lista';
-  btnClearDone.id = 'remover-finalizados';
-  divControle.appendChild(btnClearDone);
-  let clickClearAll = document.getElementById('apaga-tudo');
-  clickClearAll.addEventListener('click', function() {
-  document.querySelector('#lista-tarefas').innerHTML = '';
-  });
-  btnClearDone.addEventListener('click', function() {
-    const listLis = document.querySelectorAll('li');
-    for (let i = 0; i < listLis.length; i += 1) {
-      if (listLis[i].classList[1] === 'completed') {
-        document.querySelector('#lista-tarefas').removeChild(listLis[i]);
-      } else if(listLis[i].classList[2] === 'completed') {
-        document.querySelector('#lista-tarefas').removeChild(listLis[i]);
+function addItemlist() {
+  if(document.querySelector('#texto-tarefa').value !== ""){
+    let newItem = document.createElement('li');
+    newItem.innerHTML = document.querySelector('#texto-tarefa').value;
+    document.querySelector('#lista-tarefas').appendChild(newItem);
+    document.querySelector('#texto-tarefas').value='';
+  } else {
+      console.log("vazio");
+  }
+}
+
+function itemSelected(event) {
+   if (document.querySelector('.selected') !== null) {
+     document.querySelector('.selected').classList.remove('selected');
+     event.target.classList.add('.selected');
+   }
+}
+
+function taskTop(event) {
+  if(event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
+}
+
+remove.addEventListener('click', function () {
+  for (let i = 0; i < document.querySelectorAll('.completed').length; i += 1) {
+    if (document.querySelectorAll('.completed')[i].classList.contains('completed')) {
+      document.querySelectorAll('.completed')[i].remove();
     }
   }
 });
+
+clear.addEventListener('click', function () {
+  for (let i = 0; i < document.querySelectorAll('#lista-tarefas').length; i += 1) {
+    document.querySelectorAll('#lista-tarefas')[i].remove();
+  }
+});
+
+insert.addEventListener('click', addItemList);
+document.querySelector('#lista-taefas').addEventListener('click', itemSelected);
+document.querySelector('#lista-tarefas').addEventListener('dbclick', taskTop);
