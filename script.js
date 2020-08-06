@@ -34,18 +34,11 @@ removeSelectedButton.addEventListener('click', removeSelected);
 function selectTaskItem(event) {
   let clickedTaskItem = event.target;
   let selectedTaskItem = document.querySelector('.selected');
-  if (clickedTaskItem.className !== 'selected') {
-    clickedTaskItem.classList.add('selected');
+  if (selectedTaskItem !== null) {
     selectedTaskItem.classList.remove('selected');
-  }
-
-
-
-  // if (selectedTaskItem !== null) {
-  //   selectedTaskItem.classList.remove('selected');
-  // } else {
-  //   clickedTaskItem.classList.add('selected');
-  // };
+  } else {
+    clickedTaskItem.classList.add('selected');
+  };
 }
 listItemContainer.addEventListener('click', selectTaskItem);
 
