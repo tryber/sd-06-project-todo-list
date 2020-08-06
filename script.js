@@ -5,14 +5,20 @@ const addTaskButton = document.querySelector('#criar-tarefa');
 const listItemContainer = document.querySelector('#lista-tarefas');
 
 
-addTaskButton.addEventListener('click', buildList);
-
 // BUILD TASKS LIST
 function buildList() {
   const listItem = document.createElement('li');
-  listItemContainer.appendChild(listItem);
   listItemContainer.className = 'task';
   listItemContainer.innerHTML = taskInput.value;
+  listItemContainer.appendChild(listItem);
   taskInput.value = '';
 }
 
+
+
+
+
+window.onload = function () {
+  addTaskButton.addEventListener('click', buildList);
+
+}
