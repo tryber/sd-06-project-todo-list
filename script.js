@@ -12,7 +12,11 @@ function buildList() {
   let listItem = document.createElement('li');
   listItem.className = 'task';
   listItem.innerHTML = taskInput.value;
-  listItemContainer.appendChild(listItem);
+  if (taskInput.value === '') {
+    alert('Você precisa definir uma tarefa')
+  } else {
+    listItemContainer.appendChild(listItem);
+  }
   taskInput.value = '';
 }
 addTaskButton.addEventListener('click', buildList);
@@ -25,7 +29,7 @@ function removeSelected() {
 removeSelectedButton.addEventListener('click', removeSelected);
 
 // SELECT ITEMS
-function selectTask(event) {
+function selectTaskItem(event) {
   let clickedTaskItem = event.target;
   let selectedTaskItem = document.querySelector('.selected');
   if (selectedTaskItem !== null) {
@@ -34,7 +38,7 @@ function selectTask(event) {
     clickedTaskItem.classList.add('selected');
   };
 }
-listItemContainer.addEventListener('click', selectTask);
+listItemContainer.addEventListener('click', selectTaskItem);
 
 // MARK TASKS DONE
 function markTaskDone(event) {
@@ -42,6 +46,16 @@ function markTaskDone(event) {
   dblClickedTaskItem.classList.toggle('completed');
 }
 listItemContainer.addEventListener('dblclick', markTaskDone);
+
+
+// REMOVE DONE ITENS
+function removeDoneItems() {
+  let markedDoneItems = document.querySelectorAll('.completed');
+  for (index = 0; index < markedDoneItems.length; index += 1) {
+    markedDoneItems[index].remove();
+  }
+}
+removeDoneButton.addEventListener('click', removeDoneItems);
 
 
 
