@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>To-Do-List</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -12,28 +12,27 @@
   <section class="content">
     <section>
       <header class="title">Minha Lista de Tarefas</header>
-      <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-      <form>
-        <input type="text" name="task" id="texto-tarefa" placeholder='Nova tarefa...'>
-        <button id="criar-tarefa" name="" >Adicionar</button>
-      </form>
+      <p id="funcionamento">
+        Clique duas vezes em um item para marcá-lo como completo
+      </p>
+      <input id="texto-tarefa" type="text" placeholder="Add a new task here">
+      <button id="criar-tarefa">Add Task</button>
     </section>
     <section>
-      <div class="to-do-list-box">
+      <div>
         <label>Lista de tarefas</label>
-        <ol id="lista-tarefas">
-        </ol>
+        <div class="taskList"></div>
       </div>
     </section>
     <section class="line-one">
-      <button>X</button>
-      <button>&#8593;</button>
-      <button>&#8595;</button>
+      <button id="remover-selecionado">X</button>
+      <button id="mover-cima">&#8593;</button>
+      <button id="mover-baixo">&#8595;</button>
     </section>
     <section class="line-two">
-      <button>Limpar Completos</button>
-      <button id="apaga-tudo">Limpar Lista</button>
-      <button>Salvar Lista</button>
+      <button id="remover-finalizados">Remove Checked</button>
+      <button id="apaga-tudo">Remove All</button>
+      <button id="salvar-tarefas">Save List</button>
     </section>
   </section>
   <script src="script.js"></script>

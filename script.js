@@ -5,7 +5,6 @@ window.onload = function () {
 
   botaoCriarTarefa.addEventListener('click', addTask);
   botaoApagarTudo.addEventListener('click', removeTask);
-
 }
 //adiciona tarefa
 addTask = () => {
