@@ -57,7 +57,7 @@ clearCompletedButton.addEventListener('click', function () {
   });
 });
 
-removeSelectedButton.addEventListener('click', function (event) {
+removeSelectedButton.addEventListener('click', function () {
   const selectedItem = document.querySelector('.selected');
 
   if (selectedItem.classList.contains('selected')) {
