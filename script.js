@@ -6,6 +6,8 @@ const listItemContainer = document.querySelector('ol#lista-tarefas');
 const removeDoneButton = document.querySelector('button#remover-finalizados');
 const removeSelectedButton = document.querySelector('button#remover-selecionado');
 const clearAllTasksButton = document.querySelector('button#apaga-tudo');
+const saveTaskListButton = document.querySelector('button#salvar-tarefas');
+
 
 // BUILD TASKS LIST
 function buildList() {
@@ -66,6 +68,17 @@ function clearToDoList() {
 
 }
 clearAllTasksButton.addEventListener('click', clearToDoList);
+
+// save the task list
+function saveTaskList() {
+  localStorage.clear();
+  localStorage.setItem('listItemContainer-save', listItemContainer.innerHTML);
+}
+saveTaskListButton.addEventListener('click', saveTaskList);
+
+
+
+
 
 window.onload = function () {
 
