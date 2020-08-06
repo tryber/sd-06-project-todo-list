@@ -1,9 +1,12 @@
 <html>
 
 <head>
-  <title>Minha Lista de Tarefas</title>
-
+  <title>Lista de Tarefas</title>
   <style>
+    .selected {
+      background-color: rgb(128, 128, 128);
+    }
+
     .completed {
       text-decoration: line-through;
     }
@@ -13,125 +16,87 @@
 <body>
   <header>
     <h1>Minha Lista de Tarefas</h1>
-    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+    <p id="funcionamento">
+      Clique duas vezes em um item para marcá-lo como completo.
+    </p>
   </header>
-  <section>
-    <!-- A lista de tarefas -->
-    <input type="text" id="texto-tarefa" />
+  <main>
+    <input id="texto-tarefa" type="text" />
     <button id="criar-tarefa">Criar Tarefa</button>
 
     <ol id="lista-tarefas"></ol>
-  </section>
-
+  </main>
   <footer>
     <button id="apaga-tudo">Apagar Lista</button>
-    <button id="remover-finalizados">Remover finalizados</button>
+    <button id="remover-finalizados">Remover Finalizados</button>
   </footer>
 
-  <script type="text/javascript">
+  <script>
+    const listaInput = document.getElementById('texto-tarefa');
+    const botaoCriar = document.getElementById('criar-tarefa');
+    const listaTarefas = document.getElementById('lista-tarefas');
+    const botaoApaga = document.getElementById('apaga-tudo');
+    const botaoFinalizados = document.getElementById('remover-finalizados');
 
-    let tarefas = [];
-    let listaTarefas = document.getElementById('lista-tarefas');
-    let selected;
-
-    let comp = [];
-
-    function rebuildList() {
-      for (let i = 0; i < tarefas.length; i += 1) {
-        let novaTarefa = document.createElement('li');
-
-        listaTarefas.appendChild(novaTarefa);
-        novaTarefa.innerText = tarefas[i];
-      }
-      if (selected !== undefined) {
-        listaTarefas.children[selected].style.backgroundColor = 'rgb(128, 128, 128)';
-      }
-    }
-
-    function selectTarefa() {
-      // funciona pra capacidade de selecionar e de clicar duas vezes
-      let listNodes = listaTarefas.children;
-
-      for (let i = 0; i < listNodes.length; i += 1) {
-
-        // pra selecionar
-        listNodes[i].addEventListener('click', function () {
-          if (selected !== undefined) {
-            listNodes[selected].style.removeProperty('background-color');
-          }
-          selected = i;
-          listNodes[i].style.backgroundColor = 'rgb(128, 128, 128)';
-        });
-
-        // pra clicar duas vezes
-        listNodes[i].addEventListener('dblclick', function () {
-          listNodes[i].classList.toggle('completed');
-        });
-      }
-    }
-
-    function addTarefa() {
-      let inputTarefa = document.getElementById('texto-tarefa');
-      let botaoTarefa = document.getElementById('criar-tarefa');
-
-      botaoTarefa.addEventListener('click', function () {
-
-        if (inputTarefa.value !== '') {
-          tarefas.push(inputTarefa.value);
-          inputTarefa.value = '';
-
-          listaTarefas.innerHTML = '';
-          rebuildList();
-          selectTarefa();
+    function funcionarSelect(item) {
+      item.addEventListener('click', function () {
+        let lis = document.getElementsByTagName('li'); // todas as lis
+        for (let i = 0; i < lis.length; i += 1) {
+          lis[i].classList.remove('selected'); // tira de todas
         }
+        item.classList.toggle('selected'); // adiciona só na selecionada
+      });
+    } // LEMBRA de ti
+
+    function funcionarCompleted(item) {
+      item.addEventListener('dblclick', function () {
+        item.classList.toggle('completed');
       });
     }
 
-    function apagarLista() {
-      let botaoApagar = document.getElementById('apaga-tudo');
+    function funcionarInput() {
+      botaoCriar.addEventListener('click', function () {
+        const criarItem = document.createElement('li');
+        listaTarefas.appendChild(criarItem);
+        criarItem.innerText = listaInput.value;
+        listaInput.value = '';
 
-      botaoApagar.addEventListener('click', function () {
-        listaTarefas.innerHTML = '';
-        tarefas = [];
+        funcionarSelect(criarItem);
+        funcionarCompleted(criarItem)
       });
     }
 
-    function removerFinalizados() {
-
-      let botaoFinalizados = document.getElementById('remover-finalizados');
+    function funcionarBotaoCompleted() {
       botaoFinalizados.addEventListener('click', function () {
-        let listNodes = listaTarefas.children;
+        let lis = document.getElementsByTagName('li'); // todas as lis
 
-        for (let i = 0; i < listNodes.length; i += 1) {
-          if (listNodes[i].classList.contains('completed')) {
-            tarefas.splice(i, 1);
-
-            if (selected === i) {
-              selected = undefined;
-            } else if (selected === (listNodes.length - 1)) {
-              selected -= 1;
-            }
+        let lisLength = lis.length;
+        //
+        let deleted = [];
+        console.log(lis)
+        for (let i = 0; i < lisLength; i += 1) {
+          if (lis[i].classList.contains('completed')) {
+            deleted.push(lis[i]);
+          } else {
           }
         }
 
-        listaTarefas.innerHTML = '';
-        rebuildList();
-        selectTarefa();
+        for (let i = 0; i < deleted.length; i += 1) {
+          deleted[i].remove();
+        }
       });
     }
 
-    // tira depois hein!!!!!
-    window.addEventListener('keydown', function (e) {
-      if (e.keyCode === 87) {
-        console.log(selected);
-      }
-    });
+    function funcionarBotaoApaga() {
+      botaoApaga.addEventListener('click', function () {
+        listaTarefas.innerHTML = '';
+      });
+    }
 
     window.onload = function () {
-      addTarefa();
-      apagarLista();
-      removerFinalizados();
-
+      funcionarInput();
+      funcionarBotaoCompleted();
+      funcionarBotaoApaga();
     }
   </script>
 </body>

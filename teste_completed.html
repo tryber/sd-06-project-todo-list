@@ -5,6 +5,10 @@
     .completed {
       text-decoration: line-through;
     }
+
+    .selected {
+      background-color: rgb(128, 128, 128);
+    }
   </style>
 </head>
 
@@ -17,38 +21,30 @@
     <li>caipirinha de vodka</li>
   </ul>
   <button id="remover">Remover</button>
+
   <script>
     const listaTarefas = document.getElementById('lista-tarefas');
-    let listNodes = listaTarefas.children;
-    let completed = [];
+    const itens = listaTarefas.children;
+    const button = document.getElementById('remover');
 
-    console.log(listNodes);
 
-    function funcionaLista() {
-      for (let i = 0; i < listNodes.length; i += 1) {
-        listNodes[i].addEventListener('dblclick', function () {
-          listNodes[i].classList.toggle('completed');
-          completed.push(listNodes[i]);
-          console.log(completed);
-        });
-      }
+    function rebuildList() {
+
     }
-    funcionaLista();
 
-    let btn = document.getElementById('remover');
+    function fazerBotaoFuncionar() {
+      button.addEventListener('click', function () {
+        let itensLength = itens.length;
 
-    btn.addEventListener('click', function () {
+        for (let i = 0; i < itensLength; i += 1) {
+          itens[0].remove();
+        }
+      });
+    }
 
-      for (let i = 0; i < completed.length; i += 1) {
-        completed[i].remove();
-      }
-      completed = [];
-      funcionaLista();
-
-    });
-
-
-
+    window.onload = function () {
+      fazerBotaoFuncionar();
+    }
   </script>
 </body>
 
