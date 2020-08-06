@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +11,7 @@
     <h1 id="title">Minha Lista de Tarefas</h1>
     <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
   </header>
-  <div> 
+  <div>
     <!-- caixa captura tarefas -->
     <section>
       <span>Digite a sua tarefa<input id="texto-tarefa" type="text" name="work-list" required></span>
@@ -25,12 +25,12 @@
     </section>
     <!-- caixa de botoes -->
     <section>
-      <button id='apaga-tudo' onclick="removeAll()">Remover todos os itens</button>
-      <button id='remover-selecionado'>X</button>
-      <button id='salvar-tarefas'>Salvar Lista</button>
-      <button id='mover-cima'>Mover Acima</button>
-      <button id='mover-baixo'>Mover Abaixo</button>
-      <button id='remover-finalizados'>Limpar Completos</button>
+      <button id='apaga-tudo' onclick="clearList()">Remover todos os itens</button>
+      <button id='remover-selecionado' onclick="removeSelected()">Remove Selecionado</button>
+      <button id='salvar-tarefas' onclick="">Salvar Lista</button>
+      <button id='mover-cima' onclick="moveUp()">Mover Acima</button>
+      <button id='mover-baixo' onclick="moveDown()">Mover Abaixo</button>
+      <button id='remover-finalizados' onclick="clearWorkCompleted()">Limpar Completos</button>
     </section>
   </div>
     <!-- footer -->
