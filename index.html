@@ -9,19 +9,30 @@
 <body>
   <header>
     <h1 id="title">Minha Lista de Tarefas</h1>
-  </header>
     <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-
-    <p>Digite a sua tarefa<input id="texto-tarefa" type="text" name="work-list" required></p>
-    
-
-    <div id='lista'>
-      <ol id='lista-tarefas'></ol>
+  </header>
+  <div> 
+    <!-- caixa captura tarefas -->
+    <section>
+      <span>Digite a sua tarefa<input id="texto-tarefa" type="text" name="work-list" required></span>
+      <button id='criar-tarefa' onclick="newWork()">Criar tarefa</button>
+    </section>
+    <!-- lista de tarefas -->
+    <section>
+      <div id='lista'>
+        <ol id='lista-tarefas'></ol>
+      </div>
+    </section>
+    <!-- caixa de botoes -->
+    <section>
+      <button id='apaga-tudo' onclick="removeAll()">Remover todos os itens</button>
+      <button id='remover-selecionado'>X</button>
+      <button id='salvar-tarefas'>Salvar Lista</button>
+      <button id='mover-cima'>Mover Acima</button>
+      <button id='mover-baixo'>Mover Abaixo</button>
+      <button id='remover-finalizados'>Limpar Completos</button>
+    </section>
   </div>
-
-  <button id='criar-tarefa' onclick="newWork()">Criar tarefa</button>
-
-
     <!-- footer -->
     <footer><p>&copy; Lista de Tarefas do Mario!</p></footer>
     <!-- JS -->

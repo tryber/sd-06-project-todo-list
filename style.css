@@ -1,4 +1,2 @@
-body {
-  background-color: rgba( 133 , 190 , 192 , 0.849 );
-
-}
+.selected{
+  background-color: rgb(128, 128, 128);

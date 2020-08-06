@@ -11,3 +11,12 @@ function newWork() {
   lastItem.innerText = caixaTarefa;
   document.getElementById('texto-tarefa').value = '';
 }
+function select() {
+  let limparAnterior = document.getElementsByClassName('selected');
+  if (limparAnterior.length === 1) {
+      let itemAnterior = limparAnterior[0];
+      itemAnterior.classList.remove('selected');
+  }
+  let selecionado = event.target;
+  selecionado.classList.add('selected');
+}
