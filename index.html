@@ -29,6 +29,8 @@
   <footer>
     <button id="apaga-tudo">Apagar Lista</button>
     <button id="remover-finalizados">Remover Finalizados</button>
+
+    <button id="salvar-tarefas">Salvar Tarefas</button>
   </footer>
 
   <script>
@@ -37,6 +39,7 @@
     const listaTarefas = document.getElementById('lista-tarefas');
     const botaoApaga = document.getElementById('apaga-tudo');
     const botaoFinalizados = document.getElementById('remover-finalizados');
+    const botaoStorage = document.getElementById('salvar-tarefas');
 
     function funcionarSelect(item) {
       item.addEventListener('click', function () {
@@ -73,7 +76,7 @@
         let lisLength = lis.length;
         //
         let deleted = [];
-        console.log(lis)
+
         for (let i = 0; i < lisLength; i += 1) {
           if (lis[i].classList.contains('completed')) {
             deleted.push(lis[i]);
@@ -93,10 +96,48 @@
       });
     }
 
+    function funcionarBotaoStorage() {
+      botaoStorage.addEventListener('click', function () {
+        let lis = document.getElementsByTagName('li'); // todas as lis
+        localStorage.clear();
+
+        if (lis.length !== 0) { // se tem alguma li criada
+
+          for (let i = 0; i < lis.length; i += 1) {
+            localStorage.setItem(i, lis[i].outerHTML);
+            // console.log(lis[i])
+            // console.log(lis[i].outerHTML)
+          }
+        }
+      });
+
+    }
+
+    //localStorage.clear();
+
+    function LerLocalStorage() {
+      let storageLi = document.createElement('li');
+
+      for (let i = 0; i < localStorage.length; i += 1) {
+        listaTarefas.appendChild(storageLi);
+        storageLi.outerHTML = localStorage[i];
+      }
+      // recriou tudo, agora adicionar o SELECT e COMPLETED
+      let lis = document.getElementsByTagName('li'); // todas as lis
+
+      for (let i = 0; i < lis.length; i += 1) {
+        funcionarSelect(lis[i]);
+        funcionarCompleted(lis[i]);
+      }
+    }
+
     window.onload = function () {
       funcionarInput();
       funcionarBotaoCompleted();
       funcionarBotaoApaga();
+
+      funcionarBotaoStorage();
+      LerLocalStorage();
     }
   </script>
 </body>
