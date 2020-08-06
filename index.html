@@ -127,6 +127,11 @@
               let itemAnterior = lis[i - 1].outerHTML;
               lis[i - 1].outerHTML = lis[i].outerHTML;
               lis[i].outerHTML = itemAnterior;
+
+              for (let i = 0; i < lis.length; i += 1) {
+                funcionarSelect(lis[i]);
+                funcionarCompleted(lis[i]);
+              }
               break;
             }
           }
@@ -144,6 +149,11 @@
               let itemProx = lis[i + 1].outerHTML;
               lis[i + 1].outerHTML = lis[i].outerHTML;
               lis[i].outerHTML = itemProx;
+
+              for (let i = 0; i < lis.length; i += 1) {
+                funcionarSelect(lis[i]);
+                funcionarCompleted(lis[i]);
+              }
               break;
             }
           }
