@@ -1,14 +1,28 @@
-let addButton = document.querySelector('#criar-tarefa');
-addButton.addEventListener('click', addToDo)
-let selectItem = document.querySelector('.toDoItem');
-selectItem.addEventListener('click', function () {
-    console.log(selectItem);
-})
+const toDo = document.querySelector('#texto-tarefa');
+const addButton = document.querySelector('#criar-tarefa');
+const list = document.querySelector('#lista-tarefas');
 
-function addToDo() {
-    let toDo = document.querySelector('#texto-tarefa');
-    let listToDo = document.createElement('li');
-    listToDo.className = 'toDoItem';
-    document.getElementById('lista-tarefas').appendChild(listToDo).innerText = toDo.value;
-    toDo.value = null;
-}
+addButton.addEventListener('click', () => {
+  const itemToDo = document.createElement('li');
+  itemToDo.innerHTML = toDo.value;
+  list.appendChild(itemToDo);
+  toDo.value = null;
+  const itemList = document.querySelectorAll('li');
+  itemList.forEach((item) => {
+    item.addEventListener('click', () => {
+      itemList.forEach((item) => {
+        item.classList.remove('selected');
+      });
+      item.classList.add('selected');
+    });
+  });
+});
+
+list.addEventListener('dblclick', (e) => {
+  const completed = e.target;
+  if (!completed.classList.contains('completed')) {
+    completed.className = 'completed';
+  } else {
+    completed.classList -= 'completed';
+  }
+});
