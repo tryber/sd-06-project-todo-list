@@ -33,6 +33,7 @@
     <button id="salvar-tarefas">Salvar Tarefas</button>
     <button id="mover-cima">Mover Para Cima</button>
     <button id="mover-baixo">Mover Para Baixo</button>
+    <button id="remover-selecionado">Remover Selecionado</button>
   </footer>
 
   <script>
@@ -44,6 +45,7 @@
     const botaoStorage = document.getElementById('salvar-tarefas');
     const botaoMoverCima = document.getElementById('mover-cima');
     const botaoMoverBaixo = document.getElementById('mover-baixo');
+    const botaoRemoverSelecionado = document.getElementById('remover-selecionado');
 
     function funcionarSelect(item) {
       item.addEventListener('click', function () {
@@ -161,6 +163,18 @@
       });
     }
 
+    function funcionarBotaoRemoverSelecionado() {
+      botaoRemoverSelecionado.addEventListener('click', function () {
+        let lis = document.getElementsByTagName('li'); // todas as lis
+
+        for (let i = 0; i < lis.length; i += 1) {
+          if (lis[i].classList.contains('selected')) {
+            lis[i].remove();
+          }
+        }
+      });
+    }
+
     //localStorage.clear();
 
     function LerLocalStorage() {
@@ -185,6 +199,7 @@
       funcionarBotaoApaga();
       funcionarBotaoCima();
       funcionarBotaoBaixo();
+      funcionarBotaoRemoverSelecionado();
 
       funcionarBotaoStorage();
       LerLocalStorage();
