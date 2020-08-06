@@ -1,0 +1,46 @@
+<html>
+
+<head>
+	<title>Lista de Tarefas</title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+	<main>
+
+		<!-- Headers -->
+		<header>
+			<h1>Minha Lista de Tarefas</h1>
+			<p id="funcionamento">
+				Clique duas vezes em um item para marcá-lo como completo.
+			</p>
+		</header>
+
+		<!-- Sections -->
+		<section>
+			<input id="texto-tarefa" type="text" />
+			<button id="criar-tarefa">Criar Tarefa</button>
+		</section>
+		<section class="lista-container">
+			<ol id="lista-tarefas"></ol>
+			<div class="controls">
+				<button class="mover-cima" id="mover-cima"></button><br />
+				<button class="mover-baixo" id="mover-baixo"></button>
+			</div>
+		</section>
+
+		<!-- Footers -->
+		<footer>
+			<button id="apaga-tudo">Apagar Lista</button>
+			<button id="remover-finalizados">Remover Finalizados</button>
+			<button id="remover-selecionado">Remover Selecionado</button>
+		</footer>
+	</main>
+	<div class="out-button">
+		<button class="salvar-tarefas" id="salvar-tarefas">Salvar Tarefas</button>
+	</div>
+
+	<script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>
