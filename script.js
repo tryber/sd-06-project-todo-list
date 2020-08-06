@@ -1,113 +1,183 @@
-let textValue;
-const inputText = document.getElementById("texto-tarefa");
-const lista = document.getElementById("lista-tarefas");
-let listItems = lista.children;
-let items = ["coisa", "coisa2", "coisa3"];
-let selected;
+const listaInput = document.getElementById('texto-tarefa');
+const botaoCriar = document.getElementById('criar-tarefa');
+const listaTarefas = document.getElementById('lista-tarefas');
+const botaoApaga = document.getElementById('apaga-tudo');
+const botaoFinalizados = document.getElementById('remover-finalizados');
+const botaoStorage = document.getElementById('salvar-tarefas');
+const botaoMoverCima = document.getElementById('mover-cima');
+const botaoMoverBaixo = document.getElementById('mover-baixo');
+const botaoRemoverSelecionado = document.getElementById('remover-selecionado');
 
-function selectItem() {
-    for (let i = 0; i < items.length; i += 1) {
-        listItems[i].addEventListener("click", function () {
-            if (selected) {
-                selected.style.backgroundColor = "";
-                selected = "";
+function funcionarSelect(item) {
+    item.addEventListener('click', function () {
+        let lis = document.getElementsByTagName('li'); // todas as lis
+        for (let i = 0; i < lis.length; i += 1) {
+            lis[i].classList.remove('selected'); // tira de todas
+        }
+        item.classList.toggle('selected'); // adiciona só na selecionada
+    });
+} // LEMBRA de ti
+
+function funcionarCompleted(item) {
+    item.addEventListener('dblclick', function () {
+        item.classList.toggle('completed');
+    });
+}
+
+function funcionarInput() {
+    botaoCriar.addEventListener('click', function () {
+        if (listaInput.value !== '') {
+            const criarItem = document.createElement('li');
+            listaTarefas.appendChild(criarItem);
+            criarItem.innerText = listaInput.value;
+            listaInput.value = '';
+
+            funcionarSelect(criarItem);
+            funcionarCompleted(criarItem)
+        }
+    });
+    // Extra pra funcionar apertando Enter também
+    listaInput.addEventListener('keydown', function (e) {
+        if (e.keyCode === 13) {
+            if (listaInput.value !== '') {
+                const criarItem = document.createElement('li');
+                listaTarefas.appendChild(criarItem);
+                criarItem.innerText = listaInput.value;
+                listaInput.value = '';
+
+                funcionarSelect(criarItem);
+                funcionarCompleted(criarItem)
             }
-            listItems[i].style.backgroundColor = "rgb(128,128,128)";
-            selected = listItems[i];
-        });
+        }
+    });
+}
 
-        listItems[i].addEventListener("dblclick", function () {
-            if (listItems[i].classList.contains("completed")) {
-                listItems[i].classList.remove("completed");
+function funcionarBotaoCompleted() {
+    botaoFinalizados.addEventListener('click', function () {
+        let lis = document.getElementsByTagName('li'); // todas as lis
+
+        let lisLength = lis.length;
+        //
+        let deleted = [];
+
+        for (let i = 0; i < lisLength; i += 1) {
+            if (lis[i].classList.contains('completed')) {
+                deleted.push(lis[i]);
             } else {
-                listItems[i].classList.add("completed");
             }
-        });
+        }
+
+        for (let i = 0; i < deleted.length; i += 1) {
+            deleted[i].remove();
+        }
+    });
+}
+
+function funcionarBotaoApaga() {
+    botaoApaga.addEventListener('click', function () {
+        listaTarefas.innerHTML = '';
+    });
+}
+
+function funcionarBotaoStorage() {
+    botaoStorage.addEventListener('click', function () {
+        let lis = document.getElementsByTagName('li'); // todas as lis
+        localStorage.clear();
+
+        if (lis.length !== 0) { // se tem alguma li criada
+
+            for (let i = 0; i < lis.length; i += 1) {
+                localStorage.setItem(i, lis[i].outerHTML);
+                // console.log(lis[i])
+                // console.log(lis[i].outerHTML)
+            }
+        }
+    });
+
+}
+
+function funcionarBotaoCima() {
+    botaoMoverCima.addEventListener('click', function () {
+        let lis = document.getElementsByTagName('li'); // todas as lis
+
+        for (let i = 0; i < lis.length; i += 1) {
+            if (lis[i].classList.contains('selected')) { //achou o select
+                if (i !== 0) {
+                    let itemAnterior = lis[i - 1].outerHTML;
+                    lis[i - 1].outerHTML = lis[i].outerHTML;
+                    lis[i].outerHTML = itemAnterior;
+
+                    for (let i = 0; i < lis.length; i += 1) {
+                        funcionarSelect(lis[i]);
+                        funcionarCompleted(lis[i]);
+                    }
+                    break;
+                }
+            }
+        }
+    });
+}
+
+function funcionarBotaoBaixo() {
+    botaoMoverBaixo.addEventListener('click', function () {
+        let lis = document.getElementsByTagName('li'); // todas as lis
+
+        for (let i = 0; i < lis.length; i += 1) {
+            if (lis[i].classList.contains('selected')) { //achou o select
+                if (i !== lis.length - 1) {
+                    let itemProx = lis[i + 1].outerHTML;
+                    lis[i + 1].outerHTML = lis[i].outerHTML;
+                    lis[i].outerHTML = itemProx;
+
+                    for (let i = 0; i < lis.length; i += 1) {
+                        funcionarSelect(lis[i]);
+                        funcionarCompleted(lis[i]);
+                    }
+                    break;
+                }
+            }
+        }
+    });
+}
+
+function funcionarBotaoRemoverSelecionado() {
+    botaoRemoverSelecionado.addEventListener('click', function () {
+        let lis = document.getElementsByTagName('li'); // todas as lis
+
+        for (let i = 0; i < lis.length; i += 1) {
+            if (lis[i].classList.contains('selected')) {
+                lis[i].remove();
+            }
+        }
+    });
+}
+
+//localStorage.clear();
+
+function LerLocalStorage() {
+    let storageLi = document.createElement('li');
+
+    for (let i = 0; i < localStorage.length; i += 1) {
+        listaTarefas.appendChild(storageLi);
+        storageLi.outerHTML = localStorage[i];
     }
-}
+    // recriou tudo, agora adicionar o SELECT e COMPLETED
+    let lis = document.getElementsByTagName('li'); // todas as lis
 
-// reconstrói a lista toda vez que adiciona ou retira algo
-function rebuildList() {
-    lista.innerHTML = "";
-
-    for (let i = 0; i < items.length; i += 1) {
-        const newItem = document.createElement("li");
-        lista.appendChild(newItem);
-        newItem.innerText = items[i];
-
-        selectItem();
+    for (let i = 0; i < lis.length; i += 1) {
+        funcionarSelect(lis[i]);
+        funcionarCompleted(lis[i]);
     }
-}
-
-function addItem() {
-    items.push(textValue);
-    textValue = undefined;
-    inputText.value = "";
-    rebuildList();
-    selectItem();
-}
-
-// Faz o input e o botão funcionarem
-function setInput() {
-    inputText.addEventListener("input", function () {
-        textValue = inputText.value;
-    });
-
-    // permitir apertar enter em vez de clicar no botão
-    inputText.addEventListener("keydown", function (e) {
-        if (e.code === "Enter") {
-            if (textValue) {
-                addItem();
-            } else {
-                window.alert("Insira um item à lista!");
-            }
-        }
-    });
-}
-
-function setButton() {
-    const inputButton = document.getElementById("criar-tarefa");
-    inputButton.addEventListener("click", function () {
-        if (textValue) {
-            addItem();
-        } else {
-            window.alert("Insira um item à lista!");
-        }
-    });
-}
-
-function eraseButton() {
-    let eraser = document.getElementById("apaga-tudo");
-    eraser.addEventListener("click", function () {
-        if (items.length > 0) {
-            lista.innerHTML = "";
-            items = [];
-            rebuildList();
-        }
-    });
-}
-
-function removeCrossed() {
-    let crossed = document.getElementById("remover-finalizados");
-    crossed.addEventListener("click", function () {
-        for (let i = 0; i < listItems.length; i += 1) {
-            if (listItems[i].classList.contains("completed")) {
-                items.splice(i, 1);
-                console.log(items);
-                rebuildList();
-            }
-        }
-    });
 }
 
 window.onload = function () {
-    setInput();
-    setButton();
-    rebuildList();
-    selectItem();
-    eraseButton();
-    removeCrossed();
-};
+    funcionarInput();
+    funcionarBotaoCompleted();
+    funcionarBotaoApaga();
+    funcionarBotaoCima();
+    funcionarBotaoBaixo();
+    funcionarBotaoRemoverSelecionado();
 
-// ir pro input apertando TAB, não importa onde esteja
-// armazenar a lista no webstorage, de modo que sempre que a pessoa entrar no site, a mesma lista está lá.
+    funcionarBotaoStorage();
+    LerLocalStorage();
+}
