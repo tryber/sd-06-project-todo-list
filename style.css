@@ -1,0 +1,41 @@
+
+.body {
+    font-style: Arial;
+    
+}
+
+#apaga-tudo {
+    background-color: palevioletred;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+   
+}
+
+#remover-finalizados {
+    background-color: red;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+}
+
+#remover-selecionado {
+    background-color: rgb(202, 66, 66);
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+}
+
+#salvar-tarefas {
+    background-color: green;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+}
+
+#criar-tarefa {
+    background-color: blue;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+}
