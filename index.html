@@ -1,19 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Task List</title>
+    <link href="style.css" rel="stylesheet">
+    <script src="script.js"></script>
 </head>
 <body>
-  <header>
-    <h1>Minha Lista de Tarefas</h1>
-  </header>
-  <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-  <input id="texto-tarefa">
-  <ol id="lista-tarefas">
+    <section class="content">
+        <header>Minha Lista de Tarefas</header>
+        <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+        
+        <input type="text" id="texto-tarefa"> <button id="criar-tarefa">Adicionar</button>
 
-  </ol>
+        <ol id="lista-tarefas"></ol>
+
+        <section class="buttons">
+            <button id="remover-selecionado">Remover selecionado</button>
+            <button id="remover-finalizados">Remover finalizados</button>
+            <button id="mover-cima">Mover para cima</button>
+            <button id="mover-baixo">Mover para baixo</button>
+            <button id="salvar-tarefas">Salvar tarefas</button>
+            <button id="apaga-tudo">Apagar tudo</button>
+        </section>
+    </section>
+
+    
+
+    
 </body>
 </html>
