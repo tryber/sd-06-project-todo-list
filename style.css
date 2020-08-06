@@ -6,7 +6,7 @@ button {
   margin: auto;
 }
 .completed {
-  background-color:  rgb(128 , 128 , 128);
+  text-decoration: line-through solid black;
   font-family: Arial, Helvetica, sans-serif;
 }
 

@@ -24,10 +24,11 @@ function itemSelected(event) {
 
 
 function taskTop(event) {
-  const testPass = document.querySelectorAll('.completed');
-  for(let i = 0; i < testPass.length; i += 1) {
-    document.querySelectorAll('#lista-tarefas')[i].removeChild(testPass[i]);
-  }
+    if (event.target.classList.contains('completed')) {
+      event.target.classList.remove('completed');
+    } else {
+      event.target.classList.add('completed');
+    }
   }
 
   remove.addEventListener('click', function () {
