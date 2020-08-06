@@ -1,0 +1,15 @@
+ button{
+    font-size: medium;
+    color: white;
+    background-color: #000000;
+    border-radius: 1em;
+    margin: auto;
+}
+
+.selected{
+    background-color: gray;
+}
+
+.completed {
+    text-decoration: line-through solid black;
+  }
