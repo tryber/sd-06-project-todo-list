@@ -31,6 +31,8 @@
     <button id="remover-finalizados">Remover Finalizados</button>
 
     <button id="salvar-tarefas">Salvar Tarefas</button>
+    <button id="mover-cima">Mover Para Cima</button>
+    <button id="mover-baixo">Mover Para Baixo</button>
   </footer>
 
   <script>
@@ -40,6 +42,8 @@
     const botaoApaga = document.getElementById('apaga-tudo');
     const botaoFinalizados = document.getElementById('remover-finalizados');
     const botaoStorage = document.getElementById('salvar-tarefas');
+    const botaoMoverCima = document.getElementById('mover-cima');
+    const botaoMoverBaixo = document.getElementById('mover-baixo');
 
     function funcionarSelect(item) {
       item.addEventListener('click', function () {
@@ -113,6 +117,40 @@
 
     }
 
+    function funcionarBotaoCima() {
+      botaoMoverCima.addEventListener('click', function () {
+        let lis = document.getElementsByTagName('li'); // todas as lis
+
+        for (let i = 0; i < lis.length; i += 1) {
+          if (lis[i].classList.contains('selected')) { //achou o select
+            if (i !== 0) {
+              let itemAnterior = lis[i - 1].outerHTML;
+              lis[i - 1].outerHTML = lis[i].outerHTML;
+              lis[i].outerHTML = itemAnterior;
+              break;
+            }
+          }
+        }
+      });
+    }
+
+    function funcionarBotaoBaixo() {
+      botaoMoverBaixo.addEventListener('click', function () {
+        let lis = document.getElementsByTagName('li'); // todas as lis
+
+        for (let i = 0; i < lis.length; i += 1) {
+          if (lis[i].classList.contains('selected')) { //achou o select
+            if (i !== lis.length - 1) {
+              let itemProx = lis[i + 1].outerHTML;
+              lis[i + 1].outerHTML = lis[i].outerHTML;
+              lis[i].outerHTML = itemProx;
+              break;
+            }
+          }
+        }
+      });
+    }
+
     //localStorage.clear();
 
     function LerLocalStorage() {
@@ -135,6 +173,8 @@
       funcionarInput();
       funcionarBotaoCompleted();
       funcionarBotaoApaga();
+      funcionarBotaoCima();
+      funcionarBotaoBaixo();
 
       funcionarBotaoStorage();
       LerLocalStorage();
