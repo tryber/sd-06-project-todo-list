@@ -3,6 +3,7 @@ header {
   font-size: 20px;
   font-weight: 700;
   margin: 5px;
+  text-align: center;
 }
 
 .content {
@@ -18,7 +19,7 @@ header {
   text-align: center;
 }
 
-input[type=text] {
+input {
   height: 30px;
   margin-bottom: 10px;
   width: 80%;
@@ -40,6 +41,10 @@ button {
   cursor: pointer;
 }
 
+label {
+  padding-left: 140px;
+}
+
 ol {
   background: rgb(255 , 255 , 255);
   height: 250px;
@@ -54,9 +59,9 @@ li {
 }
 
 .line-one {
-  align-items: center;
+  display: block;  
   padding: 5px;
-  width: 300px;
+  width: 250px;
 }
 
 .line-two {
@@ -68,4 +73,8 @@ li {
 
 .selected {
   background-color: rgb(128, 128, 128);
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
 }
