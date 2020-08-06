@@ -18,7 +18,7 @@ function addClickListener(newElement) {
     }
 
     currentSelected.classList.add('selected');
-  })
+  });
 }
 
 function addDoubleClickListener(newElement) {
@@ -30,7 +30,7 @@ function addDoubleClickListener(newElement) {
     } else {
       clicked.classList.add('completed');
     }
-  })
+  });
 }
 
 addTaskButton.addEventListener('click', function () {
@@ -41,11 +41,11 @@ addTaskButton.addEventListener('click', function () {
 
   addClickListener(taskList.lastChild);
   addDoubleClickListener(taskList.lastChild);
-})
+});
 
 clearAllButton.addEventListener('click', function () {
   taskList.innerHTML = [];
-})
+});
 
 clearCompletedButton.addEventListener('click', function () {
   const selectedItems = document.querySelectorAll('.completed');
@@ -55,7 +55,7 @@ clearCompletedButton.addEventListener('click', function () {
       taskList.removeChild(li);
     }
   });
-})
+});
 
 removeSelectedButton.addEventListener('click', function (event) {
   const selectedItem = document.querySelector('.selected');
@@ -63,21 +63,21 @@ removeSelectedButton.addEventListener('click', function (event) {
   if (selectedItem.classList.contains('selected')) {
     taskList.removeChild(selectedItem);
   }
-})
+});
 
 moveSelectedUpButton.addEventListener('click', function () {
   const selected = document.querySelector('.selected');
   if ((selected) && (selected.previousSibling)) {
     taskList.insertBefore(selected, selected.previousSibling);
   }
-})
+});
 
 moveSelectedDownButton.addEventListener('click', function () {
   const selected = document.querySelector('.selected');
   if ((selected) && (selected.nextSibling)) {
     taskList.insertBefore(selected, selected.nextSibling.nextSibling);
   }
-})
+});
 
 saveButton.addEventListener('click', function () {
   window.localStorage.setItem('toDoList', taskList.innerHTML);
