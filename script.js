@@ -6,6 +6,7 @@ const clearCompletedButton = document.querySelector('#remover-finalizados');
 const removeSelectedButton = document.querySelector('#remover-selecionado');
 const moveSelectedUpButton = document.querySelector('#mover-cima');
 const moveSelectedDownButton = document.querySelector('#mover-baixo');
+const saveButton = document.querySelector('#salvar-tarefas');
 
 function addClickListener(newElement) {
   newElement.addEventListener('click', function (event) {
@@ -77,3 +78,14 @@ moveSelectedDownButton.addEventListener('click', function () {
     taskList.insertBefore(selected, selected.nextSibling.nextSibling);
   }
 })
+
+saveButton.addEventListener('click', function () {
+  window.localStorage.setItem('toDoList', taskList.innerHTML);
+});
+
+function getList() {
+  const savedList = window.localStorage.getItem('toDoList');
+  taskList.innerHTML = savedList;
+}
+
+getList();
