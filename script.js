@@ -29,14 +29,15 @@ function taskTop(event) {
       event.target.classList.add('completed');
     }
   }
+
+  
   
 remove.addEventListener('click', function () {
-    for (let i = 0; i < document.querySelectorAll('.completed').length; i += 1) {
-      if (document.querySelectorAll('.completed')[i].classList.contains('completed')) {
-        document.querySelectorAll('.completed')[i].remove();
-      }
-    }
-  });
+  let testPass = document.querySelectorAll('.completed')
+  for(let i = 0; i < testPass.length; i += 1){
+    document.querySelector('#lista-tarefas').removeChild(testPass[i]);
+  }
+});
 
 clear.addEventListener('click', function () {
     for (let i = 0; i < document.querySelectorAll('#lista-tarefas').length; i += 1) {
