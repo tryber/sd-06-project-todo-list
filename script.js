@@ -69,7 +69,7 @@ function clearToDoList() {
 }
 clearAllTasksButton.addEventListener('click', clearToDoList);
 
-// save the task list
+// SAVE THE TASK LIST
 function saveTaskList() {
   localStorage.clear();
   localStorage.setItem('listItemContainer-save', listItemContainer.innerHTML);
@@ -77,10 +77,12 @@ function saveTaskList() {
 saveTaskListButton.addEventListener('click', saveTaskList);
 
 
-
-
+// RECOVER DATA OF THE TASK LIST
+function recoverData() {
+  let recoveredDataTasks = localStorage.getItem('listItemContainer-save');
+  listItemContainer.innerHTML = recoveredDataTasks;
+}
 
 window.onload = function () {
-
-
+  recoverData();
 }
