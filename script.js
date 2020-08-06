@@ -1,15 +1,15 @@
 window.onload = () => {
-  const inputButton = document.getElementById('criar-tarefas');
+  const inputButton = document.getElementById('criar-tarefa');
   const listaTarefas = document.getElementById('lista-tarefas');
 
   // Criar tarefa na lista
   function addTarefa() {
-    const inputText = document.getElementById('texto-tarefas').value;
+    const inputText = document.getElementById('texto-tarefa').value;
     const createListItem = document.createElement('li');
     createListItem.innerHTML = inputText;
     createListItem.className = 'list-item';
     listaTarefas.appendChild(createListItem);
-    document.getElementById('texto-tarefas').value = '';
+    document.getElementById('texto-tarefa').value = '';
   }
 
   inputButton.addEventListener('click', addTarefa);
@@ -32,7 +32,7 @@ window.onload = () => {
 
   // Remover tudo
   const clearAllButton = document.getElementById('apaga-tudo');
-  console.log(clearAllButton);
+
   clearAllButton.addEventListener('click', function(event) {
     while (listaTarefas.firstChild) {
       listaTarefas.removeChild(listaTarefas.firstChild);
