@@ -33,8 +33,7 @@
     let tarefas = [];
     let listaTarefas = document.getElementById('lista-tarefas');
     let selected;
-
-    let comp = [];
+    let completed = [];
 
     function rebuildList() {
       for (let i = 0; i < tarefas.length; i += 1) {
@@ -66,6 +65,18 @@
         // pra clicar duas vezes
         listNodes[i].addEventListener('dblclick', function () {
           listNodes[i].classList.toggle('completed');
+          console.log(listNodes[i]);
+          completed.push(listNodes[i]);
+
+          // if (listNodes[i].classList.contains('completed')) {
+          //   let index = completed.indexOf(listNodes[i]);
+          //   if (index > -1) {
+          //     completed.splice(index, 1);
+          //   }
+          // } else {
+          //   completed.push(listNodes[i]);
+          // }
+
         });
       }
     }
@@ -103,20 +114,25 @@
         let listNodes = listaTarefas.children;
 
         for (let i = 0; i < listNodes.length; i += 1) {
-          if (listNodes[i].classList.contains('completed')) {
-            tarefas.splice(i, 1);
-
-            if (selected === i) {
-              selected = undefined;
-            } else if (selected === (listNodes.length - 1)) {
-              selected -= 1;
-            }
-          }
+          completed[0].remove();
         }
 
-        listaTarefas.innerHTML = '';
-        rebuildList();
-        selectTarefa();
+
+        // for (let i = 0; i < listNodes.length; i += 1) {
+        //   if (listNodes[i].classList.contains('completed')) {
+        //     tarefas.splice(i, 1);
+
+        //     if (selected === i) {
+        //       selected = undefined;
+        //     } else if (selected === (listNodes.length - 1)) {
+        //       selected -= 1;
+        //     }
+        //   }
+        // }
+
+        // listaTarefas.innerHTML = '';
+        // rebuildList();
+        // selectTarefa();
       });
     }
 
@@ -124,6 +140,8 @@
     window.addEventListener('keydown', function (e) {
       if (e.keyCode === 87) {
         console.log(selected);
+
+        console.log(completed)
       }
     });
 

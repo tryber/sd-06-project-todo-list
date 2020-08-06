@@ -1,0 +1,55 @@
+<html>
+
+<head>
+  <style>
+    .completed {
+      text-decoration: line-through;
+    }
+  </style>
+</head>
+
+<body>
+
+  <ul id="lista-tarefas">
+    <li>café com biscoitos</li>
+    <li>pão doce com chá</li>
+    <li>chocolate quente</li>
+    <li>caipirinha de vodka</li>
+  </ul>
+  <button id="remover">Remover</button>
+  <script>
+    const listaTarefas = document.getElementById('lista-tarefas');
+    let listNodes = listaTarefas.children;
+    let completed = [];
+
+    console.log(listNodes);
+
+    function funcionaLista() {
+      for (let i = 0; i < listNodes.length; i += 1) {
+        listNodes[i].addEventListener('dblclick', function () {
+          listNodes[i].classList.toggle('completed');
+          completed.push(listNodes[i]);
+          console.log(completed);
+        });
+      }
+    }
+    funcionaLista();
+
+    let btn = document.getElementById('remover');
+
+    btn.addEventListener('click', function () {
+
+      for (let i = 0; i < completed.length; i += 1) {
+        completed[i].remove();
+      }
+      completed = [];
+      funcionaLista();
+
+    });
+
+
+
+  </script>
+</body>
+
+</html>

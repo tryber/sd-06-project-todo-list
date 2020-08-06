@@ -103,6 +103,7 @@
         let listNodes = listaTarefas.children;
 
         for (let i = 0; i < listNodes.length; i += 1) {
+          console.log(listNodes[i]);
           if (listNodes[i].classList.contains('completed')) {
             tarefas.splice(i, 1);
 
