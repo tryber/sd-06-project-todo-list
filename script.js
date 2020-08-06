@@ -36,7 +36,12 @@ function selectTask(event) {
 }
 listItemContainer.addEventListener('click', selectTask);
 
-
+// MARK TASKS DONE
+function markTaskDone(event) {
+  let dblClickedTaskItem = event.target;
+  dblClickedTaskItem.classList.toggle('completed');
+}
+listItemContainer.addEventListener('dblclick', markTaskDone);
 
 
 
