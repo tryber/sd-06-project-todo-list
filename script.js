@@ -5,7 +5,7 @@ const addTaskButton = document.querySelector('button#criar-tarefa');
 const listItemContainer = document.querySelector('ol#lista-tarefas');
 const removeDoneButton = document.querySelector('button#remover-finalizados');
 const removeSelectedButton = document.querySelector('button#remover-selecionado');
-
+const clearAllTasksButton = document.querySelector('button#apaga-tudo');
 
 // BUILD TASKS LIST
 function buildList() {
@@ -47,18 +47,25 @@ function markTaskDone(event) {
 }
 listItemContainer.addEventListener('dblclick', markTaskDone);
 
-
 // REMOVE DONE ITENS
 function removeDoneItems() {
   let markedDoneItems = document.querySelectorAll('.completed');
-  for (index = 0; index < markedDoneItems.length; index += 1) {
+  for (let index = 0; index < markedDoneItems.length; index += 1) {
     markedDoneItems[index].remove();
   }
 }
 removeDoneButton.addEventListener('click', removeDoneItems);
 
 
+// CLEAR ALL TO DO LIST
+function clearToDoList() {
+  let allTasks = document.querySelectorAll('.task');
+  for (let index = 0; index < allTasks.length; index += 1) {
+    listItemContainer.removeChild(allTasks[index]);
+  }
 
+}
+clearAllTasksButton.addEventListener('click', clearToDoList);
 
 window.onload = function () {
 
