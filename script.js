@@ -50,7 +50,7 @@ clearAllButton.addEventListener('click', function () {
 clearCompletedButton.addEventListener('click', function () {
   const selectedItems = document.querySelectorAll('.completed');
 
-  selectedItems.forEach(li => {
+  selectedItems.forEach((li) => {
     if (li.classList.contains('completed')) {
       taskList.removeChild(li);
     }
