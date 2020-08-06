@@ -12,70 +12,68 @@ main {
   text-align: center;
   width: 350px;
 }
-header {
-  padding-top: 0px;
-}
 p {
-  font-size: 17px;
   color: #283829;
+  font-size: 17px;
 }
 #lista-container {
+  align-items: center;
   display: flex;
-  align-items: center;  
 }
 ol {
   border: 1px solid #d3931f;
   color: #283829;
   height: 200px;
-  margin-top: 20px;  
+  margin-top: 20px;
   overflow: auto;
   text-align: justify;
   width: 270px;
   word-wrap: break-word;
-  
 }
 li {
   cursor: pointer;
   -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 .selected {
   background-color: rgb(128, 128, 128);
 }
 
 .completed {
-  text-decoration: line-through;
+  text-decoration: line-through solid rgb(0, 0, 0);
 }
 #controls {
-  width: 50px;
   margin-left: 10px;
+  width: 50px;
 }
 #mover-cima {
-  width: 0; 
-  height: 0; 
-  padding: 0;
-  border-width: 15px 15px 15px 15px;
-  border-style: solid;
   border-color: #E9CE2C #E9CE2C #d3931f #E9CE2C;
+  border-style: solid;
+  border-width: 15px 15px 15px 15px;
+  height: 0;
+  padding: 0;
+  width: 0;
 }
 
 #mover-baixo {
-  width: 0; 
-  height: 0; 
-  padding: 0;
-  border-width: 15px 15px 15px 15px;
-  border-style: solid;
   border-color: #d3931f #E9CE2C #E9CE2C  #E9CE2C;
+  border-style: solid;
+  border-width: 15px 15px 15px 15px;
+  height: 0;
   margin-top: 30px;
+  padding: 0;
+  width: 0;
 }
 footer{
   display: flex;
 }
 footer button {
+  background-color: #d3931f;
   border: 0;
-  width: 100px;
   flex-grow: 1;
   margin: 0 2px;
-  background-color: #d3931f;
+  width: 100px;
 
 }
 
@@ -85,9 +83,9 @@ footer button {
   margin: auto;
 }
 #salvar-tarefas {
+  background-color: #E9CE2C;
   border: 0;
-  width: 100px;
   height: 30px;
   margin-top: 10px;
-  background-color: #E9CE2C;
+  width: 100px;
 }
