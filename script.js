@@ -2,7 +2,7 @@ const insert = document.querySelector('#criar-tarefa');
 const remove = document.querySelector('#remover-finalizados');
 const clear = document.querySelector('#apaga-tudo');
 
-function addItemList(){
+function addItemList() {
     if (document.querySelector('#texto-tarefa').value !== "") {
     let newItem = document.createElement('li');
     newItem.innerHTML = document.querySelector('#texto-tarefa').value;
@@ -21,8 +21,6 @@ function itemSelected(event) {
       event.target.classList.add('selected');
     }
   }
-
-
 function taskTop(event) {
     if (event.target.classList.contains('completed')) {
       event.target.classList.remove('completed');
@@ -34,7 +32,7 @@ function taskTop(event) {
   remove.addEventListener('click', function () {
     const testPass = document.querySelectorAll('.completed');
     for(let i = 0; i < testPass.length; i += 1){
-     document.querySelector('#lista-tarefas').removeChild(testPass[i]);
+      document.querySelector('#lista-tarefas').removeChild(testPass[i]);
     }
   });
 
@@ -43,10 +41,6 @@ clear.addEventListener('click', function () {
       document.querySelectorAll('#lista-tarefas')[i].remove();
     }
   });
-
-
 insert.addEventListener('click', addItemList);
-
 document.querySelector('#lista-tarefas').addEventListener('click', itemSelected);
-
 document.querySelector('#lista-tarefas').addEventListener('dblclick', taskTop);
