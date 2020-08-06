@@ -4,6 +4,8 @@ const taskText = document.querySelector('input');
 const clearAllButton = document.querySelector('#apaga-tudo');
 const clearCompletedButton = document.querySelector('#remover-finalizados');
 const removeSelectedButton = document.querySelector('#remover-selecionado');
+const moveSelectedUpButton = document.querySelector('#mover-cima');
+const moveSelectedDownButton = document.querySelector('#mover-baixo');
 
 function addClickListener(newElement) {
   newElement.addEventListener('click', function (event) {
@@ -59,5 +61,19 @@ removeSelectedButton.addEventListener('click', function (event) {
 
   if (selectedItem.classList.contains('selected')) {
     taskList.removeChild(selectedItem);
+  }
+})
+
+moveSelectedUpButton.addEventListener('click', function () {
+  const selected = document.querySelector('.selected');
+  if ((selected) && (selected.previousSibling)) {
+    taskList.insertBefore(selected, selected.previousSibling);
+  }
+})
+
+moveSelectedDownButton.addEventListener('click', function () {
+  const selected = document.querySelector('.selected');
+  if ((selected) && (selected.nextSibling)) {
+    taskList.insertBefore(selected, selected.nextSibling.nextSibling);
   }
 })
