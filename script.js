@@ -10,14 +10,14 @@ const saveButton = document.querySelector('#salvar-tarefas');
 
 function addClickListener(newElement) {
   newElement.addEventListener('click', function (event) {
-    const previouslySelected = document.querySelector(".selected");
+    const previouslySelected = document.querySelector('.selected');
     const currentSelected = event.target;
 
     if (previouslySelected) {
-      previouslySelected.classList.remove("selected");
+      previouslySelected.classList.remove('selected');
     }
 
-    currentSelected.classList.add("selected");
+    currentSelected.classList.add('selected');
   })
 }
 
