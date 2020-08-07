@@ -33,25 +33,24 @@ function addEventDouble(element) {
   });
 }
 
-function insertItemList() {
-  if (itemInput.value === '') {
+function insertItemList(entradaInput) {
+  if (entradaInput.value === '') {
     alert('campo não pode ficar em branco');
   } else {
     const elementLi = document.createElement('li');
-    elementLi.innerText = itemInput.value;
+    elementLi.innerText = entradaInput.value;
     listOl.appendChild(elementLi);
-    itemInput.value = '';
+    entradaInput.value = '';
     elementLi.addEventListener('click', function () {
       addBackLi();
       changeBackLi();
     });
     addEventDouble(elementLi);
-
   }
 }
 
 insertButton.addEventListener('click', function () {
-  insertItemList();
+  insertItemList(itemInput);
   itemInput.addEventListener('input', function () {
 
   });
@@ -148,16 +147,21 @@ function downItemList() {
 }
 downItemList();
 
-function deleleSelect() {
-  const selectRemoveItem = document.querySelector('#remover-selecionado');
-  selectRemoveItem.addEventListener('click', function () {
-    const elemenstLi = document.querySelectorAll('li');
-    for (let i = 0; i < elemenstLi.length; i += 1) {
-      if (elemenstLi[i].classList.contains('liBackground')) {
-        listOl.removeChild(elemenstLi[i]);
-      }
-    }
+function setLocalStorage() {
+  const saveButton = document.querySelector('#salvar-tarefas');
+  const listOl = document.querySelector('#lista-tarefas');
+  saveButton.addEventListener('click', function () {
+    localStorage.setItem('itens', listOl.innerHTML);
+    alert('salvo');
   });
 }
-deleleSelect()
+setLocalStorage();
 
+function getLocalStorage() {
+  if (localStorage.getItem('itens') !== null) {
+    document.getElementById('lista-tarefas').innerHTML = localStorage.getItem('itens');
+    changeBackLi();
+    alert('carregado');
+  }
+}
+getLocalStorage();
