@@ -94,7 +94,7 @@ function removeItemFinalizado() {
     }
   });
 }
-removeItemFinalizado()
+removeItemFinalizado();
 
 function upItemList() {
   const upButton = document.querySelector('#mover-cima');
@@ -103,7 +103,7 @@ function upItemList() {
     for (let i = 0; i < elemenstLi.length; i += 1) {
       if (elemenstLi[i].classList.contains('liBackground')) {
         if ((i - 1) >= 0) {
-          let valorPosition = elemenstLi[i - 1].innerText;
+          const valorPosition = elemenstLi[i - 1].innerText;
           if (elemenstLi[i].classList.contains('completed')) {
             elemenstLi[i - 1].classList.add('completed');
             elemenstLi[i].classList.remove('completed');
@@ -128,7 +128,7 @@ function downItemList() {
     for (let i = elemenstLi.length - 1; i >= 0; i -= 1) {
       if (elemenstLi[i].classList.contains('liBackground')) {
         if ((i + 1) < elemenstLi.length) {
-          let valorPosition = elemenstLi[i + 1].innerText;
+          const valorPosition = elemenstLi[i + 1].innerText;
           if (elemenstLi[i].classList.contains('completed')) {
             elemenstLi[i + 1].classList.add('completed');
             elemenstLi[i].classList.remove('completed');
@@ -137,7 +137,7 @@ function downItemList() {
           elemenstLi[i + 1].classList.add('liBackground');
           elemenstLi[i].innerText = valorPosition;
           elemenstLi[i].classList.remove('liBackground');
-          break
+          break;
         } else {
           alert('fim da lista');
         }
@@ -146,22 +146,3 @@ function downItemList() {
   });
 }
 downItemList();
-
-function setLocalStorage() {
-  const saveButton = document.querySelector('#salvar-tarefas');
-  const listOl = document.querySelector('#lista-tarefas');
-  saveButton.addEventListener('click', function () {
-    localStorage.setItem('itens', listOl.innerHTML);
-    alert('salvo');
-  });
-}
-setLocalStorage();
-
-function getLocalStorage() {
-  if (localStorage.getItem('itens') !== null) {
-    document.getElementById('lista-tarefas').innerHTML = localStorage.getItem('itens');
-    changeBackLi();
-    alert('carregado');
-  }
-}
-getLocalStorage();
