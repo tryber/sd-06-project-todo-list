@@ -172,8 +172,7 @@ setLocalStorage();
 
 function getLocalStorage() {
   if (localStorage.getItem('itens') !== null) {
-    document.getElementById('lista-tarefas').innerHTML = localStorage.getItem('itens');
-    changeBackLi();
+    document.getElementById('lista-tarefas').innerHTML = localStorage.getItem('itens');    
     alert('carregado');
   }
 }
