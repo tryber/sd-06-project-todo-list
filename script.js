@@ -1,5 +1,5 @@
 const itemInput = document.querySelector('#texto-tarefa');
-const insertButton = document.querySelector('#criar-tarefa');
+
 const listOl = document.querySelector('#lista-tarefas');
 
 function addBackLi() {
@@ -49,30 +49,36 @@ function insertItemList(entradaInput) {
   }
 }
 
-insertButton.addEventListener('click', function () {
-  insertItemList(itemInput);
-  itemInput.addEventListener('input', function () {
-
+function buttonIsertEvent() {
+  const insertButton = document.querySelector('#criar-tarefa');
+  insertButton.addEventListener('click', function () {
+    insertItemList(itemInput);
+    itemInput.addEventListener('input', function () {
+    });
   });
-});
+}
+buttonIsertEvent();
 
-const cleartButton = document.querySelector('#apaga-tudo');
-cleartButton.addEventListener('click', function () {
-  const elemenstLi = document.querySelectorAll('li');
-  let resposta = false;
-  if (elemenstLi.length !== 0) {
-    for (let i = 0; i < elemenstLi.length; i += 1) {
-      listOl.lastChild.remove();
-      resposta = true;
+function buttonClearEvent() {
+  const cleartButton = document.querySelector('#apaga-tudo');
+  cleartButton.addEventListener('click', function () {
+    const elemenstLi = document.querySelectorAll('li');
+    let resposta = false;
+    if (elemenstLi.length !== 0) {
+      for (let i = 0; i < elemenstLi.length; i += 1) {
+        listOl.lastChild.remove();
+        resposta = true;
+      }
+      if (resposta === true) {
+        alert('lista deletada com Sucesso');
+      }
+    } else {
+      alert('lista Vazia');
     }
-    if (resposta === true) {
-      alert('lista deletada com Sucesso');
-    }
-  } else {
-    alert('lista Vazia');
-  }
-});
-
+  });
+}
+buttonClearEvent();
+  
 function removeItemFinalizado() {
   const removeButton = document.querySelector('#remover-finalizados');
   removeButton.addEventListener('click', function () {
