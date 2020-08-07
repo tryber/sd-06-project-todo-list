@@ -146,3 +146,35 @@ function downItemList() {
   });
 }
 downItemList();
+
+function deleleSelect() {
+  const selectRemoveItem = document.querySelector('#remover-selecionado');
+  selectRemoveItem.addEventListener('click', function () {
+    const elemenstLi = document.querySelectorAll('li');
+    for (let i = 0; i < elemenstLi.length; i += 1) {
+      if (elemenstLi[i].classList.contains('liBackground')) {
+        listOl.removeChild(elemenstLi[i]);
+      }
+    }
+  });
+}
+deleleSelect();
+
+function setLocalStorage() {
+  const saveButton = document.querySelector('#salvar-tarefas');
+  const listOlpreenchida = document.querySelector('#lista-tarefas');
+  saveButton.addEventListener('click', function () {
+    localStorage.setItem('itens', listOlpreenchida.innerHTML);
+    alert('salvo');
+  });
+}
+setLocalStorage();
+
+function getLocalStorage() {
+  if (localStorage.getItem('itens') !== null) {
+    document.getElementById('lista-tarefas').innerHTML = localStorage.getItem('itens');
+    changeBackLi();
+    alert('carregado');
+  }
+}
+getLocalStorage();
