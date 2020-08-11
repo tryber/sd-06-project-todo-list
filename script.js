@@ -1,15 +1,21 @@
+// list items and parent list items
+
+const parentList = document.getElementById('lista-tarefas');
+const taskListItems = document.getElementsByTagName('li');
+
 // buttons
 
 const btnNewTask = document.getElementById('criar-tarefa');
 const btnDeleteSelected = document.getElementById('remover-selecionado');
 const btnDeleteCompleted = document.getElementById('remover-finalizados');
 const btnDeleteAll = document.getElementById('apaga-tudo');
-const saveTaskList = document.getElementById('salvar-tarefas');
+const btnSaveTaskList = document.getElementById('salvar-tarefas');
+const btnMoveUp = document.getElementById('mover-cima');
+const btnMoveDown = document.getElementById('mover-baixo');
 
 // create list item, get input value and push list value
 
 function pushListItem() {
-  const parentList = document.getElementById('lista-tarefas');
   const userInput = document.querySelector('#texto-tarefa').value;
   if (userInput !== '') {
     const newListItem = document.createElement('li');
@@ -45,6 +51,34 @@ function addCompletedTask(event) {
   }
 }
 
+// functions to move up and down list items
+
+function itemMoveUp() {
+  for (let i = 0; i < taskListItems.length; i += 1) {
+    if (taskListItems[i].classList.contains('selected')) {
+      const listItem = taskListItems[i].innerHTML;
+      const listItemClass = taskListItems[i].className;
+      taskListItems[i].innerHTML = taskListItems[i - 1].innerHTML;
+      taskListItems[i].className = taskListItems[i - 1].className;
+      taskListItems[i - 1].innerHTML = listItem;
+      taskListItems[i - 1].className = listItemClass;
+    }
+  }
+}
+
+function itemMoveDown() {
+  for (let i = taskListItems.length - 1; i >= 0; i -= 1) {
+    if (taskListItems[i].classList.contains('selected')) {
+      const listItem = taskListItems[i].innerHTML;
+      const listItemClass = taskListItems[i].className;
+      taskListItems[i].innerHTML = taskListItems[i + 1].innerHTML;
+      taskListItems[i].className = taskListItems[i + 1].className;
+      taskListItems[i + 1].innerHTML = listItem;
+      taskListItems[i + 1].className = listItemClass;
+    }
+  }
+}
+
 // add events to page buttons
 
 btnNewTask.addEventListener('click', pushListItem);
@@ -77,21 +111,19 @@ document.querySelector('#lista-tarefas').addEventListener('dblclick', addComplet
 
 // call event to store list items
 
-saveTaskList.addEventListener('click', () => {
-  const tasks = document.getElementsByTagName('li');
+btnSaveTaskList.addEventListener('click', () => {
   if (localStorage !== null) {
     localStorage.clear();
   }
-  for (let i = 0; i < tasks.length; i += 1) {
-    localStorage.setItem(i, tasks[i].innerHTML);
-    localStorage.setItem(tasks[i].innerHTML, tasks[i].className);
+  for (let i = 0; i < taskListItems.length; i += 1) {
+    localStorage.setItem(i, taskListItems[i].innerHTML);
+    localStorage.setItem(taskListItems[i].innerHTML, taskListItems[i].className);
   }
 });
 
 // load stored items after page load
 
 window.onload = () => {
-  const parentList = document.getElementById('lista-tarefas');
   for (let key = 0; key < localStorage.length / 2; key += 1) {
     const loadListItem = document.createElement('li');
     loadListItem.innerHTML = localStorage.getItem(key);
@@ -99,3 +131,8 @@ window.onload = () => {
     parentList.appendChild(loadListItem);
   }
 };
+
+// call events to move up and move down buttons
+
+btnMoveUp.addEventListener('click', itemMoveUp);
+btnMoveDown.addEventListener('click', itemMoveDown);
