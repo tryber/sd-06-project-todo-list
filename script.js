@@ -54,7 +54,7 @@ function addCompletedTask(event) {
 // functions to move up and down list items
 
 function itemMoveUp() {
-  for (let i = 0; i < taskListItems.length; i += 1) {
+  for (let i = 1; i < taskListItems.length; i += 1) {
     if (taskListItems[i].classList.contains('selected')) {
       const listItem = taskListItems[i].innerHTML;
       const listItemClass = taskListItems[i].className;
@@ -67,7 +67,7 @@ function itemMoveUp() {
 }
 
 function itemMoveDown() {
-  for (let i = taskListItems.length - 1; i >= 0; i -= 1) {
+  for (let i = taskListItems.length - 2; i >= 0; i -= 1) {
     if (taskListItems[i].classList.contains('selected')) {
       const listItem = taskListItems[i].innerHTML;
       const listItemClass = taskListItems[i].className;
