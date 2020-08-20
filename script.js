@@ -1,4 +1,3 @@
-// Salva no LocalStorage as tarefas
 function saveToLocalStorage() {
   if (typeof Storage !== 'undefined') {
     localStorage.clear();
@@ -16,8 +15,6 @@ function saveToLocalStorage() {
   }
 }
 
-// Lidar com o evento click na tarefa
-// Remove a seleção de itens e adiciona apenas naquele que foi clicado.
 function handleClickTaskElement(event) {
   const taskBackgroundColor = event.target;
   const removeBackgroundColorTask = document.querySelectorAll('#lista');
@@ -27,7 +24,6 @@ function handleClickTaskElement(event) {
   taskBackgroundColor.classList.add('selected');
 }
 
-// Lidar com o evento double click na tarefa
 function handleDblclickTaskElement(event) {
   const taskCompleted = event.target;
   if (taskCompleted.classList.contains('completed')) {
@@ -37,7 +33,6 @@ function handleDblclickTaskElement(event) {
   }
 }
 
-// Recupera as tarefas do LocalStorage
 function getFromLocalStorage() {
   const objTasks = localStorage.getItem('tasks').split(',');
   const objClasses = localStorage.getItem('classes').split(',');
@@ -53,7 +48,6 @@ function getFromLocalStorage() {
   }
 }
 
-// Cria os elementos da tarefa
 function createTaskElement() {
   const addNewTask = document.querySelector('#lista-tarefas');
   const textToTask = document.querySelector('#texto-tarefa');
@@ -68,7 +62,6 @@ function createTaskElement() {
   }
 }
 
-// Apaga todas as tarefas
 function removeAllTasks() {
   const allTasks = document.querySelector('#lista-tarefas');
   while (allTasks.firstChild) {
@@ -76,7 +69,6 @@ function removeAllTasks() {
   }
 }
 
-// Apaga tarefas concluídas
 function removeCompletedTasks() {
   const allCompletedTasks = document.getElementsByClassName('completed');
   while (allCompletedTasks.length > 0) {
@@ -84,7 +76,6 @@ function removeCompletedTasks() {
   }
 }
 
-// Apaga tarefa selecionada
 function removeSelectedTask() {
   const selectedTask = document.getElementsByClassName('selected');
   while (selectedTask.length > 0) {
@@ -92,7 +83,6 @@ function removeSelectedTask() {
   }
 }
 
-// Move para cima a tarefa selecionada
 function moveUpSelectedTask() {
   const tasksToMoveUp = document.querySelectorAll('#lista');
   for (let index = 1; index < tasksToMoveUp.length; index += 1) {
@@ -108,7 +98,6 @@ function moveUpSelectedTask() {
   }
 }
 
-// Move para baixo a tarefa selecionada
 function moveDownSelectedTask() {
   const tasksToMoveDown = document.querySelectorAll('#lista');
   for (let index = 0; index < tasksToMoveDown.length - 1; index += 1) {
@@ -123,40 +112,24 @@ function moveDownSelectedTask() {
     }
   }
 }
-
-// // Move para baixo a tarefa selecionada
-// function moveDownSelectedTask() {
-//   const selectedTask = document.getElementsByClassName('selected');
-//   while (selectedTask.length > 0) {
-//     selectedTask[0].remove();
-//   }
-// }
-
-// Chama a função para criar os elementos da tarefa
 const buttonCreateTask = document.querySelector('#criar-tarefa');
 buttonCreateTask.addEventListener('click', createTaskElement);
 
-// Chama a função para apagar todas as tarefas
 const buttonRemoveAllTasks = document.querySelector('#apaga-tudo');
 buttonRemoveAllTasks.addEventListener('click', removeAllTasks);
 
-// Chama a função para apagar tarefas finalizadas
 const buttonRemoveCompletedTasks = document.querySelector('#remover-finalizados');
 buttonRemoveCompletedTasks.addEventListener('click', removeCompletedTasks);
 
-// Chama a função para salvar as tarefas no LocalStorage
 const buttonSaveTasks = document.querySelector('#salvar-tarefas');
 buttonSaveTasks.addEventListener('click', saveToLocalStorage);
 
-// Chama a função para apagar a tarefa selecionada
 const buttonRemoveSelectedTask = document.querySelector('#remover-selecionado');
 buttonRemoveSelectedTask.addEventListener('click', removeSelectedTask);
 
-// Chama a função para mover para cima a tarefa selecionada
 const buttonMoveUpSelectedTask = document.querySelector('#mover-cima');
 buttonMoveUpSelectedTask.addEventListener('click', moveUpSelectedTask);
 
-// Chama a função para mover para cima a tarefa selecionada
 const buttonMoveDownSelectedTask = document.querySelector('#mover-baixo');
 buttonMoveDownSelectedTask.addEventListener('click', moveDownSelectedTask);
 
