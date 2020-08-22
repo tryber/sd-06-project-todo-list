@@ -85,11 +85,9 @@ window.onload = function () {
   botaoCima.addEventListener('click', function (event) {
     const listaTarefas = document.querySelector('#lista-tarefas');
     const itemSelecionado = document.querySelector('.grey');
-    if (document.querySelectorAll('.grey')[0] !== undefined) {
+    if (itemSelecionado !== null) {
       if (itemSelecionado.previousSibling) {
-        if ((itemSelecionado) && (itemSelecionado.previousSibling)) {
-          listaTarefas.insertBefore(itemSelecionado, itemSelecionado.previousSibling);
-        }
+        listaTarefas.insertBefore(itemSelecionado, itemSelecionado.previousSibling);
       }
     }
   });
@@ -97,11 +95,9 @@ window.onload = function () {
   botaoAbaixo.addEventListener('click', function (event) {
     const listaTarefas = document.querySelector('#lista-tarefas');
     const itemSelecionado = document.querySelector('.grey');
-    if (document.querySelectorAll('.grey')[0] !== undefined) {
+    if (itemSelecionado !== null) {
       if (itemSelecionado.nextSibling) {
-        if ((itemSelecionado) && (itemSelecionado.nextSibling)) {
-          listaTarefas.insertBefore(itemSelecionado, itemSelecionado.nextSibling.nextSibling);
-        }
+        listaTarefas.insertBefore(itemSelecionado, itemSelecionado.nextSibling.nextSibling);
       }
     }
   });
