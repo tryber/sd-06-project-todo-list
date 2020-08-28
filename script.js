@@ -5,6 +5,7 @@ let campoTexto = document.getElementById("texto-tarefa")
 let buttonDel = document.querySelector("#apaga-tudo")
 
 
+
 //Add elementos na lista
 buttonAdd.addEventListener("click", function(){
     let linha = document.createElement("li")
@@ -12,12 +13,14 @@ buttonAdd.addEventListener("click", function(){
     linha.innerHTML = campoTexto.value
     campoTexto.value = ""
     
-//Add cor de fundo nos elementos da lista
+//Add cor de fundo nos elementos da lista e remove dos antigos marcados
     linha.addEventListener("click", function(){
-        
-            linha.style.backgroundColor = "rgb(128,128,128)"
-
-
+        lista = document.getElementsByTagName("li");
+            for(let i=0;i<lista.length;i++){
+                lista[i].classList.remove("cor-fundo")
+            }
+            linha.classList.add("cor-fundo")
+            
     })
 //limpar toda a lista
     buttonDel.addEventListener("click", function(){
@@ -26,22 +29,39 @@ buttonAdd.addEventListener("click", function(){
 
 //risca elemento das lista
     linha.addEventListener("dblclick", function(){
-        if(linha.className != "completed"){
-            linha.className = "completed"
+        
+        if(linha.classList.contains("completed")){
+            linha.classList.remove("completed")
         }else {
-            linha.className = ""
+            linha.classList.add("completed")
+            
     }
-    let buttonEnd = document.querySelector("#remover-finalizados")
-    buttonEnd.addEventListener("click", function(){
-        document.querySelector(".completed").remove()
-    })
-})
-
-
- 
-
-
 
 })
+
+})
+
+//botao de remover os riscados
+let buttonEnd = document.querySelector("#remover-finalizados")
+buttonEnd.addEventListener("click", (event) => deleteCompletedListItem());
+
+
+    function deleteCompletedListItem() {
+        let allCompletedListItem = document.querySelectorAll('.completed');
+        let listElement = document.querySelector('#lista-tarefas');
+        for (let item = 0; item < allCompletedListItem.length; item += 1) {
+            listElement.removeChild(allCompletedListItem[item])
+        }
+    }
+
+
+//remover selecionado
+let slectedRemove = document.querySelector('#remover-selecionado');
+let selecionado = document.getElementsByClassName('cor-fundo');
+
+    slectedRemove.addEventListener('click', function () {
+    selecionado[0].remove();
+  })
+
 
 }
