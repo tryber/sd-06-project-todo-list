@@ -9,3 +9,7 @@
 .cor-fundo {
     background-color : rgb(128,128,128);
 }
+
+p {
+    font-size: 12px;
+}
