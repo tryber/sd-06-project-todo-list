@@ -1,5 +1,7 @@
 const list = document.querySelector('#lista-tarefas');
+const doneTask = document.getElementsByClassName('completed');
 const btnUndoList = document.querySelector('#apaga-tudo');
+const btnDoneCompleted = document.querySelector('#remover-finalizados');
 
 // Criando lista de tarefas
 
@@ -54,6 +56,17 @@ function undoList() {
 
 btnUndoList.addEventListener('click', undoList);
 
+// Remover finalizados
+
+function removeCompleted() {
+  if (doneTask) {
+    for (let i = 0; i < doneTask.length; i += 1) {
+      doneTask[i].remove();
+    }
+  }
+}
+
+btnDoneCompleted.addEventListener('click', removeCompleted);
 
 // Carregar funções
 
