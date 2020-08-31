@@ -1,4 +1,5 @@
 const list = document.querySelector('#lista-tarefas');
+const btnUndoList = document.querySelector('#apaga-tudo');
 
 // Criando lista de tarefas
 
@@ -11,7 +12,6 @@ function createList() {
   const task = document.querySelector('#texto-tarefa');
   item.innerText = task.value;
   item.className = 'tasklist';
-  // item.style.backgroundColor = '';
   clear();
   return item;
 }
@@ -20,7 +20,6 @@ function addItem() {
   const element = createList();
   list.appendChild(element);
 }
-
 
 function addTask() {
   const btnAdd = document.querySelector('#criar-tarefa');
@@ -46,6 +45,15 @@ function completedTask(item) {
 }
 
 list.addEventListener('dblclick', completedTask);
+
+// Apagar lista
+
+function undoList() {
+  list.innerHTML = '';
+}
+
+btnUndoList.addEventListener('click', undoList);
+
 
 // Carregar funções
 
