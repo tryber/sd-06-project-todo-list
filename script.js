@@ -73,11 +73,19 @@ btnDoneCompleted.addEventListener('click', removeCompleted);
 // Salvar no Storage
 
 function saveLocalStorage() {
-  localStorage.clear();
   localStorage.setItem('list', list.innerHTML);
 }
 
 btnSave.addEventListener('click', saveLocalStorage);
+
+// Buscar lista salva no Storage
+
+function returnListStorage() {
+  const listStorage = window.localStorage.getItem('list', list.innerHTML);
+  list.innerHTML = listStorage;
+}
+
+returnListStorage();
 
 // Carregar funções
 
