@@ -2,6 +2,9 @@ const list = document.querySelector('#lista-tarefas');
 const btnUndoList = document.querySelector('#apaga-tudo');
 const btnDoneCompleted = document.querySelector('#remover-finalizados');
 const btnSave = document.querySelector('#salvar-tarefas');
+// const btnSetUp = document.querySelector('#mover-cima');
+// const btnSetDown = document.querySelector('#mover-baixo');
+const btnRemoveSelect = document.querySelector('#remover-selecionado');
 
 // Criando lista de tarefas
 
@@ -86,6 +89,27 @@ function returnListStorage() {
 }
 
 returnListStorage();
+
+// Ordenação de tarefas
+
+// function setUp() {
+//   if ()
+// }
+
+// function setDown() {
+
+// }
+
+// Remover item selecionado
+
+function removeSelected() {
+  const select = document.querySelector('.selected');
+  if (select) {
+    select.remove();
+  }
+}
+
+btnRemoveSelect.addEventListener('click', removeSelected);
 
 // Carregar funções
 
