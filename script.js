@@ -1,5 +1,4 @@
 const list = document.querySelector('#lista-tarefas');
-const doneTask = document.getElementsByClassName('completed');
 const btnUndoList = document.querySelector('#apaga-tudo');
 const btnDoneCompleted = document.querySelector('#remover-finalizados');
 
@@ -59,8 +58,10 @@ btnUndoList.addEventListener('click', undoList);
 // Remover finalizados
 
 function removeCompleted() {
+  const doneTask = document.getElementsByClassName('completed');
+  const length = doneTask.length;
   if (doneTask) {
-    for (let i = 0; i < doneTask.length; i += 1) {
+    for (let i = length - 1; i >= 0; i -= 1) {
       doneTask[i].remove();
     }
   }
