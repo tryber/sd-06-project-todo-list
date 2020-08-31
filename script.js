@@ -1,6 +1,7 @@
 const list = document.querySelector('#lista-tarefas');
 const btnUndoList = document.querySelector('#apaga-tudo');
 const btnDoneCompleted = document.querySelector('#remover-finalizados');
+const btnSave = document.querySelector('#salvar-tarefas');
 
 // Criando lista de tarefas
 
@@ -68,6 +69,15 @@ function removeCompleted() {
 }
 
 btnDoneCompleted.addEventListener('click', removeCompleted);
+
+// Salvar no Storage
+
+function saveLocalStorage() {
+  localStorage.clear();
+  localStorage.setItem('list', list.innerHTML);
+}
+
+btnSave.addEventListener('click', saveLocalStorage);
 
 // Carregar funções
 
