@@ -31,7 +31,7 @@ function addTask() {
 
 function selectTask(item) {
   const select = document.querySelector('.selected');
-  if (select !== null) {
+  if (select) {
     select.classList.remove('selected');
   }
   item.target.classList.add('selected');
@@ -39,10 +39,20 @@ function selectTask(item) {
 
 list.addEventListener('click', selectTask);
 
+// Tarefa concluída
+
+function completedTask(item) {
+  item.target.classList.toggle('completed');
+}
+
+list.addEventListener('dblclick', completedTask);
+
 // Carregar funções
 
 window.onload = function () {
   clear();
   addTask();
   createList();
+  selectTask();
+  completedTask();
 };
