@@ -67,3 +67,11 @@ function removeCompleted() {
 }
 
 btnDoneCompleted.addEventListener('click', removeCompleted);
+
+// Carregar funções
+
+window.onload = function () {
+  clear();
+  addTask();
+  createList();
+};
