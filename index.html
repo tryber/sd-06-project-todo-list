@@ -1,21 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>todo list</title>
+  <meta charset="UTF-8">
+  <link href="style.css" rel="stylesheet">
+  <title>To do list</title>
 </head>
 <body>
-    <header>Minha Lista de Tarefas</header>
-    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo.</p>
-    <div>
-        <label for="texto1">Texto</label>
-        <input type="text" id="texto-tarefa">
-    </div>
-        <button id="criar-tarefa">Adicionar</button>
-        <button id="apaga-tudo">Apagar Lista</button>
-        <button id="remover-finalizados">Remover-Finalizados</button>
-        <script src="script.js"></script>
+  <header>
+    <h1>Minha Lista de Tarefas</h1>
+  </header>
+  <div id="fundo" style="background-color:white">
+  <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+  <input id="texto-tarefa" type="text">
+
+  <div class="tarefas"></div>
+  <button id="criar-tarefa">Adicionar</button>
+  <button id="mover-cima">Mover para cima</button>
+  <button id="mover-baixo">Mover para baixo</button>
+  <button id="apaga-tudo">Apagar tudo</button>
+  <button id="remover-finalizados">Removver finalizados</button>
+  <button id="remover-selecionado">remover selecionados</button>
+  <button id="salvar-tarefas">Salvar tarefas</button>
+</div>
+  <script src="script.js"></script>
 </body>
 </html>
