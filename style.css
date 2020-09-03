@@ -31,7 +31,7 @@ button:active {
 
 .completed {
   text-decoration: line-through solid black;
-  }
+}
 
 footer {
   bottom: 20px;
