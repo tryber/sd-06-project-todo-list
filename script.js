@@ -6,7 +6,7 @@ function criarLista() {
 }
 criarLista();
 const btnAdd = document.querySelector('#criar-tarefa');
-btnAdd.addEventListener ('click', function() {
+btnAdd.addEventListener('click', function() {
   const lista = document.querySelector('#lista-tarefas');
   const textoItem = document.querySelector('#texto-tarefa');
   const item = document.createElement('li');
