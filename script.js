@@ -77,26 +77,21 @@ function moveUpSelectedTask() {
   }
 }
 
-function moveDown() {
-  for (let index = 0; index < liElement.length; index += 1) {
-    if (elementValue.innerHTML === liElement[index].innerHTML) {
-      if (index < liElement.length - 1) {
-        const elementAux = liElement[index + 1].innerHTML;
-        liElement[index + 1].innerHTML = liElement[index].innerHTML;
-        liElement[index + 1].className = 'selectedTask';
-        liElement[index].innerHTML = elementAux;
-        liElement[index].className = '';
+function moveDownSelectedTask() {
+  if (document.querySelector('.selectedTask') !== null) {
+    for (let index = 0; index < liElement.length; index += 1) {
+      if (elementValue.innerHTML === liElement[index].innerHTML) {
+        if (index < liElement.length - 1) {
+          const elementAux = liElement[index + 1].innerHTML;
+          liElement[index + 1].innerHTML = liElement[index].innerHTML;
+          liElement[index + 1].className = 'selectedTask';
+          liElement[index].innerHTML = elementAux;
+          liElement[index].className = '';
+        }
       }
     }
   }
 }
-
-function moveDownSelectedTask() {
-  if (document.querySelector('.selectedTask') !== null) {
-    moveDown();
-    }
-}
-
 
 function saveStatus() {
   const taskList = document.getElementById('lista-tarefas');
