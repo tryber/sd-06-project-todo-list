@@ -7,8 +7,6 @@ const moveUpSelectedTaskButton = document.getElementById('mover-cima');
 const moveDownSelectedTaskButton = document.getElementById('mover-baixo');
 const saveStatusButton = document.getElementById('salvar-tarefas');
 const localStorageList = localStorage.getItem('toDoList');
-const elementValue = document.querySelector('.selectedTask');
-const liElement = document.getElementsByTagName('li');
 
 if (localStorageList) {
   document.getElementById('lista-tarefas').innerHTML = localStorageList;
@@ -16,8 +14,13 @@ if (localStorageList) {
 
 function selectedTask(event) {
   const liSelectedTask = event.target;
-  if (document.querySelector('.selectedTask') !== null) {
-    document.querySelector('.selectedTask').classList.remove('selectedTask');
+  if (document.querySelector('.selectedTask')){
+    if (liSelectedTask.classList.contains('selectedTask')){
+      liSelectedTask.classList.remove('selectedTask');
+    } else {
+      document.querySelector('.selectedTask').classList.remove('selectedTask');
+      liSelectedTask.classList.add('selectedTask');
+    }
   } else {
     liSelectedTask.classList.add('selectedTask');
   }
@@ -63,6 +66,8 @@ function removeSelectedTasks() {
 
 function moveUpSelectedTask() {
   if (document.querySelector('.selectedTask') !== null) {
+    const elementValue = document.querySelector('.selectedTask');
+    const liElement = document.getElementsByTagName('li');
     for (let index = 0; index < liElement.length; index += 1) {
       if (elementValue.innerHTML === liElement[index].innerHTML) {
         if (index > 0) {
@@ -79,6 +84,8 @@ function moveUpSelectedTask() {
 
 function moveDownSelectedTask() {
   if (document.querySelector('.selectedTask') !== null) {
+    const elementValue = document.querySelector('.selectedTask');
+    const liElement = document.getElementsByTagName('li');
     for (let index = 0; index < liElement.length; index += 1) {
       if (elementValue.innerHTML === liElement[index].innerHTML) {
         if (index < liElement.length - 1) {

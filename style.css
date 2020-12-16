@@ -3,5 +3,10 @@
 }
 
 .selectedTask {
-  background-color: gray;
+  background: rgb(12, 201, 226);
+}
+
+body {
+  display: grid;
+  place-items: center;
 }
