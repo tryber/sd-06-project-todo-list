@@ -7,6 +7,8 @@ const moveUpSelectedTaskButton = document.getElementById('mover-cima');
 const moveDownSelectedTaskButton = document.getElementById('mover-baixo');
 const saveStatusButton = document.getElementById('salvar-tarefas');
 const localStorageList = localStorage.getItem('toDoList');
+const elementValue = document.querySelector('.selectedTask');
+const liElement = document.getElementsByTagName('li');
 
 if (localStorageList) {
   document.getElementById('lista-tarefas').innerHTML = localStorageList;
@@ -16,8 +18,9 @@ function selectedTask(event) {
   const liSelectedTask = event.target;
   if (document.querySelector('.selectedTask') !== null) {
     document.querySelector('.selectedTask').classList.remove('selectedTask');
+  } else {
+    liSelectedTask.classList.add('selectedTask');
   }
-  liSelectedTask.classList.add('selectedTask');
 }
 
 function completedTask(event) {
@@ -60,8 +63,6 @@ function removeSelectedTasks() {
 
 function moveUpSelectedTask() {
   if (document.querySelector('.selectedTask') !== null) {
-    const elementValue = document.querySelector('.selectedTask');
-    const liElement = document.getElementsByTagName('li');
     for (let index = 0; index < liElement.length; index += 1) {
       if (elementValue.innerHTML === liElement[index].innerHTML) {
         if (index > 0) {
@@ -76,23 +77,26 @@ function moveUpSelectedTask() {
   }
 }
 
-function moveDownSelectedTask() {
-  if (document.querySelector('.selectedTask') !== null) {
-    const elementValue = document.querySelector('.selectedTask');
-    const liElement = document.getElementsByTagName('li');
-    for (let index = 0; index < liElement.length; index += 1) {
-      if (elementValue.innerHTML === liElement[index].innerHTML) {
-        if (index < liElement.length - 1) {
-          const elementAux = liElement[index + 1].innerHTML;
-          liElement[index + 1].innerHTML = liElement[index].innerHTML;
-          liElement[index + 1].className = 'selectedTask';
-          liElement[index].innerHTML = elementAux;
-          liElement[index].className = '';
-        }
+function moveDown() {
+  for (let index = 0; index < liElement.length; index += 1) {
+    if (elementValue.innerHTML === liElement[index].innerHTML) {
+      if (index < liElement.length - 1) {
+        const elementAux = liElement[index + 1].innerHTML;
+        liElement[index + 1].innerHTML = liElement[index].innerHTML;
+        liElement[index + 1].className = 'selectedTask';
+        liElement[index].innerHTML = elementAux;
+        liElement[index].className = '';
       }
     }
   }
 }
+
+function moveDownSelectedTask() {
+  if (document.querySelector('.selectedTask') !== null) {
+    moveDown();
+    }
+}
+
 
 function saveStatus() {
   const taskList = document.getElementById('lista-tarefas');
