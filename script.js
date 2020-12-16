@@ -61,10 +61,10 @@ function removeSelectedTasks() {
 function moveUpSelectedTask() {
   if (document.querySelector('.selectedTask') !== null) {
     const elementValue = document.querySelector('.selectedTask');
-    const liElement = document.getElementsByTagName('li'); 
+    const liElement = document.getElementsByTagName('li');
     for (let index = 0; index < liElement.length; index += 1) {
-      if (elementValue.innerHTML === liElement[index].innerHTML && index > 0){
-        const elementAux = liElement[index -1].innerHTML;
+      if (elementValue.innerHTML === liElement[index].innerHTML && index > 0) {
+        const elementAux = liElement[index - 1].innerHTML;
         liElement[index - 1].innerHTML = liElement[index].innerHTML;
         liElement[index - 1].className = 'selectedTask';
         liElement[index].innerHTML = elementAux;
@@ -79,7 +79,7 @@ function moveDownSelectedTask() {
     const elementValue = document.querySelector('.selectedTask');
     const liElement = document.getElementsByTagName('li');
     for (let index = 0; index < liElement.length; index += 1) {
-      if (elementValue.innerHTML === liElement[index].innerHTML && index < liElement.length -1){
+      if (elementValue.innerHTML === liElement[index].innerHTML && index < liElement.length - 1) {
         const elementAux = liElement[index + 1].innerHTML;
         liElement[index + 1].innerHTML = liElement[index].innerHTML;
         liElement[index + 1].className = 'selectedTask';
