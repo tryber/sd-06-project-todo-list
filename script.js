@@ -3,8 +3,8 @@ const removeAllTasksButton = document.getElementById('apaga-tudo');
 const createTaskButton = document.getElementById('criar-tarefa');
 const removeCompletedTasksButton = document.getElementById('remover-finalizados');
 const removeSelectedTasksButton = document.getElementById('remover-selecionado');
-const moveUpSelectedTaskButton = document.getElementById('move-cima');
-const moveDownSelectedTaskButton = document.getElementById('move-baixo');
+// const moveUpSelectedTaskButton = document.getElementById('move-cima');
+// const moveDownSelectedTaskButton = document.getElementById('move-baixo');
 const saveStatusButton = document.getElementById('salvar-tarefas');
 const localStorageList = localStorage.getItem('toDoList');
 
@@ -58,15 +58,12 @@ function removeSelectedTasks() {
 }
 
 // function moveUpSelectedTask() {
-//   if (document.querySelector('.selectedTask') !== null) {
-    
+//   if (document.querySelector('.selectedTask') !== null) { 
 //   }
-
 // }
 
 // function moveDownSelectedTask() {
 //   if (document.querySelector('.selectedTask') !== null) {
-    
 //   }
 // }
 
