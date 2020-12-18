@@ -1,0 +1,12 @@
+.completed {
+  text-decoration: line-through;
+}
+
+.selectedTask {
+  background: gray;
+}
+
+.content {
+  display: grid;
+  place-items: center;
+}
