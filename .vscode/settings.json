@@ -13,6 +13,13 @@
   "editor.formatOnPaste": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "prettier.jsxSingleQuote": true,
+  "prettier.singleQuote": true,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": true,
+  "typescript.implementationsCodeLens.enabled": true,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
+  "javascript.referencesCodeLens.enabled": true,
+  "debug.javascript.breakOnConditionalError": true
 }
