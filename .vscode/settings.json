@@ -27,5 +27,8 @@
     "css"
   ],
   "linter_codeclimate.enabled": true,
-  "prettier.printWidth": 90
+  "prettier.printWidth": 90,
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
