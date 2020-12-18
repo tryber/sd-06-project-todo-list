@@ -2,8 +2,6 @@
   "editor.formatOnSave": true,
   "eslint.format.enable": true,
   "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
-  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": true,
-  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": true,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": true,
   "javascript.format.placeOpenBraceOnNewLineForFunctions": true,
   "typescript.format.insertSpaceAfterTypeAssertion": true,
@@ -21,5 +19,18 @@
   "typescript.implementationsCodeLens.enabled": true,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
   "javascript.referencesCodeLens.enabled": true,
-  "debug.javascript.breakOnConditionalError": true
+  "eslint.debug": true,
+  "eslint.lintTask.enable": true,
+  "eslint.probe": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "vue",
+    "markdown",
+    "css"
+  ],
+  "eslint.quiet": true,
+  "eslint.alwaysShowStatus": true
 }
