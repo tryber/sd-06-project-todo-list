@@ -3,7 +3,7 @@
 }
 
 .selectedTask {
-  background: rgb(128, 128, 128);
+  background: gray;
 }
 
 .content {

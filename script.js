@@ -1,12 +1,8 @@
 const olElement = document.getElementById('lista-tarefas');
 const removeAllTasksButton = document.getElementById('apaga-tudo');
 const createTaskButton = document.getElementById('criar-tarefa');
-const removeCompletedTasksButton = document.getElementById(
-  'remover-finalizados'
-);
-const removeSelectedTasksButton = document.getElementById(
-  'remover-selecionado'
-);
+const removeCompletedTasksButton = document.getElementById('remover-finalizados');
+const removeSelectedTasksButton = document.getElementById('remover-selecionado');
 const moveUpSelectedTaskButton = document.getElementById('mover-cima');
 const moveDownSelectedTaskButton = document.getElementById('mover-baixo');
 const saveStatusButton = document.getElementById('salvar-tarefas');
