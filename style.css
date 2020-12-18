@@ -6,7 +6,7 @@
   background: rgb(12, 201, 226);
 }
 
-body {
+.content {
   display: grid;
   place-items: center;
 }
